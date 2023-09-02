@@ -110,7 +110,7 @@ set SITE_SYMMETRY_LIST	""		;# Specify a list of site def and its symmetry value;
 					;# example: set SITE_SYMMETRY_LIST "{unit Y} {unit1 Y}"; this is applied in the init_design.tech_setup.tcl script 
 
 set MIN_ROUTING_LAYER		"li1"	;# Min routing layer name; normally should be specified; otherwise tool can use all metal layers
-set MAX_ROUTING_LAYER		"met5"	;# Max routing layer name; normally should be specified; otherwise tool can use all metal layers
+set MAX_ROUTING_LAYER "met5" ;
 
 set LIBRARY_CONFIGURATION_FLOW	false	;# Set it to true enables library configuration flow which calls the library manager under the hood to generate .nlibs, 
 					;# save them to disk, and automatically link them to the design.

@@ -4,7 +4,7 @@ set clkname clock
 # Specify a 5ns clock period with 50% duty cycle     
 # and a skew of 200ps                                 
 #---------------------------------------------------------
- set CLK_PER  5
+set CLK_PER 5
  set CLK_SKEW 0.2
  create_clock -name $clkname -period $CLK_PER -waveform "0 [expr $CLK_PER / 2]" $clkname
  set_clock_uncertainty $CLK_SKEW $clkname

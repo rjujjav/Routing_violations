@@ -50,7 +50,7 @@ if {[file exists [which $TCL_USER_CLOCK_OPT_CTS_PRE_SCRIPT]]} {
 ## Sample commands (for adjusting clock uncertainties) that can be included in $TCL_USER_CLOCK_OPT_CTS_PRE_SCRIPT if needed:
 	foreach_in_collection mode [get_modes] {
 		set_clock_uncertainty -setup 0.0 -from [get_clocks -mode $mode] -to [get_clocks -mode $mode] -scenarios [get_scenarios -of $mode]
-		set_clock_uncertainty -hold 0.01 -from [get_clocks -mode $mode] -to [get_clocks -mode $mode] -scenarios [get_scenarios -of $mode]
+    set_clock_uncertainty -hold 0.1 -from [get_clocks -mode $mode] -to [get_clocks -mode $mode] -scenarios [get_scenarios -of $mode]
 	}
 
 redirect -tee -file ${REPORTS_DIR}/${REPORT_PREFIX}.report_app_options.start {report_app_options -non_default *}
