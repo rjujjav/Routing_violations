@@ -9,5 +9,5 @@ p3:
 	cd pdrm && find .| grep -rm 1 "report_qor"| wc -l
 
 p4: parsing.py
-	$(MAKE) -C pdrm > cmd_out.txt
+	cd pdrm && time make > cmd_out.txt
 	python3 parsing.py
