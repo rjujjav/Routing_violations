@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc for scenario [mode_norm.fast.RCmin] on Wed Sep 6 15:59:14 2023
+# Created by write_sdc for scenario [mode_norm.fast.RCmin] on Wed Sep 6 16:29:18 2023
 
 ###################################################################
 set sdc_version 2.1

@@ -17,7 +17,7 @@ Report : timing
         -physical
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:00:21 2023
+Date   : Wed Sep  6 16:30:28 2023
 ****************************************
 Information: Timer using 'Zero-interconnect Delay Calculation'. (TIM-050)
 

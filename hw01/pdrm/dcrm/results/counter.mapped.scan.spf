@@ -3,7 +3,7 @@ STIL 1.0 {
 }
 Header {
     Title "Minimal STIL for design `counter'";
-    Date "Wed Sep  6 15:58:18 2023";
+    Date "Wed Sep  6 16:28:20 2023";
     Source "DFT Compiler S-2021.06-SP3";
 }
 Signals {

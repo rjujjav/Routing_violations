@@ -809,7 +809,7 @@ Report : scenario_options
 Design : counter
 Scenario(s): mode_norm.slow.RCmax
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 15:57:36 2023
+Date   : Wed Sep  6 16:27:43 2023
 ****************************************
 
 Scenario: mode_norm.slow.RCmax is active.
@@ -888,7 +888,7 @@ Report : scenario_options
 Design : counter
 Scenario(s): mode_norm.fast.RCmin
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 15:57:36 2023
+Date   : Wed Sep  6 16:27:43 2023
 ****************************************
 
 Scenario: mode_norm.fast.RCmin is active.
@@ -1205,7 +1205,7 @@ check_design -summary
 ****************************************
 check_design summary:
 Version:     S-2021.06-SP3
-Date:        Wed Sep  6 15:57:43 2023
+Date:        Wed Sep  6 16:27:50 2023
 ****************************************
 
                    Name                                            Total
@@ -1546,8 +1546,8 @@ Information: There is no timing violation in design counter. Delay-based auto_un
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:12     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:12     290.9      0.00       0.0       0.0                           22852.6465
 
   Beginning Global Optimizations
   ------------------------------
@@ -1556,12 +1556,12 @@ Information: There is no timing violation in design counter. Delay-based auto_un
 
   Beginning Delay Optimization
   ----------------------------
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
-    0:00:18     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:14     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:14     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:14     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:15     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:15     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:15     294.1      0.00       0.0       0.0                           22984.8027
 Information: failed to get design core area
   Loading design 'counter'
 Information: The library cell 'sky130_fd_sc_hs__conb_1' in the library 'sky130_fd_sc_hs' is not characterized for internal power. (PWR-536)
@@ -1618,7 +1618,7 @@ Information: Propagating switching activity (low effort zero delay simulation). 
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:21     294.1      0.00       0.0       0.0                           22984.8027
+    0:00:17     294.1      0.00       0.0       0.0                           22984.8027
 Previously defined placer_max_cell_density_threshold value 0.60 is being used
 ...33%...67%...100% done.
 
@@ -1631,9 +1631,9 @@ Information: Propagating switching activity (low effort zero delay simulation). 
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:22     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:17     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:17     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:18     298.9      0.00       0.0       0.0                           22984.8027
 ****************************************************************
 Information: TLUPlus based RC computation is enabled. (RCEX-141)
 ****************************************************************
@@ -1723,16 +1723,16 @@ Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:25     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
 
 Info-lpmode: computing default table with library = lib10
-    0:00:25     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:25     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:25     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:26     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:26     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:26     298.9      0.00       0.0       0.0                           22984.8027
-    0:00:26     295.7      0.00       0.0       0.0                           22852.6465
+    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:21     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:22     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:22     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:22     298.9      0.00       0.0       0.0                           22984.8027
+    0:00:22     295.7      0.00       0.0       0.0                           22852.6465
 
   Set up Remaining Resource Array 
 
@@ -1747,7 +1747,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:26     295.7      0.00       0.0       0.0                           22852.6465
+    0:00:22     295.7      0.00       0.0       0.0                           22852.6465
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ff_n40C_1v95_ccsnoise.db'
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db'
 Information: State dependent leakage is now switched from off to on.
@@ -2430,7 +2430,7 @@ Information: Propagating switching activity (low effort zero delay simulation). 
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:08     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:09     290.9      0.00       0.0       0.0                           22852.6465
 ****************************************************************
 Information: TLUPlus based RC computation is enabled. (RCEX-141)
 ****************************************************************
@@ -2629,13 +2629,13 @@ Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:14     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
 
 Info-lpmode: computing default table with library = lib340
-    0:00:14     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:14     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:14     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
 
 
   Beginning High Effort Optimization Phase
@@ -2649,20 +2649,20 @@ Info-lpmode: computing default table with library = lib340
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
 
   Beginning Delay Optimization
   ----------------------------
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
 
 
   High Effort Optimization Phase Complete
@@ -2676,13 +2676,13 @@ Info-lpmode: computing default table with library = lib340
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:15     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:17     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:17     290.9      0.00       0.0       0.0                           22852.6465
 Info-lpmode: refreshing table
 Info-lpmode: computing default table with library = lib340
 Info-lpmode: computing lp table with library=lib340
-    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
-    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:18     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:18     290.9      0.00       0.0       0.0                           22852.6465
 
   Set up Remaining Resource Array 
 
@@ -2692,7 +2692,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 
   Optimization Complete
   ---------------------
-    0:00:16     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:18     290.9      0.00       0.0       0.0                           22852.6465
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ff_n40C_1v95_ccsnoise.db'
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db'
 Information: State dependent leakage is now switched from off to on.
@@ -2739,7 +2739,7 @@ Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:06     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:08     290.9      0.00       0.0       0.0                           22852.6465
 Info-lpmode: computing default table with library = lib497
 
 
@@ -2757,7 +2757,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:07     290.9      0.00       0.0       0.0                           22852.6465
+    0:00:09     290.9      0.00       0.0       0.0                           22852.6465
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ff_n40C_1v95_ccsnoise.db'
 Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db'
 1
@@ -3044,7 +3044,7 @@ exit
 
 Memory usage for this session 953 Mbytes.
 Memory usage for this session including child processes 953 Mbytes.
-CPU usage for this session 78 seconds ( 0.02 hours ).
-Elapsed time for this session 138 seconds ( 0.04 hours ).
+CPU usage for this session 79 seconds ( 0.02 hours ).
+Elapsed time for this session 137 seconds ( 0.04 hours ).
 
 Thank you...

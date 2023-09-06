@@ -4,7 +4,7 @@ Report : qor
 Design : counter
 Scenario(s): mode_norm.slow.RCmax mode_norm.fast.RCmin
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 15:59:14 2023
+Date   : Wed Sep  6 16:29:18 2023
 ****************************************
 
 
@@ -141,10 +141,10 @@ Date   : Wed Sep  6 15:59:14 2023
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.00
-  Mapping Optimization:                1.31
+  Mapping Optimization:                1.11
   -----------------------------------------
-  Overall Compile Time:               11.24
-  Overall Compile Wall Clock Time:    12.54
+  Overall Compile Time:               12.26
+  Overall Compile Wall Clock Time:    13.93
 
   --------------------------------------------------------------------
 

@@ -4,7 +4,7 @@ Report : report clock qor
         -nosplit
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:06:46 2023
+Date   : Wed Sep  6 16:37:02 2023
 ****************************************
 Information: Activity for scenario mode_norm.fast.RCmin was cached, no propagation required. (POW-005)
 Information: Activity for scenario mode_norm.fast.RCmin_bc was cached, no propagation required. (POW-005)

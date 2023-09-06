@@ -3,7 +3,7 @@ Report : clock
 Design : counter
 Mode   : mode_norm.slow.RCmax
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:05:51 2023
+Date   : Wed Sep  6 16:36:02 2023
 ****************************************
 
 
@@ -21,7 +21,7 @@ Report : clock
 Design : counter
 Mode   : mode_norm.slow.RCmax_bc
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:05:51 2023
+Date   : Wed Sep  6 16:36:02 2023
 ****************************************
 
 
@@ -39,7 +39,7 @@ Report : clock
 Design : counter
 Mode   : mode_norm.fast.RCmin
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:05:51 2023
+Date   : Wed Sep  6 16:36:02 2023
 ****************************************
 
 
@@ -57,7 +57,7 @@ Report : clock
 Design : counter
 Mode   : mode_norm.fast.RCmin_bc
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:05:51 2023
+Date   : Wed Sep  6 16:36:02 2023
 ****************************************
 
 
