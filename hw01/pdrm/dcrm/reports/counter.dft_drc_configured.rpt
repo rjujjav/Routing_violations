@@ -1,0 +1,58 @@
+In mode: all_dft...
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+Begin Pre-DFT violations...
+
+ Warning: Clock reset cannot capture data with other clocks off. (D8-1)
+ Warning: Clock reset connects to data input (D) of DFF value_reg[3]. (D10-1)
+ Warning: Clock reset connects to data input (D) of DFF value_reg[2]. (D10-2)
+ Warning: Clock reset connects to data input (D) of DFF value_reg[1]. (D10-3)
+ Warning: Clock reset connects to data input (D) of DFF value_reg[0]. (D10-4)
+Warning: Clock gating cell clk_gate_value_reg has unconnected test pin. (TEST-130)
+
+Pre-DFT violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 7
+
+-----------------------------------------------------------------
+
+6 PRE-DFT VIOLATIONS
+     1 Clock not able to capture violation (D8)
+     4 Clock feeding data input violations (D10)
+     1 Test pin of clock gating cell is unconnected violation (TEST-130)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  1 out of 5 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITH VIOLATIONS
+      *   1 cell is a clock gating cell
+         clk_gate_value_reg/latch
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *   4 cells are valid scan cells
+         value_reg[3]
+         value_reg[2]
+         value_reg[1]
+         value_reg[0]
+
+Information: Test design rule checking completed. (TEST-123)
+1

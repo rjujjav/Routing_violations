@@ -1,0 +1,30 @@
+ Checking SCANDEF...
+
+ Checking for duplication in SCANDEF...
+   Checking scan cell correspondence between SCANDEF and netlist...
+   Start scan chain checking...
+  All checks completed.
+
+****************************************
+
+Report : Scan DEF check
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:59:09 2023
+
+****************************************
+
+
+ Information from SCANDEF file:
+  Number of SCANCHAINS: 1
+
+ Checking between SCANDEF file and design:
+  Total SCANCHAINS checked: 1
+  VALIDATED :  1
+  FAILED    :  0
+
+Chain name Status  #cells  #bits  PARTITION      Scan IN        Scan OUT
+---------- ------  ------  -----  ---------      -------        --------
+1          V       4       4      clock_45_45_1.600000 test_si  test_so
+
+1

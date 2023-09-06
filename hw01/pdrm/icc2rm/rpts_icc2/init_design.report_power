@@ -3,7 +3,7 @@ Report : power
         -significant_digits 2
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)
 Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax_bc' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)

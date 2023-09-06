@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : area
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:59:14 2023
+****************************************
+
+Library(s) Used:
+
+    sky130_fd_sc_hs (File: /mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db)
+
+Number of ports:                           16
+Number of nets:                            36
+Number of cells:                           23
+Number of combinational cells:             17
+Number of sequential cells:                 5
+Number of macros/black boxes:               0
+Number of buf/inv:                          1
+Number of references:                      10
+
+Combinational area:                118.281598
+Buf/Inv area:                        4.795200
+Noncombinational area:             172.627195
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                   290.908793
+Total area:                 undefined
+
+Area of detected synthetic parts
+--------------------------------
+  No DW parts to report!
+
+Estimated area of ungrouped synthetic parts
+-------------------------------------------
+                           Estimated  Perc. of
+  Module   Implem.  Count       Area cell area
+  -------- -------  ----- ---------- ---------
+  DW01_dec apparch      1    10.8691      3.7%
+  -------- -------  ----- ---------- ---------
+  Total:                1    10.8691      3.7%
+
+Total synthetic cell area:              10.8691  3.7%  (estimated)
+
+1

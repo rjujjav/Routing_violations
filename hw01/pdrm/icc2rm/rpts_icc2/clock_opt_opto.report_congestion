@@ -9,7 +9,7 @@ Start Global Route ...
 [Init] Elapsed real time: 0:00:00 
 [Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[Init] Total (MB): Used    7  Alloctr    7  Proc 4660 
+[Init] Total (MB): Used    7  Alloctr    7  Proc 4694 
 Printing options for 'route.common.*'
 common.verbose_level                                    :	 0                   
 
@@ -55,7 +55,7 @@ Current Stage stats:
 [End of Read DB] Elapsed real time: 0:00:00 
 [End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Read DB] Stage (MB): Used   11  Alloctr   11  Proc    0 
-[End of Read DB] Total (MB): Used   18  Alloctr   19  Proc 4660 
+[End of Read DB] Total (MB): Used   18  Alloctr   19  Proc 4694 
 Loading timing information to the router from design
 Timing information loaded to the router.
 Constructing data structure ...
@@ -72,7 +72,7 @@ Current Stage stats:
 [End of Build Tech Data] Elapsed real time: 0:00:00 
 [End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 4660 
+[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 4694 
 Net statistics:
 Total number of nets     = 34
 Number of nets to route  = 30
@@ -82,7 +82,7 @@ Current Stage stats:
 [End of Build All Nets] Elapsed real time: 0:00:00 
 [End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 4660 
+[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 4694 
 Average gCell capacity  2.80	 on layer (1)	 li1
 Average gCell capacity  6.43	 on layer (2)	 met1
 Average gCell capacity  6.27	 on layer (3)	 met2
@@ -100,7 +100,7 @@ Current Stage stats:
 [End of Build Congestion map] Elapsed real time: 0:00:00 
 [End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Congestion map] Total (MB): Used   19  Alloctr   20  Proc 4660 
+[End of Build Congestion map] Total (MB): Used   19  Alloctr   20  Proc 4694 
 Net Count 30, Total HPWL 40 microns
 HPWL   0 ~  100 microns: Net Count       30	Total HPWL         40 microns
 HPWL 100 ~  200 microns: Net Count        0	Total HPWL          0 microns
@@ -119,12 +119,12 @@ Total stats:
 [End of Build Data] Elapsed real time: 0:00:00 
 [End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Data] Total (MB): Used   19  Alloctr   20  Proc 4660 
+[End of Build Data] Total (MB): Used   19  Alloctr   20  Proc 4694 
 Current Stage stats:
 [End of Blocked Pin Detection] Elapsed real time: 0:00:00 
 [End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Blocked Pin Detection] Stage (MB): Used  176  Alloctr  176  Proc    0 
-[End of Blocked Pin Detection] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[End of Blocked Pin Detection] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Information: Using 8 threads for routing. (ZRT-444)
 multi gcell levels ON
 
@@ -133,7 +133,7 @@ Current Stage stats:
 [End of Initial Routing] Elapsed real time: 0:00:00 
 [End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Initial Routing] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[End of Initial Routing] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Initial. Routing result:
 Initial. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
 Initial. H routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
@@ -173,7 +173,7 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 
 Start GR phase 1
-Tue Sep  5 21:41:13 2023
+Wed Sep  6 16:04:35 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -181,7 +181,7 @@ Current Stage stats:
 [End of Phase1 Routing] Elapsed real time: 0:00:00 
 [End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase1 Routing] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[End of Phase1 Routing] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Number of partitions: 1 (1 x 1)
 phase1. Routing result:
 phase1. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
@@ -222,7 +222,7 @@ phase1. Via M4M5_PR count = 0
 phase1. completed.
 
 Start GR phase 2
-Tue Sep  5 21:41:13 2023
+Wed Sep  6 16:04:35 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -233,7 +233,7 @@ Current Stage stats:
 [End of Phase2 Routing] Elapsed real time: 0:00:00 
 [End of Phase2 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase2 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase2 Routing] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[End of Phase2 Routing] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Number of partitions: 1 (1 x 1)
 phase2. Routing result:
 phase2. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
@@ -273,9 +273,9 @@ phase2. Via M3M4_PR count = 0
 phase2. Via M4M5_PR count = 0
 phase2. completed.
 [End of Whole Chip Routing] Elapsed real time: 0:00:00 
-[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:01
+[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Whole Chip Routing] Stage (MB): Used  177  Alloctr  176  Proc    0 
-[End of Whole Chip Routing] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[End of Whole Chip Routing] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Number of partitions: 1 (1 x 1)
 
 Congestion utilization per direction:
@@ -288,30 +288,30 @@ Current Stage stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[GR: Done] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[GR: Done] Total (MB): Used  195  Alloctr  196  Proc 4694 
 GR Total stats:
 [GR: Done] Elapsed real time: 0:00:00 
-[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:01
+[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used  188  Alloctr  188  Proc    0 
-[GR: Done] Total (MB): Used  195  Alloctr  196  Proc 4660 
+[GR: Done] Total (MB): Used  195  Alloctr  196  Proc 4694 
 Writing out congestion map...
 Updating congestion ...
 Updating congestion ...
 [DBOUT] Elapsed real time: 0:00:00 
 [DBOUT] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [DBOUT] Stage (MB): Used  -10  Alloctr  -11  Proc    0 
-[DBOUT] Total (MB): Used   36  Alloctr   37  Proc 4660 
+[DBOUT] Total (MB): Used   36  Alloctr   37  Proc 4694 
 Final total stats:
 [End of Global Routing] Elapsed real time: 0:00:00 
-[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:01
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Global Routing] Stage (MB): Used   29  Alloctr   29  Proc    0 
-[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 4660 
+[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 4694 
 
 ****************************************
 Report : congestion
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:41:13 2023
+Date   : Wed Sep  6 16:04:35 2023
 ****************************************
 
 Layer     |    overflow     |              # GRCs has

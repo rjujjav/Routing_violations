@@ -1,0 +1,63 @@
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+Begin Clock violations...
+
+ Warning: Clock reset cannot capture data with other clocks off. (C4-1)
+ Warning: Clock reset used as data is different than capture clock clock for inputs CLK/D of stable DFF (value_reg_3_). (C26-1)
+ Warning: Clock reset used as data is different than capture clock clock for inputs CLK/D of stable DFF (value_reg_2_). (C26-2)
+ Warning: Clock reset used as data is different than capture clock clock for inputs CLK/D of stable DFF (value_reg_1_). (C26-3)
+ Warning: Clock reset used as data is different than capture clock clock for inputs CLK/D of stable DFF (value_reg_0_). (C26-4)
+
+Clock violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 5
+
+-----------------------------------------------------------------
+
+5 CLOCK VIOLATIONS
+     1 Clock unable to capture violation (C4)
+     4 Clock as data different from capture clock for stable cell violations (C26)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  1 out of 5 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITH VIOLATIONS
+      *   1 cell is a clock gating cell
+         clk_gate_value_reg/latch
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *   4 cells are valid scan cells
+         value_reg_3_
+         value_reg_2_
+         value_reg_1_
+         value_reg_0_
+
+....Inferring feed-through connections....
+Information: Test design rule checking completed. (TEST-123)
+1

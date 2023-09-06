@@ -1,0 +1,25 @@
+ 
+****************************************
+Report : Scan Compression Configuration
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:58:23 2023
+****************************************
+
+========================================
+TEST MODE: all_dft
+VIEW     : Specification
+========================================
+Minimum Compression                    10
+Integration                            False
+hybrid                                 False
+xtolerance                             default
+static_x_chain_isolation               False
+synchronize_chains                     none
+force_diagnosis                        False
+Inputs                                 Unspecified
+Outputs                                Unspecified
+Chain Count                            Unspecified
+Maximum Chain Length                   Unspecified
+
+1

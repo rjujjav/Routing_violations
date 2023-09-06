@@ -3,7 +3,7 @@
  Options: { pre_clock_tree_stage }
  Design : counter
  Version: S-2021.06-SP3
- Date   : Tue Sep  5 21:38:00 2023
+ Date   : Wed Sep  6 16:01:40 2023
 ****************************************
 
 Running mega-check 'pre_clock_tree_stage': 
@@ -37,5 +37,5 @@ Running mega-check 'pre_clock_tree_stage':
   ----------------------------------------------------------------------------------------------------
 
 Information: EMS database is saved to file 'check_design.pre_clock_tree_stage.ems'.
-Information: Non-EMS messages are saved into file 'check_design2023Sep05213800.log'.
+Information: Non-EMS messages are saved into file 'check_design2023Sep06160140.log'.
 1

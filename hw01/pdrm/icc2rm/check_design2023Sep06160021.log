@@ -1,0 +1,54 @@
+****************************************
+ Report : check_design
+ Options: { pre_placement_stage }
+ Design : counter
+ Version: S-2021.06-SP3
+ Date   : Wed Sep  6 16:00:21 2023
+****************************************
+
+****************************************
+Report : Data Mismatches
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 16:00:21 2023
+****************************************
+No mismatches exist on the design.
+1
+****************************************
+Report : SCANDEF check
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 16:00:21 2023
+****************************************
+  Checking between SCANDEF file and design:
+
+  Total PARTITION group count: 1
+  Total SCANCHAINS checked: 1
+  VALIDATED :  1
+  FAILED    :  0
+
+  Chain name     Status    #cells    #bits     PARTITION      Scan in        Scan out
+  1              V         4         4         clock_45_45_1.600000 test_si  test_so
+1
+Information: There are no relative placement groups in the design. (NDMUI-173)
+1
+1
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DMM-104      Info   68         Mismatch type %mmtype is detected on object type %objtype at obj...
+  TCK-001      Warn   21         The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   6          The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 95 EMS messages : 0 errors, 27 warnings, 68 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary *** 
+  ----------------------------------------------------------------------------------------------------
+   Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+     NDMUI-173                 1 There are no relative placement groups in the design.
+  ----------------------------------------------------------------------------------------------------
+  Total 1 non-EMS messages : 0 errors, 0 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------

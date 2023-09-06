@@ -1,0 +1,20 @@
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN counter ;
+
+SCANCHAINS 1 ;
+
+- 1
++ START PIN test_si
++ FLOATING value_reg_1_ ( IN SCD ) ( OUT Q )
+           value_reg_2_ ( IN SCD ) ( OUT Q )
+           value_reg_0_ ( IN SCD ) ( OUT Q )
+           value_reg_3_ ( IN SCD ) ( OUT Q )
++ PARTITION clock_45_45_1.600000
++ STOP PIN test_so ;
+
+END SCANCHAINS
+
+END DESIGN

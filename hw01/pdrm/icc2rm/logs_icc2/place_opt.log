@@ -1474,7 +1474,7 @@ Report : app_option
            -non_default
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:13 2023
+Date   : Wed Sep  6 16:00:57 2023
 ****************************************
 Name                                         Type       Value       User-value   User-default System-default Scope      Status     Source
 -------------------------------------------- ---------- ----------- ------------ ------------ -------------- ---------- ---------- -----------------------------------------------------------------------------------------------
@@ -1626,7 +1626,7 @@ if {[file exists [which $TCL_USER_PLACE_OPT_SCRIPT]]} {
 }
 RM-info: Running place_opt -from initial_place -to initial_place
 Information: Starting 'place_opt -from initial_place -to initial_place' (FLW-8000)
-Information: Time: 2023-09-05 21:37:13 / Session: 0.01 hr / Command: 0.00 hr / Memory: 382 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:57 / Session: 0.01 hr / Command: 0.00 hr / Memory: 382 MB (FLW-8100)
 INFO: place_opt is running in balanced flow mode
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 Information: Configuring Design Fusion Restructuring for area ...
@@ -1652,11 +1652,11 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 
 Information: Starting place_opt / initial_place (FLW-8000)
-Information: Time: 2023-09-05 21:37:14 / Session: 0.01 hr / Command: 0.00 hr / Memory: 434 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:58 / Session: 0.01 hr / Command: 0.00 hr / Memory: 436 MB (FLW-8100)
 
 
 Information: Starting place_opt / initial_place / Initial Placement (FLW-8000)
-Information: Time: 2023-09-05 21:37:14 / Session: 0.01 hr / Command: 0.00 hr / Memory: 434 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:58 / Session: 0.01 hr / Command: 0.00 hr / Memory: 436 MB (FLW-8100)
 Running merge clock gates
 ************************************************************
 * CTS STEP: Clock Gate Merging
@@ -1795,7 +1795,7 @@ Information: Extraction observers are detached as design net change threshold is
 Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
 Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_bc'. (OPT-909)
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
-START_CMD: optimize_dft        CPU:     22 s ( 0.01 hr) ELAPSE:     39 s ( 0.01 hr) MEM-PEAK:   481 Mb Tue Sep  5 21:37:19 2023
+START_CMD: optimize_dft        CPU:     20 s ( 0.01 hr) ELAPSE:     36 s ( 0.01 hr) MEM-PEAK:   479 Mb Wed Sep  6 16:01:01 2023
 
   Total PARTITION group count: 1
   Total SCANCHAINS checked: 1
@@ -1816,10 +1816,10 @@ DFT: post-opt wirelength difference: -19 (ratio: -25.148064 %)
   VALIDATED :  1
   FAILED    :  0
 
-END_CMD: optimize_dft          CPU:     22 s ( 0.01 hr) ELAPSE:     39 s ( 0.01 hr) MEM-PEAK:   481 Mb Tue Sep  5 21:37:19 2023
+END_CMD: optimize_dft          CPU:     20 s ( 0.01 hr) ELAPSE:     36 s ( 0.01 hr) MEM-PEAK:   479 Mb Wed Sep  6 16:01:01 2023
 ----------------------------------------------------------------
 Information: Ending place_opt / initial_place / Initial Placement (FLW-8001)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 
 
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/place_opt.design'. (TIM-125)
@@ -1832,13 +1832,13 @@ Information: Net estimation statistics: timing graph nets = 32, routed nets = 0,
 INFO: sweep stats: 0 gates / 0 nets gobbled, 0 gates (0 seq) simplified
 
 Information: Ending place_opt / initial_place (FLW-8001)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 Information: Running auto PG connection. (NDM-099)
 Information: Ending 'place_opt -from initial_place -to initial_place' (FLW-8001)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 RM-info: Running place_opt -from initial_drc -to initial_drc
 Information: Starting 'place_opt -from initial_drc -to initial_drc' (FLW-8000)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 INFO: place_opt is running in balanced flow mode
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 Information: Configuring Design Fusion Restructuring for area ...
@@ -1860,11 +1860,11 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 
 Information: Starting place_opt / initial_drc (FLW-8000)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 
 
 Information: Starting place_opt / initial_drc / High Fanout Synthesis (FLW-8000)
-Information: Time: 2023-09-05 21:37:19 / Session: 0.01 hr / Command: 0.00 hr / Memory: 482 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:01 / Session: 0.01 hr / Command: 0.00 hr / Memory: 480 MB (FLW-8100)
 Running initial HFS and DRC step.
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
 Information: The following app options are used in cellmap
@@ -1882,7 +1882,7 @@ Information: The following app options are used in cellmap
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
 Total 0.0100 seconds to build cellmap data
-Total 0.0000 seconds to load 22 cell instances into cellmap, 22 cells are off site row
+Total 0.0100 seconds to load 22 cell instances into cellmap, 22 cells are off site row
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
 Information: Current block utilization is '0.52000', effective utilization is '0.52000'. (OPT-055)
@@ -1892,7 +1892,7 @@ Information: Current block utilization is '0.52000', effective utilization is '0
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK   
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY  
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
-      0:00:40     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       481 
+      0:00:36     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       479 
 
 APSINFO: No multi-Vth libcells found, turning off percentage LVT optimization flow
 
@@ -1908,7 +1908,7 @@ Already Isolated 0 ports, Deleted 0 existing Isolation cells
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK   
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY  
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
-      0:00:42     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       604 
+      0:00:38     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       603 
 
 Corner Scaling is off, multiplier is 1.000000
 
@@ -1918,7 +1918,7 @@ Corner Scaling is off, multiplier is 1.000000
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK     MIN DELAY 
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY       COST   
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- -----------
-      0:00:42     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       606    -0.027
+      0:00:38     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       605    -0.027
 
 ORB: timingScenario mode_norm.slow.RCmax timingCorner mode_norm.slow.RCmax
 INFO: Using corner mode_norm.fast.RCmin for worst leakage corner
@@ -2007,27 +2007,27 @@ Found 0 buffer-tree drivers
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK     MIN DELAY 
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY       COST   
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- -----------
-      0:00:42     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       613    -0.027
+      0:00:38     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       613    -0.027
 
 Information: Ending place_opt / initial_drc / High Fanout Synthesis (FLW-8001)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 
 
 INFO: sweep stats: 0 gates / 0 nets gobbled, 0 gates (0 seq) simplified
 
 Information: Ending place_opt / initial_drc (FLW-8001)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 Information: Running auto PG connection. (NDM-099)
 Information: Ending 'place_opt -from initial_drc -to initial_drc' (FLW-8001)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 RM-info: Running update_timing -full
 Information: Starting 'update_timing' (FLW-8000)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 Information: The net parasitics of block counter are cleared. (TIM-123)
-Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
-Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
-Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/place_opt.design'. (TIM-125)
 Information: Design Average RC for design counter  (NEX-011)
 Information: r = 0.452185 ohm/um, via_r = 1.659292 ohm/cut, c = 0.136947 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
@@ -2046,10 +2046,10 @@ Clock Reconvergence Pessimism Removal:     enabled
 Advanced Receiver Model:                   disabled
 ************************************************************
 Information: Ending 'update_timing' (FLW-8001)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 RM-info: Running create_placement -incremental -timing_driven -congestion
 Information: Starting 'create_placement' (FLW-8000)
-Information: Time: 2023-09-05 21:37:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:03 / Session: 0.01 hr / Command: 0.00 hr / Memory: 614 MB (FLW-8100)
 
 Create Placement Options:
 Effort:                        high_effort         
@@ -2085,7 +2085,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0200 seconds to build cellmap data
 Information: Extraction observers are detached as design net change threshold is reached.
 Snapped 22 standard cells to the nearest cellrow to improve the accuracy of congestion analysis.
 Start Global Route ... 
@@ -2238,7 +2238,7 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 
 Start GR phase 1
-Tue Sep  5 21:37:23 2023
+Wed Sep  6 16:01:04 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -2368,7 +2368,7 @@ Warning: No clock routing rules were specified. Use set_clock_routing_rules to s
 Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_bc'. (OPT-909)
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 Start DFT optimization
-START_CMD: optimize_dft        CPU:     34 s ( 0.01 hr) ELAPSE:     45 s ( 0.01 hr) MEM-PEAK:   709 Mb Tue Sep  5 21:37:24 2023
+START_CMD: optimize_dft        CPU:     30 s ( 0.01 hr) ELAPSE:     40 s ( 0.01 hr) MEM-PEAK:   709 Mb Wed Sep  6 16:01:05 2023
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/place_opt.design'. (TIM-125)
 Information: Design Average RC for design counter  (NEX-011)
 Information: r = 0.452185 ohm/um, via_r = 1.659292 ohm/cut, c = 0.136947 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
@@ -2427,7 +2427,7 @@ DFT: Timing on scan path is likely to be met after proper buffering.
   VALIDATED :  1
   FAILED    :  0
 
-END_CMD: optimize_dft          CPU:     39 s ( 0.01 hr) ELAPSE:     46 s ( 0.01 hr) MEM-PEAK:   709 Mb Tue Sep  5 21:37:25 2023
+END_CMD: optimize_dft          CPU:     35 s ( 0.01 hr) ELAPSE:     41 s ( 0.01 hr) MEM-PEAK:   709 Mb Wed Sep  6 16:01:06 2023
 End DFT optimization
 Start TieCellOpt
 Number of Site types in the design = 1
@@ -2451,11 +2451,11 @@ INFO: Tie cell support for abstract block enabled
 INFO: total number of constant pins: 0
 End TieCellOpt
 Information: Ending 'create_placement' (FLW-8001)
-Information: Time: 2023-09-05 21:37:25 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:06 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 Information: Saving 'counter:counter/place_opt.design' to 'counter:counter/place_opt_two_pass_placement.design'. (DES-028)
 RM-info: Running place_opt -from initial_drc
 Information: Starting 'place_opt -from initial_drc' (FLW-8000)
-Information: Time: 2023-09-05 21:37:26 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:07 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 INFO: place_opt is running in balanced flow mode
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 Information: Configuring Design Fusion Restructuring for area ...
@@ -2477,11 +2477,11 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 
 Information: Starting place_opt / initial_drc (FLW-8000)
-Information: Time: 2023-09-05 21:37:27 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:07 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 
 
 Information: Starting place_opt / initial_drc / High Fanout Synthesis (FLW-8000)
-Information: Time: 2023-09-05 21:37:27 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:07 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 Running initial HFS and DRC step.
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
 Information: The following app options are used in cellmap
@@ -2498,7 +2498,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0200 seconds to build cellmap data
+Total 0.0100 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap, 22 cells are off site row
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
@@ -2509,7 +2509,7 @@ Information: Current block utilization is '0.52000', effective utilization is '0
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK   
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY  
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
-      0:00:47     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
+      0:00:42     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
 
 APSINFO: No multi-Vth libcells found, turning off percentage LVT optimization flow
 
@@ -2525,7 +2525,7 @@ Already Isolated 0 ports, Deleted 0 existing Isolation cells
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK   
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY  
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
-      0:00:49     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
+      0:00:44     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
 
 Corner Scaling is off, multiplier is 1.000000
 
@@ -2535,7 +2535,7 @@ Corner Scaling is off, multiplier is 1.000000
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK     MIN DELAY 
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY       COST   
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- -----------
-      0:00:49     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709    -0.027
+      0:00:44     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709    -0.027
 
 ORB: timingScenario mode_norm.slow.RCmax timingCorner mode_norm.slow.RCmax
 INFO: Using corner mode_norm.fast.RCmin for worst leakage corner
@@ -2624,21 +2624,21 @@ Found 0 buffer-tree drivers
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK     MIN DELAY 
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY       COST   
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- -----------
-      0:00:50     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709    -0.027
+      0:00:44     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709    -0.027
 
 Information: Ending place_opt / initial_drc / High Fanout Synthesis (FLW-8001)
-Information: Time: 2023-09-05 21:37:29 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 
 
 Information: Ending place_opt / initial_drc (FLW-8001)
-Information: Time: 2023-09-05 21:37:29 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 
 Information: Starting place_opt / initial_opto (FLW-8000)
-Information: Time: 2023-09-05 21:37:29 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 
 
 Information: Starting place_opt / initial_opto / Optimization (FLW-8000)
-Information: Time: 2023-09-05 21:37:29 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 710 MB (FLW-8100)
 
 Information: The net parasitics of block counter are cleared. (TIM-123)
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/place_opt.design'. (TIM-125)
@@ -2664,13 +2664,13 @@ Information: Net estimation statistics: timing graph nets = 32, routed nets = 0,
      ELAPSED  WORST NEG TOTAL NEG              MAX       MAX     BUFFER    INVERTER   LVTH      LVTH      PEAK   
       TIME      SLACK     SLACK     AREA    TRAN COST CAP COST    COUNT     COUNT     COUNT    PERCENT   MEMORY  
     --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
-      0:00:50     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
+      0:00:45     0.000     0.000   290.909     0.000     0.000         0         1         0     0.000       709 
 
 Running initial optimization step.
-Place-opt command begin                   CPU:    44 s (  0.01 hr )  ELAPSE:    51 s (  0.01 hr )  MEM-PEAK:   709 MB
+Place-opt command begin                   CPU:    40 s (  0.01 hr )  ELAPSE:    45 s (  0.01 hr )  MEM-PEAK:   709 MB
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 
-Place-opt timing update complete          CPU:    44 s (  0.01 hr )  ELAPSE:    51 s (  0.01 hr )  MEM-PEAK:   709 MB
+Place-opt timing update complete          CPU:    40 s (  0.01 hr )  ELAPSE:    45 s (  0.01 hr )  MEM-PEAK:   709 MB
 
 Place-opt initial QoR
 _____________________
@@ -2723,7 +2723,7 @@ Place-opt initial QoR Summary       WNS        TNS   R2RTNS    NSV      WHV     
 Place-opt initial QoR Summary    0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22821.016       290.91         22
 Information: The netlist change observers are disabled for incremental extraction. (TIM-126)
 INFO: using 8 threads
-Place-opt initialization complete         CPU:    51 s (  0.01 hr )  ELAPSE:    52 s (  0.01 hr )  MEM-PEAK:   709 MB
+Place-opt initialization complete         CPU:    46 s (  0.01 hr )  ELAPSE:    46 s (  0.01 hr )  MEM-PEAK:   709 MB
 Place-opt optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 Information: The netlist change observers are enabled for incremental extraction. (TIM-127)
@@ -2745,7 +2745,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap, 22 cells are off site row
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
@@ -2756,10 +2756,10 @@ CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
 Convert timing mode ...
-Place-opt optimization Phase 12 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       714
-Place-opt optimization Phase 12 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       714
-Place-opt optimization Phase 12 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       714
-Place-opt optimization Phase 12 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       714
+Place-opt optimization Phase 12 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       714
+Place-opt optimization Phase 12 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       714
+Place-opt optimization Phase 12 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       714
+Place-opt optimization Phase 12 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       714
 Number of Site types in the design = 1
 INFO: Activating hold scenarios prior to CUS.
 Information: CCD will use corner mode_norm.slow.RCmax for honoring max prepone/postpone limits
@@ -2784,12 +2784,12 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 12 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
-Place-opt optimization Phase 12 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
-Place-opt optimization Phase 12 Iter  7         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
-Place-opt optimization Phase 12 Iter  8         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
-Place-opt optimization Phase 12 Iter  9         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
-Place-opt optimization Phase 12 Iter 10         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       755
+Place-opt optimization Phase 12 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
+Place-opt optimization Phase 12 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
+Place-opt optimization Phase 12 Iter  7         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
+Place-opt optimization Phase 12 Iter  8         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
+Place-opt optimization Phase 12 Iter  9         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
+Place-opt optimization Phase 12 Iter 10         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       755
 Number of Site types in the design = 1
 INFO: Activating hold scenarios prior to CUS.
 Information: CCD will use corner mode_norm.slow.RCmax for honoring max prepone/postpone limits
@@ -2806,45 +2806,45 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 INFO: Deactivating hold scenarios after CUS.
 Number of Site types in the design = 1
-Place-opt optimization Phase 12 Iter 11         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 12 Iter 11         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
-Place-opt optimization Phase 13 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 13 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
 Disable clock slack update for ideal clocks
-Place-opt optimization Phase 14 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 14 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 INFO: cellmap features:  adv-rules=(N), pdc=(N), clock-rules=(Y)
 
-Place-opt optimization Phase 15 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 15 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 Warning: Restoring scoped app option 'ropt.lr_max_wl_increase' to original value 'unset' (from current value '0', which is different from the scoped value '0.000000'). (FLW-2892)
 Warning: Restoring scoped app option 'xform.commit_density_threshold' to original value 'unset' (from current value '1', which is different from the scoped value '1.0'). (FLW-2892)
 Warning: Restoring scoped app option 'opt.internal.levfilter_arec_slack' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
 
-Place-opt optimization Phase 16 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 16 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
 Disable clock slack update for ideal clocks
-Place-opt optimization Phase 17 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 17 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 INFO: cellmap features:  adv-rules=(N), pdc=(N), clock-rules=(Y)
 
-Place-opt optimization Phase 18 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 18 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
-Place-opt optimization Phase 19 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 19 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
 
 Information: Ending place_opt / initial_opto / Optimization (FLW-8001)
-Information: Time: 2023-09-05 21:37:36 / Session: 0.02 hr / Command: 0.00 hr / Memory: 775 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:15 / Session: 0.01 hr / Command: 0.00 hr / Memory: 767 MB (FLW-8100)
 
-Place-opt optimization Phase 22 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Place-opt optimization Phase 22 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 
 Information: Ending place_opt / initial_opto (FLW-8001)
-Information: Time: 2023-09-05 21:37:36 / Session: 0.02 hr / Command: 0.00 hr / Memory: 775 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:15 / Session: 0.01 hr / Command: 0.00 hr / Memory: 767 MB (FLW-8100)
 
 Information: Starting place_opt / final_place (FLW-8000)
-Information: Time: 2023-09-05 21:37:36 / Session: 0.02 hr / Command: 0.00 hr / Memory: 775 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:15 / Session: 0.01 hr / Command: 0.00 hr / Memory: 767 MB (FLW-8100)
 
 
 Information: Starting place_opt / final_place / Timing and Congestion Driven Placement with Legalization (FLW-8000)
-Information: Time: 2023-09-05 21:37:36 / Session: 0.02 hr / Command: 0.00 hr / Memory: 775 MB (FLW-8100)
-Place-opt optimization Phase 26 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       775
+Information: Time: 2023-09-06 16:01:15 / Session: 0.01 hr / Command: 0.00 hr / Memory: 767 MB (FLW-8100)
+Place-opt optimization Phase 26 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.01       767
 Running final (timing-driven) placement step.
 ----------------------------------------------------------------
 Running congestion-aware direct-timing-driven placement
@@ -2884,14 +2884,14 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0200 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Information: Extraction observers are detached as design net change threshold is reached.
 Snapped 22 standard cells to the nearest cellrow to improve the accuracy of congestion analysis.
 Start Global Route ... 
 [Init] Elapsed real time: 0:00:00 
 [Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[Init] Total (MB): Used    7  Alloctr    7  Proc 3832 
+[Init] Total (MB): Used    7  Alloctr    7  Proc 3824 
 Printing options for 'route.common.*'
 
 Printing options for 'route.global.*'
@@ -3004,7 +3004,7 @@ Current Stage stats:
 [End of Read DB] Elapsed real time: 0:00:00 
 [End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Read DB] Stage (MB): Used   11  Alloctr   12  Proc    0 
-[End of Read DB] Total (MB): Used   19  Alloctr   19  Proc 3832 
+[End of Read DB] Total (MB): Used   19  Alloctr   19  Proc 3824 
 Constructing data structure ...
 Design statistics:
 Design Bounding Box (0.00,0.00,27.84,29.97)
@@ -3019,7 +3019,7 @@ Current Stage stats:
 [End of Build Tech Data] Elapsed real time: 0:00:00 
 [End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3832 
+[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3824 
 Net statistics:
 Total number of nets     = 34
 Number of nets to route  = 32
@@ -3029,7 +3029,7 @@ Current Stage stats:
 [End of Build All Nets] Elapsed real time: 0:00:00 
 [End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3832 
+[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3824 
 Average gCell capacity  2.68	 on layer (1)	 li1
 Average gCell capacity  6.43	 on layer (2)	 met1
 Average gCell capacity  6.27	 on layer (3)	 met2
@@ -3047,7 +3047,7 @@ Current Stage stats:
 [End of Build Congestion map] Elapsed real time: 0:00:00 
 [End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Congestion map] Total (MB): Used   20  Alloctr   20  Proc 3832 
+[End of Build Congestion map] Total (MB): Used   20  Alloctr   20  Proc 3824 
 Net Count 32, Total HPWL 44 microns
 HPWL   0 ~  100 microns: Net Count       32	Total HPWL         44 microns
 HPWL 100 ~  200 microns: Net Count        0	Total HPWL          0 microns
@@ -3065,12 +3065,12 @@ Total stats:
 [End of Build Data] Elapsed real time: 0:00:00 
 [End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Data] Stage (MB): Used    1  Alloctr    1  Proc    0 
-[End of Build Data] Total (MB): Used   20  Alloctr   20  Proc 3832 
+[End of Build Data] Total (MB): Used   20  Alloctr   20  Proc 3824 
 Current Stage stats:
 [End of Blocked Pin Detection] Elapsed real time: 0:00:00 
 [End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Blocked Pin Detection] Stage (MB): Used  104  Alloctr  104  Proc   96 
-[End of Blocked Pin Detection] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Blocked Pin Detection] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Information: Using 8 threads for routing. (ZRT-444)
 placement fast mode ON
 multi gcell levels ON
@@ -3080,7 +3080,7 @@ Current Stage stats:
 [End of Initial Routing] Elapsed real time: 0:00:00 
 [End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Initial Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Initial Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Initial. Routing result:
 Initial. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
 Initial. H routing: Overflow =     0 Max = 1 (GRCs =  1) GRCs =     1 (1.23%)
@@ -3108,7 +3108,7 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 
 Start GR phase 1
-Tue Sep  5 21:37:36 2023
+Wed Sep  6 16:01:15 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -3119,7 +3119,7 @@ Current Stage stats:
 [End of Phase1 Routing] Elapsed real time: 0:00:00 
 [End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase1 Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Phase1 Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Number of partitions: 1 (1 x 1)
 phase1. Routing result:
 phase1. Both Dirs: Overflow =     0 Max = 0 GRCs =     0 (0.00%)
@@ -3149,7 +3149,7 @@ phase1. completed.
 [End of Whole Chip Routing] Elapsed real time: 0:00:00 
 [End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Whole Chip Routing] Stage (MB): Used  105  Alloctr  105  Proc   96 
-[End of Whole Chip Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Whole Chip Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Number of partitions: 1 (1 x 1)
 
 Congestion utilization per direction:
@@ -3162,12 +3162,12 @@ Current Stage stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3920 
 GR Total stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used  116  Alloctr  117  Proc   96 
-[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Writing out congestion map...
 Updating congestion ...
 Updating congestion ...
@@ -3175,7 +3175,7 @@ Final total stats:
 [End of Global Routing] Elapsed real time: 0:00:00 
 [End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Global Routing] Stage (MB): Used   29  Alloctr   29  Proc   96 
-[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3929 
+[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3920 
 Using per-layer congestion maps for congestion reduction.
 Information: 0.00% of design has horizontal routing density above target_routing_density of 0.80.
 Information: 0.00% of design has vertical routing density above target_routing_density of 0.80.
@@ -3318,7 +3318,7 @@ Start Global Route ...
 [Init] Elapsed real time: 0:00:00 
 [Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[Init] Total (MB): Used    7  Alloctr    7  Proc 3897 
+[Init] Total (MB): Used    7  Alloctr    7  Proc 3888 
 Printing options for 'route.common.*'
 
 Printing options for 'route.global.*'
@@ -3431,7 +3431,7 @@ Current Stage stats:
 [End of Read DB] Elapsed real time: 0:00:00 
 [End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Read DB] Stage (MB): Used   11  Alloctr   12  Proc   32 
-[End of Read DB] Total (MB): Used   19  Alloctr   19  Proc 3929 
+[End of Read DB] Total (MB): Used   19  Alloctr   19  Proc 3920 
 Constructing data structure ...
 Design statistics:
 Design Bounding Box (0.00,0.00,27.84,29.97)
@@ -3446,7 +3446,7 @@ Current Stage stats:
 [End of Build Tech Data] Elapsed real time: 0:00:00 
 [End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3929 
+[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3920 
 Net statistics:
 Total number of nets     = 34
 Number of nets to route  = 32
@@ -3456,7 +3456,7 @@ Current Stage stats:
 [End of Build All Nets] Elapsed real time: 0:00:00 
 [End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3929 
+[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3920 
 Average gCell capacity  2.88	 on layer (1)	 li1
 Average gCell capacity  6.43	 on layer (2)	 met1
 Average gCell capacity  6.27	 on layer (3)	 met2
@@ -3474,7 +3474,7 @@ Current Stage stats:
 [End of Build Congestion map] Elapsed real time: 0:00:00 
 [End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Congestion map] Total (MB): Used   20  Alloctr   20  Proc 3929 
+[End of Build Congestion map] Total (MB): Used   20  Alloctr   20  Proc 3920 
 Net Count 32, Total HPWL 41 microns
 HPWL   0 ~  100 microns: Net Count       32	Total HPWL         41 microns
 HPWL 100 ~  200 microns: Net Count        0	Total HPWL          0 microns
@@ -3492,12 +3492,12 @@ Total stats:
 [End of Build Data] Elapsed real time: 0:00:00 
 [End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Data] Stage (MB): Used    1  Alloctr    1  Proc    0 
-[End of Build Data] Total (MB): Used   20  Alloctr   20  Proc 3929 
+[End of Build Data] Total (MB): Used   20  Alloctr   20  Proc 3920 
 Current Stage stats:
 [End of Blocked Pin Detection] Elapsed real time: 0:00:00 
 [End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Blocked Pin Detection] Stage (MB): Used  104  Alloctr  104  Proc    0 
-[End of Blocked Pin Detection] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Blocked Pin Detection] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Information: Using 8 threads for routing. (ZRT-444)
 placement fast mode ON
 multi gcell levels ON
@@ -3507,7 +3507,7 @@ Current Stage stats:
 [End of Initial Routing] Elapsed real time: 0:00:00 
 [End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Initial Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Initial Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Initial. Routing result:
 Initial. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
 Initial. H routing: Overflow =     0 Max = 1 (GRCs =  1) GRCs =     1 (1.23%)
@@ -3535,7 +3535,7 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 
 Start GR phase 1
-Tue Sep  5 21:37:39 2023
+Wed Sep  6 16:01:18 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -3546,7 +3546,7 @@ Current Stage stats:
 [End of Phase1 Routing] Elapsed real time: 0:00:00 
 [End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase1 Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Phase1 Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Number of partitions: 1 (1 x 1)
 phase1. Routing result:
 phase1. Both Dirs: Overflow =     0 Max = 0 GRCs =     0 (0.00%)
@@ -3576,7 +3576,7 @@ phase1. completed.
 [End of Whole Chip Routing] Elapsed real time: 0:00:00 
 [End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Whole Chip Routing] Stage (MB): Used  105  Alloctr  105  Proc    0 
-[End of Whole Chip Routing] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[End of Whole Chip Routing] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Number of partitions: 1 (1 x 1)
 
 Congestion utilization per direction:
@@ -3589,12 +3589,12 @@ Current Stage stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3920 
 GR Total stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used  116  Alloctr  117  Proc   32 
-[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3929 
+[GR: Done] Total (MB): Used  124  Alloctr  124  Proc 3920 
 Writing out congestion map...
 Updating congestion ...
 Updating congestion ...
@@ -3602,7 +3602,7 @@ Final total stats:
 [End of Global Routing] Elapsed real time: 0:00:00 
 [End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Global Routing] Stage (MB): Used   29  Alloctr   29  Proc   32 
-[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3929 
+[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3920 
 Using per-layer congestion maps for congestion reduction.
 Information: 0.00% of design has horizontal routing density above target_routing_density of 0.80.
 Information: 0.00% of design has vertical routing density above target_routing_density of 0.80.
@@ -3678,7 +3678,7 @@ DFT: Timing on scan path is likely to be met after proper buffering.
 Fixing logic constant
 Fixing logic constant
 INFO: total number of constant pins: 0
-Completed Timing-driven placement, Elapsed time =   0: 0: 1 
+Completed Timing-driven placement, Elapsed time =   0: 0: 2 
 ----------------------------------------------------------------
 Running legalize_placement
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
@@ -3696,7 +3696,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0000 seconds to build cellmap data
+Total 0.0100 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap, 22 cells are off site row
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
@@ -3735,7 +3735,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Information: Creating classic rule checker.
 =====> Processed 10 ref cells (0 fillers) from library
 
@@ -3871,16 +3871,16 @@ Information: The RC mode used is VR for design 'counter'. (NEX-022)
 Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
 Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
 Information: Ending place_opt / final_place / Timing and Congestion Driven Placement with Legalization (FLW-8001)
-Information: Time: 2023-09-05 21:37:41 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:21 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 
 
 Information: Ending place_opt / final_place (FLW-8001)
-Information: Time: 2023-09-05 21:37:41 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:21 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 
 Information: Starting place_opt / final_opto (FLW-8000)
-Information: Time: 2023-09-05 21:37:41 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:21 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 
-Place-opt optimization Phase 30 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 30 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
 Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_bc'. (OPT-909)
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
@@ -3905,7 +3905,7 @@ Information: Net estimation statistics: timing graph nets = 32, routed nets = 0,
 Running final optimization step.
 
 Information: Starting place_opt / final_opto / Optimization (1) (FLW-8000)
-Information: Time: 2023-09-05 21:37:42 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:22 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
@@ -3948,11 +3948,11 @@ Total 0.0000 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
-Place-opt optimization Phase 33 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 33 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Isolated 0 ports, skipped 0 ports
 Already Isolated 0 ports, Deleted 0 existing Isolation cells 
 
-Place-opt optimization Phase 34 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 34 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Corner Scaling is off, multiplier is 1.000000
 Corner Scaling is off, multiplier is 1.000000
 Using default layer met3
@@ -3962,13 +3962,13 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 34 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 34 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
 Convert timing mode ...
-Place-opt optimization Phase 35 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 35 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Number of Site types in the design = 1
 INFO: Activating hold scenarios prior to CUS.
 Information: CCD will use corner mode_norm.slow.RCmax for honoring max prepone/postpone limits
@@ -3986,10 +3986,10 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'
 INFO: Deactivating hold scenarios after CUS.
 Number of Site types in the design = 1
 Place-opt optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
-Place-opt optimization Phase 35 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 35 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Number of Site types in the design = 1
 INFO: Activating hold scenarios prior to CUS.
 Information: CCD will use corner mode_norm.slow.RCmax for honoring max prepone/postpone limits
@@ -4006,7 +4006,7 @@ Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 INFO: Deactivating hold scenarios after CUS.
 Number of Site types in the design = 1
-Place-opt optimization Phase 35 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 35 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Corner Scaling is off, multiplier is 1.000000
 Using default layer met3
 maxCornerId = 4
@@ -4015,13 +4015,13 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 35 Iter  7         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter  8         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter  9         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter 10         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter 11         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter 12         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 35 Iter 13         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 35 Iter  7         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter  8         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter  9         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter 10         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter 11         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter 12         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 35 Iter 13         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Number of Site types in the design = 1
 INFO: Activating hold scenarios prior to CUS.
 Information: CCD will use corner mode_norm.slow.RCmax for honoring max prepone/postpone limits
@@ -4043,7 +4043,7 @@ CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
 Convert timing mode ...
-Place-opt optimization Phase 36 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 36 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Corner Scaling is off, multiplier is 1.000000
 Using default layer met3
 maxCornerId = 4
@@ -4052,17 +4052,17 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 36 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 36 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 36 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 36 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 36 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 36 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 36 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 36 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 36 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 36 Iter  6         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 Disable clock slack update for ideal clocks
-Place-opt optimization Phase 37 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 37 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 INFO: cellmap features:  adv-rules=(N), pdc=(N), clock-rules=(Y)
 
-Place-opt optimization Phase 38 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 38 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
@@ -4077,31 +4077,31 @@ met3                        184.6          5.8                0                0
 Total Demoted Nets:             0
 
 
-Place-opt optimization Phase 39 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 39 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 Disable clock slack update for ideal clocks
-Place-opt optimization Phase 40 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 40 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 INFO: cellmap features:  adv-rules=(N), pdc=(N), clock-rules=(Y)
 
-Place-opt optimization Phase 41 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 41 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
-Place-opt optimization Phase 42 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 42 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 INFO: total number of constant pins: 0
 
-Place-opt optimization Phase 43 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 43 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Number of feedthrough buffers added 0
 
-Place-opt optimization Phase 44 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 44 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 Information: Ending place_opt / final_opto / Optimization (1) (FLW-8001)
-Information: Time: 2023-09-05 21:37:46 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:27 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
 Information: Starting place_opt / final_opto / Legalization (1) (FLW-8000)
-Information: Time: 2023-09-05 21:37:46 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:27 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
-START_FUNC : legalize_placement_pre_run_core CPU :     75 s ( 0.02 hr) ELAPSE :     66 s ( 0.02 hr) MEM-PEAK :   871 Mb
-END_FUNC : legalize_placement_pre_run_core CPU :     75 s ( 0.02 hr) ELAPSE :     66 s ( 0.02 hr) MEM-PEAK :   871 Mb
-Place-opt optimization Phase 47 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+START_FUNC : legalize_placement_pre_run_core CPU :     70 s ( 0.02 hr) ELAPSE :     61 s ( 0.02 hr) MEM-PEAK :   863 Mb
+END_FUNC : legalize_placement_pre_run_core CPU :     70 s ( 0.02 hr) ELAPSE :     61 s ( 0.02 hr) MEM-PEAK :   863 Mb
+Place-opt optimization Phase 47 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 nplDplc2Placer::setParam(effort,1)
 nplDplc2Placer::setParam(debug,0)
 nplDplc2Placer::setParam(site_check,2)
@@ -4251,10 +4251,10 @@ Information: Update timing completed net estimation for all the timing graph net
 Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
 
 Information: Ending place_opt / final_opto / Legalization (1) (FLW-8001)
-Information: Time: 2023-09-05 21:37:47 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:28 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
 Information: Starting place_opt / final_opto / Optimization (2) (FLW-8000)
-Information: Time: 2023-09-05 21:37:47 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:28 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 INFO: Enabled CLO at stage after_LGL1.
 
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
@@ -4278,11 +4278,11 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
-Place-opt optimization Phase 51 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 51 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
@@ -4297,18 +4297,18 @@ met3                        184.6          5.8                0                0
 Total Demoted Nets:             0
 
 
-Place-opt optimization Phase 52 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 52 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Place-opt optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
-Place-opt optimization Phase 52 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 52 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 CCL: Total Usage Adjustment : 1
 INFO: Derive row count 2 from GR congestion map (9/4)
 INFO: Derive col count 2 from GR congestion map (9/4)
 Convert timing mode ...
 INFO: Enabling move Inst Tracker for  delay3-Wlb-Tb step. 
-Place-opt optimization Phase 53 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 53 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 53 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 53 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 53 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 53 Iter  3         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Corner Scaling is off, multiplier is 1.000000
 Using default layer met3
 maxCornerId = 4
@@ -4317,12 +4317,12 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 53 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
-Place-opt optimization Phase 53 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 53 Iter  4         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
+Place-opt optimization Phase 53 Iter  5         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
-Place-opt optimization Phase 54 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 54 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
-Place-opt optimization Phase 55 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 55 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Corner Scaling is off, multiplier is 1.000000
 Corner Scaling is off, multiplier is 1.000000
 Using default layer met3
@@ -4332,18 +4332,18 @@ corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
 corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
 corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
 bmap: stepx = 16650
-Place-opt optimization Phase 55 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 55 Iter  2         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 Information: Ending place_opt / final_opto / Optimization (2) (FLW-8001)
-Information: Time: 2023-09-05 21:37:47 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:28 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
 Information: Starting place_opt / final_opto / Legalization (2) (FLW-8000)
-Information: Time: 2023-09-05 21:37:47 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:28 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
-START_FUNC : legalize_placement_pre_run_core CPU :     77 s ( 0.02 hr) ELAPSE :     67 s ( 0.02 hr) MEM-PEAK :   871 Mb
+START_FUNC : legalize_placement_pre_run_core CPU :     72 s ( 0.02 hr) ELAPSE :     63 s ( 0.02 hr) MEM-PEAK :   863 Mb
 INFO: Turning Off CLO .
-END_FUNC : legalize_placement_pre_run_core CPU :     77 s ( 0.02 hr) ELAPSE :     67 s ( 0.02 hr) MEM-PEAK :   871 Mb
-Place-opt optimization Phase 58 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+END_FUNC : legalize_placement_pre_run_core CPU :     72 s ( 0.02 hr) ELAPSE :     63 s ( 0.02 hr) MEM-PEAK :   863 Mb
+Place-opt optimization Phase 58 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 nplDplc2Placer::setParam(effort,1)
 nplDplc2Placer::setParam(debug,0)
 nplDplc2Placer::setParam(site_check,2)
@@ -4378,7 +4378,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Information: Creating classic rule checker.
 =====> Processed 10 ref cells (0 fillers) from library
 
@@ -4407,7 +4407,7 @@ Please look for the GIF files that are written out at the end of
     Done Exclusive Bound 'DEFAULT_VA' (2/2) (0 sec)
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.004-0001-max_displacements.gif'.
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.004-0002-colored_displacements.gif'.
-Legalization complete (1 total sec)
+Legalization complete (0 total sec)
 
 ****************************************
   Report : Placement Attempts
@@ -4493,7 +4493,7 @@ Information: Update timing completed net estimation for all the timing graph net
 Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
 
 Information: Ending place_opt / final_opto / Legalization (2) (FLW-8001)
-Information: Time: 2023-09-05 21:37:49 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:29 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
 Information: The following app options are used in cellmap
@@ -4514,12 +4514,12 @@ Total 0.0000 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 22; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
 Average cell width 3.9709, cell height 3.3300, cell area 13.2231 for total 22 placed and application fixed cells
-Place-opt optimization Phase 60 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 60 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
-Place-opt optimization Phase 61 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization Phase 61 Iter  1         0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 
 Information: Ending place_opt / final_opto (FLW-8001)
-Information: Time: 2023-09-05 21:37:49 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:29 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 Number of Site types in the design = 1
 Setting up Chip Core
 Chip Core shape: (1920 3330) (25920 26640)
@@ -4534,7 +4534,7 @@ INFO: Running FTB cleanup in end of npo flow.
 Number of feedthrough buffers added 0
 Enable dominated scenarios
 
-Place-opt optimization complete                 0.00        0.00      0.00         0        290.91    22821.02          22              0.02       871
+Place-opt optimization complete                 0.00        0.00      0.00         0        290.91    22821.02          22              0.02       863
 Co-efficient Ratio Summary:
 4.193421605155  6.578038173730  2.479639287277  7.744187540401  0.485050000353  3.179565833784  5.567214754587  2.894454387461  6.565921217863  9.017937505874  3.106852901496  9.863458599632  6.078125164085  2.744208341123  8.318115704907
 9.699225026083  2.464623950064  1.382370221226  9.387184029619  3.142429406669  0.968752789964  6.613180723294  4.146578793224  7.876358918112  2.191135103696  0.965916242557  2.700167433662  3.840452264440  3.750206053169  7.663458942299
@@ -4645,11 +4645,11 @@ Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrn
 Place-opt final QoR Summary         WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV  MaxCapV    Leakage         Area    InstCnt
 Place-opt final QoR Summary      0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22821.016       290.91         22
 
-Place-opt command complete                CPU:    80 s (  0.02 hr )  ELAPSE:    71 s (  0.02 hr )  MEM-PEAK:   871 MB
-Place-opt command statistics  CPU=37 sec (0.01 hr) ELAPSED=20 sec (0.01 hr) MEM-PEAK=0.851 GB
+Place-opt command complete                CPU:    75 s (  0.02 hr )  ELAPSE:    66 s (  0.02 hr )  MEM-PEAK:   863 MB
+Place-opt command statistics  CPU=35 sec (0.01 hr) ELAPSED=21 sec (0.01 hr) MEM-PEAK=0.843 GB
 Information: Running auto PG connection. (NDM-099)
 Information: Ending 'place_opt -from initial_drc' (FLW-8001)
-Information: Time: 2023-09-05 21:37:50 / Session: 0.02 hr / Command: 0.01 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:31 / Session: 0.02 hr / Command: 0.01 hr / Memory: 863 MB (FLW-8100)
 ##########################################################################################
 ## Post-place_opt customizations
 ##########################################################################################
@@ -4683,7 +4683,7 @@ if {$TCL_USER_CONNECT_PG_NET_SCRIPT != ""} {
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:50 2023
+Date   : Wed Sep  6 16:01:31 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -4738,7 +4738,7 @@ Report : clock qor
         -nosplit
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:51 2023
+Date   : Wed Sep  6 16:01:31 2023
 ****************************************
 
 Attributes
@@ -4850,7 +4850,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:59 2023
+Date   : Wed Sep  6 16:01:39 2023
 ****************************************
 Information: Timer using 'CRPR'. (TIM-050)
 
@@ -4878,7 +4878,7 @@ Report : global timing
         -report_by design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:59 2023
+Date   : Wed Sep  6 16:01:39 2023
 ****************************************
 
 No setup violations found.
@@ -4897,17 +4897,17 @@ NUM           3          3          0          0          0
 RM-info: Analyzing design violations ...
 
 Information: Starting 'analyze_design_violations' (FLW-8000)
-Information: Time: 2023-09-05 21:37:59 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:39 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 
 ****************************************
 Report : Violation analysis
 Design : counter
 Block  : counter:counter/place_opt.design
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:37:59 2023
+Date   : Wed Sep  6 16:01:39 2023
 ****************************************
 
-START_CMD: analyze_design_violations CPU:     97 s ( 0.03 hr) ELAPSE:     80 s ( 0.02 hr) MEM-PEAK:   871 Mb Tue Sep  5 21:37:59 2023
+START_CMD: analyze_design_violations CPU:     90 s ( 0.03 hr) ELAPSE:     75 s ( 0.02 hr) MEM-PEAK:   863 Mb Wed Sep  6 16:01:39 2023
 Number of Site types in the design = 1
 Setting up Chip Core
 Chip Core shape: (1920 3330) (25920 26640)
@@ -4943,16 +4943,16 @@ Design utilization is 0.520000
 
     No setup violation was found. 
 
-END_CMD: analyze_design_violations CPU:     97 s ( 0.03 hr) ELAPSE:     80 s ( 0.02 hr) MEM-PEAK:   871 Mb Tue Sep  5 21:38:00 2023
+END_CMD: analyze_design_violations CPU:     90 s ( 0.03 hr) ELAPSE:     75 s ( 0.02 hr) MEM-PEAK:   863 Mb Wed Sep  6 16:01:40 2023
 Information: Ending 'analyze_design_violations' (FLW-8001)
-Information: Time: 2023-09-05 21:38:00 / Session: 0.02 hr / Command: 0.00 hr / Memory: 871 MB (FLW-8100)
+Information: Time: 2023-09-06 16:01:40 / Session: 0.02 hr / Command: 0.00 hr / Memory: 863 MB (FLW-8100)
 ****************************************
 Report : check_mv_design
         -erc_mode
         -voltage_threshold 0
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:38:00 2023
+Date   : Wed Sep  6 16:01:40 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5036,7 +5036,7 @@ Report : check_mv_design
         -power_connectivity
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:38:00 2023
+Date   : Wed Sep  6 16:01:40 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5145,7 +5145,7 @@ Information: Total 0 error(s) and 44 warning(s) from check_mv_design. (MV-082)
 Report : check_mv_design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:38:00 2023
+Date   : Wed Sep  6 16:01:40 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5264,7 +5264,7 @@ RM-info: Reporting design information ...
 Report : report_utilization
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:38:00 2023
+Date   : Wed Sep  6 16:01:40 2023
 ****************************************
 Utilization Ratio:			0.5200
 Utilization options:
@@ -5301,7 +5301,7 @@ Start Global Route ...
 [Init] Elapsed real time: 0:00:00 
 [Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[Init] Total (MB): Used    7  Alloctr    8  Proc 3872 
+[Init] Total (MB): Used    7  Alloctr    8  Proc 3864 
 Printing options for 'route.common.*'
 
 Printing options for 'route.global.*'
@@ -5414,7 +5414,7 @@ Current Stage stats:
 [End of Read DB] Elapsed real time: 0:00:00 
 [End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Read DB] Stage (MB): Used   11  Alloctr   12  Proc    0 
-[End of Read DB] Total (MB): Used   19  Alloctr   20  Proc 3872 
+[End of Read DB] Total (MB): Used   19  Alloctr   20  Proc 3864 
 Loading timing information to the router from design
 Timing information loaded to the router.
 Constructing data structure ...
@@ -5431,7 +5431,7 @@ Current Stage stats:
 [End of Build Tech Data] Elapsed real time: 0:00:00 
 [End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3872 
+[End of Build Tech Data] Total (MB): Used   19  Alloctr   20  Proc 3864 
 Net statistics:
 Total number of nets     = 34
 Number of nets to route  = 32
@@ -5441,7 +5441,7 @@ Current Stage stats:
 [End of Build All Nets] Elapsed real time: 0:00:00 
 [End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3872 
+[End of Build All Nets] Total (MB): Used   19  Alloctr   20  Proc 3864 
 Average gCell capacity  2.56	 on layer (1)	 li1
 Average gCell capacity  6.43	 on layer (2)	 met1
 Average gCell capacity  6.27	 on layer (3)	 met2
@@ -5459,7 +5459,7 @@ Current Stage stats:
 [End of Build Congestion map] Elapsed real time: 0:00:00 
 [End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Build Congestion map] Total (MB): Used   20  Alloctr   21  Proc 3872 
+[End of Build Congestion map] Total (MB): Used   20  Alloctr   21  Proc 3864 
 Net Count 32, Total HPWL 42 microns
 HPWL   0 ~  100 microns: Net Count       32	Total HPWL         42 microns
 HPWL 100 ~  200 microns: Net Count        0	Total HPWL          0 microns
@@ -5478,12 +5478,12 @@ Total stats:
 [End of Build Data] Elapsed real time: 0:00:00 
 [End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Build Data] Stage (MB): Used    1  Alloctr    1  Proc    0 
-[End of Build Data] Total (MB): Used   20  Alloctr   21  Proc 3872 
+[End of Build Data] Total (MB): Used   20  Alloctr   21  Proc 3864 
 Current Stage stats:
 [End of Blocked Pin Detection] Elapsed real time: 0:00:00 
 [End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Blocked Pin Detection] Stage (MB): Used  176  Alloctr  176  Proc   64 
-[End of Blocked Pin Detection] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[End of Blocked Pin Detection] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Information: Using 8 threads for routing. (ZRT-444)
 multi gcell levels ON
 
@@ -5492,7 +5492,7 @@ Current Stage stats:
 [End of Initial Routing] Elapsed real time: 0:00:00 
 [End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Initial Routing] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[End of Initial Routing] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Initial. Routing result:
 Initial. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
 Initial. H routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
@@ -5532,7 +5532,7 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 
 Start GR phase 1
-Tue Sep  5 21:38:01 2023
+Wed Sep  6 16:01:41 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -5540,7 +5540,7 @@ Current Stage stats:
 [End of Phase1 Routing] Elapsed real time: 0:00:00 
 [End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase1 Routing] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[End of Phase1 Routing] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Number of partitions: 1 (1 x 1)
 phase1. Routing result:
 phase1. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
@@ -5581,7 +5581,7 @@ phase1. Via M4M5_PR count = 0
 phase1. completed.
 
 Start GR phase 2
-Tue Sep  5 21:38:01 2023
+Wed Sep  6 16:01:41 2023
 Number of partitions: 1 (1 x 1)
 [rtOvlpParts] Elapsed real time: 0:00:00 
 [rtOvlpParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
@@ -5592,7 +5592,7 @@ Current Stage stats:
 [End of Phase2 Routing] Elapsed real time: 0:00:00 
 [End of Phase2 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Phase2 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Phase2 Routing] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[End of Phase2 Routing] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Number of partitions: 1 (1 x 1)
 phase2. Routing result:
 phase2. Both Dirs: Overflow =     0 Max = 1 GRCs =     1 (0.62%)
@@ -5634,7 +5634,7 @@ phase2. completed.
 [End of Whole Chip Routing] Elapsed real time: 0:00:00 
 [End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Whole Chip Routing] Stage (MB): Used  177  Alloctr  177  Proc   64 
-[End of Whole Chip Routing] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[End of Whole Chip Routing] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Number of partitions: 1 (1 x 1)
 
 Congestion utilization per direction:
@@ -5647,30 +5647,30 @@ Current Stage stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[GR: Done] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[GR: Done] Total (MB): Used  196  Alloctr  197  Proc 3928 
 GR Total stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used  188  Alloctr  189  Proc   64 
-[GR: Done] Total (MB): Used  196  Alloctr  197  Proc 3936 
+[GR: Done] Total (MB): Used  196  Alloctr  197  Proc 3928 
 Writing out congestion map...
 Updating congestion ...
 Updating congestion ...
 [DBOUT] Elapsed real time: 0:00:00 
 [DBOUT] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [DBOUT] Stage (MB): Used  -11  Alloctr  -11  Proc    0 
-[DBOUT] Total (MB): Used   36  Alloctr   37  Proc 3936 
+[DBOUT] Total (MB): Used   36  Alloctr   37  Proc 3928 
 Final total stats:
 [End of Global Routing] Elapsed real time: 0:00:00 
 [End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Global Routing] Stage (MB): Used   29  Alloctr   29  Proc   64 
-[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3936 
+[End of Global Routing] Total (MB): Used   36  Alloctr   37  Proc 3928 
 
 ****************************************
 Report : congestion
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:38:01 2023
+Date   : Wed Sep  6 16:01:41 2023
 ****************************************
 
 Layer     |    overflow     |              # GRCs has
@@ -5756,8 +5756,8 @@ ZRT-707     Information             0              4            0
 Diagnostics summary: 360 warnings, 320 informationals
 echo [exec date +%s] > place_opt 
 exit
-Maximum memory usage for this session: 935.49 MB
-Maximum memory usage for this session including child processes: 935.49 MB
-CPU usage for this session:    100 seconds (  0.03 hours)
-Elapsed time for this session:    108 seconds (  0.03 hours)
+Maximum memory usage for this session: 927.44 MB
+Maximum memory usage for this session including child processes: 1240.31 MB
+CPU usage for this session:     93 seconds (  0.03 hours)
+Elapsed time for this session:     99 seconds (  0.03 hours)
 Thank you for using IC Compiler II.

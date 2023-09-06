@@ -1,0 +1,25 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : counter
+Scenario(s): mode_norm.slow.RCmax mode_norm.fast.RCmin
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:59:15 2023
+****************************************
+
+
+   min_delay/hold ('clock' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack             Scenario
+   -----------------------------------------------------------------
+   value_reg_0_/SCD            0.155          0.130 r       -0.025  (VIOLATED) mode_norm.fast.RCmin
+   value_reg_2_/SCD            0.156          0.143 r       -0.013  (VIOLATED) mode_norm.fast.RCmin
+
+
+1

@@ -3,7 +3,7 @@
  Options: { pre_route_stage }
  Design : counter
  Version: S-2021.06-SP3
- Date   : Tue Sep  5 21:41:10 2023
+ Date   : Wed Sep  6 16:04:33 2023
 ****************************************
 
 Running mega-check 'pre_route_stage': 
@@ -39,5 +39,5 @@ Running mega-check 'pre_route_stage':
   ----------------------------------------------------------------------------------------------------
 
 Information: EMS database is saved to file 'check_design.pre_route_stage.ems'.
-Information: Non-EMS messages are saved into file 'check_design2023Sep05214110.log'.
+Information: Non-EMS messages are saved into file 'check_design2023Sep06160433.log'.
 1

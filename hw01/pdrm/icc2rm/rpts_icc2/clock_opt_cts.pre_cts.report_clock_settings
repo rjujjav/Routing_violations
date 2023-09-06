@@ -1,12 +1,12 @@
 Information: Timer using 8 threads
 Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
-Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
 ****************************************
  Report : clock settings
  Design : counter
- Date   : Tue Sep  5 21:39:03 2023
+ Date   : Wed Sep  6 16:02:37 2023
 ****************************************
 
 

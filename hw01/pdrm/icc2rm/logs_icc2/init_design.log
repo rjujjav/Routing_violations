@@ -862,7 +862,7 @@ Top level ports: 12
 Total ports in all modules: 16
 Total nets in all modules: 36
 Total instances in all modules: 23
-Elapsed = 00:00:00.05, CPU = 00:00:00.00
+Elapsed = 00:00:00.03, CPU = 00:00:00.01
 Using libraries: counter sky130_fd_sc_hs
 Linking block counter:counter.design
 Information: User units loaded from library 'sky130_fd_sc_hs' (LNK-040)
@@ -922,7 +922,7 @@ RM-info: Sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_f
 puts "Information: sourcing [info script]";
 Information: sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_files/counter.MCMM/top.tcl
 remove_modes -all;remove_corners -all;remove_scenarios -all;
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable _search_path $::search_path;
   set ::search_path [linsert $_search_path 0 [file normalize [file dirname [info script]]] ];
 
@@ -935,7 +935,7 @@ create_scenario -mode mode_norm.slow.RCmax -corner mode_norm.slow.RCmax -name mo
 Created scenario mode_norm.slow.RCmax for mode mode_norm.slow.RCmax and corner mode_norm.slow.RCmax
 All analysis types are activated.
 set_app_options -list { time.convert_constraint_from_bc_wc wc_only};
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
   source -continue_on_error scenario_mode_norm_slow_RCmax.tcl;
   set_message_info -id CMD-005 -limit $_se; unset _se
@@ -950,7 +950,7 @@ create_scenario -mode mode_norm.slow.RCmax_bc -corner mode_norm.slow.RCmax_bc -n
 Created scenario mode_norm.slow.RCmax_bc for mode mode_norm.slow.RCmax_bc and corner mode_norm.slow.RCmax_bc
 All analysis types are activated.
 set_app_options -list { time.convert_constraint_from_bc_wc bc_only};
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable _se [::get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
   source -continue_on_error scenario_mode_norm_slow_RCmax.tcl;
   ::set_message_info -id CMD-005 -limit $_se; unset _se
@@ -983,7 +983,7 @@ create_scenario -mode mode_norm.fast.RCmin -corner mode_norm.fast.RCmin -name mo
 Created scenario mode_norm.fast.RCmin for mode mode_norm.fast.RCmin and corner mode_norm.fast.RCmin
 All analysis types are activated.
 set_app_options -list { time.convert_constraint_from_bc_wc wc_only};
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
   source -continue_on_error scenario_mode_norm_fast_RCmin.tcl;
   set_message_info -id CMD-005 -limit $_se; unset _se
@@ -997,7 +997,7 @@ create_scenario -mode mode_norm.fast.RCmin_bc -corner mode_norm.fast.RCmin_bc -n
 Created scenario mode_norm.fast.RCmin_bc for mode mode_norm.fast.RCmin_bc and corner mode_norm.fast.RCmin_bc
 All analysis types are activated.
 set_app_options -list { time.convert_constraint_from_bc_wc bc_only};
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable _se [::get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
   source -continue_on_error scenario_mode_norm_fast_RCmin.tcl;
   ::set_message_info -id CMD-005 -limit $_se; unset _se
@@ -1030,7 +1030,7 @@ if [sizeof_collection [get_scenarios -quiet -filter hold]] {set_scenario_status 
 Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.fast.RCmin_bc) is active for hold/leakage_power/min_capacitance analysis.
 set_app_options -list { time.convert_constraint_from_bc_wc none};
 ## these were the acive and current scenarios in the generation session
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   variable inactive_scenarios [::remove_from_collection [::get_scenarios] [::get_scenarios [list mode_norm.slow.RCmax mode_norm.slow.RCmax_bc mode_norm.fast.RCmin mode_norm.fast.RCmin_bc]]];
   ::set_scenario_status -active true *;
   if [::sizeof_collection $inactive_scenarios] {
@@ -1047,14 +1047,14 @@ Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.
 Scenario mode_norm.slow.RCmax (mode mode_norm.slow.RCmax corner mode_norm.slow.RCmax) is active for setup/max_transition/max_capacitance analysis.
 Warning: Scenario mode_norm.slow.RCmax_bc has no analysis types to activate. (CSTR-026)
 Scenario mode_norm.slow.RCmax_bc (mode mode_norm.slow.RCmax_bc corner mode_norm.slow.RCmax_bc) is active, but has no analysis configured.
-namespace eval 64F7D749 {
+namespace eval 64F8DA0C {
   proc set_tlu_plus_files {args} {}; ## Do not want these applied globally
   variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
   source -continue_on_error design.tcl;
   set_message_info -id CMD-005 -limit $_se; unset _se
   set ::search_path $_search_path;
 }
-namespace delete 64F7D749;
+namespace delete 64F8DA0C;
 puts "Information: sourced [info script]";
 Information: sourced /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_files/counter.MCMM/top.tcl
 ## Following lines are applicable for designs with physical hierarchy
@@ -1076,7 +1076,7 @@ Information: Total 0 power switch cell(s) in the design. (MV-021)
 Information: Total 0 netlist change(s) have been made to resolve conflicts between power intent and PG netlist. (UPF-073)
 associate_mv_cells -all
 Information: Starting 'associate_mv_cells' (FLW-8000)
-Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:07 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
 Information: Total 0 isolation cell(s) in the design. (MV-021)
 Information: Total 0 level shifter cell(s) in the design. (MV-021)
 Information: Total 0 enable level shifter cell(s) in the design. (MV-021)
@@ -1084,7 +1084,7 @@ Information: Total 0 repeater cell(s) in the design. (MV-021)
 Information: Total 0 retention cell(s) in the design. (MV-021)
 Information: Total 0 power switch cell(s) in the design. (MV-021)
 Information: Ending 'associate_mv_cells' (FLW-8001)
-Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:07 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
 ################################################################
 ## Floorplanning  
 ################################################################
@@ -1225,7 +1225,7 @@ Initializing floorplan completed.
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:21 2023
+Date   : Wed Sep  6 16:00:07 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -1267,9 +1267,9 @@ Committing wires takes 0.00 seconds.
 Committed 0 vias.
 Committed 0 wires for via creation.
 Committing vias takes 0.00 seconds.
-Overall PG creation runtime: 0 seconds.
+Overall PG creation runtime: 1 seconds.
 Successfully compiled PG.
-Overall runtime: 0 seconds.
+Overall runtime: 1 seconds.
 Successfully create mesh pattern mesh_pattern.
 Successfully set PG strategy mesh_strategy.
 No PG via master rule is defined.
@@ -1331,7 +1331,7 @@ Overall runtime: 0 seconds.
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:21 2023
+Date   : Wed Sep  6 16:00:08 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -1343,7 +1343,7 @@ Unconnected pwell pins        22
 Information: connections of 0 power/ground pin(s) are created or changed.
 Information: The command 'create_placement' cleared the undo history. (UNDO-016)
 Information: Starting 'create_placement' (FLW-8000)
-Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 347 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:08 / Session: 0.01 hr / Command: 0.00 hr / Memory: 347 MB (FLW-8100)
 
 Create Placement Options:
 Effort:                        high_effort         
@@ -1356,10 +1356,10 @@ Congestion:                    false
 Printing options for 'place.coarse.*' (non-default only)
 place.coarse.continue_on_missing_scandef                :	 true                
 
-Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
-Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
 Corner Scaling is off, multiplier is 1.000000
 ORB: timingScenario mode_norm.slow.RCmax timingCorner mode_norm.slow.RCmax
 INFO: Using corner mode_norm.fast.RCmin for worst leakage corner
@@ -1413,9 +1413,9 @@ Warning: No clock routing rules were specified. Use set_clock_routing_rules to s
 Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_bc'. (OPT-909)
 Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
 Start DFT optimization
-START_CMD: optimize_dft        CPU:     16 s ( 0.00 hr) ELAPSE:     34 s ( 0.01 hr) MEM-PEAK:   417 Mb Tue Sep  5 21:36:22 2023
+START_CMD: optimize_dft        CPU:     16 s ( 0.00 hr) ELAPSE:     32 s ( 0.01 hr) MEM-PEAK:   417 Mb Wed Sep  6 16:00:09 2023
 DFT optimization is skipped due to no scan chains were found
-END_CMD: optimize_dft          CPU:     16 s ( 0.00 hr) ELAPSE:     34 s ( 0.01 hr) MEM-PEAK:   417 Mb Tue Sep  5 21:36:22 2023
+END_CMD: optimize_dft          CPU:     16 s ( 0.00 hr) ELAPSE:     32 s ( 0.01 hr) MEM-PEAK:   417 Mb Wed Sep  6 16:00:09 2023
 End DFT optimization
 Start TieCellOpt
 Number of Site types in the design = 1
@@ -1442,9 +1442,9 @@ INFO: Tie cell support for abstract block enabled
 INFO: total number of constant pins: 0
 End TieCellOpt
 Information: Ending 'create_placement' (FLW-8001)
-Information: Time: 2023-09-05 21:36:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:09 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
 Information: Starting 'legalize_placement' (FLW-8000)
-Information: Time: 2023-09-05 21:36:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:09 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
 nplDplc2Placer::setParam(effort,1)
 nplDplc2Placer::setParam(debug,0)
 nplDplc2Placer::setParam(site_check,2)
@@ -1591,11 +1591,11 @@ Cell: value_reg_0_ (sky130_fd_sc_hs__sdfxtp_1)
 
 Information: Extraction observers are detached as design net change threshold is reached.
 Legalization succeeded.
-Total Legalizer CPU: 0.420
-Total Legalizer Wall Time: 0.524
+Total Legalizer CPU: 0.522
+Total Legalizer Wall Time: 0.559
 ----------------------------------------------------------------
 Information: Ending 'legalize_placement' (FLW-8001)
-Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
 Information: The command 'check_legality' cleared the undo history. (UNDO-016)
 
 ************************
@@ -1632,7 +1632,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0000 seconds to build cellmap data
+Total 0.0100 seconds to build cellmap data
 Information: Creating classic rule checker.
 =====> Processed 10 ref cells (0 fillers) from library
 Design has no advanced rules
@@ -1754,13 +1754,13 @@ Number of VSS Terminals: 4
   Number of floating hierarchical blocks: 0
 ************************************************************
 Overall runtime: 0 seconds.
-Command check_pg_drc started  at Tue Sep  5 21:36:23 2023
-Command check_pg_drc finished at Tue Sep  5 21:36:23 2023
-CPU usage for check_pg_drc: 0.06 seconds ( 0.00 hours)
+Command check_pg_drc started  at Wed Sep  6 16:00:10 2023
+Command check_pg_drc finished at Wed Sep  6 16:00:10 2023
+CPU usage for check_pg_drc: 0.07 seconds ( 0.00 hours)
 Elapsed time for check_pg_drc: 0.01 seconds ( 0.00 hours)
 No errors found.
 Information: Starting 'place_pins' (FLW-8000)
-Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
 Load DB...
 CPU Time for load db: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
 
@@ -1893,8 +1893,8 @@ Total stats:
 Current Stage stats:
 [End of Blocked Pin Detection] Elapsed real time: 0:00:00 
 [End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
-[End of Blocked Pin Detection] Stage (MB): Used   12  Alloctr   12  Proc    2 
-[End of Blocked Pin Detection] Total (MB): Used   47  Alloctr   47  Proc 3352 
+[End of Blocked Pin Detection] Stage (MB): Used   12  Alloctr   12  Proc    4 
+[End of Blocked Pin Detection] Total (MB): Used   47  Alloctr   47  Proc 3354 
 Information: Using 8 threads for routing. (ZRT-444)
 
 Start GR phase 0
@@ -1902,7 +1902,7 @@ Current Stage stats:
 [End of Initial Routing] Elapsed real time: 0:00:00 
 [End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[End of Initial Routing] Total (MB): Used   47  Alloctr   47  Proc 3352 
+[End of Initial Routing] Total (MB): Used   47  Alloctr   47  Proc 3354 
 Initial. Routing result:
 Initial. Both Dirs: Overflow =     0 Max = 0 GRCs =     0 (0.00%)
 Initial. H routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
@@ -1930,33 +1930,33 @@ Initial. Via M4M5_PR count = 0
 Initial. completed.
 [End of Whole Chip Routing] Elapsed real time: 0:00:00 
 [End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
-[End of Whole Chip Routing] Stage (MB): Used   13  Alloctr   13  Proc    2 
-[End of Whole Chip Routing] Total (MB): Used   47  Alloctr   47  Proc 3352 
+[End of Whole Chip Routing] Stage (MB): Used   13  Alloctr   13  Proc    4 
+[End of Whole Chip Routing] Total (MB): Used   47  Alloctr   47  Proc 3354 
 Current Stage stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3352 
+[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3354 
 GR Total stats:
 [GR: Done] Elapsed real time: 0:00:00 
 [GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
-[GR: Done] Stage (MB): Used   16  Alloctr   16  Proc    2 
-[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3352 
+[GR: Done] Stage (MB): Used   16  Alloctr   16  Proc    4 
+[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3354 
 Final total stats:
 [End of Global Routing] Elapsed real time: 0:00:00 
 [End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
-[End of Global Routing] Stage (MB): Used    8  Alloctr    8  Proc    2 
-[End of Global Routing] Total (MB): Used   38  Alloctr   39  Proc 3352 
-CPU Time for Global Route: 00:00:00.10u 00:00:00.04s 00:00:00.12e: 
+[End of Global Routing] Stage (MB): Used    8  Alloctr    8  Proc    4 
+[End of Global Routing] Total (MB): Used   38  Alloctr   39  Proc 3354 
+CPU Time for Global Route: 00:00:00.16u 00:00:00.03s 00:00:00.18e: 
 Number of block ports: 12
 Number of block pin locations assigned from router: 12
 CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
 Number of PG ports on blocks: 0
 Number of pins created: 12
 CPU Time for Pin Creation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
-Total Pin Placement CPU Time: 00:00:00.10u 00:00:00.04s 00:00:00.12e: 
+Total Pin Placement CPU Time: 00:00:00.16u 00:00:00.04s 00:00:00.18e: 
 Information: Ending 'place_pins' (FLW-8001)
-Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 435 MB (FLW-8100)
+Information: Time: 2023-09-06 16:00:10 / Session: 0.01 hr / Command: 0.00 hr / Memory: 437 MB (FLW-8100)
 RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/floorplan.tcl
 
 ################################################################
@@ -2158,7 +2158,7 @@ if {$TCL_USER_CONNECT_PG_NET_SCRIPT != ""} {
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:23 2023
+Date   : Wed Sep  6 16:00:10 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -2272,7 +2272,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 Timing
@@ -2298,7 +2298,7 @@ Report : global timing
         -report_by design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 No setup violations found.
@@ -2322,7 +2322,7 @@ Report : check_mv_design
         -voltage_threshold 0
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -2406,7 +2406,7 @@ Report : check_mv_design
         -power_connectivity
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -2515,7 +2515,7 @@ Information: Total 0 error(s) and 44 warning(s) from check_mv_design. (MV-082)
 Report : check_mv_design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -2631,7 +2631,7 @@ Report : Power Domain
 Design : counter
 Corner : mode_norm.slow.RCmax
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Power Domain            :  DEFAULT_POWER_DOMAIN
@@ -2674,7 +2674,7 @@ RM-info: Reporting design information ...
 Report : report_utilization
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:21 2023
 ****************************************
 Utilization Ratio:			0.5200
 Utilization options:
@@ -2709,7 +2709,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:35 2023
+Date   : Wed Sep  6 16:00:21 2023
 ****************************************
 Information: Timer using 'Zero-interconnect Delay Calculation'. (TIM-050)
 
@@ -2800,8 +2800,8 @@ ZRT-707     Information             0              1            0
 Diagnostics summary: 5 errors, 101 warnings, 106 informationals
 echo [exec date +%s] > init_design
 exit
-Maximum memory usage for this session: 458.57 MB
-Maximum memory usage for this session including child processes: 458.57 MB
-CPU usage for this session:     25 seconds (  0.01 hours)
-Elapsed time for this session:     47 seconds (  0.01 hours)
+Maximum memory usage for this session: 468.64 MB
+Maximum memory usage for this session including child processes: 468.64 MB
+CPU usage for this session:     26 seconds (  0.01 hours)
+Elapsed time for this session:     44 seconds (  0.01 hours)
 Thank you for using IC Compiler II.

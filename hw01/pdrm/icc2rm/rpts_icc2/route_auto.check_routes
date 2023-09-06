@@ -64,7 +64,7 @@ Begin full DRC check ...
 Information: Using 8 threads for routing. (ZRT-444)
 Checked	1/1 Partitions, Violations =	0
 [DRC CHECK] Elapsed real time: 0:00:00 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:02 total=0:00:04
+[DRC CHECK] Elapsed cpu  time: sys=0:00:00 usr=0:00:02 total=0:00:03
 [DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc    0 
 [DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4453 
 Warning: No antenna rules defined, Skip antenna analysis. (ZRT-309)

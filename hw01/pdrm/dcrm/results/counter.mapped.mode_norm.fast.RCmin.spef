@@ -1,0 +1,318 @@
+*SPEF "IEEE 1481-1999"
+*DESIGN "counter"
+*DATE "Wed Sep  6 15:59:14 2023"
+*VENDOR "SYNOPSYS INC"
+*PROGRAM "Synopsys Design Compiler cmos"
+*VERSION "S-2021.06-SP3"
+*DESIGN_FLOW "SYNTHESIS"
+*DIVIDER /
+*DELIMITER :
+*BUS_DELIMITER []
+*T_UNIT 1.0 NS
+*C_UNIT 1.0 PF
+*R_UNIT 1.0 KOHM
+*L_UNIT 1.0 HENRY
+
+*PORTS
+
+clock I *L 0.000e+00 *S 0.000e+00 0.000e+00 
+reset I *L 0.000e+00 *S 0.000e+00 2.954e-02 *D sky130_fd_sc_hs__dfrtp_1 
+in\[3\] I *L 0.000e+00 *S 0.000e+00 6.872e-03 *D sky130_fd_sc_hs__dfrtp_1 
+in\[2\] I *L 0.000e+00 *S 0.000e+00 7.644e-03 *D sky130_fd_sc_hs__dfrtp_1 
+in\[1\] I *L 0.000e+00 *S 0.000e+00 7.694e-03 *D sky130_fd_sc_hs__dfrtp_1 
+in\[0\] I *L 0.000e+00 *S 0.000e+00 8.244e-03 *D sky130_fd_sc_hs__dfrtp_1 
+latch I *L 0.000e+00 *S 0.000e+00 2.817e-02 *D sky130_fd_sc_hs__dfrtp_1 
+dec I *L 0.000e+00 *S 0.000e+00 1.642e-02 *D sky130_fd_sc_hs__dfrtp_1 
+zero O *L 2.052e-02 *S 1.646e-01 8.623e-02 
+test_si I *L 0.000e+00 *S 0.000e+00 0.000e+00 
+test_so O *L 0.000e+00 *S 2.722e-02 2.432e-02 
+test_se I *L 0.000e+00 *S 0.000e+00 0.000e+00 
+
+*R_NET clock 1.407e-02
+*DRIVER clock
+*CELL NULL
+*C2_R1_C1 7.034e-03 8.650e-02 7.034e-03 
+*LOADS
+*RC clk_gate_value_reg/latch:CLK 1.217e-03
+*END
+
+*R_NET reset 1.182e-02
+*DRIVER reset
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 5.910e-03 2.437e-02 5.910e-03 
+*LOADS
+*RC U26:A 8.999e-05
+*RC U28:A 7.244e-05
+*RC U34:A 8.551e-05
+*END
+
+*R_NET in\[3\] 2.608e-03
+*DRIVER in\[3\]
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 1.304e-03 7.462e-03 1.304e-03 
+*LOADS
+*RC U37:A2_N 8.470e-06
+*END
+
+*R_NET in\[2\] 2.901e-03
+*DRIVER in\[2\]
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 1.450e-03 1.159e-02 1.450e-03 
+*LOADS
+*RC U33:A2_N 1.402e-05
+*END
+
+*R_NET in\[1\] 2.920e-03
+*DRIVER in\[1\]
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 1.460e-03 1.116e-02 1.460e-03 
+*LOADS
+*RC U31:A2_N 1.317e-05
+*END
+
+*R_NET in\[0\] 3.129e-03
+*DRIVER in\[0\]
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 1.564e-03 1.132e-02 1.564e-03 
+*LOADS
+*RC U29:A2_N 1.385e-05
+*END
+
+*R_NET latch 1.114e-02
+*DRIVER latch
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 5.570e-03 2.279e-02 5.570e-03 
+*LOADS
+*RC U26:C 8.011e-05
+*RC U28:B_N 6.998e-05
+*RC U34:B 7.886e-05
+*END
+
+*R_NET dec 6.231e-03
+*DRIVER dec
+*CELL sky130_fd_sc_hs__dfrtp_1
+*C2_R1_C1 3.116e-03 9.257e-03 3.116e-03 
+*LOADS
+*RC U27:A 1.357e-05
+*RC U35:B 1.038e-05
+*END
+
+*R_NET zero 2.613e-02
+*DRIVER U25:Y
+*CELL sky130_fd_sc_hs__nor2_1
+*C2_R1_C1 1.306e-02 5.488e-03 1.306e-02 
+*LOADS
+*RC U26:B 1.598e-05
+*RC zero 4.041e-05
+*END
+
+*R_NET test_so 8.264e-03
+*DRIVER value_reg_3_:Q
+*CELL sky130_fd_sc_hs__sdfxtp_1
+*C2_R1_C1 4.132e-03 2.300e-02 4.132e-03 
+*LOADS
+*RC test_so 2.354e-05
+*RC U25:A 5.437e-05
+*RC U36:A 6.052e-05
+*END
+
+*R_NET value_2_ 7.658e-03
+*DRIVER value_reg_2_:Q
+*CELL sky130_fd_sc_hs__sdfxtp_1
+*C2_R1_C1 3.829e-03 1.906e-02 3.829e-03 
+*LOADS
+*RC value_reg_0_:SCD 3.885e-05
+*RC U23:A 1.170e-05
+*END
+
+*R_NET value_1_ 1.177e-02
+*DRIVER value_reg_1_:Q
+*CELL sky130_fd_sc_hs__sdfxtp_1
+*C2_R1_C1 5.887e-03 2.506e-02 5.887e-03 
+*LOADS
+*RC value_reg_2_:SCD 4.738e-05
+*RC U22:B 8.009e-05
+*RC U30:A1 8.717e-05
+*END
+
+*R_NET value_0_ 1.695e-02
+*DRIVER value_reg_0_:Q
+*CELL sky130_fd_sc_hs__sdfxtp_1
+*C2_R1_C1 8.474e-03 2.741e-02 8.474e-03 
+*LOADS
+*RC value_reg_3_:SCD 8.799e-05
+*RC U22:A 1.170e-04
+*RC U29:B1 1.212e-04
+*RC U30:A2 1.210e-04
+*END
+
+*R_NET N10 2.819e-03
+*DRIVER U38:Y
+*CELL sky130_fd_sc_hs__nand2_1
+*C2_R1_C1 1.410e-03 1.384e-02 1.410e-03 
+*LOADS
+*RC clk_gate_value_reg/latch:GATE 2.071e-05
+*END
+
+*R_NET N11 3.429e-03
+*DRIVER U29:Y
+*CELL sky130_fd_sc_hs__o2bb2ai_1
+*C2_R1_C1 1.715e-03 1.850e-02 1.715e-03 
+*LOADS
+*RC value_reg_0_:D 2.327e-05
+*END
+
+*R_NET N12 3.407e-03
+*DRIVER U31:Y
+*CELL sky130_fd_sc_hs__o2bb2ai_1
+*C2_R1_C1 1.703e-03 1.847e-02 1.703e-03 
+*LOADS
+*RC value_reg_1_:D 2.314e-05
+*END
+
+*R_NET N13 4.115e-03
+*DRIVER U33:Y
+*CELL sky130_fd_sc_hs__o2bb2ai_1
+*C2_R1_C1 2.057e-03 2.026e-02 2.057e-03 
+*LOADS
+*RC value_reg_2_:D 2.920e-05
+*END
+
+*R_NET N14 2.647e-03
+*DRIVER U37:Y
+*CELL sky130_fd_sc_hs__o2bb2ai_1
+*C2_R1_C1 1.323e-03 9.612e-03 1.323e-03 
+*LOADS
+*RC value_reg_3_:D 1.100e-05
+*END
+
+*R_NET net33 1.673e-02
+*DRIVER clk_gate_value_reg/latch:GCLK
+*CELL sky130_fd_sc_hs__sdlclkp_1
+*C2_R1_C1 8.364e-03 3.102e-01 8.364e-03 
+*LOADS
+*RC value_reg_0_:CLK 3.243e-04
+*RC value_reg_3_:CLK 3.243e-04
+*RC value_reg_1_:CLK 3.243e-04
+*RC value_reg_2_:CLK 3.243e-04
+*END
+
+*R_NET n13 4.460e-03
+*DRIVER U26:Y
+*CELL sky130_fd_sc_hs__nor3_1
+*C2_R1_C1 2.230e-03 1.781e-02 2.230e-03 
+*LOADS
+*RC U27:B 2.958e-05
+*END
+
+*R_NET n14 3.239e-03
+*DRIVER U30:Y
+*CELL sky130_fd_sc_hs__a21oi_1
+*C2_R1_C1 1.620e-03 8.375e-03 1.620e-03 
+*LOADS
+*RC U31:B1 1.166e-05
+*END
+
+*R_NET n15 8.700e-03
+*DRIVER U23:Y
+*CELL sky130_fd_sc_hs__inv_1
+*C2_R1_C1 4.350e-03 2.739e-02 4.350e-03 
+*LOADS
+*RC U24:B 7.107e-05
+*RC U32:A2 7.511e-05
+*END
+
+*R_NET n16 9.283e-03
+*DRIVER U22:Y
+*CELL sky130_fd_sc_hs__nor2_1
+*C2_R1_C1 4.642e-03 1.197e-02 4.642e-03 
+*LOADS
+*RC U24:A 2.172e-05
+*RC U30:B1 1.240e-05
+*RC U32:A1 1.160e-05
+*END
+
+*R_NET n17 3.200e-03
+*DRIVER U32:X
+*CELL sky130_fd_sc_hs__o21a_1
+*C2_R1_C1 1.600e-03 7.313e-03 1.600e-03 
+*LOADS
+*RC U33:B2 9.599e-06
+*END
+
+*R_NET n18 1.065e-02
+*DRIVER U24:Y
+*CELL sky130_fd_sc_hs__nand2_1
+*C2_R1_C1 5.323e-03 1.346e-02 5.323e-03 
+*LOADS
+*RC U25:B 1.438e-05
+*RC U32:B1 2.696e-05
+*RC U36:B 2.936e-05
+*END
+
+*R_NET n19 1.436e-02
+*DRIVER U28:Y
+*CELL sky130_fd_sc_hs__nor2b_1
+*C2_R1_C1 7.180e-03 2.134e-02 7.180e-03 
+*LOADS
+*RC U29:A1_N 6.258e-05
+*RC U31:A1_N 7.164e-05
+*RC U33:A1_N 7.294e-05
+*RC U37:A1_N 5.957e-05
+*END
+
+*R_NET n20 3.299e-03
+*DRIVER U36:Y
+*CELL sky130_fd_sc_hs__nand2_1
+*C2_R1_C1 1.649e-03 1.183e-02 1.649e-03 
+*LOADS
+*RC U37:B2 2.046e-05
+*END
+
+*R_NET n21 3.593e-03
+*DRIVER U35:Y
+*CELL sky130_fd_sc_hs__nand2_1
+*C2_R1_C1 1.796e-03 1.084e-02 1.796e-03 
+*LOADS
+*RC U37:B1 1.795e-05
+*END
+
+*R_NET n22 1.472e-02
+*DRIVER U27:Y
+*CELL sky130_fd_sc_hs__nand2_1
+*C2_R1_C1 7.358e-03 1.521e-02 7.358e-03 
+*LOADS
+*RC U29:B2 3.687e-05
+*RC U31:B2 2.957e-05
+*RC U33:B1 3.031e-05
+*RC U38:B 2.480e-05
+*END
+
+*R_NET n23 7.904e-03
+*DRIVER U34:Y
+*CELL sky130_fd_sc_hs__nor2_1
+*C2_R1_C1 3.952e-03 1.827e-02 3.952e-03 
+*LOADS
+*RC U35:A 3.886e-05
+*RC U38:A 4.158e-05
+*END
+
+*R_NET test_se 2.519e-02
+*DRIVER test_se
+*CELL NULL
+*C2_R1_C1 1.259e-02 2.079e-02 1.259e-02 
+*LOADS
+*RC value_reg_0_:SCE 1.395e-04
+*RC value_reg_1_:SCE 1.250e-04
+*RC value_reg_2_:SCE 1.359e-04
+*RC value_reg_3_:SCE 1.098e-04
+*RC clk_gate_value_reg/latch:SCE 2.090e-05
+*END
+
+*R_NET test_si 4.336e-03
+*DRIVER test_si
+*CELL NULL
+*C2_R1_C1 2.168e-03 1.952e-02 2.168e-03 
+*LOADS
+*RC value_reg_1_:SCD 3.363e-05
+*END

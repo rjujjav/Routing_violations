@@ -1,0 +1,117 @@
+
+********************************************
+Report    : Scenario Reduction Summary
+Design    : counter
+Scenarios :
+	    mode_norm.slow.RCmax (dominant)
+	    mode_norm.fast.RCmin (Leakage-Only)
+********************************************
+
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer li1 : 0.00013 0.00013 (RCEX-011)
+Information: Library Derived Res for layer li1 : 0.072 0.072 (RCEX-011)
+Information: Library Derived Cap for layer met1 : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Res for layer met1 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met2 : 0.00018 0.00018 (RCEX-011)
+Information: Library Derived Res for layer met2 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met3 : 0.00027 0.00027 (RCEX-011)
+Information: Library Derived Res for layer met3 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met4 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer met4 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met5 : 0.00026 0.00026 (RCEX-011)
+Information: Library Derived Res for layer met5 : 1.8e-05 1.8e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00025 0.00025 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00036 0.00036 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00017 0.00017 (RCEX-011)
+Information: Library Derived Vertical Res : 0.024 0.024 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
+
+Running DFT insertion in topographical mode.
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+
+****************************************
+Preview_dft report
+For    : 'Insert_dft' command
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:58:24 2023
+****************************************
+
+Number of chains: 1
+Scan methodology: full_scan
+Scan style: multiplexed_flip_flop
+Clock domain: mix_clocks
+Voltage Mixing: False
+Power Domain Mixing: False
+
+
+Scan chain '1' (test_si --> test_so) contains 4 cells
+
+
+
+************ Test Point Plan Report ************
+Total number of test points  : 0
+Number of Autofix test points: 0
+Number of Wrapper test points: 0
+Number of test modes         : 0
+Number of test point enables : 0
+Number of data sources       : 0
+Number of data sinks         : 0
+**************************************************
+
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer li1 : 0.00013 0.00013 (RCEX-011)
+Information: Library Derived Res for layer li1 : 0.072 0.072 (RCEX-011)
+Information: Library Derived Cap for layer met1 : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Res for layer met1 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met2 : 0.00018 0.00018 (RCEX-011)
+Information: Library Derived Res for layer met2 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met3 : 0.00027 0.00027 (RCEX-011)
+Information: Library Derived Res for layer met3 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met4 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer met4 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met5 : 0.00026 0.00026 (RCEX-011)
+Information: Library Derived Res for layer met5 : 1.8e-05 1.8e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00025 0.00025 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00036 0.00036 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00017 0.00017 (RCEX-011)
+Information: Library Derived Vertical Res : 0.024 0.024 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer li1 : 0.00013 0.00013 (RCEX-011)
+Information: Library Derived Res for layer li1 : 0.072 0.072 (RCEX-011)
+Information: Library Derived Cap for layer met1 : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Res for layer met1 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met2 : 0.00018 0.00018 (RCEX-011)
+Information: Library Derived Res for layer met2 : 0.00089 0.00089 (RCEX-011)
+Information: Library Derived Cap for layer met3 : 0.00027 0.00027 (RCEX-011)
+Information: Library Derived Res for layer met3 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met4 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer met4 : 0.00016 0.00016 (RCEX-011)
+Information: Library Derived Cap for layer met5 : 0.00026 0.00026 (RCEX-011)
+Information: Library Derived Res for layer met5 : 1.8e-05 1.8e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00025 0.00025 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00036 0.00036 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00017 0.00017 (RCEX-011)
+Information: Library Derived Vertical Res : 0.024 0.024 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.0024 0.0024 (RCEX-011)
+1

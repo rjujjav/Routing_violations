@@ -2,7 +2,7 @@
 Report : qor
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter.design'. (TIM-125)
 Information: Design Average RC for design counter  (NEX-011)
@@ -132,7 +132,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:36:34 2023
+Date   : Wed Sep  6 16:00:20 2023
 ****************************************
 
 Timing

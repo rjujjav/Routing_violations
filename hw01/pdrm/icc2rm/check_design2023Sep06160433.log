@@ -1,0 +1,215 @@
+****************************************
+ Report : check_design
+ Options: { pre_route_stage }
+ Design : counter
+ Version: S-2021.06-SP3
+ Date   : Wed Sep  6 16:04:33 2023
+****************************************
+
+****************************************
+Report : Data Mismatches
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 16:04:33 2023
+****************************************
+No mismatches exist on the design.
+1
+****************************************
+Report : SCANDEF check
+Design : counter
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 16:04:33 2023
+****************************************
+  Checking between SCANDEF file and design:
+
+  Total PARTITION group count: 1
+  Total SCANCHAINS checked: 1
+  VALIDATED :  1
+  FAILED    :  0
+
+  Chain name     Status    #cells    #bits     PARTITION      Scan in        Scan out
+  1              V         4         4         clock_45_45_1.600000 test_si  test_so
+1
+1
+
+=========================================================
+==     Check for global route app-option  ==
+=========================================================
+
+>>> The option values are suggested.
+
+Cell Min-Routing-Layer = li1
+Cell Max-Routing-Layer = met5
+Turn off antenna since no rule is specified
+Information: Option route.detail.force_end_on_preferred_grid will be ignored since none of the layers have preferred grid. (ZRT-703)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand4_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand4_1, pin VNB) on layer pwell. (ZRT-030)
+Skipping 1 internal pins that are not physical. Set route.common.verbose_level to > 0 and run routing command to get skipped pin names.
+Info: number of net_type_blockage: 0 
+Via on layer (via4) needs more than one tracks
+Warning: Layer met4 pitch 0.960 may be too small: wire/via-down 0.615, wire/via-up 1.040. (ZRT-026)
+Transition layer name: met4(4)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 6.10 outside the layer range. (ZRT-707)
+Information: When applicable layer based tapering will taper up to 0.00 in distance from the pin. (ZRT-706)
+Printing options for 'route.common.*'
+common.interactive_mode_clear_timing                    :	 true                
+common.verbose_level                                    :	 0                   
+
+Printing options for 'route.detail.*'
+detail.antenna                                          :	 true                
+detail.eco_max_number_of_iterations                     :	 10                  
+detail.mode                                             :	 balanced            
+detail.timing_driven                                    :	 true                
+
+Printing options for 'route.auto_via_ladder.*'
+
+
+============================================
+==  Check for design                      ==
+============================================
+
+>>> No net contains a large number of ports 
+
+>>> No port contains a large number of pins 
+
+============================================
+==  Check for PG PreRoute setting         ==
+============================================
+ No number_of_secondary_pg_pin_connections setting and skip checking 
+ 
+============================================
+==  Check for overlap of standard cells   ==
+============================================
+
+>>>>>> No overlap of standard cells found
+
+============================================
+==     Check for min-grid violations      ==
+============================================
+
+>>>>>> No min-grid violations found
+
+
+============================================
+==    Check for out-of-boundary ports     ==
+============================================
+
+>>>>>> No out-of-boundary error found
+
+============================================
+==        Check for blocked ports         ==
+============================================
+
+>>>>>> No blocked ports found
+
+>>>>>> No blocked nets found
+
+============================================
+==     Check for shielding violations     ==
+============================================
+
+>>>>>> The following Non-PG net has a shape with shape_use shield_route
+
+>>> No non-PG net has a shape with shape_use shield_route.
+
+>>>>>> The following PG net has shape with shape_use detail_route and shape length is too long.
+
+>>> No PG net has shape with shape_use detail_route and shape length is too long.
+
+>>>>>> The following nets with shield non-default rule has no internal data representation in Zroute.
+
+>>> No nets with shield non-default rule has no internal data representation in Zroute.
+
+============================================
+==     Check for via cut blockage violation   ==
+============================================
+
+>>>>>> The following via cut blockages are wrongly treated as real vias.
+
+>>> No via cut blockage is wrongly treated as real via.
+
+============================================
+==     Check for custom via definition    ==
+============================================
+
+>>> No custom via definition has too many cuts
+
+============================================
+==          Check for via master          ==
+============================================
+
+>>> The total number of via master definition is 70
+
+===============================================
+==     Check non-default rule setting        ==
+===============================================
+
+>>> No NDR width is larger than signalRouteMaxWidth
+
+>>> No NDR shield width is larger than signalRouteMaxWidth
+
+======================================================
+==     Check redundant duplicated PG shapes         ==
+======================================================
+
+>>> No redundant duplicated PG shapes overlap with each other.
+
+===========================================================
+==     Check library cell has non-routing layer pins     ==
+===========================================================
+
+>>> No cell has non-routing layer pins to be connected.
+
+============================================
+==     Check over promoted nets           ==
+============================================
+Updating congestion ...
+Updating congestion ...
+
+>>> No over promoted nets.
+
+End of check_routability
+1
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DMM-104      Info   68         Mismatch type %mmtype is detected on object type %objtype at obj...
+  TCK-001      Warn   21         The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   6          The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 95 EMS messages : 0 errors, 27 warnings, 68 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary *** 
+  ----------------------------------------------------------------------------------------------------
+   Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+       ZRT-026                 1 Layer %s pitch %.3f may be too small: wire/via-down %.3f, wire/v...
+       ZRT-030                22 Ignore pin (cell %s, pin %s) on layer %s.
+       ZRT-703                 1 Option route.detail.force_end_on_preferred_grid will be ignored ...
+       ZRT-706                 1 When applicable layer based tapering will taper up to %.2f in di...
+       ZRT-707                 1 When applicable Min-max layer allow_pin_connection mode will all...
+  ----------------------------------------------------------------------------------------------------
+  Total 26 non-EMS messages : 0 errors, 23 warnings, 3 info.
+  ----------------------------------------------------------------------------------------------------

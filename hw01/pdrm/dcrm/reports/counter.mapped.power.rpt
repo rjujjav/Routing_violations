@@ -1,0 +1,103 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : counter
+Scenario(s): mode_norm.slow.RCmax
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:59:15 2023
+****************************************
+
+
+Library(s) Used:
+
+    sky130_fd_sc_hs (File: /mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db)
+
+
+Global Operating Voltage = 1.6  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+Information: Correlated power is not available. (PWR-761)
+Power Breakdown
+---------------
+
+                             Cell        Driven Net  Tot Dynamic      Cell
+                             Internal    Switching   Power (mW)       Leakage
+Cell                         Power (mW)  Power (mW)  (% Cell/Tot)     Power (nW)
+--------------------------------------------------------------------------------
+Netlist Power                   0.0490      0.0119   6.098e-02 (80%)  9.474e+03
+Estimated Clock Tree Power   N/A         N/A          (N/A)           N/A
+--------------------------------------------------------------------------------
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network  1.3291e-02        7.4894e-03          942.7819        2.1723e-02  (  30.83%)
+register       3.0248e-02        1.0555e-03        5.7508e+03        3.7055e-02  (  52.59%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  5.4978e-03        3.4014e-03        2.7800e+03        1.1679e-02  (  16.58%)
+--------------------------------------------------------------------------------------------------
+Total          4.9037e-02 mW     1.1946e-02 mW     9.4735e+03 nW     7.0456e-02 mW
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : counter
+Scenario(s): mode_norm.fast.RCmin
+Version: S-2021.06-SP3
+Date   : Wed Sep  6 15:59:15 2023
+****************************************
+
+
+Library(s) Used:
+
+    sky130_fd_sc_hs (File: /mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ff_n40C_1v95_ccsnoise.db)
+
+
+Global Operating Voltage = 1.95 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+Information: Correlated power is not available. (PWR-761)
+Power Breakdown
+---------------
+
+                             Cell        Driven Net  Tot Dynamic      Cell
+                             Internal    Switching   Power (mW)       Leakage
+Cell                         Power (mW)  Power (mW)  (% Cell/Tot)     Power (nW)
+--------------------------------------------------------------------------------
+Netlist Power                   0.0706      0.0180   8.856e-02 (80%)  2.210e+04
+Estimated Clock Tree Power   N/A         N/A          (N/A)           N/A
+--------------------------------------------------------------------------------
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network  1.8359e-02        1.1384e-02        2.6512e+03        3.2394e-02  (  29.27%)
+register       4.3573e-02        1.5587e-03        1.2999e+04        5.8130e-02  (  52.53%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  8.6565e-03        5.0310e-03        6.4483e+03        2.0136e-02  (  18.20%)
+--------------------------------------------------------------------------------------------------
+Total          7.0589e-02 mW     1.7973e-02 mW     2.2098e+04 nW         0.1107 mW
+1

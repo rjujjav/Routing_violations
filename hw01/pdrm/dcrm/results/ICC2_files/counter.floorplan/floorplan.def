@@ -1,0 +1,70 @@
+# 
+# SNPS write_def
+# Release      : S-2021.06-SP3
+# User Name    : rjujjav
+# Date         : Wed Sep  6 15:59:09 2023
+# 
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN counter ;
+UNITS DISTANCE MICRONS 1000 ;
+DIEAREA ( 0 0 ) ( 22560 23310 ) ;
+ROW ROW_0 unit 0 0 N DO 47 BY 1 STEP 480 0 ;
+ROW ROW_1 unit 0 3330 FS DO 47 BY 1 STEP 480 0 ;
+ROW ROW_2 unit 0 6660 N DO 47 BY 1 STEP 480 0 ;
+ROW ROW_3 unit 0 9990 FS DO 47 BY 1 STEP 480 0 ;
+ROW ROW_4 unit 0 13320 N DO 47 BY 1 STEP 480 0 ;
+ROW ROW_5 unit 0 16650 FS DO 47 BY 1 STEP 480 0 ;
+ROW ROW_6 unit 0 19980 N DO 47 BY 1 STEP 480 0 ;
+TRACKS X 240 DO 47 STEP 480 LAYER li1 ;
+TRACKS Y 185 DO 63 STEP 370 LAYER li1 ;
+TRACKS Y 185 DO 63 STEP 370 LAYER met1 ;
+TRACKS X 240 DO 47 STEP 480 LAYER met1 ;
+TRACKS X 240 DO 47 STEP 480 LAYER met2 ;
+TRACKS Y 185 DO 63 STEP 370 LAYER met2 ;
+TRACKS Y 370 DO 32 STEP 740 LAYER met3 ;
+TRACKS X 240 DO 47 STEP 480 LAYER met3 ;
+TRACKS X 480 DO 24 STEP 960 LAYER met4 ;
+TRACKS Y 370 DO 32 STEP 740 LAYER met4 ;
+TRACKS Y 1665 DO 7 STEP 3330 LAYER met5 ;
+TRACKS X 480 DO 24 STEP 960 LAYER met5 ;
+COMPONENTS 22 ;      
+ - clk_gate_value_reg/latch sky130_fd_sc_hs__sdlclkp_1 + PLACED ( 242 9990 ) N ;
+ - value_reg_3_ sky130_fd_sc_hs__sdfxtp_1 + PLACED ( 7725 0 ) N ;
+ - value_reg_2_ sky130_fd_sc_hs__sdfxtp_1 + PLACED ( 10575 13320 ) N ;
+ - value_reg_1_ sky130_fd_sc_hs__sdfxtp_1 + PLACED ( 9304 19980 ) N ;
+ - U22 sky130_fd_sc_hs__nor2_1 + PLACED ( 6436 19980 ) N ;
+ - U23 sky130_fd_sc_hs__inv_1 + PLACED ( 21119 16650 ) N ;
+ - U24 sky130_fd_sc_hs__nand2_1 + PLACED ( 8186 13320 ) N ;
+ - U25 sky130_fd_sc_hs__nor2_1 + PLACED ( 7800 3330 ) N ;
+ - U26 sky130_fd_sc_hs__nor3_1 + PLACED ( 7320 6660 ) N ;
+ - U27 sky130_fd_sc_hs__nand2_1 + PLACED ( 822 3330 ) N ;
+ - U28 sky130_fd_sc_hs__nor2b_1 + PLACED ( 9524 9990 ) N ;
+ - U29 sky130_fd_sc_hs__o2bb2ai_1 + PLACED ( 2585 6660 ) N ;
+ - U30 sky130_fd_sc_hs__a21oi_1 + PLACED ( 5798 19980 ) N ;
+ - U31 sky130_fd_sc_hs__o2bb2ai_1 + PLACED ( 1081 19980 ) N ;
+ - U32 sky130_fd_sc_hs__o21a_1 + PLACED ( 4806 16650 ) N ;
+ - U33 sky130_fd_sc_hs__o2bb2ai_1 + PLACED ( 768 16650 ) N ;
+ - U34 sky130_fd_sc_hs__nor2_1 + PLACED ( 8006 6660 ) N ;
+ - U35 sky130_fd_sc_hs__nand2_1 + PLACED ( 831 0 ) N ;
+ - U36 sky130_fd_sc_hs__nand2_1 + PLACED ( 5544 3330 ) N ;
+ - U37 sky130_fd_sc_hs__o2bb2ai_1 + PLACED ( 3284 0 ) N ;
+ - U38 sky130_fd_sc_hs__nand2_1 + PLACED ( 0 6660 ) N ;
+ - value_reg_0_ sky130_fd_sc_hs__sdfxtp_1 + PLACED ( 10914 6660 ) N ;
+END COMPONENTS
+PINS 12 ;      
+ - clock + NET clock + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 12950 ) W ;
+ - reset + NET reset + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 22410 9990 ) E ;
+ - in[3] + NET in[3] + DIRECTION INPUT + USE SIGNAL + LAYER met2 ( -70 -70 ) ( 70 70 ) + PLACED ( 4080 70 ) S ;
+ - in[2] + NET in[2] + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 16650 ) W ;
+ - in[1] + NET in[1] + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 20350 ) W ;
+ - in[0] + NET in[0] + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 7770 ) W ;
+ - latch + NET latch + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 22410 10730 ) E ;
+ - dec + NET dec + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 4070 ) W ;
+ - zero + NET zero + DIRECTION OUTPUT + USE SIGNAL + LAYER met2 ( -70 -70 ) ( 70 70 ) + PLACED ( 8400 23240 ) N ;
+ - test_si + NET test_si + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 22410 21090 ) E ;
+ - test_so + NET test_so + DIRECTION OUTPUT + USE SIGNAL + LAYER met2 ( -70 -70 ) ( 70 70 ) + PLACED ( 11760 70 ) S ;
+ - test_se + NET test_se + DIRECTION INPUT + USE SIGNAL + LAYER met3 ( -150 -150 ) ( 150 150 ) + PLACED ( 150 11470 ) W ;
+END PINS
+END DESIGN

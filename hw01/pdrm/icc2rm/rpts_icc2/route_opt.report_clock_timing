@@ -4,7 +4,7 @@ Report : clock timing
         -type summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Tue Sep  5 21:43:35 2023
+Date   : Wed Sep  6 16:06:45 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 
