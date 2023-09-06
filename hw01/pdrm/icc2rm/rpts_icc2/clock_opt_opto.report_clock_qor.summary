@@ -1,0 +1,72 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Warning: The scenario mode_norm.fast.RCmin has max transition DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+Warning: The scenario mode_norm.fast.RCmin has max capacitance DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+****************************************
+Report : clock qor
+        -type summary
+        -nosplit
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:40:58 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+===========================================================
+==== Summary Reporting for Corner mode_norm.fast.RCmin ====
+===========================================================
+
+=============================================== Summary Table for Corner mode_norm.fast.RCmin ================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin, Scenario: mode_norm.fast.RCmin
+clock                                   M,D         4      2        0      0.00     25.57      0.00      0.00         0         0     50.50
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.00      0.00         0         0     50.50
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+Warning: The scenario mode_norm.fast.RCmin_bc has max transition DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+Warning: The scenario mode_norm.fast.RCmin_bc has max capacitance DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+==============================================================
+==== Summary Reporting for Corner mode_norm.fast.RCmin_bc ====
+==============================================================
+
+============================================== Summary Table for Corner mode_norm.fast.RCmin_bc ==============================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin_bc, Scenario: mode_norm.fast.RCmin_bc
+clock                                   M,D         4      2        0      0.00     25.57      0.09      0.00         0         0     50.50
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.09      0.00         0         0     50.50
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+===========================================================
+==== Summary Reporting for Corner mode_norm.slow.RCmax ====
+===========================================================
+
+=============================================== Summary Table for Corner mode_norm.slow.RCmax ================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.slow.RCmax, Scenario: mode_norm.slow.RCmax
+clock                                   M,D         4      2        0      0.00     25.57      0.24      0.00         0         0     50.50
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.24      0.00         0         0     50.50
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+1

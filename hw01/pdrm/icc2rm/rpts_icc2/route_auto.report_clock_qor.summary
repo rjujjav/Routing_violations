@@ -1,0 +1,128 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
+Information: Freeing timing information from routing. (ZRT-574)
+Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/route_auto.design'. (TIM-125)
+Information: Design counter has 34 nets, 0 global routed, 32 detail routed. (NEX-024)
+Information: The RC mode used is DR for design 'counter'. (NEX-022)
+---extraction options---
+Corner: mode_norm.slow.RCmax
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: mode_norm.slow.RCmax_bc
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: mode_norm.fast.RCmin
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: mode_norm.fast.RCmin_bc
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Global options:
+ reference_direction       : use_from_tluplus
+ real_metalfill_extraction : none
+ virtual_shield_extraction : true
+---app options---
+ host.max_cores                   : 8
+ extract.connect_open           : true
+ extract.incremental_extraction : true
+ extract.enable_coupling_cap    : false
+Extracting design: counter 
+Information: coupling capacitance is lumped to ground. (NEX-030)
+Information: 32 nets are successfully extracted. (NEX-028)
+Information: Advanced waveform propagation is enabled. (PT-040)
+Information: PrimeTime context in timer is initialized.
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 32, routed nets = 32, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+Information: Update timing is using PrimeTime delay calculation. (TIM-201)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   primetime
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             full_design
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     enabled
+Advanced Receiver Model:                   disabled
+************************************************************
+Warning: The scenario mode_norm.fast.RCmin has max transition DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+Warning: The scenario mode_norm.fast.RCmin has max capacitance DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+****************************************
+Report : clock qor
+        -type summary
+        -nosplit
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:23 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+===========================================================
+==== Summary Reporting for Corner mode_norm.fast.RCmin ====
+===========================================================
+
+=============================================== Summary Table for Corner mode_norm.fast.RCmin ================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin, Scenario: mode_norm.fast.RCmin
+clock                                   M,D         4      2        0      0.00     25.57      0.00      0.00         0         0     50.65
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.00      0.00         0         0     50.65
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+Warning: The scenario mode_norm.fast.RCmin_bc has max transition DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+Warning: The scenario mode_norm.fast.RCmin_bc has max capacitance DRC fixing disabled using the set_scenario_status command.  High DRC count may be expected.
+==============================================================
+==== Summary Reporting for Corner mode_norm.fast.RCmin_bc ====
+==============================================================
+
+============================================== Summary Table for Corner mode_norm.fast.RCmin_bc ==============================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin_bc, Scenario: mode_norm.fast.RCmin_bc
+clock                                   M,D         4      2        0      0.00     25.57      0.09      0.00         0         0     50.65
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.09      0.00         0         0     50.65
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+===========================================================
+==== Summary Reporting for Corner mode_norm.slow.RCmax ====
+===========================================================
+
+=============================================== Summary Table for Corner mode_norm.slow.RCmax ================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.slow.RCmax, Scenario: mode_norm.slow.RCmax
+clock                                   M,D         4      2        0      0.00     25.57      0.25      0.00         0         0     50.65
+----------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                          4      2        0      0.00     25.57      0.25      0.00         0         0     50.65
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+1

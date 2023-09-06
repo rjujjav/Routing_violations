@@ -1,0 +1,974 @@
+Technology {
+	unitTimeName		= "ns"
+	timePrecision		= 1000
+	unitLengthName		= "micron"
+	unitVoltageName		= "V"
+	voltagePrecision	= 1000000
+	unitCurrentName		= "mA"
+	currentPrecision	= 1000000
+	unitPowerName		= "mw"
+	powerPrecision		= 1000000
+	unitResistanceName	= "kohm"
+	resistancePrecision	= 1000000
+	unitCapacitanceName	= "pf"
+	capacitancePrecision	= 1000000
+	unitInductanceName	= "nh"
+	inductancePrecision	= 100
+	date			= "Oct  5 2021"
+	dielectric		= 3.45e-05
+	lengthPrecision		= 1000
+	gridResolution		= 5
+	minBaselineTemperature	= 25
+	nomBaselineTemperature	= 25
+	maxBaselineTemperature	= 25
+}
+Color 43 {
+	name			= 43
+	rgbDefined		= 1
+	redIntensity		= 180
+	greenIntensity		= 175
+	blueIntensity		= 255
+}
+Color 47 {
+	name			= 47
+	rgbDefined		= 1
+	redIntensity		= 180
+	greenIntensity		= 255
+	blueIntensity		= 255
+}
+Tile "unit" {
+	width			= 0.48
+	height			= 3.33
+}
+Tile "unitdbl" {
+	width			= 0.48
+	height			= 6.66
+}
+Layer "nwell" {
+	layerNumber		= 1
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "white"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0
+	minWidth		= 0
+	minSpacing		= 0
+}
+Layer "pwell" {
+	layerNumber		= 2
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "white"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0
+	minWidth		= 0
+	minSpacing		= 0
+}
+Layer "li1" {
+	layerNumber		= 3
+	maskName		= "metal1"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "magenta"
+	lineStyle		= "solid"
+	pattern			= "wave"
+	pitch			= 0.48
+	defaultWidth		= 0.17
+	minWidth		= 0.17
+	minSpacing		= 0.17
+	unitMinResistance	= 0.0122
+	unitNomResistance	= 0.0122
+	unitMaxResistance	= 0.0122
+	unitMinCapacitance	= 0.000516
+	unitNomCapacitance	= 0.000516
+	unitMaxCapacitance	= 0.000516
+	isDefaultLayer		= 1
+	unitMinThickness	= 0.1
+	unitNomThickness	= 0.1
+	unitMaxThickness	= 0.1
+	fatTblDimension		= 1
+	fatTblThreshold		= (0)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (0.17)
+	minArea			= 0.0561
+}
+Layer "mcon" {
+	layerNumber		= 4
+	maskName		= "via1"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "white"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0.17
+	minWidth		= 0.17
+	minSpacing		= 0.19
+	isDefaultLayer		= 1
+}
+Layer "met1" {
+	layerNumber		= 5
+	maskName		= "metal2"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "blue"
+	lineStyle		= "solid"
+	pattern			= "wave"
+	pitch			= 0.37
+	defaultWidth		= 0.14
+	minWidth		= 0.14
+	minSpacing		= 0.14
+	unitMinResistance	= 0.000125
+	unitNomResistance	= 0.000125
+	unitMaxResistance	= 0.000125
+	unitMinCapacitance	= 0.000605
+	unitNomCapacitance	= 0.000605
+	unitMaxCapacitance	= 0.000605
+	isDefaultLayer		= 1
+	unitMinThickness	= 0.35
+	unitNomThickness	= 0.35
+	unitMaxThickness	= 0.35
+	fatTblDimension		= 2
+	fatTblThreshold		= (0, 3.001)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (0.14, 
+				   0.28)
+	minArea			= 0.083
+	minEnclosedArea		= 0.14
+}
+Layer "via" {
+	layerNumber		= 6
+	maskName		= "via2"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "43"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0.15
+	minWidth		= 0.15
+	minSpacing		= 0.17
+	isDefaultLayer		= 1
+}
+Layer "met2" {
+	layerNumber		= 7
+	maskName		= "metal3"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "cyan"
+	lineStyle		= "solid"
+	pattern			= "slash"
+	pitch			= 0.48
+	defaultWidth		= 0.14
+	minWidth		= 0.14
+	minSpacing		= 0.14
+	unitMinResistance	= 0.000125
+	unitNomResistance	= 0.000125
+	unitMaxResistance	= 0.000125
+	unitMinCapacitance	= 0.000556
+	unitNomCapacitance	= 0.000556
+	unitMaxCapacitance	= 0.000556
+	isDefaultLayer		= 1
+	unitMinThickness	= 0.35
+	unitNomThickness	= 0.35
+	unitMaxThickness	= 0.35
+	fatTblDimension		= 2
+	fatTblThreshold		= (0, 3.001)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (0.14, 
+				   0.28)
+	minArea			= 0.0676
+	minEnclosedArea		= 0.14
+}
+Layer "via2" {
+	layerNumber		= 8
+	maskName		= "via3"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "pink"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0.2
+	minWidth		= 0.2
+	minSpacing		= 0.2
+	isDefaultLayer		= 1
+}
+Layer "met3" {
+	layerNumber		= 9
+	maskName		= "metal4"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "yellow"
+	lineStyle		= "solid"
+	pattern			= "backSlash"
+	pitch			= 0.74
+	defaultWidth		= 0.3
+	minWidth		= 0.3
+	minSpacing		= 0.3
+	unitMinResistance	= 4.7e-05
+	unitNomResistance	= 4.7e-05
+	unitMaxResistance	= 4.7e-05
+	unitMinCapacitance	= 0.000286
+	unitNomCapacitance	= 0.000286
+	unitMaxCapacitance	= 0.000286
+	isDefaultLayer		= 1
+	unitMinThickness	= 0.8
+	unitNomThickness	= 0.8
+	unitMaxThickness	= 0.8
+	fatTblDimension		= 2
+	fatTblThreshold		= (0, 3.001)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (0.3, 
+				   0.4)
+	minArea			= 0.24
+}
+Layer "via3" {
+	layerNumber		= 10
+	maskName		= "via4"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "47"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0.2
+	minWidth		= 0.2
+	minSpacing		= 0.2
+	isDefaultLayer		= 1
+}
+Layer "met4" {
+	layerNumber		= 11
+	maskName		= "metal5"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "green"
+	lineStyle		= "solid"
+	pattern			= "slash"
+	pitch			= 0.96
+	defaultWidth		= 0.3
+	minWidth		= 0.3
+	minSpacing		= 0.3
+	unitMinResistance	= 4.7e-05
+	unitNomResistance	= 4.7e-05
+	unitMaxResistance	= 4.7e-05
+	unitMinCapacitance	= 0.000253
+	unitNomCapacitance	= 0.000253
+	unitMaxCapacitance	= 0.000253
+	isDefaultLayer		= 1
+	unitMinThickness	= 0.8
+	unitNomThickness	= 0.8
+	unitMaxThickness	= 0.8
+	fatTblDimension		= 2
+	fatTblThreshold		= (0, 3.001)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (0.3, 
+				   0.4)
+	minArea			= 0.24
+}
+Layer "via4" {
+	layerNumber		= 12
+	maskName		= "via5"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "yellow"
+	lineStyle		= "solid"
+	pattern			= "blank"
+	pitch			= 0
+	defaultWidth		= 0.8
+	minWidth		= 0.8
+	minSpacing		= 0.8
+	isDefaultLayer		= 1
+}
+Layer "met5" {
+	layerNumber		= 13
+	maskName		= "metal6"
+	visible			= 1
+	selectable		= 1
+	blink			= 0
+	color			= "red"
+	lineStyle		= "solid"
+	pattern			= "dot"
+	pitch			= 3.33
+	defaultWidth		= 1.6
+	minWidth		= 1.6
+	minSpacing		= 1.6
+	unitMinResistance	= 2.9e-05
+	unitNomResistance	= 2.9e-05
+	unitMaxResistance	= 2.9e-05
+	unitMinCapacitance	= 5.5e-05
+	unitNomCapacitance	= 5.5e-05
+	unitMaxCapacitance	= 5.5e-05
+	isDefaultLayer		= 1
+	unitMinThickness	= 1.2
+	unitNomThickness	= 1.2
+	unitMaxThickness	= 1.2
+	fatTblDimension		= 1
+	fatTblThreshold		= (0)
+	fatTblParallelLengthDimension = 1
+	fatTblParallelLength	= (0)
+	fatTblSpacing		= (1.6)
+	minArea			= 4
+}
+ContactCode "L1M1_PR" {
+	contactCodeNumber	= 1
+	contactSourceType	= 0
+	cutHeight		= 0.17
+	cutWidth		= 0.17
+	cutLayer		= "mcon"
+	upperLayer		= "met1"
+	lowerLayer		= "li1"
+	minCutSpacing		= 0.19
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0
+	lowerLayerEncWidth	= 0
+	upperLayerEncHeight	= 0.03
+	upperLayerEncWidth	= 0.06
+	nonRotatable		= 0
+}
+ContactCode "L1M1_PR_R" {
+	contactCodeNumber	= 2
+	contactSourceType	= 5
+	cutHeight		= 0.17
+	cutWidth		= 0.17
+	cutLayer		= "mcon"
+	upperLayer		= "met1"
+	lowerLayer		= "li1"
+	minCutSpacing		= 0.19
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0
+	lowerLayerEncWidth	= 0
+	upperLayerEncHeight	= 0.06
+	upperLayerEncWidth	= 0.03
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "L1M1_PR_M" {
+	contactCodeNumber	= 3
+	contactSourceType	= 5
+	cutHeight		= 0.17
+	cutWidth		= 0.17
+	cutLayer		= "mcon"
+	upperLayer		= "met1"
+	lowerLayer		= "li1"
+	minCutSpacing		= 0.19
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0
+	lowerLayerEncWidth	= 0
+	upperLayerEncHeight	= 0.06
+	upperLayerEncWidth	= 0.03
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "L1M1_PR_MR" {
+	contactCodeNumber	= 4
+	contactSourceType	= 5
+	cutHeight		= 0.17
+	cutWidth		= 0.17
+	cutLayer		= "mcon"
+	upperLayer		= "met1"
+	lowerLayer		= "li1"
+	minCutSpacing		= 0.19
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0
+	lowerLayerEncWidth	= 0
+	upperLayerEncHeight	= 0.03
+	upperLayerEncWidth	= 0.06
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "L1M1_PR_C" {
+	contactCodeNumber	= 5
+	contactSourceType	= 0
+	cutHeight		= 0.17
+	cutWidth		= 0.17
+	cutLayer		= "mcon"
+	upperLayer		= "met1"
+	lowerLayer		= "li1"
+	minCutSpacing		= 0.19
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0
+	lowerLayerEncWidth	= 0
+	upperLayerEncHeight	= 0.06
+	upperLayerEncWidth	= 0.06
+	nonRotatable		= 0
+}
+ContactCode "M1M2_PR" {
+	contactCodeNumber	= 6
+	contactSourceType	= 0
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.055
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.085
+	upperLayerEncWidth	= 0.055
+	nonRotatable		= 0
+}
+ContactCode "M1M2_PR_Enc" {
+	contactCodeNumber	= 7
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.055
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.055
+	upperLayerEncWidth	= 0.085
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_R" {
+	contactCodeNumber	= 8
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.055
+	upperLayerEncHeight	= 0.055
+	upperLayerEncWidth	= 0.085
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_R_Enc" {
+	contactCodeNumber	= 9
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.055
+	upperLayerEncHeight	= 0.085
+	upperLayerEncWidth	= 0.055
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_M" {
+	contactCodeNumber	= 10
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.055
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.055
+	upperLayerEncWidth	= 0.085
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_M_Enc" {
+	contactCodeNumber	= 11
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.055
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.085
+	upperLayerEncWidth	= 0.055
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_MR" {
+	contactCodeNumber	= 12
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.055
+	upperLayerEncHeight	= 0.085
+	upperLayerEncWidth	= 0.055
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_MR_Enc" {
+	contactCodeNumber	= 13
+	contactSourceType	= 5
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.055
+	upperLayerEncHeight	= 0.055
+	upperLayerEncWidth	= 0.085
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M1M2_PR_C" {
+	contactCodeNumber	= 14
+	contactSourceType	= 0
+	cutHeight		= 0.15
+	cutWidth		= 0.15
+	cutLayer		= "via"
+	upperLayer		= "met2"
+	lowerLayer		= "met1"
+	minCutSpacing		= 0.17
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.085
+	upperLayerEncWidth	= 0.085
+	nonRotatable		= 0
+}
+ContactCode "M2M3_PR" {
+	contactCodeNumber	= 15
+	contactSourceType	= 0
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via2"
+	upperLayer		= "met3"
+	lowerLayer		= "met2"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.04
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+}
+ContactCode "M2M3_PR_R" {
+	contactCodeNumber	= 16
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via2"
+	upperLayer		= "met3"
+	lowerLayer		= "met2"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.04
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M2M3_PR_M" {
+	contactCodeNumber	= 17
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via2"
+	upperLayer		= "met3"
+	lowerLayer		= "met2"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.04
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M2M3_PR_MR" {
+	contactCodeNumber	= 18
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via2"
+	upperLayer		= "met3"
+	lowerLayer		= "met2"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.04
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M2M3_PR_C" {
+	contactCodeNumber	= 19
+	contactSourceType	= 0
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via2"
+	upperLayer		= "met3"
+	lowerLayer		= "met2"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.085
+	lowerLayerEncWidth	= 0.085
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+}
+ContactCode "M3M4_PR" {
+	contactCodeNumber	= 20
+	contactSourceType	= 0
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via3"
+	upperLayer		= "met4"
+	lowerLayer		= "met3"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.06
+	lowerLayerEncWidth	= 0.09
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+}
+ContactCode "M3M4_PR_R" {
+	contactCodeNumber	= 21
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via3"
+	upperLayer		= "met4"
+	lowerLayer		= "met3"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.09
+	lowerLayerEncWidth	= 0.06
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M3M4_PR_M" {
+	contactCodeNumber	= 22
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via3"
+	upperLayer		= "met4"
+	lowerLayer		= "met3"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.06
+	lowerLayerEncWidth	= 0.09
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M3M4_PR_MR" {
+	contactCodeNumber	= 23
+	contactSourceType	= 5
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via3"
+	upperLayer		= "met4"
+	lowerLayer		= "met3"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.09
+	lowerLayerEncWidth	= 0.06
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M3M4_PR_C" {
+	contactCodeNumber	= 24
+	contactSourceType	= 0
+	cutHeight		= 0.2
+	cutWidth		= 0.2
+	cutLayer		= "via3"
+	upperLayer		= "met4"
+	lowerLayer		= "met3"
+	minCutSpacing		= 0.2
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.09
+	lowerLayerEncWidth	= 0.09
+	upperLayerEncHeight	= 0.065
+	upperLayerEncWidth	= 0.065
+	nonRotatable		= 0
+}
+ContactCode "M4M5_PR" {
+	contactCodeNumber	= 25
+	contactSourceType	= 0
+	cutHeight		= 0.8
+	cutWidth		= 0.8
+	cutLayer		= "via4"
+	upperLayer		= "met5"
+	lowerLayer		= "met4"
+	minCutSpacing		= 0.8
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 1
+	lowerLayerEncHeight	= 0.19
+	lowerLayerEncWidth	= 0.19
+	upperLayerEncHeight	= 0.31
+	upperLayerEncWidth	= 0.31
+	nonRotatable		= 0
+}
+ContactCode "M4M5_PR_R" {
+	contactCodeNumber	= 26
+	contactSourceType	= 5
+	cutHeight		= 0.8
+	cutWidth		= 0.8
+	cutLayer		= "via4"
+	upperLayer		= "met5"
+	lowerLayer		= "met4"
+	minCutSpacing		= 0.8
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.19
+	lowerLayerEncWidth	= 0.19
+	upperLayerEncHeight	= 0.31
+	upperLayerEncWidth	= 0.31
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M4M5_PR_M" {
+	contactCodeNumber	= 27
+	contactSourceType	= 5
+	cutHeight		= 0.8
+	cutWidth		= 0.8
+	cutLayer		= "via4"
+	upperLayer		= "met5"
+	lowerLayer		= "met4"
+	minCutSpacing		= 0.8
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.19
+	lowerLayerEncWidth	= 0.19
+	upperLayerEncHeight	= 0.31
+	upperLayerEncWidth	= 0.31
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M4M5_PR_MR" {
+	contactCodeNumber	= 28
+	contactSourceType	= 5
+	cutHeight		= 0.8
+	cutWidth		= 0.8
+	cutLayer		= "via4"
+	upperLayer		= "met5"
+	lowerLayer		= "met4"
+	minCutSpacing		= 0.8
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.19
+	lowerLayerEncWidth	= 0.19
+	upperLayerEncHeight	= 0.31
+	upperLayerEncWidth	= 0.31
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+ContactCode "M4M5_PR_C" {
+	contactCodeNumber	= 29
+	contactSourceType	= 5
+	cutHeight		= 0.8
+	cutWidth		= 0.8
+	cutLayer		= "via4"
+	upperLayer		= "met5"
+	lowerLayer		= "met4"
+	minCutSpacing		= 0.8
+	minNumCols		= 1
+	minNumRows		= 1
+	excludedForSignalRoute	= 0
+	isDefaultContact	= 0
+	lowerLayerEncHeight	= 0.19
+	lowerLayerEncWidth	= 0.19
+	upperLayerEncHeight	= 0.31
+	upperLayerEncWidth	= 0.31
+	nonRotatable		= 0
+	isFatContact		= 1
+}
+DesignRule {
+	layer1			= "via4"
+	layer2			= "met4"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via4"
+	layer2			= "met5"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via3"
+	layer2			= "met3"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via3"
+	layer2			= "met4"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via2"
+	layer2			= "met2"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via2"
+	layer2			= "met3"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via"
+	layer2			= "met1"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "via"
+	layer2			= "met2"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "mcon"
+	layer2			= "li1"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}
+DesignRule {
+	layer1			= "mcon"
+	layer2			= "met1"
+	minSpacing		= 0
+	minEnclosure		= 0
+	stackViaCenterSpacingThreshold = 0
+}

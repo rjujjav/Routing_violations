@@ -1,0 +1,24 @@
+****************************************
+Report : constraint
+        -all_violators
+        -max_transition
+        -max_capacitance
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+
+
+   Mode: mode_norm.slow.RCmax Corner: mode_norm.slow.RCmax
+   Scenario: mode_norm.slow.RCmax
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: mode_norm.slow.RCmax Corner: mode_norm.slow.RCmax
+   Scenario: mode_norm.slow.RCmax
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 0
+
+   Total number of violation(s): 0
+1

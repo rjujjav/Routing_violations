@@ -1,0 +1,7 @@
+****************************************
+Report : Violation analysis
+Design : counter
+Block  : counter:counter/clock_opt_opto.design
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:41:09 2023
+****************************************

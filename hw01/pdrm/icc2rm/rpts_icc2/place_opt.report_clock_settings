@@ -1,0 +1,183 @@
+Information: Timer using 8 threads
+Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
+****************************************
+ Report : clock settings
+ Design : counter
+ Date   : Tue Sep  5 21:37:13 2023
+****************************************
+
+
+======================================
+Configurations 
+======================================
+
+##Global
+Mode = mode_norm.slow.RCmax
+  Corner = mode_norm.slow.RCmax
+    Max transition: around 0.500 (default)
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+Mode = mode_norm.fast.RCmin_bc
+  Corner = mode_norm.fast.RCmin_bc
+    Max transition: around 0.500 (default)
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+Mode = mode_norm.slow.RCmax
+##clock
+  Corner = mode_norm.slow.RCmax
+    Max transition: 0.500
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+
+Mode = mode_norm.fast.RCmin_bc
+##clock
+  Corner = mode_norm.fast.RCmin_bc
+    Max transition: 0.500
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+
+======================================
+Routing Rules 
+======================================
+
+##Global
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+Mode = mode_norm.slow.RCmax
+
+##clock
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+Mode = mode_norm.fast.RCmin_bc
+
+##clock
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+
+======================================
+Buffers and Inverters 
+======================================
+
+##Buffers
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+sky130_fd_sc_hs/sky130_fd_sc_hs__buf_1
+                                      6.394               1.000          0.078
+sky130_fd_sc_hs/sky130_fd_sc_hs__buf_16
+                                     35.165               1.000          0.887
+sky130_fd_sc_hs/sky130_fd_sc_hs__buf_2
+                                      7.992               1.000          0.123
+sky130_fd_sc_hs/sky130_fd_sc_hs__buf_4
+                                     11.189               1.000          0.252
+sky130_fd_sc_hs/sky130_fd_sc_hs__buf_8
+                                     19.181               1.000          0.452
+sky130_fd_sc_hs/sky130_fd_sc_hs__bufbuf_16
+                                     43.157               1.000          0.882
+sky130_fd_sc_hs/sky130_fd_sc_hs__bufbuf_8
+                                     23.976               1.000          0.418
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkbuf_1
+                                      6.394               1.000          0.076
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkbuf_16
+                                     31.968               1.000          0.898
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkbuf_2
+                                      6.394               1.000          0.128
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkbuf_4
+                                      9.590               1.000          0.252
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkbuf_8
+                                     17.582               1.000          0.447
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlygate4sd1_1
+                                     12.787               1.000          0.076
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlygate4sd2_1
+                                     12.787               1.000          0.076
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlygate4sd3_1
+                                     12.787               1.000          0.076
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlymetal6s2s_1
+                                     15.984               1.000          0.082
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlymetal6s4s_1
+                                     15.984               1.000          0.082
+sky130_fd_sc_hs/sky130_fd_sc_hs__dlymetal6s6s_1
+                                     15.984               1.000          0.083
+
+##Inverters
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+sky130_fd_sc_hs/sky130_fd_sc_hs__bufinv_16
+                                     39.960               1.000          0.885
+sky130_fd_sc_hs/sky130_fd_sc_hs__bufinv_8
+                                     20.779               1.000          0.394
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv3sd1_1
+                                      9.590               1.000          0.090
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv3sd2_1
+                                      9.590               1.000          0.090
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv3sd3_1
+                                      9.590               1.000          0.090
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv5sd1_1
+                                     17.582               1.000          0.078
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv5sd2_1
+                                     17.582               1.000          0.078
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkdlyinv5sd3_1
+                                     17.582               1.000          0.078
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkinv_1
+                                      4.795               1.000          0.112
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkinv_16
+                                     38.362               1.000          1.355
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkinv_2
+                                      6.394               1.000          0.204
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkinv_4
+                                     11.189               1.000          0.366
+sky130_fd_sc_hs/sky130_fd_sc_hs__clkinv_8
+                                     20.779               1.000          0.661
+sky130_fd_sc_hs/sky130_fd_sc_hs__inv_1
+                                      4.795               1.000          0.086
+sky130_fd_sc_hs/sky130_fd_sc_hs__inv_16
+                                     27.173               1.000          0.925
+sky130_fd_sc_hs/sky130_fd_sc_hs__inv_2
+                                      4.795               1.000          0.157
+sky130_fd_sc_hs/sky130_fd_sc_hs__inv_4
+                                      7.992               1.000          0.263
+sky130_fd_sc_hs/sky130_fd_sc_hs__inv_8
+                                     14.386               1.000          0.472
+
+
+======================================
+Spacing Rules 
+======================================
+
+##By design
+No by design spacing rule is specified
+
+##By clock
+No by clock spacing rule is specified
+
+##By libcell
+No by libcell spacing rule is specified
+
+##By clock and libcell
+No by clock and libcell spacing rule is specified
+1

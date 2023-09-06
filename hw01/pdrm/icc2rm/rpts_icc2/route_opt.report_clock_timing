@@ -1,0 +1,107 @@
+Information: Timer using 1 threads
+****************************************
+Report : clock timing
+        -type summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:43:35 2023
+****************************************
+Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
+
+  Mode: mode_norm.fast.RCmin
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin
+
+  Maximum hold capture latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.10       rp-+   mode_norm.fast.RCmin
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.10       rp-+   mode_norm.fast.RCmin
+
+  Maximum setup skew:
+      value_reg_0_/CLK                                                    rp-+   mode_norm.fast.RCmin
+      value_reg_3_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    rp-+   mode_norm.fast.RCmin
+      value_reg_0_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin
+
+
+
+  Mode: mode_norm.fast.RCmin_bc
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum hold capture latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.10       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.10       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum setup skew:
+      value_reg_0_/CLK                                                    rp-+   mode_norm.fast.RCmin_bc
+      value_reg_3_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    rp-+   mode_norm.fast.RCmin_bc
+      value_reg_0_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin_bc
+
+
+
+  Mode: mode_norm.slow.RCmax
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_0_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Maximum hold capture latency:
+      value_reg_0_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.25       rp-+   mode_norm.slow.RCmax
+
+  Maximum setup skew:
+      value_reg_0_/CLK                                                    rp-+   mode_norm.slow.RCmax
+      value_reg_3_/CLK                                         0.00       rp-+   mode_norm.slow.RCmax
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    rp-+   mode_norm.slow.RCmax
+      value_reg_0_/CLK                                         0.00       rp-+   mode_norm.slow.RCmax
+
+
+Mode mode_norm.slow.RCmax_bc has no active scenarios.
+1

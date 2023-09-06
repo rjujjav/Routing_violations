@@ -1,0 +1,83 @@
+Information: Timer using 1 threads
+Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter.design'. (TIM-125)
+Information: Design Average RC for design counter  (NEX-011)
+Information: r = 0.452185 ohm/um, via_r = 1.659292 ohm/cut, c = 0.136319 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 1.925093 ohm/um, via_r = 1.732552 ohm/cut, c = 0.109143 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'counter'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+****************************************
+Report : clock timing
+        -type summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:27 2023
+****************************************
+Scenario mode_norm.fast.RCmin is not configured for setup or hold analysis
+Mode mode_norm.fast.RCmin has no active scenarios.
+
+  Mode: mode_norm.fast.RCmin_bc
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Maximum hold capture latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Maximum setup skew:
+      value_reg_3_/CLK                                                    r-+    mode_norm.fast.RCmin_bc
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    r-+    mode_norm.fast.RCmin_bc
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.fast.RCmin_bc
+
+
+
+  Mode: mode_norm.slow.RCmax
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Maximum hold capture latency:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Maximum setup skew:
+      value_reg_3_/CLK                                                    r-+    mode_norm.slow.RCmax
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    r-+    mode_norm.slow.RCmax
+      value_reg_3_/CLK                                         0.00       r-+    mode_norm.slow.RCmax
+
+
+Mode mode_norm.slow.RCmax_bc has no active scenarios.
+1

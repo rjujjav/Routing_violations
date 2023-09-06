@@ -1,0 +1,32 @@
+****************************************
+Report : report clock qor
+        -type power
+        -nosplit
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:41:04 2023
+****************************************
+Warning: There is no clocks in scenario mode_norm.fast.RCmin to report.
+Information: Activity propagation will be performed for scenario mode_norm.fast.RCmin_bc.
+Information: Doing activity propagation for mode 'mode_norm.fast.RCmin_bc' and corner 'mode_norm.fast.RCmin_bc' with effort level 'medium'. (POW-024)
+Information: Timer-derived activity data is cached on scenario mode_norm.fast.RCmin_bc (POW-052)
+Information: Running switching activity propagation with 8 threads!
+
+ **** Information : No. of simulation cycles = 6 ****
+
+
+==============================
+==== Power (per scenario) ====
+==============================
+
+Clock                               ClkTree        ClkTree           Sink            Net          Total
+                                    Leakage       Internal       Internal      Switching        Dynamic          Total
+                                  (stdcell)      (stdcell)      (stdcell)         (nets)          Power          Power
+                                       (nW)           (nW)           (nW)           (nW)           (nW)           (nW)
+------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin_bc, Corner: mode_norm.fast.RCmin_bc, Scenario: mode_norm.fast.RCmin_bc
+clock                               2650.88            N/A            N/A            N/A            N/A            N/A
+------------------------------------------------------------------------------------------------------------------------
+Total                               2650.88            N/A            N/A            N/A            N/A            N/A
+
+1

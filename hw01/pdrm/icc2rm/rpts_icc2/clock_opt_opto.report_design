@@ -1,0 +1,387 @@
+****************************************
+Report : design
+        -library
+        -netlist
+        -floorplan
+        -routing
+        -nosplit
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:41:10 2023
+****************************************
+--------------------------------------------------------------------------------
+                              LIBRARY INFORMATION
+--------------------------------------------------------------------------------
+
+Search path : ./rm_icc2_pnr_scripts ./rm_setup ./templates {} .
+
+Units : 
+    time                : 1.00ns
+    resistance          : 1.00kOhm
+    capacitance         : 1.00pF
+    voltage             : 1.00V
+    current             : 1.00mA
+    power               : 1.00nW
+
+Tech file : /mnt/coe/workspace/ece/ece720-common/tech/google/milkyway/sky130_fd_sc_hs/sky130_fd_sc_hs.tf
+
+Number of active scenarios 	= 4
+Number of inactive scenarios 	= 0
+
+Total number of standard cells 	= 376
+
+Total number of dont_use lib cells 	= 0
+Total number of dont_touch lib cells 	= 0
+
+Total number of buffers 	= 18
+Total number of inverters 	= 18
+Total number of flip-flops 	= 45
+Total number of latches 	= 17
+Total number of ICGs 		= 6
+
+
+Library : sky130_fd_sc_hs
+  File path : /mnt/coe/workspace/ece/ece720-common/tech/google/icc2libprep/sky130_fd_sc_hs/icc2_cell_lib/sky130_fd_sc_hs.ndm
+  Source .db libs :
+    sky130_fd_sc_hs : /mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ff_n40C_1v95_ccsnoise.db
+    sky130_fd_sc_hs : /mnt/coe/workspace/ece/ece720-common/tech/google/skywater-pdk/libraries/sky130_fd_sc_hs/v0.0.2/timing/sky130_fd_sc_hs__ss_n40C_1v60_ccsnoise.db
+
+--------------------------------------------------------------------------------
+                              NETLIST INFORMATION
+--------------------------------------------------------------------------------
+
+CELL INSTANCE INFORMATION
+-----------------------------------------------------------------------------
+Cell Instance Type          Count % of         Area  % of siteAreaPerSite
+                                  total             total
+-----------------------------------------------------------------------------
+TOTAL LEAF CELLS               22  100      289.310   100 unit:181  
+
+  Standard cells               22  100      289.310   100 unit:181  
+  Filler cells                  0    0        0.000     0 
+  Diode cells                   0    0        0.000     0 
+  Hard macro cells              0    0        0.000     0 
+  Soft macro cells              0    0        0.000     0 
+    Black box cells             0    0        0.000     0 
+  Analog block cells            0    0        0.000     0 
+  Pad cells                     0    0        0.000     0 
+    Flip-chip pad cells         0    0        0.000     0 
+  Cover cells                   0    0        0.000     0 
+  Flip-chip driver cells        0    0        0.000     0 
+  Corner pad cells              0    0        0.000     0 
+  Pad spacer cells              0    0        0.000     0 
+  Others                        0    0        0.000     0 
+
+Special cells                   0    0        0.000     0 
+  Level shifter                 0    0        0.000     0 
+  Isolation                     0    0        0.000     0 
+  Switch                        0    0        0.000     0 
+  Always on                     0    0        0.000     0 
+  Retention                     0    0        0.000     0 
+  Tie off                       0    0        0.000     0 
+
+LVT                             0    0        0.000     0 
+HVT                             0    0        0.000     0 
+Normal VT                       0    0        0.000     0 
+Others                         22  100      289.310   100 unit:181  
+
+Netlist cells                  22  100      289.310   100 unit:181  
+Physical only                   0    0        0.000     0 
+
+Fixed cells                     0    0        0.000     0 
+Moveable cells                 22  100      289.310   100 unit:181  
+
+Combinational                  17   77      116.683    40 unit:73  
+Sequential                      5   22      172.627    59 unit:108  
+Others                          0    0        0.000     0 
+
+Buffer                          0    0        0.000     0 
+Inverter                        1    4        4.795     1 unit:3  
+Buffer/inverter                 1    4        4.795     1 unit:3  
+
+Spare cells                     0    0        0.000     0 
+ICG cells                       1    4       25.574     8 unit:16  
+Flip-flop cells                 4   18      147.053    50 unit:92  
+Latch cells                     0    0        0.000     0 
+Antenna cells                   0    0        0.000     0 
+
+Mux logic                       0    0        0.000     0 
+Double height                   0    0        0.000     0 
+Triple height                   0    0        0.000     0 
+More than triple height         0    0        0.000     0 
+
+Logic Hierarchies          1
+
+REFERENCE DESIGN INFORMATION
+----------------------------------------------------------------------------------------------
+Number of reference designs used:11   
+----------------------------------------------------------------------------------------------
+Name           Type          Count     Width    Height        Area   PinDens SiteName siteArea
+----------------------------------------------------------------------------------------------
+sky130_fd_sc_hs__nand2_1 lib_cell 5      1.44      3.33       4.795     1.460 unit           3
+sky130_fd_sc_hs__sdfxtp_1 lib_cell 4     11.04      3.33      36.763     0.245 unit         23
+sky130_fd_sc_hs__nor2_1 lib_cell 3      1.44      3.33       4.795     1.460 unit            3
+sky130_fd_sc_hs__o2bb2ai_1 lib_cell 3      3.36      3.33      11.189     0.804 unit         7
+sky130_fd_sc_hs__inv_1 lib_cell  1      1.44      3.33       4.795     1.251 unit            3
+sky130_fd_sc_hs__nor3_1 lib_cell 1      1.92      3.33       6.394     1.251 unit            4
+sky130_fd_sc_hs__nor2b_1 lib_cell 1      2.40      3.33       7.992     0.876 unit           5
+sky130_fd_sc_hs__a21oi_1 lib_cell 1      1.92      3.33       6.394     1.251 unit           4
+sky130_fd_sc_hs__o21a_1 lib_cell 1      2.88      3.33       9.590     0.834 unit            6
+sky130_fd_sc_hs__sdlclkp_1 lib_cell 1      7.68      3.33      25.574     0.352 unit        16
+sky130_fd_sc_hs__nand4_1 lib_cell 1      2.88      3.33       9.590     0.938 unit           6
+
+NET INFORMATION
+------------------------------------------------------------------
+NetType                 Count FloatingNets         Vias Nets/Cells
+------------------------------------------------------------------
+Total                      34            0          164      1.545
+Signal                     30            0          120      1.364
+Power                       1            0           13      0.045
+Ground                      1            0           13      0.045
+Analog Signal               0            0            0      0.000
+Analog Ground               0            0            0      0.000
+Analog Power                0            0            0      0.000
+Clock                       2            0           18      0.091
+Tie Low                     0            0            0      0.000
+Tie High                    0            0            0      0.000
+Others                      0            0            0      0.000
+
+NET FANOUT AND PIN COUNT INFORMATION
+---------------------------------------------------
+Fanout        Netcount     netPinCount     NetCount
+---------------------------------------------------
+<2                  16     <2                     0
+2                    5     2                     16
+3                    6     3                      5
+4                    4     4                      6
+5                    1     5                      4
+6-10                 0     6-10                   1
+11-20                0     11-20                  0
+21-30                2     21-30                  2
+31-50                0     31-50                  0
+51-100               0     51-100                 0
+101-500              0     101-500                0
+501-1000             0     501-1000               0
+>1000                0     >1000                  0
+
+PORT AND PIN INFORMATION
+------------------------------------------------------------------------------
+Type         Total     Input    Output     Inout      3-st     Power    Ground
+------------------------------------------------------------------------------
+Total          174       151        66        44         0        22        22
+Macro            0         0         0         0         0         0         0
+Ports           14        12         2         0         0         1         1
+------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+                              FLOORPLAN INFORMATION
+--------------------------------------------------------------------------------
+
+CORE AND CHIP AREA INFORMATION
+---------------------------
+Core Area is :      559.440
+Chip Area is :      834.365
+---------------------------
+
+SITE ROW INFORMATION
+-----------------------------------------------------------------------
+Site Name    Width    Height   Total Rows     Total Tiles          Area
+-----------------------------------------------------------------------
+unit          0.48      3.33            7             350       559.440
+-----------------------------------------------------------------------
+
+BLOCKAGE INFORMATION
+------------------------------------------------
+Blockage Type                Count          Area
+------------------------------------------------
+Hard placement                   0         0.000
+Soft placement                   0         0.000
+Hard macro                       0         0.000
+Partial placement                0         0.000
+Register                         0         0.000
+Placement allow Buffer Only      0         0.000
+Placement allow RP Group Only    0         0.000
+RP Group                         0         0.000
+Category                         0         0.000
+Routing                          0         0.000
+Routing for Top                  0         0.000
+Routing For Design Rule          0         0.000
+Shaping                          0         0.000
+------------------------------------------------
+
+POWER DOMAIN INFORMATION
+--------------------------------------------------------------------
+Power Domain Name    VA Name         Primary Power Net Primary Ground Net
+--------------------------------------------------------------------
+DEFAULT_POWER_DOMAIN DEFAULT_VA      VDD               VSS
+--------------------------------------------------------------------
+
+VOLTAGE AREA INFORMATION
+-------------------------------------------------------------------------------------
+VA Name          Number             Area       Target    bbox    bbox    bbox    bbox
+              of shapes                   Utilization     llx     lly     urx     ury
+-------------------------------------------------------------------------------------
+DEFAULT_VA            1          559.440         1.00    1.92    3.33   25.92   26.64
+-------------------------------------------------------------------------------------
+
+GROUP BOUND INFORMATION
+----------------------------------------
+No Group Bound exists
+
+EXCLUSIVE MOVEBOUND INFORMATION
+----------------------------------------
+No Exclusive MoveBound exists.
+
+HARD AND SOFT MOVEBOUND INFORMATION
+----------------------------------------
+No Hard Or Soft MoveBound exists.
+
+ROUTE GUIDE INFORMATION
+------------------------------------------------
+Route Guide Type             Count          Area
+------------------------------------------------
+Extra Detour Region              0         0.000
+Over icovl CellLayers            0         0.000
+River Routing                    0         0.000
+Area Double Via                  0         0.000
+Access Preference                0         0.000
+Default                          0         0.000
+Switched Direction Only          0         0.000
+Max Patterns                     0         0.000
+Others                           0         0.000
+------------------------------------------------
+
+MULTIBIT REGISTER INFORMATION
+-----------------------------------------------
+No Multibit cells exist
+
+MULTIBIT LS/ISO CELLS INFORMATION
+-----------------------------------------------
+No Multibit cells exist
+
+RP GROUP INFORMATION
+----------------------------------------
+No RP Group exists
+
+LAYER INFORMATION
+--------------------------------------------------------------------------
+Layer Name Direction Ignored Pitch  default minWidth minSpacing    sameNet
+                                      Width                     MinSpacing
+--------------------------------------------------------------------------
+li1        Ver       NO       0.48     0.17     0.17       0.17       0.00
+met1       Hor       NO       0.37     0.14     0.14       0.14       0.00
+met2       Ver       NO       0.48     0.14     0.14       0.14       0.00
+met3       Hor       NO       0.74     0.30     0.30       0.30       0.00
+met4       Ver       NO       0.96     0.30     0.30       0.30       0.00
+met5       Hor       NO       3.33     1.60     1.60       1.60       0.00
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                              ROUTING INFORMATION
+--------------------------------------------------------------------------------
+
+Total wire length = 50.50 micron
+Total number of wires = 11
+Total number of contacts = 164
+
+FINAL WIRING STATISTICS
+
+Signal Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+li1                     0        0.00%         0.00             0.00%
+met1                    0        0.00%         0.00             0.00%
+met2                    0        0.00%         0.00             0.00%
+met3                    0        0.00%         0.00             0.00%
+met4                    0        0.00%         0.00             0.00%
+met5                    0        0.00%         0.00             0.00%
+
+Clock Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+li1                     0        0.00%         0.00             0.00%
+met1                    3       27.27%         1.87             3.71%
+met2                    6       54.55%        24.14            47.81%
+met3                    2       18.18%        24.48            48.48%
+met4                    0        0.00%         0.00             0.00%
+met5                    0        0.00%         0.00             0.00%
+
+P/G Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+li1                     0        0.00%         0.00             0.00%
+met1                    8       66.67%       192.00            62.41%
+met2                    0        0.00%         0.00             0.00%
+met3                    0        0.00%         0.00             0.00%
+met4                    2       16.67%        59.94            19.49%
+met5                    2       16.67%        55.68            18.10%
+
+Shape Pattern Wiring Statistics
+
+Metal layer     Num shapePatterns % of total# Wire length % of total length
+li1                     0        0.00%         0.00             0.00%
+met1                    0        0.00%         0.00             0.00%
+met2                    0        0.00%         0.00             0.00%
+met3                    0        0.00%         0.00             0.00%
+met4                    0        0.00%         0.00             0.00%
+met5                    0        0.00%         0.00             0.00%
+
+All the PG shape patterns stand for 0 shapes.
+
+Horizontal/Vertical Wire Distribution
+
+Metal layer  Hor. length  % of hor.    Ver. length  % of ver.
+li1                  0.00        0.00%         0.00        0.00%
+met1                 0.00        0.00%         0.00        0.00%
+met2                 0.00        0.00%         0.00        0.00%
+met3                 0.00        0.00%         0.00        0.00%
+met4                 0.00        0.00%         0.00        0.00%
+met5                 0.00        0.00%         0.00        0.00%
+
+FINAL VIA STATISTICS
+
+Via layer    Via def name                Count        % of layer vias
+mcon         L1M1_PR                               78      100.00%
+  Double via conversion rate for layer mcon = 0.00% (0 / 78 vias)
+    Among them, double via conversion rate of detail route vias for layer mcon = 0.00% (0 / 6 vias)
+
+via          M1M2_PR                               56       87.50%
+via          M1M2_PR(1X4)                           8       12.50%
+  Double via conversion rate for layer via = 12.50% (8 / 64 vias)
+    Among them, double via conversion rate of detail route vias for layer via = 0.00% (0 / 8 vias)
+
+via2         M2M3_PR                                4       33.33%
+via2         M2M3_PR(1X3)                           8       66.67%
+  Double via conversion rate for layer via2 = 66.67% (8 / 12 vias)
+    Among them, double via conversion rate of detail route vias for layer via2 = 0.00% (0 / 4 vias)
+
+via3         M3M4_PR(1X3)                           8      100.00%
+  Double via conversion rate for layer via3 = 100.00% (8 / 8 vias)
+    Among them, double via conversion rate of detail route vias for layer via3 = 0.00% (0 / 0 vias)
+
+via4         M4M5_PR                                2      100.00%
+  Double via conversion rate for layer via4 = 0.00% (0 / 2 vias)
+    Among them, double via conversion rate of detail route vias for layer via4 = 0.00% (0 / 0 vias)
+
+
+Custom Via Statistics
+
+No custom vias found in the design.
+Overall double via conversion rate = 14.63%
+  Among them, overall double via conversion rate of detail route vias = 0.00% (0 / 18 vias)
+  *Detail route vias are vias whose shape_use is detail_route.
+
+Via Matrix Statistics
+
+No via matrices found in the design.
+
+FINAL DRC STATISTICS
+
+DRC-SUMMARY:
+Total number of open nets = not checked
+Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                 0 ports without pins of 0 cells connected to 0 nets
+                                 0 ports of 0 cover cells connected to 0 non-pg nets
+Total number of DRCs = 0
+Total number of antenna violations = no antenna rules defined
+Total number of tie to rail violations = not checked
+1

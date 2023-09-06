@@ -1,0 +1,77 @@
+Information: Timer using 1 threads
+****************************************
+Report : clock timing
+        -type summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:41:03 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+Scenario mode_norm.fast.RCmin is not configured for setup or hold analysis
+Mode mode_norm.fast.RCmin has no active scenarios.
+
+  Mode: mode_norm.fast.RCmin_bc
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum hold capture latency:
+      value_reg_0_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.09       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum setup skew:
+      value_reg_0_/CLK                                                    rp-+   mode_norm.fast.RCmin_bc
+      value_reg_3_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin_bc
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    rp-+   mode_norm.fast.RCmin_bc
+      value_reg_0_/CLK                                         0.00       rp-+   mode_norm.fast.RCmin_bc
+
+
+
+  Mode: mode_norm.slow.RCmax
+  Clock: clock
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      value_reg_0_/CLK                                         0.24       rp-+   mode_norm.slow.RCmax
+
+  Minimum setup capture latency:
+      value_reg_3_/CLK                                         0.24       rp-+   mode_norm.slow.RCmax
+
+  Minimum hold launch latency:
+      value_reg_3_/CLK                                         0.24       rp-+   mode_norm.slow.RCmax
+
+  Maximum hold capture latency:
+      value_reg_0_/CLK                                         0.24       rp-+   mode_norm.slow.RCmax
+
+  Maximum active transition:
+      value_reg_3_/CLK                                         0.23       rp-+   mode_norm.slow.RCmax
+
+  Minimum active transition:
+      value_reg_3_/CLK                                         0.23       rp-+   mode_norm.slow.RCmax
+
+  Maximum setup skew:
+      value_reg_0_/CLK                                                    rp-+   mode_norm.slow.RCmax
+      value_reg_3_/CLK                                         0.00       rp-+   mode_norm.slow.RCmax
+
+  Maximum hold skew:
+      value_reg_3_/CLK                                                    rp-+   mode_norm.slow.RCmax
+      value_reg_0_/CLK                                         0.00       rp-+   mode_norm.slow.RCmax
+
+
+Mode mode_norm.slow.RCmax_bc has no active scenarios.
+1

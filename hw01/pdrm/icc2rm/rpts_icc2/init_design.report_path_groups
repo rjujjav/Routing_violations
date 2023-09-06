@@ -1,0 +1,75 @@
+****************************************
+Report : path_group
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:23 2023
+****************************************
+
+
+Path groups for mode 'mode_norm.slow.RCmax':
+
+
+Path_Group    Weight    From/Through/To
+------------------------------------------------------------------------------------------
+**async_default** 1.00  -
+**clock_gating_default** 1.00 -
+**default**   1.00      -
+**in2out_default** 0.10 -
+**in2reg_default** 0.10 -
+**reg2out_default** 0.10 -
+FEEDTHROUGH   1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}] -to [get_ports {zero}]
+REGIN         1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}]
+REGOUT        1.00      -to [get_ports {zero}]
+clock         1.00      -to [get_clocks {clock}]
+
+
+Path groups for mode 'mode_norm.slow.RCmax_bc':
+
+
+Path_Group    Weight    From/Through/To
+------------------------------------------------------------------------------------------
+**async_default** 1.00  -
+**clock_gating_default** 1.00 -
+**default**   1.00      -
+**in2out_default** 0.10 -
+**in2reg_default** 0.10 -
+**reg2out_default** 0.10 -
+FEEDTHROUGH   1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}] -to [get_ports {zero}]
+REGIN         1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}]
+REGOUT        1.00      -to [get_ports {zero}]
+clock         1.00      -to [get_clocks {clock}]
+
+
+Path groups for mode 'mode_norm.fast.RCmin':
+
+
+Path_Group    Weight    From/Through/To
+------------------------------------------------------------------------------------------
+**async_default** 1.00  -
+**clock_gating_default** 1.00 -
+**default**   1.00      -
+**in2out_default** 0.10 -
+**in2reg_default** 0.10 -
+**reg2out_default** 0.10 -
+FEEDTHROUGH   1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}] -to [get_ports {zero}]
+REGIN         1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}]
+REGOUT        1.00      -to [get_ports {zero}]
+clock         1.00      -to [get_clocks {clock}]
+
+
+Path groups for mode 'mode_norm.fast.RCmin_bc':
+
+
+Path_Group    Weight    From/Through/To
+------------------------------------------------------------------------------------------
+**async_default** 1.00  -
+**clock_gating_default** 1.00 -
+**default**   1.00      -
+**in2out_default** 0.10 -
+**in2reg_default** 0.10 -
+**reg2out_default** 0.10 -
+FEEDTHROUGH   1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}] -to [get_ports {zero}]
+REGIN         1.00      -from [get_ports {reset in[3] in[2] in[1] in[0] latch dec}]
+REGOUT        1.00      -to [get_ports {zero}]
+clock         1.00      -to [get_clocks {clock}]
+1

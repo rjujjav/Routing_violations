@@ -1,0 +1,126 @@
+Information: The command 'check_routes' cleared the undo history. (UNDO-016)
+Cell Min-Routing-Layer = li1
+Cell Max-Routing-Layer = met5
+Turn off antenna since no rule is specified
+Information: Option route.detail.force_end_on_preferred_grid will be ignored since none of the layers have preferred grid. (ZRT-703)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand4_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand4_1, pin VNB) on layer pwell. (ZRT-030)
+Skipping 1 internal pins that are not physical. Set route.common.verbose_level to > 0 and run routing command to get skipped pin names.
+Info: number of net_type_blockage: 0 
+Via on layer (via4) needs more than one tracks
+Warning: Layer met4 pitch 0.960 may be too small: wire/via-down 0.615, wire/via-up 1.040. (ZRT-026)
+Transition layer name: met4(4)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 9.15 outside the layer range. (ZRT-707)
+Information: When applicable layer based tapering will taper up to 0.00 in distance from the pin. (ZRT-706)
+Printing options for 'route.common.*'
+common.interactive_mode_clear_timing                    :	 true                
+common.verbose_level                                    :	 0                   
+
+Printing options for 'route.detail.*'
+detail.antenna                                          :	 true                
+detail.eco_max_number_of_iterations                     :	 10                  
+detail.mode                                             :	 balanced            
+detail.timing_driven                                    :	 true                
+
+Printing options for 'route.auto_via_ladder.*'
+
+
+Begin full DRC check ...
+
+Information: Using 8 threads for routing. (ZRT-444)
+Checked	1/1 Partitions, Violations =	0
+[DRC CHECK] Elapsed real time: 0:00:00 
+[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:02 total=0:00:03
+[DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc  367 
+[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4643 
+Warning: No antenna rules defined, Skip antenna analysis. (ZRT-309)
+
+DRC-SUMMARY:
+	@@@@@@@ TOTAL VIOLATIONS =	0
+
+
+Total Wire Length =                    388 micron
+Total Number of Contacts =             138
+Total Number of Wires =                79
+Total Number of PtConns =              0
+Total Number of Routed Wires =       79
+Total Routed Wire Length =           388 micron
+Total Number of Routed Contacts =       138
+	Layer      li1 :         13 micron
+	Layer     met1 :        174 micron
+	Layer     met2 :        177 micron
+	Layer     met3 :         24 micron
+	Layer     met4 :          0 micron
+	Layer     met5 :          0 micron
+	Via    M2M3_PR :          4
+	Via    M1M2_PR :         56
+	Via    L1M1_PR :         78
+
+ 
+Redundant via conversion report:
+--------------------------------
+
+  Total optimized via conversion rate =  0.00% (0 / 138 vias)
+ 
+    Layer mcon       =  0.00% (0      / 78      vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (78      vias)
+    Layer via        =  0.00% (0      / 56      vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (56      vias)
+    Layer via2       =  0.00% (0      / 4       vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (4       vias)
+ 
+  Total double via conversion rate    =  0.00% (0 / 138 vias)
+ 
+    Layer mcon       =  0.00% (0      / 78      vias)
+    Layer via        =  0.00% (0      / 56      vias)
+    Layer via2       =  0.00% (0      / 4       vias)
+ 
+  The optimized via conversion rate based on total routed via count =  0.00% (0 / 138 vias)
+ 
+    Layer mcon       =  0.00% (0      / 78      vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (78      vias)
+    Layer via        =  0.00% (0      / 56      vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (56      vias)
+    Layer via2       =  0.00% (0      / 4       vias)
+        Un-optimized =  0.00% (0       vias)
+        Un-mapped    = 100.00% (4       vias)
+ 
+
+
+Verify Summary:
+
+Total number of open nets = not checked
+Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                 0 ports without pins of 0 cells connected to 0 nets
+                                 0 ports of 0 cover cells connected to 0 non-pg nets
+Total number of DRCs = 0
+Total number of antenna violations = no antenna rules defined
+Total number of tie to rail violations = not checked
+Total number of tie to rail directly violations = not checked
+
+

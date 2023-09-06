@@ -1,0 +1,102 @@
+****************************************
+Report : power
+        -significant_digits 2
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:38:00 2023
+****************************************
+Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)
+Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax_bc' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)
+Information: Activity propagation will be performed for scenario mode_norm.fast.RCmin.
+Information: Activity for scenario mode_norm.fast.RCmin_bc was cached, no propagation required. (POW-005)
+Information: Doing activity propagation for mode 'mode_norm.fast.RCmin' and corner 'mode_norm.fast.RCmin' with effort level 'medium'. (POW-024)
+Information: Timer-derived activity data is cached on scenario mode_norm.fast.RCmin (POW-052)
+Infomation: Fast mode activity propagation power.rtl_activity_annotation setup is ignored. Always use accurate mode.
+Information: Running switching activity propagation with 8 threads!
+
+ **** Information : No. of simulation cycles = 6 ****
+Mode: mode_norm.fast.RCmin
+Corner: mode_norm.fast.RCmin
+Scenario: mode_norm.fast.RCmin
+Voltage: 1.95
+Temperature: -40.00
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1pF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1nW
+Leakage Power Unit   : 1nW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.00 (default)
+VSS (ground) probability 1.00 (default)
+
+  Cell Internal Power    = N/A ( N/A )
+  Net Switching Power    = N/A ( N/A )
+Total Dynamic Power      = N/A (  0.0%)
+
+Cell Leakage Power       = 2.22e+04 nW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                         N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+memory                         N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+black_box                      N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+clock_network                  N/A                    N/A               2.65e+03               2.65e+03    ( 11.9%)         
+register                       N/A                    N/A               1.30e+04               1.30e+04    ( 58.5%)         
+sequential                     N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+combinational                  N/A                    N/A               6.58e+03               6.58e+03    ( 29.6%)         
+-----------------------------------------------------------------------------------------------------------------------------
+Total                          N/A                    N/A               2.22e+04 nW            2.22e+04 nW
+Mode: mode_norm.fast.RCmin_bc
+Corner: mode_norm.fast.RCmin_bc
+Scenario: mode_norm.fast.RCmin_bc
+Voltage: 1.95
+Temperature: -40.00
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1pF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1nW
+Leakage Power Unit   : 1nW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.00 (default)
+VSS (ground) probability 1.00 (default)
+
+  Cell Internal Power    = N/A ( N/A )
+  Net Switching Power    = N/A ( N/A )
+Total Dynamic Power      = N/A (  0.0%)
+
+Cell Leakage Power       = 2.22e+04 nW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                         N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+memory                         N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+black_box                      N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+clock_network                  N/A                    N/A               2.65e+03               2.65e+03    ( 11.9%)         
+register                       N/A                    N/A               1.30e+04               1.30e+04    ( 58.5%)         
+sequential                     N/A                    N/A               0.00e+00               0.00e+00    (  0.0%)         
+combinational                  N/A                    N/A               6.58e+03               6.58e+03    ( 29.6%)         
+-----------------------------------------------------------------------------------------------------------------------------
+Total                          N/A                    N/A               2.22e+04 nW            2.22e+04 nW
+1

@@ -1,0 +1,73 @@
+****************************************
+Report : clock
+Design : counter
+Mode   : mode_norm.slow.RCmax
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:35 2023
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    U - Unexpanded generated clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clock            5.00   {0 2}               p         {clock}
+
+****************************************
+Report : clock
+Design : counter
+Mode   : mode_norm.slow.RCmax_bc
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:35 2023
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    U - Unexpanded generated clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clock            5.00   {0 2}                         {clock}
+
+****************************************
+Report : clock
+Design : counter
+Mode   : mode_norm.fast.RCmin
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:35 2023
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    U - Unexpanded generated clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clock            5.00   {0 2}               p         {clock}
+
+****************************************
+Report : clock
+Design : counter
+Mode   : mode_norm.fast.RCmin_bc
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:35 2023
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    U - Unexpanded generated clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clock            5.00   {0 2}               p         {clock}
+
+1

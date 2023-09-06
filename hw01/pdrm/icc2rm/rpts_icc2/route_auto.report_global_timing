@@ -1,0 +1,17 @@
+Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
+****************************************
+Report : global timing
+        -format { narrow }
+        -report_by design
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:35 2023
+****************************************
+
+No setup violations found.
+
+
+No hold violations found.
+
+
+1

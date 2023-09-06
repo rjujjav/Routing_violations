@@ -1,0 +1,39 @@
+****************************************
+ Report : check_design 
+ Options: { pre_placement_stage }
+ Design : counter
+ Version: S-2021.06-SP3
+ Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+Running mega-check 'pre_placement_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'rp_constraints'
+    Running atomic-check 'timing'
+    Running atomic-check 'hier_pre_placement'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DMM-104      Info   68         Mismatch type %mmtype is detected on object type %objtype at obj...
+  TCK-001      Warn   21         The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   6          The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 95 EMS messages : 0 errors, 27 warnings, 68 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  NDMUI-173           1          There are no relative placement groups in the design.
+  ----------------------------------------------------------------------------------------------------
+  Total 1 non-EMS messages : 0 errors, 0 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------
+
+Information: EMS database is saved to file 'check_design.pre_placement_stage.ems'.
+Information: Non-EMS messages are saved into file 'check_design2023Sep05213634.log'.
+1

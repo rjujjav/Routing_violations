@@ -1,0 +1,41 @@
+****************************************
+ Report : check_design 
+ Options: { pre_clock_tree_stage }
+ Design : counter
+ Version: S-2021.06-SP3
+ Date   : Tue Sep  5 21:38:00 2023
+****************************************
+
+Running mega-check 'pre_clock_tree_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'legality'
+    Running atomic-check 'timing'
+    Running atomic-check 'clock_trees'
+    Running atomic-check 'hier_pre_clock_tree'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DMM-104      Info   68         Mismatch type %mmtype is detected on object type %objtype at obj...
+  TCK-001      Warn   21         The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   6          The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 95 EMS messages : 0 errors, 27 warnings, 68 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  CTS-101             1          %s will work on the following scenarios.
+  CTS-107             1          %s will work on all clocks in active scenarios, including %d mas...
+  ----------------------------------------------------------------------------------------------------
+  Total 2 non-EMS messages : 0 errors, 0 warnings, 2 info.
+  ----------------------------------------------------------------------------------------------------
+
+Information: EMS database is saved to file 'check_design.pre_clock_tree_stage.ems'.
+Information: Non-EMS messages are saved into file 'check_design2023Sep05213800.log'.
+1

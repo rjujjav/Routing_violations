@@ -1,0 +1,34 @@
+****************************************
+Report : app_option
+           -non_default
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:42:16 2023
+****************************************
+Name                                                   Type       Value       User-value   User-default System-default Scope      Status     Source
+------------------------------------------------------ ---------- ----------- ------------ ------------ -------------- ---------- ---------- ------------------------------------------------------------------------------------------------
+ccd.post_route_buffer_removal                          bool       true        true         --           false          block      normal     --
+clock_opt.flow.enable_clock_power_recovery             string     none        none         --           auto           block      normal     --
+clock_opt.flow.enable_power                            bool       false       false        --           true           block      normal     --
+clock_opt.place.effort                                 enum       high        high         --           medium         block      normal     --
+design.on_disk_operation                               bool       true        true         true         false          global     normal     /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/icc2_pnr_setup.tcl:552
+opt.area.effort                                        enum       high        high         --           low            block      normal     --
+opt.common.advanced_logic_restructuring_mode           enum       area_timing area_timing  --           none           block      normal     --
+opt.port.eliminate_verilog_assign                      bool       true        true         --           false          block      normal     --
+place.coarse.enhanced_low_power_effort                 enum       none        none         --           low            block      normal     --
+place_opt.final_place.effort                           enum       high        high         --           medium         block      normal     --
+place_opt.flow.enable_power                            bool       false       false        --           true           block      normal     --
+place_opt.place.congestion_effort                      enum       high        high         --           medium         block      normal     --
+route.common.post_detail_route_redundant_via_insertion enum       medium      medium       --           off            block      normal     /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/settings.route_auto.tcl:41
+route.detail.eco_max_number_of_iterations              integer    10          10           --           -1             block      normal     --
+route.detail.timing_driven                             bool       true        true         --           false          block      normal     --
+route.global.timing_driven                             bool       true        true         --           false          block      normal     --
+route.track.crosstalk_driven                           bool       true        true         --           false          block      normal     --
+route.track.timing_driven                              bool       true        true         --           false          block      normal     --
+route_opt.flow.enable_power                            bool       false       false        --           true           block      normal     --
+time.enable_clock_to_data_analysis                     bool       true        true         --           false          block      normal     --
+time.remove_clock_reconvergence_pessimism              bool       true        true         --           false          block      normal     --
+------------------------------------------------------ ---------- ----------- ------------ ------------ -------------- ---------- ---------- ------------------------------------------------------------------------------------------------
+
+There are additional internal differences with no available TBC source.
+1

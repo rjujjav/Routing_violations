@@ -1,0 +1,2807 @@
+
+
+
+                              IC Compiler II (TM)
+
+                Version S-2021.06-SP3 for linux64 - Oct 12, 2021
+  This release has significant feature enhancements. Please review the Release
+                       Notes associated with this release.
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+##########################################################################################
+# Tool: IC Compiler II
+# Script: init_design.tcl
+# Version: P-2019.03-SP2
+# Copyright (C) 2014-2019 Synopsys, Inc. All rights reserved.
+##########################################################################################
+source -echo ./rm_setup/icc2_pnr_setup.tcl 
+puts "RM-info : Running script [info script]\n"
+RM-info : Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/icc2_pnr_setup.tcl
+
+##########################################################################################
+# Tool: IC Compiler II
+# Script: icc2_pnr_setup.tcl
+# Version: P-2019.03-SP2
+# Copyright (C) 2014-2019 Synopsys, Inc. All rights reserved.
+##########################################################################################
+source -echo ./rm_setup/icc2_common_setup.tcl 
+puts "RM-info : Running script [info script]\n"
+RM-info : Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/icc2_common_setup.tcl
+
+set TECH_HOME "/mnt/coe/workspace/ece/ece720-common/tech"
+set DCRM_RESULTS_DIR "../dcrm/results"
+##########################################################################################
+# Tool: IC Compiler II
+# Script: icc2_common_setup.tcl
+# Version: P-2019.03-SP2
+# Copyright (C) 2014-2019 Synopsys, Inc. All rights reserved.
+##########################################################################################
+##########################################################################################
+## Required variables
+## These variables must be correctly filled in for the flow to run properly
+##########################################################################################
+set DESIGN_NAME 		"counter" ;# Required; name of the design to be worked on; also used as the block name when scripts save or copy a block
+set LIBRARY_SUFFIX		"" ;# Suffix for the design library name ; default is unspecified   
+set DESIGN_LIBRARY 		"${DESIGN_NAME}${LIBRARY_SUFFIX}" ;# Name of the design library; default is ${DESIGN_NAME}${LIBRARY_SUFFIX}
+set REFERENCE_LIBRARY 		"${TECH_HOME}/google/icc2libprep/sky130_fd_sc_hs/icc2_cell_lib/sky130_fd_sc_hs.ndm"	;# Required; a list of reference libraries for the design library.
+;#	for library configuration flow (LIBRARY_CONFIGURATION_FLOW set to true below): 
+;#		- specify the list of physical source files to be used for library configuration during create_lib
+;# 	for hierarchical designs using bottom-up flows: include subblock design libraries in the list;
+;# 	for hierarchical designs using ETMs: include the ETM library in the list.
+;# 		- If unpack_rm_dirs.pl is used to create dir structures for hierarchical designs, 
+;#		  in order to transition between hierarchical DP and hierarchical PNR flows properly, 
+;#		  absolute paths are a requirement.
+set COMPRESS_LIBS               "false" ;# Save libs as compressed NDM; only used in DP.
+set VERILOG_NETLIST_FILES	"${DCRM_RESULTS_DIR}/${DESIGN_NAME}.mapped.v"	;# Verilog netlist files;
+;# 	for DP: required
+;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
+set UPF_FILE 			""	;# A UPF file
+;# 	for DP: required
+;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
+;#          for hierarchical designs using ETMs, load the block upf file
+;#          for each sub-block linked to ETM, include the following line in the UPF_FILE 
+;#              load_upf block.upf -scope block_instance_name
+set UPF_SUPPLEMENTAL_FILE	""      ;# The supplemental UPF file. Only needed if you are running golden UPF flow, in which case, you need both UPF_FILE and this.
+;# 	for DP: required
+;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
+;#	    If UPF_SUPPLEMENTAL_FILE is specified, scripts assume golden UPF flow. load_upf and save_upf commands will be different.	
+set TCL_PARASITIC_SETUP_FILE	""	;# Specify a Tcl script to read in your TLU+ files by using the read_parasitic_tech command;
+;# refer to the example in templates/init_design.read_parasitic_tech_example.tcl 
+set TCL_MCMM_SETUP_FILE		"${DCRM_RESULTS_DIR}/ICC2_files/${DESIGN_NAME}.MCMM/top.tcl"	;# Specify a Tcl script to create your corners, modes, scenarios and load respective constraints;
+;# two examples are provided in templates/: 
+;# init_design.mcmm_example.explicit.tcl: provide mode, corner, and scenario constraints; create modes, corners, 
+;# and scenarios; source mode, corner, and scenario constraints, respectively 
+;# init_design.mcmm_example.auto_expanded.tcl: provide constraints for the scenarios; create modes, corners, 
+;# and scenarios; source scenario constraints which are then expanded to associated modes and corners
+;# 	for DP: required
+;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
+set TECH_FILE 			"${TECH_HOME}/google/milkyway/sky130_fd_sc_hs/sky130_fd_sc_hs.tf" 	;# A technology file; TECH_FILE and TECH_LIB are mutually exclusive ways to specify technology information; 
+;# TECH_FILE is recommended, although TECH_LIB is also supported in ICC2 RM. 
+set TECH_LIB			""	;# Specify the reference library to be used as a dedicated technology library;
+;# as a best practice, please list it as the first library in the REFERENCE_LIBRARY list 
+set TECH_LIB_INCLUDES_TECH_SETUP_INFO true 
+;# Indicate whether TECH_LIB contains technology setup information such as routing layer direction, offset, 
+;# site default, and site symmetry, etc. TECH_LIB may contain this information if loaded during library prep.
+;# true|false; this variable is associated with TECH_LIB. 
+set TCL_TECH_SETUP_FILE		"init_design.tech_setup.tcl"
+;# Specify a TCL script for setting routing layer direction, offset, site default, and site symmetry list, etc.
+;# init_design.tech_setup.tcl is the default. Use it as a template or provide your own script.
+;# This script will only get sourced if the following conditions are met: 
+;# (1) TECH_FILE is specified (2) TECH_LIB is specified && TECH_LIB_INCLUDES_TECH_SETUP_INFO is false 
+set ROUTING_LAYER_DIRECTION_OFFSET_LIST "   {li1 vertical 0.0}   {met1 horizontal 0.0}   {met2 vertical 0.0}   {met3 horizontal 0.0}   {met4 vertical 0.0}   {met5 horizontal 0.0} "
+;# Specify the routing layers as well as their direction and offset in a list of space delimited pairs;
+;# This variable should be defined for all metal routing layers in technology file;
+;# Syntax is "{metal_layer_1 direction offset} {metal_layer_2 direction offset} ...";
+;# It is required to at least specify metal layers and directions. Offsets are optional. 
+;# Example1 is with offsets specified: "{M1 vertical 0.2} {M2 horizontal 0.0} {M3 vertical 0.2}"
+;# Example2 is without offsets specified: "{M1 vertical} {M2 horizontal} {M3 vertical}"
+##########################################################################################
+## Optional variables
+## Specify these variables if the corresponding functions are desired 
+##########################################################################################
+set DESIGN_LIBRARY_SCALE_FACTOR	"1000"	;# Specify the length precision for the library. Length precision for the design
+;# library and its ref libraries must be identical. Tool default is 10000, which
+;# implies one unit is one Angstrom or 0.1nm.
+set UPF_UPDATE_SUPPLY_SET_FILE	""	;# A UPF file to resolve UPF supply sets
+set DEF_FLOORPLAN_FILES		""	;# DEF files which contain the floorplan information;
+;# 	for DP: not required
+;# 	for PNR: required if INIT_DESIGN_INPUT = ASCII in icc2_pnr_setup.tcl and neither TCL_FLOORPLAN_FILE or 
+;#		 initialize_floorplan is used; DEF_FLOORPLAN_FILES and TCL_FLOORPLAN_FILE are mutually exclusive;
+;# 	         not required if INIT_DESIGN_INPUT = DC_ASCII or DP_RM_NDM
+set DEF_SCAN_FILE		"${DCRM_RESULTS_DIR}/${DESIGN_NAME}.mapped.scandef"	;# A scan DEF file for scan chain information;
+;# 	for PNR: not required if INIT_DESIGN_INPUT = DC_ASCII or DP_RM_NDM, as SCANDEF is expected to be loaded already
+set DEF_SITE_NAME_PAIRS		{}	;# A list of site name pairs for read_def -convert; 
+;# specify site name pairs with from_site first followed by to_site;
+;# Example: set DEF_SITE_NAME_PAIRS {{from_site_1 to_site_1} {from_site_2 to_site_2}} 	
+set SITE_DEFAULT		""	;# Specify the default site name if there are multiple site defs in the technology file;
+;# this is to be used by initialize_floorplan command; example: set SITE_DEFAULT "unit";
+;# this is applied in the init_design.tech_setup.tcl script 
+set SITE_SYMMETRY_LIST	""		;# Specify a list of site def and its symmetry value;
+;# this is to be used by read_def or initialize_floorplan command to control the site symmetry;
+;# example: set SITE_SYMMETRY_LIST "{unit Y} {unit1 Y}"; this is applied in the init_design.tech_setup.tcl script 
+set MIN_ROUTING_LAYER		"li1"	;# Min routing layer name; normally should be specified; otherwise tool can use all metal layers
+set MAX_ROUTING_LAYER "met5" ;
+set LIBRARY_CONFIGURATION_FLOW	false	;# Set it to true enables library configuration flow which calls the library manager under the hood to generate .nlibs, 
+;# save them to disk, and automatically link them to the design.
+;# Requires LINK_LIBRARY to be specified with .db files and REFERENCE_LIBRARY to be specified with physical
+;# source files for the library configuration flow. Also search_path (in icc2_pnr_setup.tcl) should include paths 
+;# to these .db and physical source files.
+set LINK_LIBRARY		""	;# Specify .db files;
+;# 	for running VC-LP (vc_lp.tcl) and Formality (fm.tcl): required
+;# 	for ICC-II without LIBRARY_CONFIGURATION_FLOW enabled: not required
+;#	for ICC-II with LIBRARY_CONFIGURATION_FLOW enabled: required; 
+;#      	- the .db files specified will be used for the library configuration under the hood during create_lib 
+##########################################################################################
+## Variables related to flow controls of flat PNR, hierarchical PNR and transition with DP
+##########################################################################################
+set DESIGN_STYLE		"flat"	;# Specify the design style; flat|hier; default is flat; 
+;# specify flat for a totally flat flow (flat PNR for short) and 
+;# specify hier for a hierarchical flow (hier PNR for short);
+;# 	for hier PNR: required and auto set if unpack_rm_dirs.pl is used; (see README.unpack_rm_dirs.txt for details)
+;# 	for flat PNR: this should set to flat (default)
+;#	for DP: not used 
+set PHYSICAL_HIERARCHY_LEVEL	"" 	;# Specify the current level of hierarchy for the hierarchical PNR flow; top|intermediate|bottom;
+;# 	for hier PNR: required and auto set if unpack_rm_dirs.pl is used; (see README.unpack_rm_dirs.txt for details)
+;# 	for flat PNR and for DP: not used.
+set RELEASE_DIR_DP		"" 	;# Specify the release directory of DP RM; 
+;# this is where init_design.tcl of PNR flow gets DP RM released libraries;
+;# 	for hier PNR: required and auto set if unpack_rm_dirs.pl is used; (see README.unpack_rm_dirs.txt for details)
+;# 	for flat PNR: required if INIT_DESIGN_INPUT = DP_RM_NDM, as init_design.tcl needs to know where DP RM libraries are
+;#	for DP: not used 
+set RELEASE_LABEL_NAME_DP 	"for_pnr"	
+;# Specify the label name of the block in the DP RM released library;
+;# this is the label name which init_design.tcl of PNR flow will open. 
+set RELEASE_DIR_PNR		"" 	;# Specify the release directory of PNR RM; 
+;# this is where the init_design.tcl of hierarchical PNR flow gets the sub-block libraries;	
+;# 	for hier PNR: required and auto set if unpack_rm_dirs.pl is used; (see README.unpack_rm_dirs.txt for details)
+;# 	for flat PNR and for DP: not used.
+##########################################################################################
+## Variables related to REDHAWK ANALYSIS FUSION
+##########################################################################################
+set REDHAWK_SEARCH_PATH		"" 	;# Required. Search path to the NDM, reference libraries, and etc.
+puts "RM-info : Completed script [info script]\n"
+RM-info : Completed script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/icc2_common_setup.tcl
+
+########################################################################################## 
+## Variables for init_design inputs (used by init_design.tcl)
+##########################################################################################
+set INIT_DESIGN_INPUT 		"ASCII"	;# Specify one of the 3 options: ASCII | DC_ASCII | DP_RM_NDM; default is ASCII.
+;# 1.ASCII: assumes all design input files are ASCII and will read them in individually.
+;# 2.DC_ASCII: for design transfer from DC using the write_icc2_files command;
+;#   sources ${DCRM_RESULTS_DIR}/${DCRM_FINAL_DESIGN_ICC2}/${DESIGN_NAME}.icc2_script.tcl;
+;#   you can change the default of DC_RESULTS_DIR and DCRM_FINAL_DESIGN_ICC2 below;
+;#   commonly used in combination with SPG flow (set PLACE_OPT_SPG_FLOW true below)  
+;# 3.DP_RM_NDM: if ICC2-DP-RM is completed, you can take its NDM outputs and skip the design creation steps;
+;#   for PNR flat (DESIGN_STYLE set to flat), script copies the design library from ICC2-DP-RM release 
+;#   area (specified by RELEASE_DIR_DP) and opens design;    
+;#   for PNR hier flow (DESIGN_STYLE set to hier), script will either copy design library 
+;#   from ICC2-DP-RM release area or in addition to that, copy design library of the child blocks from PNR
+;#   release area (specified by RELEASE_DIR_PNR), and then open design.
+#set DCRM_RESULTS_DIR  		"./results" ;# used by DC_ASCII to specify DC-RM output directory. Default is results.   
+;# (Rhett Davis) Moved this variable to icc2_common_setup.tcl for use with DP flow
+set DCRM_FINAL_DESIGN_ICC2 	"ICC2_files" ;# output directory name generated by DC-RM's write_icc2_files command;
+;# only valid if you specify DC_ASCII for INIT_DESIGN_INPUT;
+;# The directory contains verilog, floorplan, scenario settings, and constraints from DC
+;# in a format that IC Compiler II can source.    
+set POCV_CORNER_FILE_MAPPING_LIST 	"" ;# a list of corner and its associated POCV file in pairs, as POCV is corner dependant;
+;# same corner can have multiple corresponding files;
+;# example: set POCV_CORNER_FILE_MAPPING_LIST "{corner1 file1a} {corner1 file1b} {corner2 file2}";
+;# in the example, file1a and file1b will be loaded for corner1, file2 will be loaded for corner2.
+;# Note: POCV_CORNER_FILE_MAPPING_LIST will take precedence if AOCV_CORNER_TABLE_MAPPING_LIST is also specified
+set AOCV_CORNER_TABLE_MAPPING_LIST 	"" ;# a list of corner and its associated AOCV table in pairs, as AOCV is corner dependant;
+;# same corner can have multiple corresponding tables;
+;# example: set AOCV_CORNER_TABLE_MAPPING_LIST "{corner1 table1a} {corner1 table1b} {corner2 table2}";
+;# in the example, table1a and table1b will be loaded for corner1, table2 will be loaded for corner2.
+set TCL_PAD_CONSTRAINTS_FILE		"" ;# a Tcl script for your pad constraint commands used by place_io of 
+;# templates/init_design.flat_design_planning_example.tcl sourced by init_design.tcl
+set TCL_MV_SETUP_FILE			"" ;# a Tcl script placeholder for your MV setup commands,such as create_voltage_area, 
+;# placement bound, power switch creation and level shifter insertion, etc;
+;# refer to templates/init_design.power_switch_example.tcl for sample commands   
+set TCL_PG_CREATION_FILE		"" ;# a Tcl script placeholder for your power ground network creation commands,
+;# such as create_pg*, set_pg_strategy, compile_pg, etc;
+set TCL_FLOORPLAN_FILE			"rm_setup/floorplan.tcl" ;# Tcl floorplan file written by the write_floorplan command; for example, floorplan/floorplan.tcl;
+;# TCL_FLOORPLAN_FILE and DEF_FLOORPLAN_FILES are mutually exclusive; please specify only one of them;
+;# Not effective if INIT_DESIGN_INPUT = DC_ASCII or DP_RM_NDM.
+;# The write_floorplan command writes a floorplan.tcl Tcl script and a floorplan.def DEF file;
+;# reading floorplan.tcl alone can restore the entire floorplan - refer to write_floorplan man for more details  
+set TCL_ADDITIONAL_FLOORPLAN_FILE 	"" ;# a supplementary Tcl constraint file; sourced after DEF_FLOORPLAN_FILE or TCL_FLOORPLAN_FILE is read, 
+;# or initialize_floorplan is done; can be used to cover additional floorplan constructs, 
+;# such as bounds, pin guides, or route guides, etc; not valid if INIT_DESIGN_INPUT = DC_ASCII or DP_RM_NDM.
+set TCL_USER_INIT_DESIGN_POST_SCRIPT ""	;# An optional Tcl file to be sourced at the very end of init_design.tcl before save_block.
+########################################################################################## 
+## Variables for constraints or settings that impact multiple steps (used across flow)
+##########################################################################################
+set TCL_PLACEMENT_SPACING_LABEL_RULE_FILE "" ;# A file to specify your placement spacing labels and rules.
+;# Example : set_placement_spacing_label -name X -side both -lib_cells [get_lib_cells -of [get_cells]]
+;# Example : set_placement_spacing_rule -labels {X SNPS_BOUNDARY} {0 1}
+set SAIF_FILE				"" ;# Specify a SAIF file for accurate power computation for features such as
+;# total power (opt.power.mode set to total) and enhanced low power placement (place.coarse.enhanced_low_power_effort).
+;# sourced at the beginning of place_opt.tcl
+set SAIF_FILE_POWER_SCENARIO		"" ;# SAIF_FILE related; specify a power scenario where the SAIF is to be applied
+set SAIF_FILE_SOURCE_INSTANCE		"" ;# SAIF_FILE related; name of the instance of the current design as it appears in SAIF file.
+set SAIF_FILE_TARGET_INSTANCE		"" ;# SAIF_FILE related; name of the target instance on which activity is to be annotated.
+set OPTIMIZATION_FREEZE_PORT_LIST 	"" ;# List of cells (for ex, clock gen modules, or customized logics that should not be touched) to which freeze_clock_ports 
+;# and freeze_data_ports attribute will be set to prevent optimization from modifying their port signature; 
+;# especially useful if you do formal verification by modules. 
+;# Sets opt.dft.hier_preservation to true and runs set_freeze_port -all on the specified cells.
+set TCL_USER_CONNECT_PG_NET_SCRIPT ""	;# An optional Tcl file for customized connect_pg_net command and options, such as for bias pins of cells added by opto;
+;# sourced by all the main scripts prior to the save_block command
+# ---------------------------------
+# Lib cell purpose restrictions
+# ---------------------------------
+set TCL_LIB_CELL_PURPOSE_FILE 		"set_lib_cell_purpose.tcl" ;# A Tcl file which applies lib cell purpose related restrictions;
+;# You can specify it with your own customized script	
+;# RM default is set_lib_cell_purpose.tcl which includes the following restrictions, each controlled by
+;# an individual variable : dont use cells (TCL_LIB_CELL_DONT_USE_FILE), tie cells (TIE_LIB_CELL_PATTERN_LIST), 
+;# hold fixing (HOLD_FIX_LIB_CELL_PATTERN_LIST), CTS (CTS_LIB_CELL_PATTERN_LIST) and CTS-exclusive cells (CTS_ONLY_LIB_CELL_PATTERN_LIST). 
+## The following 5 *_LIB_CELL_* variables are only applicable if set_lib_cell_purpose.tcl is used for lib cell purpose restrictions.
+#  If you do not plan to use set_lib_cell_purpose.tcl, specify TCL_LIB_CELL_PURPOSE_FILE with your own file and you don't have to specify the following variables.
+set TCL_LIB_CELL_DONT_USE_FILE 		"" ;# A Tcl file for customized don't use ("set_lib_cell_purpose -exclude <purpose>" commands).
+;# The file is to be sourced in set_lib_cell_purpose.tcl, which is the default script for handling lib cell 
+;# purpose restrictions specified by the variable TCL_LIB_CELL_PURPOSE_FILE above.
+;# It only takes effect if TCL_LIB_CELL_PURPOSE_FILE is set to the default value set_lib_cell_purpose.tcl
+set TIE_LIB_CELL_PATTERN_LIST 		"" ;# A list of TIE lib cell patterns to be included for optimization;
+;# Example : set TIE_LIB_CELL_PATTERN_LIST "*/TIE* */ttt*"
+set HOLD_FIX_LIB_CELL_PATTERN_LIST 	"" ;# A list of hold time fixing lib cell patterns to be included only for hold
+set CTS_LIB_CELL_PATTERN_LIST 		"" ;# List of CTS lib cell patterns to be used by CTS; 
+;# please include repeaters, always-on repeaters (for MV-CTS), 
+;# and gates (for sizing pre-existing gates)/always-on buffers;
+;# Please also include flops as CCD can size flops to improve timing.
+;# example : set CTS_LIB_CELL_PATTERN_LIST "*/NBUF* */AOBUF* */AOINV* */SDFF*"
+set CTS_ONLY_LIB_CELL_PATTERN_LIST 	"" ;# List of CTS lib cell patterns to be used by CTS "exclusively", such as clock specific
+;# buffers and inverters. Please be aware that these cells will be applied with only cts 
+;# purpose and nothing else. If you want to use these lib cells for other purposes, 
+;# such as optimization and hold, specify them in CTS_LIB_CELL_PATTERN_LIST instead
+# ---------------------------------
+# Clock NDR
+# ---------------------------------
+set TCL_CTS_NDR_RULE_FILE 		"cts_ndr.tcl" ;# Specify a script for clock NDR creation and association, to be sourced at place_opt
+;# By default the variable is set to cts_ndr.tcl, which is an RM provided example.
+;# Important: to use the example script, you must also specify CTS_NDR_RULE_NAME, CTS_INTERNAL_NDR_RULE_NAME,
+;# or CTS_LEAF_NDR_RULE_NAME (see below for details), otherwise the script won't do anything.
+## Note: the CTS_*NDR* variables below are only applicable if TCL_CTS_NDR_RULE_FILE is set to the RM provided example script. 
+## If you specify your own script for TCL_CTS_NDR_RULE_FILE, variables below will not be used.
+## For root clock nets
+set CTS_NDR_RULE_NAME			"" ;# Specify a clock NDR rule for root nets;
+;# required for the example script to work on the root and internal nets.
+;# Below are the 3 predefined rules supported:  
+;# rm_2w2s : double width double spacing 
+;# rm_2w2s_shield_default : double width double spacing + shielding with default width and spacing
+;# rm_2w2s_shield_list : double width double spacing + shielding with customized per layer width and spacing
+set CTS_NDR_SHIELDING_LAYER_WIDTH_LIST 	"" ;# A list of layer_name shield_width ,for ex, "M1 0.1 M2 0.1 M3 0.1";
+;# required if you specify rm_2w2s_shield_list as CTS_NDR_RULE_NAME.
+set CTS_NDR_SHIELDING_LAYER_SPACING_LIST "" ;# A list of layer_name shield_spacing, for ex, "M1 0.1 M2 0.1 M3 0.1";
+;# required if you specify rm_2w2s_shield_list as CTS_NDR_RULE_NAME.
+set CTS_NDR_MIN_ROUTING_LAYER		"" ;# Min routing layer for set_clock_routing_rules to which CTS_NDR_RULE_NAME is applied. 
+set CTS_NDR_MAX_ROUTING_LAYER		"" ;# Max routing layer for set_clock_routing_rules to which CTS_NDR_RULE_NAME is applied.
+## For internal clock nets (by default same values as with the root clock nets)
+set CTS_INTERNAL_NDR_RULE_NAME		"$CTS_NDR_RULE_NAME" ;# Specify a clock NDR rule for internal nets; default is same as CTS_NDR_RULE_NAME;
+;# required for the example script to work on the internal nets.
+;# Below are the 3 predefined rules supported:  
+;# rm_2w2s : double width double spacing 
+;# rm_2w2s_shield_default : double width double spacing + shielding with default width and spacing
+;# rm_2w2s_shield_list : double width double spacing + shielding with customized per layer width and spacing
+set CTS_INTERNAL_NDR_SHIELDING_LAYER_WIDTH_LIST "$CTS_NDR_SHIELDING_LAYER_WIDTH_LIST" ;# A list of layer_name shield_width ,for ex, "M1 0.1 M2 0.1 M3 0.1";
+;# required if you specify rm_2w2s_shield_list as CTS_INTERNAL_NDR_RULE_NAME.
+set CTS_INTERNAL_NDR_SHIELDING_LAYER_SPACING_LIST "$CTS_NDR_SHIELDING_LAYER_SPACING_LIST" ;# A list of layer_name shield_spacing, for ex, "M1 0.1 M2 0.1 M3 0.1";
+;# required if you specify rm_2w2s_shield_list as CTS_INTERNAL_NDR_RULE_NAME.
+set CTS_INTERNAL_NDR_MIN_ROUTING_LAYER "$CTS_NDR_MIN_ROUTING_LAYER" ;# Min routing layer for set_clock_routing_rules to which CTS_INTERNAL_NDR_RULE_NAME is applied. 
+set CTS_INTERNAL_NDR_MAX_ROUTING_LAYER "$CTS_NDR_MAX_ROUTING_LAYER" ;# Max routing layer for set_clock_routing_rules to which CTS_INTERNAL_NDR_RULE_NAME is applied.
+## For leaf clock nets
+set CTS_LEAF_NDR_RULE_NAME 		"" ;# Specify rm_leaf as the predefined rule for the example script to prepare a default rule for leaf nets
+set CTS_LEAF_NDR_MIN_ROUTING_LAYER 	$CTS_NDR_MIN_ROUTING_LAYER ;# Min routing layer for set_clock_routing_rules to which rm_leaf is applied.
+set CTS_LEAF_NDR_MAX_ROUTING_LAYER 	$CTS_NDR_MAX_ROUTING_LAYER ;# Max routing layer for set_clock_routing_rules to which rm_leaf is applied.
+# ---------------------------------
+# Preroute optimizations
+# ---------------------------------
+set PREROUTE_PLACEMENT_MAX_DENSITY	"" ;# specify a float value between 0 and 1; tool default unspecified; optional in RM;	
+;# If specified, sets place.coarse.max_density to limit local density to be less than the value.
+;# if unspecified, place.coarse.max_density remains at tool default 0; 
+;# now if $PREROUTE_PLACEMENT_AUTO_DENSITY is also true, tool will auto determine a appropriate value; 
+;# while if $PREROUTE_PLACEMENT_AUTO_DENSITY is false, tool will try to spread cells evenly
+set PREROUTE_PLACEMENT_MAX_UTIL		"" ;# specify a float value between 0 and 1; tool default unspecified; optional in RM;
+;# sets place.coarse.congestion_driven_max_util to control how densely the tool can pack cells in uncongested 
+;# regions, in order to remove congestion in congested regions
+;# if unspecified, place.coarse.congestion_driven_max_util remains at tool default 0.93
+set PREROUTE_PLACEMENT_AUTO_DENSITY	true ;# true|false; tool default true; optional in RM to set it to false if you want to disable the feature; 
+;# sets place.coarse.auto_density_control to control coarse placement automatic density control;
+;# if you do not specify either of the above two settings (max density and max util) and keep the tool defaults, 
+;# the automatic density control selects the value for max density and max util based on the design stage;
+;# message PLACE-027 is issued to report the chosen settings
+set PREROUTE_PLACEMENT_ENHANCED_AUTO_DENSITY false ;# false|true, tool default false; optional in RM;
+;# sets place.coarse.enhanced_auto_density_control;
+;# automaticlly selects max density based on the design stage as well as design utilization;
+;# automatically selects max util based on the design stage as well as design tchnology
+set PREROUTE_PLACEMENT_TARGET_ROUTING_DENSITY "" ;# specify a float value between 0 and 1; tool default unspecified; optional in RM;	
+;# sets place.coarse.target_routing_density to control target routing density for congestion-driven placement; 
+;# if left unspecified, place.coarse.target_routing_density remains at tool default 0 
+set PREROUTE_PLACEMENT_PIN_DENSITY_AWARE false ;# false|true; tool default false; optional in RM;
+;# sets app option place.coarse.pin_density_aware to control maximum local pin density;
+set PREROUTE_NDR_OPTIMIZATION 		false ;# false|true, tool default false; optional in RM;
+;# sets place_opt/clock_opt.flow.optimize_ndrs to true enables NDR optimization
+set PREROUTE_CTS_POWER_AWARE_PRUNING	false ;# false|true; tool default false; RM default false;
+;# sets cts.common.power_aware_pruning to allow selection of repeater cells to also consider 
+;# internal and leakage power in order to reduce dynamic and also leakage power of the clock trees;
+;# impacts place_opt trial CTS/optimize icgs and clock_opt build_clock phase 
+set PREROUTE_CTS_LOW_POWER_TECHNIQUE	"" ;# gate_relocation|low_power_targets|all; RM default is unspecified;
+;# impacts place_opt trial CTS/optimize icgs and clock_opt build_clock phase; 
+;# gate_relocation: sets cts.compile.power_opt_mode to gate_relocation to enable activity aware gate 
+;#                  relocation (moves cells with low input clock toggling rates closer to their drivers)
+;#		    at the end of gate by gate clock tree synthesis;
+;# low_power_targets: sets cts.compile.power_opt_mode to low_power_targets for CTS to relax certain
+;#                    internal constraints and build clock trees with less area and power;
+;# all: sets cts.compile.power_opt_mode to all to enable both the above features
+########################################################################################## 
+## Variables for the place_opt step (used by place_opt.tcl and settings.place_opt.tcl)
+##########################################################################################
+set PLACE_OPT_ACTIVE_SCENARIO_LIST	"" ;# A subset of scenarios to be made active during place_opt step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+;# include CTS scenarios if you are enabling CTS related features during place_opt,
+;# such as PLACE_OPT_OPTIMIZE_ICGS, PLACE_OPT_TRIAL_CTS, or PLACE_OPT_MSCTS
+set PLACE_OPT_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created by place_opt; default "" which means no user prefix
+set TCL_USER_PLACE_OPT_PRE_SCRIPT 	"" ;# An optional Tcl file for place_opt.tcl to be sourced before place_opt.
+set TCL_USER_PLACE_OPT_SCRIPT 		"" ;# An optional Tcl file for place_opt.tcl to replace pre-existing place_opt commands.
+set TCL_USER_PLACE_OPT_POST_SCRIPT 	"" ;# An optional Tcl file for place_opt.tcl to be sourced after place_opt.
+set PLACE_OPT_SPG_FLOW 			false ;# false|true; RM default false; set it to true to enable SPG input handling flow in place_opt.tcl;
+;# which skips the first pass of the two-pass placement;
+;# recommended to go with DC-ASCII inputs (set INIT_DESIGN_INPUT DC_ASCII)
+set PLACE_OPT_TRIAL_CTS 		false ;# false|true; tool default false; optional in RM;
+;# sets place_opt.flow.trial_clock_tree to enables early clock tree synthesis;
+;# useful for low power placement and ICG optimization flow (PLACE_OPT_OPTIMIZE_ICGS). 
+;# Propagated clocks will be used through-out place_opt flow.
+;# Note: when PLACE_OPT_OPTIMIZE_ICGS is set to true, trial CTS will be automatically enabled, 
+;# regardless of the setting of PLACE_OPT_TRIAL_CTS. So you don't have to manually enable it.
+set PLACE_OPT_OPTIMIZE_ICGS 		false ;# false|true; tool default false; optional in RM;
+;# sets place_opt.flow.optimize_icgs for place_opt to run automatic ICG optimization that performs trial CTS, 
+;# timing-aware ICG splitting and clock-aware placement for critical enable paths.
+;# The aggressiveness of splitting can be controlled by the PLACE_OPT_OPTIMIZE_ICGS_CRITICAL_RANGE. 
+set PLACE_OPT_OPTIMIZE_ICGS_CRITICAL_RANGE "" ;# specify a value between 0 and 1; default unspecified; 
+;# sets place_opt.flow.optimize_icgs_critical_range to the value specified; tool default is 0.75.
+;# When set to X, only ICGs enable slack within {EN_WNS, EN_WNS*(1-X)} will be considered for splitting;
+;# for example, 0.75 means only ICG with enable pin violations between 1*EN_WNS and 0.25*EN_WNS will be split,
+;# while the ICG enable slack below 0.25*EN_WNS will be skipped. Larger value means more splitting. 
+set PLACE_OPT_MERGE_ICGS		true ;# false|true; tool default true; optional in RM to set it to false;
+;# sets place_opt.flow.merge_clock_gates to control whether the OBD ICG merging is enabled or not;
+;# when set to true, ICG merging (merge_clock_gates) runs internally inside place_opt as a first step in initial_place stage;
+set PLACE_OPT_ICG_AUTO_BOUND		false ;# false|true; tool default false; optional in RM;
+;# sets place.coarse.icg_auto_bound to enable use of automatically created group bounds
+set PLACE_OPT_CLOCK_AWARE_PLACEMENT	false ;# false|true; tool default false; optional in RM;
+;# sets place_opt.flow.clock_aware_placement to guide placement with ICG's enable timing criticality; 
+;# place_opt will try to improve ICG enable timing by placing the timing critical ICGs and their fanout cells 
+;# at better locations for ICG enable paths.
+;# Note: when PLACE_OPT_OPTIMIZE_ICGS is set to true, clock-aware placement will be automatically enabled, 
+;# regardless of the setting of PLACE_OPT_CLOCK_AWARE_PLACEMENT. So you don't have to manually enable it.
+set PLACE_OPT_MSCTS			false ;# false|true; enables MSCTS (regular) at place_opt step; requires TCL_REGULAR_MSCTS_FILE to be specified;
+;# It runs in two parts: first part runs at place_opt step to source TCL_REGULAR_MSCTS_FILE;
+;# second part runs at clock_opt_cts step, skips TCL_REGULAR_MSCTS_FILE, propagates clocks, and runs mesh simulation;
+;# By default, the features runs in ideal clock mode. However if if PLACE_OPT_OPTIMIZE_ICGS or PLACE_OPT_TRIAL_CTS 
+;# are also enabled, then propagated clocks will be used during the place_opt step;
+;# If set to false (RM default), RM runs MSCTS only at clock_opt_cts step.
+set PLACE_OPT_MSCTS_CRITICAL_SCENARIO	"" ;# Specify a scenario with worst RC and most visible sinks for place_opt MSCTS to base on;
+;# script will record current scenario, switch to the specified scenario before MSCTS, and then
+;# restore the original current scenario after MSCTS. Only valid if PLACE_OPT_MSCTS is set to true
+set TCL_USER_SPARE_CELL_PRE_SCRIPT	"" ;# An optional Tcl file for spare cell insertion to be sourced before place_opt;
+;# refer to templates/place_opt.spare_cell.tcl for an example
+set TCL_USER_SPARE_CELL_POST_SCRIPT	"" ;# An optional Tcl file for spare cell insertion to be sourced after place_opt;
+;# refer to templates/place_opt.spare_cell.tcl for an example
+set TCL_NON_CLOCK_NDR_RULES_FILE 	"" ;# Specify a NDR rules file for signal nets (Clock NDR rules are specified by CTS_NDR_* variables above)
+set PLACE_OPT_MULTIBIT_BANKING 		false ;# tool default false; optional in RM;
+;# sets place_opt.flow.enable_multibit_banking to enable multibit banking during place_opt;
+;# takes effect during place_opt initial_opto 
+set PLACE_OPT_MULTIBIT_DEBANKING 	false ;# tool default false; optional in RM;
+;# sets place_opt.flow.enable_multibit_debanking to enables multibit debanking during place_opt;
+;# takes effect during place_opt final_opto
+########################################################################################## 
+## Variables for the clock_opt step 
+## (used by settings.clock_opt_cts.tcl, clock_opt_cts.tcl, and clock_opt_opto.tcl)
+##########################################################################################
+set CLOCK_OPT_CTS_ACTIVE_SCENARIO_LIST  "" ;# A subset of scenarios to be made active during clock_opt_cts step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set CLOCK_OPT_CTS_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created by clock_opt build_clock; default "" which means no user prefix
+set TCL_USER_CLOCK_OPT_CTS_PRE_SCRIPT 	"" ;# An optional Tcl file for clock_opt_cts.tcl to be sourced before clock_opt.
+set TCL_USER_CLOCK_OPT_CTS_SCRIPT 	"" ;# An optional Tcl file for clock_opt_cts.tcl to replace pre-existing clock_opt commands.
+set TCL_USER_CLOCK_OPT_CTS_POST_SCRIPT 	"" ;# An optional Tcl file for clock_opt_cts.tcl to be sourced after clock_opt.
+set CLOCK_OPT_OPTO_ACTIVE_SCENARIO_LIST "" ;# A subset of scenarios to be made active during clock_opt_opto step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set CLOCK_OPT_OPTO_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created by clock_opt final_opto; default "" which means no user prefix
+set TCL_USER_CLOCK_OPT_OPTO_PRE_SCRIPT 	"" ;# An optional Tcl file for clock_opt_opto.tcl to be sourced before clock_opt.
+set TCL_USER_CLOCK_OPT_OPTO_SCRIPT 	"" ;# An optional Tcl file for clock_opt_opto.tcl to replace pre-existing clock_opt commands.
+set TCL_USER_CLOCK_OPT_OPTO_POST_SCRIPT "" ;# An optional Tcl file for clock_opt_opto.tcl to be sourced after clock_opt.
+set CLOCK_OPT_MSCTS_CRITICAL_SCENARIO	"" ;# Specify a scenario with worst RC and most visible sinks for MSCTS to base on;
+;# script will record current scenario, switch to the specified scenario before MSCTS, and then
+;# restore the original current scenario after MSCTS.
+set TCL_REGULAR_MSCTS_FILE		"" ;# Specify a Tcl script for regular multisource clock tree synthesis setup and creation,
+;# which will be sourced prior to the "place_opt" if PLACE_OPT_MSCTS is true in place_opt.tcl
+;# and before "clock_opt -from build_clock -to route_clock" command in clock_opt_cts.tcl
+;# RM provided script: mscts.regular.tcl
+set TCL_STRUCTURAL_MSCTS_FILE		"" ;# Specify a Tcl script for structural multisource clock tree synthesis setup and creation,
+;# which will be sourced prior to the "clock_opt -from build_clock -to route_clock" command
+;# in clock_opt_cts.tcl;
+;# RM provided script: mscts.structural.tcl
+set PREROUTE_CTS_POWER_AWARE_PRUNING	false ;# false|true; tool default false; RM default false;
+;# sets cts.common.power_aware_pruning to allow selection of repeater cells to also consider 
+;# internal and leakage power in order to reduce dynamic and also leakage power of the clock trees 
+set PREROUTE_CTS_LOW_POWER_TECHNIQUE	"" ;# gate_relocation|low_power_targets|all; RM default is unspecified;
+;# gate_relocation: sets cts.compile.power_opt_mode to gate_relocation to enable activity aware gate 
+;#                  relocation (moves cells with low input clock toggling rates closer to their drivers)
+;#		    at the end of gate by gate clock tree synthesis;
+;# low_power_targets: sets cts.compile.power_opt_mode to low_power_targets for CTS to relax certain
+;#                    internal constraints and build clock trees with less area and power;
+;# all: sets cts.compile.power_opt_mode to all to enable both the above features
+set CLOCK_OPT_OPTO_CTO 			false ;# Default false; enables post-route clock tree optimization in clock_opt_opto.tcl
+set CLOCK_OPT_OPTO_CTO_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created by CTO; default "" which means no user prefix
+########################################################################################## 
+## Variables for route_auto and route_opt related settings 
+## (Used by settings.route_auto.tcl, settings.route_opt.tcl, route_auto.tcl, and route_opt.tcl)
+##########################################################################################
+set ROUTE_AUTO_ACTIVE_SCENARIO_LIST 	"" ;# A subset of scenarios to be made active during route_auto step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set ROUTE_AUTO_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created suring route_auto; default "" which means no user prefix
+set TCL_USER_ROUTE_AUTO_PRE_SCRIPT 	"" ;# An optional Tcl file for route_auto.tcl to be sourced before route_auto.
+set TCL_USER_ROUTE_AUTO_SCRIPT 		"" ;# An optional Tcl file for route_auto.tcl to replace pre-existing routing commands.
+set TCL_USER_ROUTE_AUTO_POST_SCRIPT 	"" ;# An optional Tcl file for route_auto.tcl to be sourced after route_auto.
+set ROUTE_OPT_ACTIVE_SCENARIO_LIST 	"" ;# A subset of scenarios to be made active during route_opt step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set ROUTE_OPT_USER_INSTANCE_NAME_PREFIX "" ;# Specify the prefix for new cells created during route_opt; default "" which means no user prefix
+set TCL_USER_ROUTE_OPT_PRE_SCRIPT 	"" ;# An optional Tcl file for route_opt.tcl to be sourced before route_opt.
+set TCL_USER_ROUTE_OPT_SCRIPT 		"" ;# An optional Tcl file for route_opt.tcl to replace pre-existing route_opt commands.
+set TCL_USER_ROUTE_OPT_POST_SCRIPT 	"" ;# An optional Tcl file for route_opt.tcl to be sourced after route_opt.
+set CLOCK_OPT_GLOBAL_ROUTE_OPT		false ;# false|true; tool default false; optional in RM; 
+;# enables Global Route Based Optimization by setting clock_opt.flow.enable_global_route_opt 
+;# and route_opt.flow.enable_power to true, sources routing settings, and runs clock_opt -from global_route_opt;
+;# this feature is added to route_auto.tcl; if enabled, it replaces route_global command;
+set ROUTE_AUTO_USE_SINGLE_COMMAND	false ;# false|true; runs route_auto command instead of atomic commands (route_global+route_track+route_detail with update_timing in between)
+set REDUNDANT_VIA_INSERTION		false ;# false|true; tool default false; optional in RM; enables redundant via insertion for post-route;
+;# if you choose ESTABLISHED for TECHNOLOGY_NODE on RMgen download page,
+;# RM is set up to run concurrent redundant via insertion during route_auto and route_opt
+;# otherwise, RM is set up to reserve space and run standalone add_redundant_vias after route_auto and route_opt  
+set TCL_USER_REDUNDANT_VIA_MAPPING_FILE "" ;# ICC-II via mapping file required for redundant via insertion; 
+;# the file should include add_via_mapping commands.   
+set TCL_USER_ICC_REDUNDANT_VIA_MAPPING_FILE "" ;# ICC style via mapping file required for redundant via insertion; 
+;# the file should include define_zrt_redundant_vias commands.
+;# This variable is mutually exclusive with TCL_USER_REDUNDANT_VIA_MAPPING_FILE
+set ROUTE_AUTO_ANTENNA_FIXING		false ;# false|true; tool default false; optional in RM;
+;# set true to enable route.detail.hop_layers_to_fix_antenna and source TCL_ANTENNA_RULE_FILE in route_auto.tcl 
+;# to fix Antenna violations.
+set TCL_ANTENNA_RULE_FILE	""	;# Antenna rule file; required if ROUTE_AUTO_ANTENNA_FIXING is set to true.
+set ROUTE_AUTO_CREATE_SHIELDS 		"none" ;# none|before_route_auto|after_route_auto; default is none; optional in RM;
+;# choose to create shields before or after route_auto; all nets with shielding rules will be shielded	
+set ROUTE_OPT_PT_DELAY_CALCULATION_WITH_PBA false ;# Default false; sets time.pba_optimization_mode to path to enable PBA during second route_opt;
+set ROUTE_OPT_STARRC_CONFIG_FILE ""	;# Specify the configuration file for StarRC in-design extraction for the second route_opt in route_opt.tcl;
+;# required; refer to templates/route_opt.starrc_config_example.txt as an example
+set ROUTE_OPT_RESHIELD 			"after_route_opt" ;# none|after_route_opt|incremental; default is after_route_opt; 
+;# set after_route_opt to reshield nets after route_opt is done with create_shield command; 
+;# set incremental to trigger reshield during all route_opt eco route sessions with an app option; 
+;# note that ROUTE_OPT_RESHIELD only works if ROUTE_AUTO_CREATE_SHIELDS is set to a value other than none
+set ROUTE_OPT_CTO 			"auto" ;# auto|always_on|always_off; tool default auto; RM default auto;
+;# sets route_opt.flow.enable_ccd_clock_drc_fixing to the specified value for clock DRC fixing in route_opt;
+;# Note: this feature affects both CCD and non-CCD route_opt;
+;# if CCD is enabled, with auto, route_opt will enable the feature; set it to always_off if you want it disabled.
+;# if CCD is not enabled, with auto, this feature won't be enabled; set it to always_on to enable the feature.
+## The following 6 ROUTE_OPT_ECO_OPT* variables are for ECO fusion (eco_opt command) in route_opt.tcl
+#  Note that once ROUTE_OPT_ECO_OPT_PT_PATH is specified, ECO fusion is enabled and the third route_opt will be skipped.
+set ROUTE_OPT_ECO_OPT_PT_PATH		"" ;# Required by eco_opt; specify the path to pt_shell; for example: /u/mgr/bin/pt_shell
+;# if specified, eco_opt
+set ROUTE_OPT_ECO_OPT_DB_PATH		"" ;# Optional; specify the paths to .db files of the reference libraries for PT (if not already in your search path)
+;# For eco_opt, PT needs to read db. 
+set ROUTE_OPT_ECO_OPT_TYPE		"" ;# Optional; eco_opt fixing type; timing|setup|hold|drc|leakage_power|dynamic_power|total_power|buffer_removal
+;# if not specified, works on all types
+set ROUTE_OPT_ECO_OPT_STARRC_CONFIG_FILE "" ;# Optional; specify the configuration file for StarRC in-design extraction
+set ROUTE_OPT_ECO_OPT_WORK_DIR		"" ;# Optional; specify the working directory for eco_opt where PT files and logs are generated;
+;# if not specified, tool will automatically generate one
+set ROUTE_OPT_ECO_OPT_PRE_LINK_SCRIPT	"" ;# Optional; specify the file that contains custom PT script, which is executed before linking in PrimeTime;
+;# use PT commands that do not require the current design
+set ROUTE_OPT_ECO_OPT_POST_LINK_SCRIPT	"" ;# Optional; specify the file that contains custom PT script, which is executed after linking in PrimeTime;
+;# use PT commands that require the current design
+########################################################################################## 
+## Variables for chip finishing related settings (Used by chip_finish.tcl)
+##########################################################################################
+set CHIP_FINISH_ACTIVE_SCENARIO_LIST 	"" ;# A subset of scenarios to be made active during chip_finish step.
+;# once set, the list of active scenarios is saved and carried over to subsequent steps.
+set TCL_USER_CHIP_FINISH_PRE_SCRIPT 	"" ;# An optional Tcl file for chip_finish.tcl to be sourced before filler cell insertion.
+set TCL_USER_CHIP_FINISH_POST_SCRIPT 	"" ;# An optional Tcl file for chip_finish.tcl to be sourced after metal fill insertion.
+## Std cell filler and decap cells used by chip_finish step and post PT-ECO refill in pt_eco step
+set CHIP_FINISH_METAL_FILLER_PREFIX 	"" ;# A string to specify the prefix for metal filler (decap) cells.
+set CHIP_FINISH_NON_METAL_FILLER_PREFIX $CHIP_FINISH_METAL_FILLER_PREFIX ;# A string to specify the prefix for non-metal fillers.
+set CHIP_FINISH_METAL_FILLER_LIB_CELL_LIST "" ;# A list of metal filler (decap) lib cells, including the library name, for ex, 
+;# Example: "hvt/DCAP_HVT lvt/DCAP_LVT". Recommended to specify decaps from largest to smallest.
+set CHIP_FINISH_NON_METAL_FILLER_LIB_CELL_LIST "" ;# A list of non-metal filler lib cells, including the library name, for ex,
+;# Example: hvt/FILL_HVT lvt/FILL_LVT. Recommended to specify them from largest to smallest.
+## Signal EM
+set CHIP_FINISH_SIGNAL_EM_CONSTRAINT_FORMAT "ITF" ;# Specify signal EM constraint format: ITF | ALF; string is uppercase and ITF is default
+set CHIP_FINISH_SIGNAL_EM_CONSTRAINT_FILE "" ;# A constraint file which contains signal electromigration constraints;
+;# specify an ITF file if CHIP_FINISH_SIGNAL_EM_CONSTRAINT_FORMAT is set to ITF, and specify an
+;# ALF file if CHIP_FINISH_SIGNAL_EM_CONSTRAINT_FORMAT is set to ALF;
+;# required for signal EM analysis and fixing to be enabled
+set CHIP_FINISH_SIGNAL_EM_SAIF 		"" ;# An optional SAIF file for the signal EM analysis.
+set CHIP_FINISH_SIGNAL_EM_SCENARIO 	"" ;# Specify an active scenario which is enabled for setup and hold analysis;
+;# Required for signal EM analysis and fixing to proceed.
+set CHIP_FINISH_SIGNAL_EM_FIXING 	false ;# Enable signal EM fixing; false | true; false is default
+########################################################################################## 
+## Variables for ICV in-design related settings (used by icv_in_design.tcl)
+##########################################################################################
+set ICV_IN_DESIGN_ACTIVE_SCENARIO_LIST 	"" ;# A subset of scenarios to be made active during icv_in_design step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set TCL_USER_ICV_IN_DESIGN_PRE_SCRIPT 	"" ;# An optional Tcl file for chip_finish.tcl to be sourced before signoff_check_drc.
+set TCL_USER_ICV_IN_DESIGN_POST_SCRIPT 	"" ;# An optional Tcl file for chip_finish.tcl to be sourced after second signoff_check_drc.
+## signoff_check_drc specific variables
+set ICV_IN_DESIGN_DRC_CHECK_RUNSET 	"" ;# The foundry runset for ICV used by signoff_check_drc
+set ICV_IN_DESIGN_DRC_CHECK_RUNDIR 	"z_check_drc" 
+;# The working directory for the signoff_check_drc before signoff_fix_drc;
+;# The directory that contains the initial DRC error database for signoff_fix_drc.
+## singoff_fix_drc specific variables
+set ICV_IN_DESIGN_ADR 			true ;# true|false; true enables signoff_fix_drc in addition to signoff_check_drc; default is true
+set ICV_IN_DESIGN_ADR_RUNDIR 		"z_adr"	;# The working directory for signoff_fix_drc; only takes effect if ICV_IN_DESIGN_ADR is true
+set ICV_IN_DESIGN_POST_ADR_RUNDIR 	"z_post_adr" ;# The working directory for signoff_check_drc after signoff_fix_drc is done; 
+;# only takes effect if ICV_IN_DESIGN_ADR is true 
+set ICV_IN_DESIGN_ADR_DPT_RULES 	"" ;# Specify your DPT rules for signoff_fix_drc fixing; only takes effect if ICV_IN_DESIGN_ADR is true
+set ICV_IN_DESIGN_ADR_DPT_RUNDIR	"z_adr_with_dpt" ;# The working directory for signoff_check_drc with DPT rule fixing;
+;# only takes effect if ICV_IN_DESIGN_ADR_DPT_RULES (DPR rules) is specified
+set ICV_IN_DESIGN_POST_ADR_DPT_RUNDIR	"z_post_adr_with_dpt" ;# The working directory for signoff_check_drc after DPT rule fixing is done;
+;# only takes effect if ICV_IN_DESIGN_ADR_DPT_RULES (DPR rules) is specified
+## Metal fill specific variables
+set ICV_IN_DESIGN_METAL_FILL 		false ;# Default false; set it to true to enable the metal fill creation feature.
+set ICV_IN_DESIGN_METAL_FILL_RUNDIR	"z_icvFill" ;# The working directory for signoff_create_metal_fill. Optional. Default is z_icvFill.
+set ICV_IN_DESIGN_METAL_FILL_TIMING_DRIVEN_THRESHOLD "" 
+;# Specify the threshold for timing-driven metal fill.
+;# If not specified, timing-driven is not enabled.
+;# If specified, "-timing_preserve_setup_slack_threshold" option is added.
+set ICV_IN_DESIGN_METAL_FILL_TRACK_BASED "off" ;# off | <a technology node> | generic; used for -track_fill option of signoff_create_metal_fill
+;# for non-track-based : specify off 
+;# for track-based : specify either a node (refer to man page) or generic 
+set ICV_IN_DESIGN_METAL_FILL_RUNSET	"" ;# Specify the foundry runset for signoff_create_metal_fill command;
+;# required only by non track-based metal fill (ICV_IN_DESIGN_METAL_FILL_TRACK_BASED set to off).
+set ICV_IN_DESIGN_POST_METAL_FILL_RUNDIR "z_MFILL_after" 
+;# The working directory for the signoff_check_drc after signoff_create_metal_fill is completed;
+;# only takes effect if ICV_IN_DESIGN_METAL_FILL is true
+set ICV_IN_DESIGN_METAL_FILL_TRACK_BASED_PARAMETER_FILE "auto" ;# auto | <a parameter file>; default is auto;
+;# this variable is only for track-based metal fill;
+;# specify auto to use ICC-II auto generated track_fill_params.rh file or your own paramter file.
+########################################################################################## 
+## Variables for settings related to write data (used by write_data.tcl)
+##########################################################################################
+## write_gds related
+set WRITE_GDS_LAYER_MAP_FILE 		"" ;# A layer map file which provides a mapping between the tool and GDS layers
+set WRITE_OASIS_LAYER_MAP_FILE 		"" ;# A layer map file which provides a mapping between the tool and OASIS layers
+########################################################################################## 
+## Variables for Functional ECO related settings (used by functional_eco.tcl)
+##########################################################################################
+set FUNCTIONAL_ECO_ACTIVE_SCENARIO_LIST	"" ;# Optional; a subset of scenarios to be made active during the step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set TCL_USER_FUNCTIONAL_ECO_PRE_SCRIPT	"" ;# An optional Tcl file to be sourced before ECO operations.
+set TCL_USER_FUNCTIONAL_ECO_POST_SCRIPT	"" ;# An optional Tcl file to be sourced after route_eco.
+set FUNCTIONAL_ECO_DISPLACEMENT_THRESHOLD "10" ;# A float to specify the maximum displacement threshold value for 
+;# place_eco_cells -eco_changed_cells -legalize_mode minimum_physical_impact -displacement_threshold;
+set FUNCTIONAL_ECO_VERILOG_FILE		"" ;# Required; a verilog file to be 
+set FUNCTIONAL_ECO_MODE			"default" ;# Specify the preferred flow; default|freeze_silicon
+;# default: sources $FUNCTIONAL_ECO_CHANGE_FILE and place_eco_cells in MPI mode
+;# freeze_silicon: add_spare_cells, place_eco_cells, sources $FUNCTIONAL_ECO_CHANGE_FILE, and place_freeze_silicon
+########################################################################################## 
+## Variables for PT ECO related settings (used by pt_eco.tcl/pt_eco_incremental.tcl)
+##########################################################################################
+## The following variables apply to both pt_eco.tcl (classic PT-ECO flow) and pt_eco_incremental.tcl (Galaxy incremental ECO flow)
+set PT_ECO_ACTIVE_SCENARIO_LIST 	"" ;# Optional; a subset of scenarios to be made active during the step;
+;# once set, the list of active scenarios is saved and carried over to subsequent steps;
+set TCL_USER_PT_ECO_PRE_SCRIPT 		"" ;# An optional Tcl file to be sourced before ECO operations.
+set TCL_USER_PT_ECO_POST_SCRIPT 	"" ;# An optional Tcl file to be sourced after route_eco.
+set PT_ECO_DISPLACEMENT_THRESHOLD 	"10" ;# A float to specify the maximum displacement threshold value for 
+;# place_eco_cells -eco_changed_cells -legalize_mode minimum_physical_impact -displacement_threshold;
+## The following variables only apply to pt_eco.tcl (classic PT-ECO flow)
+set PT_ECO_CHANGE_FILE 			"" ;# Required; an ECO guidance file generated by the PT-SI write_changes command,
+;# as an input to the pt_eco.tcl
+set PT_ECO_MODE				"default" ;# Specify the preferred flow for the PT-ECO run; default|freeze_silicon
+;# default: sources $PT_ECO_CHANGE_FILE and place_eco_cells in MPI mode
+;# freeze_silicon: add_spare_cells, place_eco_cells, sources $PT_ECO_CHANGE_FILE, and place_freeze_silicon
+########################################################################################## 
+## Variables for Redhawk in-design related settings 
+## (used by redhawk_in_design_pnr.tcl; SNPS_INDESIGN_RH_RAIL license required)
+##########################################################################################
+set REDHAWK_DIR 			"" ;# Specify the path to REDHAWK executable; required 
+set REDHAWK_PAD_FILE 			"" ;# Default is top level pins.
+set REDHAWK_ANALYSIS_NETS 		"" ;# Required. Specify the list of power and ground nets in pairs and in separate lines for the analysis;
+;# for example, "VDD1 VSS1 VDD2 VSS2 VDD3 VSS3", where VDD* are power nets and VSS* are ground nets.
+set REDHAWK_TECH_FILE 			"" ;# Required. Apache Technology File
+set REDHAWK_MACROS 			"" ;# Optional. List of Macro names and macro directories in pairs and in separate lines;
+;# for example, "macro1_name macro1_directory 
+;#		    macro2_name macro2_directory 
+;#		    macro3_name macro3_directory"
+set REDHAWK_SWITCH_MODEL_FILES 		"" ;# Optional. List of switch model files;
+;# for example: "switch_model_file1 
+;#               switch_model_file2 
+;#		    switch_model_file3"
+set REDHAWK_LIB_FILES 			"" ;# Required. List of .lib files in separate lines.
+;# for example: "/home/lib_1.lib 
+;#               /home/lib_2.lib
+;#               /home/lib_3.lib"
+set REDHAWK_APL_FILES			"" ;# Required for dynamic analysis.  List of apl files in separate lines.
+;# for example: "x.cdev cdev
+;#               x.current current
+;#               y.cdev cdev
+;#               y.current current"
+set REDHAWK_EXTRA_GSR 			"" ;# Optional. Provide a file with custom Redhawk settings.
+set REDHAWK_ANALYSIS 			"" ;# Required. Specify of the analyses below:
+;# For Static analysis: "static"
+;# For Vector-based Dynamic analysis: "dynamic_vcd"
+;# For Vectorless Dynamic analysis: "dynamic_vectorless"
+;# For Effective Resistance analysis: "effective_resistance"
+;# For Minimum path resistance analysis: "min_path_resistance"
+;# For Integrity Check: "check_missing_via"
+set REDHAWK_OUTPUT_REPORT 		"" ;# Optional. Specify a file name to have the output report produced:
+;# For Static or dynamic analysis: the effective voltage drop is reported
+;# For Effective Resistance analysis: the effective resistance is reported
+;# For Minimum path resistance analysis: the minimum path resistance is reported
+;# For Integrity Check: the missing vias are reported
+set REDHAWK_EM_ANALYSIS 	   	false ;# Optional. Set to true if EM analysis to be performed with static or dynamic analysis.
+set REDHAWK_EM_REPORT 			"" ;# Optional. Specify a file name to have the EM output report produced.
+set REDHAWK_SCRIPT_FILE 		"" ;# Optional. Specify a file name for using Redhawk standalone run tcl file.
+set REDHAWK_SWITCHING_ACTIVITY_FILE 	"" ;# Required for vector-based dynamic analysis.  Format is as follows:
+;# {file_format [file_name] [strip_path]}
+set REDHAWK_FIX_MISSING_VIAS       	false ;# Optional. Set to true to enable inserting vias to missing via locations after the check_missing_via flow is run.
+set REDHAWK_MISSING_VIA_POS_THRESHOLD	"" ;# Optional. Set to positive voltage between two overlapped layers for filtering purpose.  Default is no filtering.
+set REDHAWK_RAIL_DATABASE               RAIL_DATABASE  ; #Optional. Set ICC2 Redhawk Fusion output directory.
+set REDHAWK_PGA_POWER_NET               "" ; #Required.  Set one power net for PGA.
+set REDHAWK_PGA_GROUND_NET              "" ; #Required.  Set one ground net for PGA
+set REDHAWK_PGA_NODE                    "" ; #Required. Set the technology node such as tsmc16.
+set REDHAWK_PGA_ICV_DIR                 "" ; #Required. Set the path to the ICV binary.  Example: /global/apps/icv_2018.06
+##########################################################################################
+## System Variables and Settings (there's no need to change them)
+##########################################################################################
+## Reporting 
+set REPORT_QOR				true ;# true|false; RM default true; runs various reporting commands at end of each step;
+;# reporting commands vary by stage; set it to false to skip reporting
+set REPORT_QOR_REPORT_POWER		true ;# true|false; RM default true;
+;# set it to false to skip report_power and report_clock_qor -type power during reporting
+set REPORT_QOR_REPORT_CONGESTION	true ;# true|false; RM default reports congestion with "route_global -congestion_map_only true"
+;# at the end of preroute steps; set it to false to skip.
+set search_path [list ./rm_icc2_pnr_scripts ./rm_setup ./templates $REDHAWK_SEARCH_PATH]
+lappend search_path .
+if {$synopsys_program_name == "icc2_shell"} {
+	set_host_options -max_cores 8
+
+	## Enable on-disk operation for copy_block to save block to disk right away
+	set_app_option -name design.on_disk_operation -value true ;# default false and global-scoped
+}
+set sh_continue_on_error true
+## Label names (while $DESIGN_NAME is the block name)
+set INIT_DESIGN_BLOCK_NAME 		"init_design" 			;# Label name to be used when saving a block in init_design.tcl
+set PLACE_OPT_BLOCK_NAME 		"place_opt" 			;# Label name to be used when saving a block in place_opt.tcl
+set CLOCK_OPT_CTS_BLOCK_NAME 		"clock_opt_cts" 		;# Label name to be used when saving a block in clock_opt_cts.tcl
+set CLOCK_OPT_OPTO_BLOCK_NAME 		"clock_opt_opto" 		;# Label name to be used when saving a block in clock_opt_opto.tcl
+set ROUTE_AUTO_BLOCK_NAME 		"route_auto" 			;# Label name to be used when saving a block in route_auto.tcl
+set ROUTE_OPT_BLOCK_NAME 		"route_opt" 			;# Label name to be used when saving a block in route_opt.tcl
+set CHIP_FINISH_BLOCK_NAME 		"chip_finish" 			;# Label name to be used when saving a block in chip_finish.tcl
+set ICV_IN_DESIGN_BLOCK_NAME 		"icv_in_design" 		;# Label name to be used when saving a block in icv_in_design.tcl
+set WRITE_DATA_FROM_BLOCK_NAME 		$ICV_IN_DESIGN_BLOCK_NAME 	;# Label name of the source block in write_data.tcl;
+set WRITE_DATA_BLOCK_NAME 		"write_data" 			;# Label name to be used when saving a block in write_data.tcl
+;# default is ICV_IN_DESIGN_BLOCK_NAME
+set FUNCTIONAL_ECO_FROM_BLOCK_NAME	$ROUTE_OPT_BLOCK_NAME 		;# Label name of the source block in functional_eco.tcl;
+;# default is ROUTE_OPT_BLOCK_NAME
+set FUNCTIONAL_ECO_BLOCK_NAME		"functional_eco"		;# Label name to be used when saving a block in functional_eco.tcl
+set PT_ECO_FROM_BLOCK_NAME 		$ROUTE_OPT_BLOCK_NAME 		;# Label name of the source block in pt_eco.tcl;
+;# default is ROUTE_OPT_BLOCK_NAME
+set PT_ECO_BLOCK_NAME 			"pt_eco" 			;# Label name to be used when saving a block in pt_eco.tcl
+set PT_ECO_INCREMENTAL_FROM_BLOCK_NAME 	$ROUTE_OPT_BLOCK_NAME 		;# Label name of the source block in pt_eco_incremental_1.tcl;
+;# default is ROUTE_OPT_BLOCK_NAME; specify a different name if needed
+set PT_ECO_INCREMENTAL_1_BLOCK_NAME 	"pt_eco_incremental_1" 		;# Label name to be used when saving a block in pt_eco_incremental_1.tcl
+set PT_ECO_INCREMENTAL_2_BLOCK_NAME 	"pt_eco_incremental_2" 		;# Label name to be used when saving a block in pt_eco_incremental_2.tcl
+set REDHAWK_IN_DESIGN_PNR_FROM_BLOCK_NAME $INIT_DESIGN_BLOCK_NAME	;# Label name of the starting block for redhawk_in_design_pnr.tcl;
+;# default is INIT_DESIGN_BLOCK_NAME
+## Directories
+set OUTPUTS_DIR	"./outputs_icc2"	;# Directory to write output data files; mainly used by write_data.tcl
+set REPORTS_DIR	"./rpts_icc2"		;# Directory to write reports; mainly used by report_qor.tcl
+if !{[file exists $OUTPUTS_DIR]} {file mkdir $OUTPUTS_DIR} ;# do not change this line or directory may not be created properly
+if !{[file exists $REPORTS_DIR]} {file mkdir $REPORTS_DIR} ;# do not change this line or directory may not be created properly
+##########################################################################################
+## Hierarchical PNR Variables (used by hierarchical PNR implementation)
+##########################################################################################
+## For designs where the blocks are bound to abstracts
+set SUB_BLOCK_REFS                   	[list ] ;# If ABSTRACT_TYPE_FOR_MPH_BLOCKS == flattened , specify design names of the immediate child blocks
+;# If ABSTRACT_TYPE_FOR_MPH_BLOCKS == nested , specify design names of the physical blocks in all lower levels of physical hierarchy
+;# Include the blocks that will be bound to abstracts
+set USE_ABSTRACTS_FOR_BLOCKS        	[list ] ;# design names of the physical blocks in the next lower level that will be bound to abstracts
+## By default, abstracts created after icv_in_design step of lower-level are used to implement the current level
+## Update the following variables if you want to use abstracts created after any other step 
+set BLOCK_ABSTRACT_FOR_PLACE_OPT 	"$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_PLACE_OPT label for place_opt
+set BLOCK_ABSTRACT_FOR_CLOCK_OPT_CTS    "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_CLOCK_OPT_CTS label for clock_opt_cts
+set BLOCK_ABSTRACT_FOR_CLOCK_OPT_OPTO   "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_CLOCK_OPT_OPTO label for clock_opt_opto
+set BLOCK_ABSTRACT_FOR_ROUTE_AUTO       "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_ROUTE_AUTO label for route_auto
+set BLOCK_ABSTRACT_FOR_ROUTE_OPT        "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_ROUTE_OPT label for route_opt
+set BLOCK_ABSTRACT_FOR_CHIP_FINISH      "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_CHIP_FINISH for chip_finish
+set BLOCK_ABSTRACT_FOR_ICV_IN_DESIGN    "$ICV_IN_DESIGN_BLOCK_NAME" ;# Use blocks with $BLOCK_ABSTRACT_FOR_ICV_IN_DESIGN label for icv_in_design
+set USE_ABSTRACTS_FOR_POWER_ANALYSIS 	false ;# Default false; false|true;
+;# sets app option abstract.annotate_power that annotates power information in the abstracts
+;# set this to true to perform power analysis inside subblocks modeled as abstracts
+set USE_ABSTRACTS_FOR_SIGNAL_EM_ANALYSIS false ;# Default false; false|true;
+;# sets app option abstract.enable_signal_em_analysis 
+;# set this to true to perform signal em analysis inside abstracts
+set ABSTRACT_TYPE_FOR_MPH_BLOCKS "flattened" ; # "nested | flattened", Default nested. Specifies the type of abstract to be created for MPH blocks (blocks with more than 1 level of physical hierarchy)
+;# Allowed values are nested and flattened. 
+;# when this variable is set to nested (default), preserve_block_instances option of create_abstract command is set to true (default value)
+;# when this variable is set to flattened , preserve_block_instances option of create_abstract command is set to false
+set CHECK_HIER_TIMING_CONSTRAINTS_CONSISTENCY true ;# Determines whether the consistency of top and block timing constraints is checked during the check_design command
+;# The variable in turn sets the application option abstract.check_constraints_consistency to true
+########################################################################################## 
+## Hierarchical PNR Variables for clock_opt_cts related settings (used by clock_opt_cts.tcl)
+##########################################################################################
+set PROMOTE_CLOCK_BALANCE_POINTS	false ;# Default false. When implementing intermediate and top levels of physical hierarchy,
+;# set this variable to true to promote clock balance points from sub-blocks.
+;# Leave this variable to its default value, if the needed clock balance points for the pins
+;# inside sub-blocks are applied from the top-level itself.
+########################################################################################## 
+## Hierarchical PNR Variables for designs where some of the blocks are bound to ETMs
+##########################################################################################
+set WRITE_DATA_FOR_ETM_GENERATION       false ;# Default false. Set it to true, for writing out required design data for ETM Generation in PrimeTime 
+set WRITE_DATA_FOR_ETM_BLOCK_NAME       $ICV_IN_DESIGN_BLOCK_NAME ;# Name of the starting block for the write_data_for_etm step
+## ICC2-RM provides additional files (flavors) to override RM default settings for high connectivity, run time and area/power focused designs.
+#  These files are under rm_icc2_pnr_scripts/ :  
+#  flavor.high_connectivity_high_congestion_focused.tcl, flavor.area_power_focused.tcl and flavor.run_time_focused.tcl
+#  You can use the ADDITIONAL_FLAVOR variable to control whether to use these flavors.
+set ADDITIONAL_FLAVOR "" 	;# default unspecified; if unspecified, runs RM default flow that works/balances all PPA
+;# set it to high_connectivity_high_congestion for high connectivity design styles with heavy congestions
+;# set it to area_power for extra area and power optimizations
+;# set it to run_time if run time is the primary concern
+puts "RM-info: Completed script [info script]\n"
+RM-info: Completed script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/icc2_pnr_setup.tcl
+
+set REPORT_PREFIX $INIT_DESIGN_BLOCK_NAME
+init_design
+########################################################################
+## Design creation/import (depends on value of INIT_DESIGN_INPUT)
+########################################################################
+## ASCII flow : creates the library & block from individual ASCII input files
+if {$INIT_DESIGN_INPUT == "ASCII"} {
+	puts "RM-info: Sourcing [which init_design.from_ascii.tcl]"
+	source -echo init_design.from_ascii.tcl
+}
+RM-info: Sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.from_ascii.tcl
+puts "RM-info: Running script [info script]\n"
+RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.from_ascii.tcl
+
+##########################################################################################
+# Tool: IC Compiler II
+# Script: init_design.from_ascii.tcl
+# Version: P-2019.03-SP2
+# Copyright (C) 2014-2019 Synopsys, Inc. All rights reserved.
+##########################################################################################
+########################################################################
+## Library creation
+########################################################################
+if {[file exists $DESIGN_LIBRARY]} {
+		file delete -force $DESIGN_LIBRARY
+	}
+set create_lib_cmd "create_lib $DESIGN_LIBRARY"
+if {[file exists [which $TECH_FILE]]} {
+		lappend create_lib_cmd -tech $TECH_FILE ;# recommended
+	} elseif {$TECH_LIB != ""} {
+		lappend create_lib_cmd -use_technology_lib $TECH_LIB ;# optional
+	}
+if {$DESIGN_LIBRARY_SCALE_FACTOR != ""} {
+		lappend create_lib_cmd -scale_factor $DESIGN_LIBRARY_SCALE_FACTOR
+	}
+set_app_options -name lib.setting.on_disk_operation -value true ;# default false and global-scoped
+## Library configuration flow: calls library manager under the hood to generate .nlibs, store, and link them
+#  - To enable it, in icc2_common_setup.tcl, set LIBRARY_CONFIGURATION_FLOW to true,
+#    specify LINK_LIBRARY with .db files, and specify REFERENCE_LIBRARY with physical source files. 
+#    In icc2_pnr_setup.tcl, make sure search_path includes all relevant locations. 
+if {$LIBRARY_CONFIGURATION_FLOW} {
+		set link_library $LINK_LIBRARY
+	}
+lappend create_lib_cmd -ref_libs $REFERENCE_LIBRARY
+puts "RM-info: $create_lib_cmd"
+RM-info: create_lib counter -tech /mnt/coe/workspace/ece/ece720-common/tech/google/milkyway/sky130_fd_sc_hs/sky130_fd_sc_hs.tf -scale_factor 1000 -ref_libs /mnt/coe/workspace/ece/ece720-common/tech/google/icc2libprep/sky130_fd_sc_hs/icc2_cell_lib/sky130_fd_sc_hs.ndm
+eval ${create_lib_cmd}
+Warning: sky130_fd_sc_hs.tf line 26, unsupported syntax 'fatWireViaKeepoutMode' in 'Technology' section. It will be ignored. (TECH-002)
+Warning: Layer 'li1' property 'fatTblThreshold' has invalid table values '(...,0,...)'. (sky130_fd_sc_hs.tf line 109) (TECH-032)
+Warning: Layer 'met5' property 'fatTblThreshold' has invalid table values '(...,1.6,...)'. (sky130_fd_sc_hs.tf line 350) (TECH-032)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 812) (TECH-026)
+Warning: Layer 'via4/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 812) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 820) (TECH-026)
+Warning: Layer 'via4/met5' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 820) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 828) (TECH-026)
+Warning: Layer 'via3/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 828) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 836) (TECH-026)
+Warning: Layer 'via3/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 836) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 844) (TECH-026)
+Warning: Layer 'via2/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 844) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 852) (TECH-026)
+Warning: Layer 'via2/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 852) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 860) (TECH-026)
+Warning: Layer 'via/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 860) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 868) (TECH-026)
+Warning: Layer 'via/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 868) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 876) (TECH-026)
+Warning: Layer 'mcon/li1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 876) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hs.tf line 884) (TECH-026)
+Warning: Layer 'mcon/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hs.tf line 884) (TECH-026)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met4'. (sky130_fd_sc_hs.tf line 817) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met5'. (sky130_fd_sc_hs.tf line 825) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met3'. (sky130_fd_sc_hs.tf line 833) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met4'. (sky130_fd_sc_hs.tf line 841) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met2'. (sky130_fd_sc_hs.tf line 849) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met3'. (sky130_fd_sc_hs.tf line 857) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met1'. (sky130_fd_sc_hs.tf line 865) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met2'. (sky130_fd_sc_hs.tf line 873) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'li1'. (sky130_fd_sc_hs.tf line 881) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'met1'. (sky130_fd_sc_hs.tf line 889) (TECH-034)
+Information: Loading technology file '/mnt/coe/workspace/ece/ece720-common/tech/google/milkyway/sky130_fd_sc_hs/sky130_fd_sc_hs.tf' (FILE-007)
+Saving library 'counter'
+########################################################################
+## Design creation
+########################################################################
+################################################################
+## Read the verilog file(s)  
+################################################################
+if {$DESIGN_STYLE == "flat"} {
+                read_verilog -top $DESIGN_NAME $VERILOG_NETLIST_FILES
+                current_block $DESIGN_NAME
+                link_block
+                save_lib
+        } elseif {$DESIGN_STYLE == "hier"} {
+		puts "RM-info: Sourcing [which init_design.from_ascii.hier.tcl]"
+		source -echo init_design.from_ascii.hier.tcl
+	}
+Information: Reading Verilog into new design 'counter' in library 'counter'. (VR-012)
+Loading verilog file '/mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/counter.mapped.v'
+Number of modules read: 2
+Top level ports: 12
+Total ports in all modules: 16
+Total nets in all modules: 36
+Total instances in all modules: 23
+Elapsed = 00:00:00.05, CPU = 00:00:00.00
+Using libraries: counter sky130_fd_sc_hs
+Linking block counter:counter.design
+Information: User units loaded from library 'sky130_fd_sc_hs' (LNK-040)
+Design 'counter' was successfully linked.
+Saving library 'counter'
+################################################################
+## Read UPF file(s)  
+################################################################
+## For golden UPF flow only (if supplemental UPF is provided): enable golden UPF flow before reading UPF
+if {[file exists [which $UPF_SUPPLEMENTAL_FILE]]} {
+		set_app_options -name mv.upf.enable_golden_upf -value true ;# tool default false
+	}
+if {[file exists [which $UPF_FILE]]} {
+		load_upf $UPF_FILE
+
+		## For golden UPF flow only (if supplemental UPF is provided): read supplemental UPF file
+		if {[file exists [which $UPF_SUPPLEMENTAL_FILE]]} {
+			load_upf -supplemental $UPF_SUPPLEMENTAL_FILE
+		} elseif {$UPF_SUPPLEMENTAL_FILE != ""} {
+			puts "RM-error: UPF_SUPPLEMENTAL_FILE($UPF_SUPPLEMENTAL_FILE) is invalid. Please correct it."
+		}
+
+		## Read the supply set file
+		if {[file exists [which $UPF_UPDATE_SUPPLY_SET_FILE]]} {
+			load_upf $UPF_UPDATE_SUPPLY_SET_FILE
+		} elseif {$UPF_UPDATE_SUPPLY_SET_FILE != ""} {
+			puts "RM-error: UPF_UPDATE_SUPPLY_SET_FILE($UPF_UPDATE_SUPPLY_SET_FILE) is invalid. Please correct it."
+		}
+	} elseif {$UPF_FILE != ""} {
+		puts "RM-error : UPF file($UPF_FILE) is invalid. Please correct it."
+	}
+################################################################
+## Timing constraints  
+################################################################
+## Specify a Tcl script to read in your TLU+ files by using the read_parasitic_tech command;
+#  Refer to templates/init_design.read_parasitic_tech_example.tcl for sample commands
+if {[file exists [which $TCL_PARASITIC_SETUP_FILE]]} {
+		puts "RM-info: Sourcing [which $TCL_PARASITIC_SETUP_FILE]"
+		source -echo $TCL_PARASITIC_SETUP_FILE
+	} elseif {$TCL_PARASITIC_SETUP_FILE != ""} {
+		puts "RM-error : TCL_PARASITIC_SETUP_FILE($TCL_PARASITIC_SETUP_FILE) is invalid. Please correct it."
+	}
+## Specify a Tcl script to create your corners, modes, scenarios and load respective constraints;
+#  Two examples are provided: 
+#  - templates/init_design.mcmm_example.explicit.tcl: provide mode, corner, and scenario constraints; create modes, corners, 
+#    and scenarios; source mode, corner, and scenario constraints, respectively 
+#  - templates/init_design.mcmm_example.auto_expanded.tcl: provide constraints for the scenarios; create modes, corners, 
+#    and scenarios; source scenario constraints which are then expanded to associated modes and corners
+if {[file exists [which $TCL_MCMM_SETUP_FILE]]} {
+		puts "RM-info: Sourcing [which $TCL_MCMM_SETUP_FILE]"
+		source -echo $TCL_MCMM_SETUP_FILE
+	} elseif {$TCL_MCMM_SETUP_FILE != ""} {
+		puts "RM-error : TCL_MCMM_SETUP_FILE($TCL_MCMM_SETUP_FILE) is invalid. Please correct it."
+	}
+RM-info: Sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_files/counter.MCMM/top.tcl
+## created by version 2.0 write_timing_context -format icc2 -output results/ICC2_files/counter.MCMM 
+puts "Information: sourcing [info script]";
+Information: sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_files/counter.MCMM/top.tcl
+remove_modes -all;remove_corners -all;remove_scenarios -all;
+namespace eval 64F7D749 {
+  variable _search_path $::search_path;
+  set ::search_path [linsert $_search_path 0 [file normalize [file dirname [info script]]] ];
+
+  source helper_script.tcl;
+}
+## IC Compiler Scenario: mode_norm.slow.RCmax
+create_mode mode_norm.slow.RCmax;
+create_corner mode_norm.slow.RCmax;
+create_scenario -mode mode_norm.slow.RCmax -corner mode_norm.slow.RCmax -name mode_norm.slow.RCmax;
+Created scenario mode_norm.slow.RCmax for mode mode_norm.slow.RCmax and corner mode_norm.slow.RCmax
+All analysis types are activated.
+set_app_options -list { time.convert_constraint_from_bc_wc wc_only};
+namespace eval 64F7D749 {
+  variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
+  source -continue_on_error scenario_mode_norm_slow_RCmax.tcl;
+  set_message_info -id CMD-005 -limit $_se; unset _se
+}
+Information: app_option time.convert_constraint_from_bc_wc is set to wc_only.  Using only -max_tluplus tlu_plus file for early and late parasitic spec
+Information: Reading the tlu_plus file sky130_RCmax
+Information: Reusing the early spec sky130_RCmax
+Information: Timer using 8 threads
+create_mode mode_norm.slow.RCmax_bc;
+create_corner mode_norm.slow.RCmax_bc;
+create_scenario -mode mode_norm.slow.RCmax_bc -corner mode_norm.slow.RCmax_bc -name mode_norm.slow.RCmax_bc;
+Created scenario mode_norm.slow.RCmax_bc for mode mode_norm.slow.RCmax_bc and corner mode_norm.slow.RCmax_bc
+All analysis types are activated.
+set_app_options -list { time.convert_constraint_from_bc_wc bc_only};
+namespace eval 64F7D749 {
+  variable _se [::get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
+  source -continue_on_error scenario_mode_norm_slow_RCmax.tcl;
+  ::set_message_info -id CMD-005 -limit $_se; unset _se
+}
+Information: app_option time.convert_constraint_from_bc_wc is set to bc_only.  Using only -min_tluplus tlu_plus file for early and late parasitic spec
+Information: Reusing the late spec sky130_RCmax
+Information: Reusing the early spec sky130_RCmax
+## Scenario Status
+## Test Power UI
+set_scenario_status -none -setup true -hold {false} mode_norm.slow.RCmax;
+Scenario mode_norm.slow.RCmax (mode mode_norm.slow.RCmax corner mode_norm.slow.RCmax) is active for setup analysis.
+if [string length [get_defined_attributes -class scenario {dynamic_power}]] {
+  set_scenario_status -dynamic_power false -leakage_power false mode_norm.slow.RCmax;
+} else {
+  set_scenario_status -power [expr false || false] mode_norm.slow.RCmax;
+}
+Scenario mode_norm.slow.RCmax (mode mode_norm.slow.RCmax corner mode_norm.slow.RCmax) is active for setup analysis.
+set_scenario_status -none -setup {false} -hold false mode_norm.slow.RCmax_bc;
+Scenario mode_norm.slow.RCmax_bc (mode mode_norm.slow.RCmax_bc corner mode_norm.slow.RCmax_bc) is active, but has no analysis configured.
+if [string length [get_defined_attributes -class scenario {dynamic_power}]] {
+  set_scenario_status -dynamic_power false -leakage_power false mode_norm.slow.RCmax_bc;
+} else {
+  set_scenario_status -power [expr false || false] mode_norm.slow.RCmax_bc;
+}
+Scenario mode_norm.slow.RCmax_bc (mode mode_norm.slow.RCmax_bc corner mode_norm.slow.RCmax_bc) is active, but has no analysis configured.
+## IC Compiler Scenario: mode_norm.fast.RCmin
+create_mode mode_norm.fast.RCmin;
+create_corner mode_norm.fast.RCmin;
+create_scenario -mode mode_norm.fast.RCmin -corner mode_norm.fast.RCmin -name mode_norm.fast.RCmin;
+Created scenario mode_norm.fast.RCmin for mode mode_norm.fast.RCmin and corner mode_norm.fast.RCmin
+All analysis types are activated.
+set_app_options -list { time.convert_constraint_from_bc_wc wc_only};
+namespace eval 64F7D749 {
+  variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
+  source -continue_on_error scenario_mode_norm_fast_RCmin.tcl;
+  set_message_info -id CMD-005 -limit $_se; unset _se
+}
+Information: app_option time.convert_constraint_from_bc_wc is set to wc_only.  Using only -max_tluplus tlu_plus file for early and late parasitic spec
+Information: Reading the tlu_plus file sky130_RCmin
+Information: Reusing the early spec sky130_RCmin
+create_mode mode_norm.fast.RCmin_bc;
+create_corner mode_norm.fast.RCmin_bc;
+create_scenario -mode mode_norm.fast.RCmin_bc -corner mode_norm.fast.RCmin_bc -name mode_norm.fast.RCmin_bc;
+Created scenario mode_norm.fast.RCmin_bc for mode mode_norm.fast.RCmin_bc and corner mode_norm.fast.RCmin_bc
+All analysis types are activated.
+set_app_options -list { time.convert_constraint_from_bc_wc bc_only};
+namespace eval 64F7D749 {
+  variable _se [::get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
+  source -continue_on_error scenario_mode_norm_fast_RCmin.tcl;
+  ::set_message_info -id CMD-005 -limit $_se; unset _se
+}
+Information: app_option time.convert_constraint_from_bc_wc is set to bc_only.  Using only -min_tluplus tlu_plus file for early and late parasitic spec
+Information: Reusing the late spec sky130_RCmin
+Information: Reusing the early spec sky130_RCmin
+## Scenario Status
+## Test Power UI
+set_scenario_status -none -setup false -hold {false} mode_norm.fast.RCmin;
+Scenario mode_norm.fast.RCmin (mode mode_norm.fast.RCmin corner mode_norm.fast.RCmin) is active, but has no analysis configured.
+if [string length [get_defined_attributes -class scenario {dynamic_power}]] {
+  set_scenario_status -dynamic_power false -leakage_power true mode_norm.fast.RCmin;
+} else {
+  set_scenario_status -power [expr false || true] mode_norm.fast.RCmin;
+}
+Scenario mode_norm.fast.RCmin (mode mode_norm.fast.RCmin corner mode_norm.fast.RCmin) is active for leakage_power analysis.
+set_scenario_status -none -setup {false} -hold true mode_norm.fast.RCmin_bc;
+Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.fast.RCmin_bc) is active for hold analysis.
+if [string length [get_defined_attributes -class scenario {dynamic_power}]] {
+  set_scenario_status -dynamic_power false -leakage_power true mode_norm.fast.RCmin_bc;
+} else {
+  set_scenario_status -power [expr false || true] mode_norm.fast.RCmin_bc;
+}
+Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.fast.RCmin_bc) is active for hold/leakage_power analysis.
+## have the max drc costing follow the setup costing and min drc costing follow the hold costing
+if [sizeof_collection [get_scenarios -quiet -filter setup]] {set_scenario_status -max_cap true -max_tran true [get_scenarios -filter setup];}
+Scenario mode_norm.slow.RCmax (mode mode_norm.slow.RCmax corner mode_norm.slow.RCmax) is active for setup/max_transition/max_capacitance analysis.
+if [sizeof_collection [get_scenarios -quiet -filter hold]] {set_scenario_status -min_cap true [get_scenarios -filter hold];}
+Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.fast.RCmin_bc) is active for hold/leakage_power/min_capacitance analysis.
+set_app_options -list { time.convert_constraint_from_bc_wc none};
+## these were the acive and current scenarios in the generation session
+namespace eval 64F7D749 {
+  variable inactive_scenarios [::remove_from_collection [::get_scenarios] [::get_scenarios [list mode_norm.slow.RCmax mode_norm.slow.RCmax_bc mode_norm.fast.RCmin mode_norm.fast.RCmin_bc]]];
+  ::set_scenario_status -active true *;
+  if [::sizeof_collection $inactive_scenarios] {
+    ::set_scenario_status -active false $inactive_scenarios;
+  }
+  if [::sizeof_collection [::get_scenarios -quiet mode_norm.slow.RCmax]] {
+    ::current_scenario mode_norm.slow.RCmax;
+  } else {
+    puts "Warning: dc_shell current_scenario (mode_norm.slow.RCmax) does not exist";
+  }
+}
+Scenario mode_norm.fast.RCmin (mode mode_norm.fast.RCmin corner mode_norm.fast.RCmin) is active for leakage_power analysis.
+Scenario mode_norm.fast.RCmin_bc (mode mode_norm.fast.RCmin_bc corner mode_norm.fast.RCmin_bc) is active for hold/leakage_power/min_capacitance analysis.
+Scenario mode_norm.slow.RCmax (mode mode_norm.slow.RCmax corner mode_norm.slow.RCmax) is active for setup/max_transition/max_capacitance analysis.
+Warning: Scenario mode_norm.slow.RCmax_bc has no analysis types to activate. (CSTR-026)
+Scenario mode_norm.slow.RCmax_bc (mode mode_norm.slow.RCmax_bc corner mode_norm.slow.RCmax_bc) is active, but has no analysis configured.
+namespace eval 64F7D749 {
+  proc set_tlu_plus_files {args} {}; ## Do not want these applied globally
+  variable _se [get_message_info -limit CMD-005];set_message_info -id CMD-005 -limit 1;redirect -variable _tmp {catch {slarty;bartvast;};};unset _tmp;
+  source -continue_on_error design.tcl;
+  set_message_info -id CMD-005 -limit $_se; unset _se
+  set ::search_path $_search_path;
+}
+namespace delete 64F7D749;
+puts "Information: sourced [info script]";
+Information: sourced /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/ICC2_files/counter.MCMM/top.tcl
+## Following lines are applicable for designs with physical hierarchy
+# Ignore the sub-blocks internal timing paths
+if {$DESIGN_STYLE == "hier" && $PHYSICAL_HIERARCHY_LEVEL != "bottom"} {
+		set_timing_paths_disabled_blocks  -all_sub_blocks
+        }
+################################################################
+## commit_upf  
+################################################################
+commit_upf
+Information: Power intent has been successfully committed. (UPF-072)
+Information: Total 0 isolation cell(s) in the design. (MV-021)
+Information: Total 0 level shifter cell(s) in the design. (MV-021)
+Information: Total 0 enable level shifter cell(s) in the design. (MV-021)
+Information: Total 0 repeater cell(s) in the design. (MV-021)
+Information: Total 0 retention cell(s) in the design. (MV-021)
+Information: Total 0 power switch cell(s) in the design. (MV-021)
+Information: Total 0 netlist change(s) have been made to resolve conflicts between power intent and PG netlist. (UPF-073)
+associate_mv_cells -all
+Information: Starting 'associate_mv_cells' (FLW-8000)
+Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
+Information: Total 0 isolation cell(s) in the design. (MV-021)
+Information: Total 0 level shifter cell(s) in the design. (MV-021)
+Information: Total 0 enable level shifter cell(s) in the design. (MV-021)
+Information: Total 0 repeater cell(s) in the design. (MV-021)
+Information: Total 0 retention cell(s) in the design. (MV-021)
+Information: Total 0 power switch cell(s) in the design. (MV-021)
+Information: Ending 'associate_mv_cells' (FLW-8001)
+Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 321 MB (FLW-8100)
+################################################################
+## Floorplanning  
+################################################################
+####################################
+## Floorplanning : technology setup 
+####################################
+## Technology setup includes routing layer direction, offset, site default, and site symmetry
+#  - If TECH_FILE is used, technology setup is required 
+#  - If TECH_LIB is used and it does not contain the technology setup, then it is required
+#  Specify your technology setup script through TCL_TECH_SETUP_FILE. RM default is init_design.tech_setup.tcl.
+if {$TECH_FILE != "" || ($TECH_LIB != "" && !$TECH_LIB_INCLUDES_TECH_SETUP_INFO)} {
+		if {[file exists [which $TCL_TECH_SETUP_FILE]]} {
+			puts "RM-info: Sourcing [which $TCL_TECH_SETUP_FILE]"
+			source -echo $TCL_TECH_SETUP_FILE
+		} elseif {$TCL_TECH_SETUP_FILE != ""} {
+			puts "RM-error : TCL_TECH_SETUP_FILE($TCL_TECH_SETUP_FILE) is invalid. Please correct it."
+		}
+	}
+RM-info: Sourcing /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.tech_setup.tcl
+puts "RM-info: Running script [info script]\n"
+RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.tech_setup.tcl
+
+##########################################################################################
+# Tool: IC Compiler II
+# Script: init_design.tech_setup.tcl
+# Version: P-2019.03-SP2
+# Copyright (C) 2014-2019 Synopsys, Inc. All rights reserved.
+##########################################################################################
+## Set routing_direction and track_offset
+if {$ROUTING_LAYER_DIRECTION_OFFSET_LIST != ""} {
+	foreach direction_offset_pair $ROUTING_LAYER_DIRECTION_OFFSET_LIST {
+		set layer [lindex $direction_offset_pair 0]
+		set direction [lindex $direction_offset_pair 1]
+		set offset [lindex $direction_offset_pair 2]
+		set_attribute [get_layers $layer] routing_direction $direction
+		if {$offset != ""} {
+			set_attribute [get_layers $layer] track_offset $offset
+		}
+	}
+} else {
+	puts "RM-error : ROUTING_LAYER_DIRECTION_OFFSET_LIST is not specified. You must manually set routing layer directions and offsets!"
+}
+Information: The design specific attribute override for layer 'li1' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'li1' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met1' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met1' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met2' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met2' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met3' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met3' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met4' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met4' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met5' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for layer 'met5' is set in the current block 'counter', because the actual library setting may not be overwritten. (ATTR-12)
+## Set site default
+if {$SITE_DEFAULT != ""} {
+	set_attribute [get_site_defs] is_default false
+	set_attribute [get_site_defs $SITE_DEFAULT] is_default true
+}
+## Set site symmetry
+if {$SITE_SYMMETRY_LIST != ""} {
+	foreach sym_pair $SITE_SYMMETRY_LIST {
+		set site_name [lindex $sym_pair 0]
+		set site_sym [lindex $sym_pair 1]
+		set_attribute [get_site_defs $site_name] symmetry $site_sym
+	}   	
+}
+puts "RM-info: Completed script [info script]\n"
+RM-info: Completed script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.tech_setup.tcl
+
+####################################
+## Floorplanning : from DEF 
+####################################
+## Floorplanning by reading $DEF_FLOORPLAN_FILES (supports multiple DEF files)
+#  Script first checks if all the specified DEF files are valid, if not, read_def is skipped
+if {$DEF_FLOORPLAN_FILES != ""} {
+		set RM_DEF_FLOORPLAN_FILE_is_not_found FALSE
+		foreach def_file $DEF_FLOORPLAN_FILES {
+	      		if {![file exists [which $def_file]]} {
+	      			puts "RM-error : DEF floorplan file ($def_file) is invalid."
+	      			set RM_DEF_FLOORPLAN_FILE_is_not_found TRUE
+	      		}
+		}
+	
+	      	if {!$RM_DEF_FLOORPLAN_FILE_is_not_found} {
+	      		set read_def_cmd "read_def -add_def_only_objects cells [list $DEF_FLOORPLAN_FILES]" 
+	      		if {$DEF_SITE_NAME_PAIRS != ""} {lappend read_def_cmd -convert $DEF_SITE_NAME_PAIRS}
+	      		puts "RM-info: Creating floorplan from DEF file DEF_FLOORPLAN_FILES ($DEF_FLOORPLAN_FILES)"
+			puts "RM-info: $read_def_cmd"
+	      		eval ${read_def_cmd}
+	      		
+			redirect -var x {catch {resolve_pg_nets}} ;# workaround in case resolve_pg_nets returns warning that causes conditional to exit unexpectedly 
+			puts $x
+			if {[regexp ".*NDMUI-096.*" $x]} {
+				puts "RM-error: UPF may have an issue. Please review and correct it."
+			}
+
+	      	} else {
+	      		puts "RM-error : At least one of the DEF_FLOORPLAN_FILES specified is invalid. Please correct it."
+	      		puts "RM-info: Skipped reading of DEF_FLOORPLAN_FILES"
+	      	}
+
+	####################################
+	## Floorplanning : from write_floorplan 
+	####################################
+	## Floorplanning by reading the write_floorplan generated TCL file, $TCL_FLOORPLAN_FILE
+	} elseif {$TCL_FLOORPLAN_FILE != ""} {
+		set RM_TCL_FLOORPLAN_FILE_is_not_found FALSE
+		if {[file exists [which $TCL_FLOORPLAN_FILE]]} {
+			puts "RM-info: creating floorplan from TCL_FLOORPLAN_FILE ($TCL_FLOORPLAN_FILE)"
+			source $TCL_FLOORPLAN_FILE
+		} else {
+			puts "RM-error : TCL_FLOORPLAN_FILE($TCL_FLOORPLAN_FILE) is invalid. Please correct it."
+			set RM_TCL_FLOORPLAN_FILE_is_not_found TRUE
+		}
+
+	####################################
+	## Floorplanning : initialize_floorplan
+	#################################### 
+	## Perform initialize_floorplan if neither DEF_FLOORPLAN_FILES nor TCL_FLOORPLAN_FILE is specified
+	} else {
+	      	puts "RM-info: creating floorplan using initialize_floorplan"
+
+		initialize_floorplan
+		# place_pins -self ;# to place unplaced pins if needed
+	}
+RM-info: creating floorplan from TCL_FLOORPLAN_FILE (rm_setup/floorplan.tcl)
+RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/floorplan.tcl
+
+Removing existing floorplan objects
+Creating core...
+Core utilization ratio = 52.00%
+Unplacing all cells...
+Creating site array...
+Creating routing tracks...
+Initializing floorplan completed.
+****************************************
+Report : Power/Ground Connection Summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:21 2023
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 0/22
+Unconnected nwell pins        22
+Ground net VSS                0/22
+Unconnected pwell pins        22
+--------------------------------------------------------------------------------
+Information: connections of 44 power/ground pin(s) are created or changed.
+Information: The command 'create_pg_std_cell_conn_pattern' cleared the undo history. (UNDO-016)
+Successfully create standard cell rail pattern rail_pattern.
+Successfully set PG strategy std_cell_strategy.
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy std_cell_strategy.
+Loading library and design information.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating standard cell rails.
+Creating standard cell rails for strategy std_cell_strategy.
+DRC checking and fixing for standard cell rail strategy std_cell_strategy.
+Number of wires: 8
+Checking DRC for 8 wires:0% 10% 20% 30% 50% 60% 70% 80% 100%
+Creating 8 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 8 wires.
+Committing wires takes 0.00 seconds.
+Committed 0 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+Successfully create mesh pattern mesh_pattern.
+Successfully set PG strategy mesh_strategy.
+No PG via master rule is defined.
+No PG strategy via rule is defined.
+Compile mesh...
+Sanity check for inputs.
+Warning: Strategy via rule stack_PG is not defined. (PGR-599)
+This strategy via rule stack_PG is ignored.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy mesh_strategy.
+Loading library and design information.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating straps and vias in power plan.
+Creating wire shapes for strategies mesh_strategy .
+Creating wire shapes runtime: 0 seconds
+Blockage cutting and DRC fixing for wire shapes for strategies mesh_strategy .
+Check and fix DRC for 4 wires for strategy mesh_strategy.
+Checking DRC for 4 wires:0% 20% 50% 70% 100%
+Creating 4 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via shapes for strategies mesh_strategy .
+Number of threads: 8
+Working on strategy mesh_strategy.
+Number of detected intersections: 2
+Total runtime of via shapes creation: 0 seconds
+Check and fix DRC for 2 stacked vias for strategy mesh_strategy.
+Number of vias: 2
+Checking DRC for 2 stacked vias:0% 50% 100%
+Runtime of via DRC checking for strategy mesh_strategy: 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 8 stacked vias.
+Number of vias: 8
+Checking DRC for 8 stacked vias:0% 10% 25% 35% 50% 60% 75% 85% 100%
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy mesh_strategy.
+Checking 2 stacked vias:0% 50% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 8 stacked vias:0% 10% 20% 30% 50% 60% 70% 80% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 12 wires.
+Created 8 pins at design boundary.
+Committing wires takes 0.00 seconds.
+Committed 26 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+****************************************
+Report : Power/Ground Connection Summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:21 2023
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 22/22
+Unconnected nwell pins        22
+Ground net VSS                22/22
+Unconnected pwell pins        22
+--------------------------------------------------------------------------------
+Information: connections of 0 power/ground pin(s) are created or changed.
+Information: The command 'create_placement' cleared the undo history. (UNDO-016)
+Information: Starting 'create_placement' (FLW-8000)
+Information: Time: 2023-09-05 21:36:21 / Session: 0.01 hr / Command: 0.00 hr / Memory: 347 MB (FLW-8100)
+
+Create Placement Options:
+Effort:                        high_effort         
+Timing Driven:                 false               
+Buffering Aware Timing Driven: false               
+Seed locs:                     false               
+Incremental:                   false               
+Congestion:                    false               
+
+Printing options for 'place.coarse.*' (non-default only)
+place.coarse.continue_on_missing_scandef                :	 true                
+
+Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Corner Scaling is off, multiplier is 1.000000
+ORB: timingScenario mode_norm.slow.RCmax timingCorner mode_norm.slow.RCmax
+INFO: Using corner mode_norm.fast.RCmin for worst leakage corner
+Using default layer met3
+maxCornerId = 4
+corner=mode_norm.slow.RCmax, tran factor=1.0000 (0.8274 / 0.8274)
+corner=mode_norm.slow.RCmax_bc, tran factor=1.0000 (0.8274 / 0.8274)
+corner=mode_norm.fast.RCmin, tran factor=0.4164 (0.3445 / 0.8274)
+corner=mode_norm.fast.RCmin_bc, tran factor=0.4164 (0.3445 / 0.8274)
+ORB: Nominal = 0.1214341  Design MT = inf  Target = 0.8273642 (6.813 nominal)  MaxRC = 0.172188
+Warning: turning e-eLpp off because no active dynamic power scenarios were found
+Start transferring placement data.
+Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter.design'. (TIM-125)
+Information: Design Average RC for design counter  (NEX-011)
+Information: r = 0.452292 ohm/um, via_r = 1.659585 ohm/cut, c = 0.119185 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 2.250488 ohm/um, via_r = 1.727711 ohm/cut, c = 0.097133 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'counter'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 0, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+****** Net weight manager: report ******
+Weights included: PostEffort  
+Number of nets with non-default weights: 2
+Non-default weight range: (5, 5)
+Information: Automatic repeater spreading is enabled.
+Restructuring in 2 hierarchies
+CGRW: importing permutable pins & pairs, size 8 and above
+Completed transferring placement data.
+Running placement using 8 thread(s)
+Information: Auto Density Control is used. (PLACE-098)
+Information: Automatic density control has selected the following settings: max_density 0.60, congestion_driven_max_util 0.87. (PLACE-027)
+Information: HFW control 'on' invoked.
+Creating placement from scratch.
+coarse place 0% done.
+coarse place 33% done.
+coarse place 67% done.
+coarse place 100% done.
+Information: Coarse placer weighted wire length estimate = 369774
+Information: Extraction observers are detached as design net change threshold is reached.
+Information: Estimating clock gate latencies after non timing-driven (non latency-aware) placement.
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'mode_norm.fast.RCmin_bc'. (OPT-909)
+Information: Estimating clock gate latencies for scenario 'mode_norm.slow.RCmax'. (OPT-909)
+Start DFT optimization
+START_CMD: optimize_dft        CPU:     16 s ( 0.00 hr) ELAPSE:     34 s ( 0.01 hr) MEM-PEAK:   417 Mb Tue Sep  5 21:36:22 2023
+DFT optimization is skipped due to no scan chains were found
+END_CMD: optimize_dft          CPU:     16 s ( 0.00 hr) ELAPSE:     34 s ( 0.01 hr) MEM-PEAK:   417 Mb Tue Sep  5 21:36:22 2023
+End DFT optimization
+Start TieCellOpt
+Number of Site types in the design = 1
+Setting up Chip Core
+Chip Core shape: (1920 3330) (25920 26640)
+Number of VARs = 1
+Number of unique PDs = 1
+Number of Power Domains = 1
+Number of Voltage Areas = 1
+Number of supply Nets = 2
+Number of used supplies = 0
+Blocked VAs: 
+Information: The RC mode used is VR for design 'counter'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 32, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 32, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+------------------------
+Begin tie-cell insertion
+INFO: debug level = 0
+INFO: max fanout = 999
+INFO: max diameter (in user unit) = 66.60
+INFO: Available logic one lib cells: sky130_fd_sc_hs__conb_1 
+INFO: Available logic zero lib cells: sky130_fd_sc_hs__conb_1 
+INFO: Tie cell support for abstract block enabled
+INFO: total number of constant pins: 0
+End TieCellOpt
+Information: Ending 'create_placement' (FLW-8001)
+Information: Time: 2023-09-05 21:36:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: Starting 'legalize_placement' (FLW-8000)
+Information: Time: 2023-09-05 21:36:22 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+nplDplc2Placer::setParam(effort,1)
+nplDplc2Placer::setParam(debug,0)
+nplDplc2Placer::setParam(site_check,2)
+nplDplc2Placer::setParam(app_firm_wgt,0)
+Warning: Site master "unit" has neither X-Symmetry nor Y-Symmetry. The "legal orientations" for the standard cells will be limited. (LGL-031)
+PDC app_options settings =========
+	place.legalize.enable_prerouted_net_check: 1
+	place.legalize.num_tracks_for_access_check: 1
+	place.legalize.use_eol_spacing_for_access_check: 0
+	place.legalize.allow_touch_track_for_access_check: 1
+	place.legalize.reduce_conservatism_in_eol_check: 0
+	place.legalize.preroute_shape_merge_distance: 0.0
+	place.legalize.enable_non_preferred_direction_span_check: 0
+
+Layer li1: cached 0 shapes out of 0 total shapes.
+Layer met1: cached 0 shapes out of 8 total shapes.
+Layer met2: cached 0 shapes out of 0 total shapes.
+Cached 16 vias out of 26 total vias.
+
+Legalizing Top Level Design counter ... 
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0100 seconds to build cellmap data
+Information: Creating classic rule checker.
+=====> Processed 10 ref cells (0 fillers) from library
+
+Bounds/Regions In This Design:
+        Area    Num Cells  Exclusive Name
+ (square um)
+      559.44           22        Yes DEFAULT_VA
+
+Warning: max_legality_failures=5000 ignored.
+	To use it, set limit_legality_checks to true.
+Warning: max_legality_check_range=500 ignored.
+	To use it, set limit_legality_checks to true.
+Starting legalizer.
+Warning: There is high fragmentation caused by many blockages or fixed cells.
+	The median subrow width (space between blockages) is 50 sites
+	and the median cell width is 23 sites. This makes it difficult for
+	the legalizer to pack in the cells and can result in high
+	displacements and long runtimes.
+Please look for the GIF files that are written out at the end of
+	legalization to see the impact of the fragmentation.
+Warning: Exclusive bound 'DEFAULT' has no cells.
+Optimizing Exclusive Bound 'DEFAULT_VA' (2/2)
+Warning: There is high fragmentation caused by many blockages or fixed cells.
+	The median subrow width (space between blockages) is 50 sites
+	and the median cell width is 23 sites. This makes it difficult for
+	the legalizer to pack in the cells and can result in high
+	displacements and long runtimes.
+Please look for the GIF files that are written out at the end of
+	legalization to see the impact of the fragmentation.
+    Done Exclusive Bound 'DEFAULT_VA' (2/2) (0 sec)
+Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.001-0001-max_displacements.gif'.
+Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.001-0002-colored_displacements.gif'.
+Legalization complete (0 total sec)
+
+****************************************
+  Report : Placement Attempts
+  Site   : unit
+****************************************
+
+number of cells:                     22
+number of references:                10
+number of site rows:                  7
+number of locations attempted:      296
+number of locations failed:           0  (0.0%)
+
+Legality of references at locations:
+0 references had failures.
+
+Legality of references in rows:
+0 references had row failures.
+
+****************************************
+  Report : Cell Displacements
+****************************************
+
+number of cells aggregated:          22 (182 total sites)
+avg row height over cells:        3.330 um
+rms cell displacement:            1.065 um ( 0.32 row height)
+rms weighted cell displacement:   1.065 um ( 0.32 row height)
+max cell displacement:            1.717 um ( 0.52 row height)
+avg cell displacement:            0.948 um ( 0.28 row height)
+avg weighted cell displacement:   0.948 um ( 0.28 row height)
+number of cells moved:               22
+number of large displacements:        0
+large displacement threshold:     3.000 row height
+
+Displacements of worst 10 cells:
+Cell: U35 (sky130_fd_sc_hs__nand2_1)
+  Input location: (2.873,14.971)
+  Legal location: (2.4,13.32)
+  Displacement:   1.717 um ( 0.52 row height)
+Cell: U22 (sky130_fd_sc_hs__nor2_1)
+  Input location: (23.198,18.335)
+  Legal location: (23.04,19.98)
+  Displacement:   1.653 um ( 0.50 row height)
+Cell: U27 (sky130_fd_sc_hs__nand2_1)
+  Input location: (1.92,18.291)
+  Legal location: (1.92,16.65)
+  Displacement:   1.641 um ( 0.49 row height)
+Cell: value_reg_3_ (sky130_fd_sc_hs__sdfxtp_1)
+  Input location: (8.814,18.4)
+  Legal location: (8.64,19.98)
+  Displacement:   1.590 um ( 0.48 row height)
+Cell: U30 (sky130_fd_sc_hs__a21oi_1)
+  Input location: (21.317,18.502)
+  Legal location: (21.12,19.98)
+  Displacement:   1.491 um ( 0.45 row height)
+Cell: U37 (sky130_fd_sc_hs__o2bb2ai_1)
+  Input location: (4.643,18.502)
+  Legal location: (4.8,19.98)
+  Displacement:   1.486 um ( 0.45 row height)
+Cell: clk_gate_value_reg/latch (sky130_fd_sc_hs__sdlclkp_1)
+  Input location: (4.742,8.574)
+  Legal location: (4.8,9.99)
+  Displacement:   1.417 um ( 0.43 row height)
+Cell: U23 (sky130_fd_sc_hs__inv_1)
+  Input location: (23.724,21.943)
+  Legal location: (24,23.31)
+  Displacement:   1.395 um ( 0.42 row height)
+Cell: U34 (sky130_fd_sc_hs__nor2_1)
+  Input location: (2.527,22.037)
+  Legal location: (2.4,23.31)
+  Displacement:   1.279 um ( 0.38 row height)
+Cell: value_reg_0_ (sky130_fd_sc_hs__sdfxtp_1)
+  Input location: (13.423,8.897)
+  Legal location: (13.44,9.99)
+  Displacement:   1.093 um ( 0.33 row height)
+
+Information: Extraction observers are detached as design net change threshold is reached.
+Legalization succeeded.
+Total Legalizer CPU: 0.420
+Total Legalizer Wall Time: 0.524
+----------------------------------------------------------------
+Information: Ending 'legalize_placement' (FLW-8001)
+Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Information: The command 'check_legality' cleared the undo history. (UNDO-016)
+
+************************
+
+running check_legality
+
+PDC app_options settings =========
+	place.legalize.enable_prerouted_net_check: 1
+	place.legalize.num_tracks_for_access_check: 1
+	place.legalize.use_eol_spacing_for_access_check: 0
+	place.legalize.allow_touch_track_for_access_check: 1
+	place.legalize.reduce_conservatism_in_eol_check: 0
+	place.legalize.preroute_shape_merge_distance: 0.0
+	place.legalize.enable_non_preferred_direction_span_check: 0
+
+Layer li1: cached 0 shapes out of 0 total shapes.
+Layer met1: cached 0 shapes out of 8 total shapes.
+Layer met2: cached 0 shapes out of 0 total shapes.
+Cached 16 vias out of 26 total vias.
+
+check_legality for block design counter ... 
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0000 seconds to build cellmap data
+Information: Creating classic rule checker.
+=====> Processed 10 ref cells (0 fillers) from library
+Design has no advanced rules
+Checking legality
+Checking cell legality:
+0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Sorting rows.
+Checking spacing rule legality.
+0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Checking packing rule legality.
+
+
+****************************************
+  Report : Legality
+****************************************
+
+VIOLATIONS BY CATEGORY:
+   MOVABLE  APP-FIXED USER-FIXED  DESCRIPTION
+         0          0          0  Two objects overlap.
+         0          0          0  A cell violates a pnet.
+         0          0          0  A cell is illegal at a site.
+         0          0          0  A cell is not aligned with a site.
+         0          0          0  A cell has an illegal orientation.
+         0          0          0  A cell spacing rule is violated.
+         0          0          0  A layer rule is violated.
+         0          0          0  A cell is in the wrong region.
+         0          0          0  Two cells violate cts margins.
+         0          0          0  Two cells violate coloring.
+
+         0          0          0  TOTAL
+
+TOTAL 0 Violations.
+
+VIOLATIONS BY SUBCATEGORY:
+     MOVABLE  APP-FIXED USER-FIXED  DESCRIPTION
+
+         0          0          0    Two objects overlap.
+           0          0          0    Two cells overlap.
+           0          0          0    Two cells have overlapping keepout margins.
+           0          0          0    A cell overlaps a blockage.
+           0          0          0    A cell keepout margin overlaps a blockage.
+
+         0          0          0    A cell violates a pnet.
+
+         0          0          0    A cell is illegal at a site.
+           0          0          0    A cell violates pin-track alignment rules.
+           0          0          0    A cell is illegal at a site.
+           0          0          0    A cell violates legal index rule.
+           0          0          0    A cell has the wrong variant for its location.
+
+         0          0          0    A cell is not aligned with a site.
+           0          0          0    A cell is not aligned with the base site.
+           0          0          0    A cell is not aligned with an overlaid site.
+
+         0          0          0    A cell has an illegal orientation.
+
+         0          0          0    A cell spacing rule is violated.
+           0          0          0    A spacing rule is violated in a row.
+           0          0          0    A spacing rule is violated between adjacent rows.
+           0          0          0    A cell violates vertical abutment rule.
+           0          0          0    A cell violates metal spacing rule.
+
+         0          0          0    A layer rule is violated.
+           0          0          0    A layer VTH rule is violated.
+           0          0          0    A layer OD rule is violated.
+           0          0          0    A layer OD max-width rule is violated.
+           0          0          0    A layer ALL_OD corner rule is violated.
+           0          0          0    A layer max-vertical-length rule is violated.
+           0          0          0    A layer TPO rule is violated.
+           0          0          0    Filler cell insertion cannot satisfy layer rules.
+
+         0          0          0    A cell is in the wrong region.
+           0          0          0    A cell is outside its hard bound.
+           0          0          0    A cell is in the wrong voltage area.
+           0          0          0    A cell violates an exclusive movebound.
+
+         0          0          0    Two cells violate cts margins.
+
+         0          0          0    Two cells violate coloring.
+
+
+check_legality for block design counter succeeded!
+
+
+check_legality succeeded.
+
+**************************
+
+Loading cell instances...
+Number of Standard Cells: 22
+Number of Macro Cells: 0
+Number of IO Pad Cells: 0
+Number of Blocks: 0
+Loading P/G wires and vias...
+Number of VDD Wires: 6
+Number of VDD Vias: 13
+Number of VDD Terminals: 4
+**************Verify net VDD connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 0
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Loading cell instances...
+Loading P/G wires and vias...
+Number of VSS Wires: 6
+Number of VSS Vias: 13
+Number of VSS Terminals: 4
+**************Verify net VSS connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 0
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Overall runtime: 0 seconds.
+Command check_pg_drc started  at Tue Sep  5 21:36:23 2023
+Command check_pg_drc finished at Tue Sep  5 21:36:23 2023
+CPU usage for check_pg_drc: 0.06 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.01 seconds ( 0.00 hours)
+No errors found.
+Information: Starting 'place_pins' (FLW-8000)
+Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 417 MB (FLW-8100)
+Load DB...
+CPU Time for load db: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+
+Min routing layer: li1
+Max routing layer: met5
+
+
+CPU Time for Top Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Warning: found large number of corner keepout wiretracks on side 1 of block counter on layer met5 and there is no enough wire tracks available on this side (DPPA-096)
+Warning: found large number of corner keepout wiretracks on side 3 of block counter on layer met5 and there is no enough wire tracks available on this side (DPPA-096)
+Cell Min-Routing-Layer = li1
+Cell Max-Routing-Layer = met5
+Turn off antenna since no rule is specified
+Information: Option route.detail.force_end_on_preferred_grid will be ignored since none of the layers have preferred grid. (ZRT-703)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdfxtp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__inv_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nand2_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor3_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__nor2b_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o2bb2ai_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__a21oi_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__o21a_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VPB) on layer nwell. (ZRT-030)
+Warning: Ignore pin (cell sky130_fd_sc_hs__sdlclkp_1, pin VNB) on layer pwell. (ZRT-030)
+Warning: Ignore 12 top cell ports with no pins. (ZRT-027)
+
+Block Pin Constraint   Min Pin Max Pin Reserve
+                       Layer   Layer   Layer    Feedthroughs
+--------------------   ------  ------  ------   ------------
+counter                met1    met5    met5     Not allowed
+
+Via on layer (via4) needs more than one tracks
+Warning: Layer met4 pitch 0.960 may be too small: wire/via-down 0.615, wire/via-up 1.040. (ZRT-026)
+Transition layer name: met4(4)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 6.10 outside the layer range. (ZRT-707)
+Information: When applicable layer based tapering will taper up to 0.00 in distance from the pin. (ZRT-706)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met1. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {0.005 -2.590} {27.835 -1.850} on layer met2. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {0.005 31.820} {27.835 32.560} on layer met2. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {0.005 31.820} {27.835 32.560} on layer met2. (ZRT-625)
+Warning: Master cell counter has duplicated redundant library pin shapes at {-2.590 0.005} {-1.850 29.965} on layer met3. (ZRT-625)
+Note - message 'ZRT-625' limit (10) exceeded. Remainder will be suppressed.
+Information: The net parasitics of block counter are cleared. (TIM-123)
+Start Global Route ... 
+[Init] Elapsed real time: 0:00:00 
+[Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[Init] Total (MB): Used   30  Alloctr   31  Proc 3350 
+Printing options for 'route.common.*'
+
+Printing options for 'route.global.*'
+
+Begin global routing.
+Constructing data structure ...
+Design statistics:
+Design Bounding Box (-3.33,-3.33,31.17,33.30)
+Number of routing layers = 6
+layer li1, dir Ver, min width = 0.17, min space = 0.17 pitch = 0.48
+layer met1, dir Hor, min width = 0.14, min space = 0.14 pitch = 0.37
+layer met2, dir Ver, min width = 0.14, min space = 0.14 pitch = 0.48
+layer met3, dir Hor, min width = 0.3, min space = 0.3 pitch = 0.74
+layer met4, dir Ver, min width = 0.3, min space = 0.3 pitch = 0.96
+layer met5, dir Hor, min width = 1.6, min space = 1.6 pitch = 3.33
+Current Stage stats:
+[End of Build Tech Data] Elapsed real time: 0:00:00 
+[End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Tech Data] Total (MB): Used   34  Alloctr   35  Proc 3350 
+Net statistics:
+Total number of nets to route for block pin placement     = 14
+Number of interface nets to route for block pin placement = 14
+1 nets are fully connected,
+ of which 1 are detail routed and 0 are global routed.
+Current Stage stats:
+[End of Build All Nets] Elapsed real time: 0:00:00 
+[End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build All Nets] Total (MB): Used   34  Alloctr   35  Proc 3350 
+Average gCell capacity  10.14	 on layer (1)	 li1
+Average gCell capacity  11.55	 on layer (2)	 met1
+Average gCell capacity  10.14	 on layer (3)	 met2
+Average gCell capacity  6.86	 on layer (4)	 met3
+Average gCell capacity  4.37	 on layer (5)	 met4
+Average gCell capacity  0.80	 on layer (6)	 met5
+Average number of tracks per gCell 10.43	 on layer (1)	 li1
+Average number of tracks per gCell 14.29	 on layer (2)	 met1
+Average number of tracks per gCell 10.43	 on layer (3)	 met2
+Average number of tracks per gCell 7.14	 on layer (4)	 met3
+Average number of tracks per gCell 5.29	 on layer (5)	 met4
+Average number of tracks per gCell 1.57	 on layer (6)	 met5
+Number of gCells = 294
+Current Stage stats:
+[End of Build Congestion map] Elapsed real time: 0:00:00 
+[End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Congestion map] Total (MB): Used   35  Alloctr   35  Proc 3350 
+Net Count 26, Total HPWL 43 microns
+HPWL   0 ~  100 microns: Net Count       26	Total HPWL         43 microns
+HPWL 100 ~  200 microns: Net Count        0	Total HPWL          0 microns
+HPWL 200 ~  300 microns: Net Count        0	Total HPWL          0 microns
+HPWL 300 ~  400 microns: Net Count        0	Total HPWL          0 microns
+HPWL 400 ~  500 microns: Net Count        0	Total HPWL          0 microns
+HPWL 500 ~  600 microns: Net Count        0	Total HPWL          0 microns
+HPWL 600 ~  700 microns: Net Count        0	Total HPWL          0 microns
+HPWL 700 ~  800 microns: Net Count        0	Total HPWL          0 microns
+HPWL 800 ~  900 microns: Net Count        0	Total HPWL          0 microns
+HPWL 900 ~ 1000 microns: Net Count        0	Total HPWL          0 microns
+HPWL     > 1000 microns: Net Count        0	Total HPWL          0 microns
+Number of user frozen nets = 0
+Total stats:
+[End of Build Data] Elapsed real time: 0:00:00 
+[End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Data] Stage (MB): Used    1  Alloctr    1  Proc    0 
+[End of Build Data] Total (MB): Used   35  Alloctr   35  Proc 3350 
+Current Stage stats:
+[End of Blocked Pin Detection] Elapsed real time: 0:00:00 
+[End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Blocked Pin Detection] Stage (MB): Used   12  Alloctr   12  Proc    2 
+[End of Blocked Pin Detection] Total (MB): Used   47  Alloctr   47  Proc 3352 
+Information: Using 8 threads for routing. (ZRT-444)
+
+Start GR phase 0
+Current Stage stats:
+[End of Initial Routing] Elapsed real time: 0:00:00 
+[End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Initial Routing] Total (MB): Used   47  Alloctr   47  Proc 3352 
+Initial. Routing result:
+Initial. Both Dirs: Overflow =     0 Max = 0 GRCs =     0 (0.00%)
+Initial. H routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. li1        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. met1       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. met2       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. met3       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. met4       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. met5       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+Initial. Total Wire Length = 96.09
+Initial. Layer li1 wire length = 0.00
+Initial. Layer met1 wire length = 56.27
+Initial. Layer met2 wire length = 39.83
+Initial. Layer met3 wire length = 0.00
+Initial. Layer met4 wire length = 0.00
+Initial. Layer met5 wire length = 0.00
+Initial. Total Number of Contacts = 17
+Initial. Via L1M1_PR count = 12
+Initial. Via M1M2_PR count = 5
+Initial. Via M2M3_PR count = 0
+Initial. Via M3M4_PR count = 0
+Initial. Via M4M5_PR count = 0
+Initial. completed.
+[End of Whole Chip Routing] Elapsed real time: 0:00:00 
+[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Whole Chip Routing] Stage (MB): Used   13  Alloctr   13  Proc    2 
+[End of Whole Chip Routing] Total (MB): Used   47  Alloctr   47  Proc 3352 
+Current Stage stats:
+[GR: Done] Elapsed real time: 0:00:00 
+[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3352 
+GR Total stats:
+[GR: Done] Elapsed real time: 0:00:00 
+[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[GR: Done] Stage (MB): Used   16  Alloctr   16  Proc    2 
+[GR: Done] Total (MB): Used   47  Alloctr   47  Proc 3352 
+Final total stats:
+[End of Global Routing] Elapsed real time: 0:00:00 
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Global Routing] Stage (MB): Used    8  Alloctr    8  Proc    2 
+[End of Global Routing] Total (MB): Used   38  Alloctr   39  Proc 3352 
+CPU Time for Global Route: 00:00:00.10u 00:00:00.04s 00:00:00.12e: 
+Number of block ports: 12
+Number of block pin locations assigned from router: 12
+CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of PG ports on blocks: 0
+Number of pins created: 12
+CPU Time for Pin Creation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Total Pin Placement CPU Time: 00:00:00.10u 00:00:00.04s 00:00:00.12e: 
+Information: Ending 'place_pins' (FLW-8001)
+Information: Time: 2023-09-05 21:36:23 / Session: 0.01 hr / Command: 0.00 hr / Memory: 435 MB (FLW-8100)
+RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_setup/floorplan.tcl
+
+################################################################
+## Additional floorplan constraints  
+################################################################
+#  If DEF_FLOORPLAN_FILES is provided but can not cover certain floorplan constraint types, then they can be provided here.
+#  If initialize_floorplan is used, additional floorplan constraints can be provided here. 
+#  For example, bounds, pin guides, or route guides, etc
+if {[file exists [which $TCL_ADDITIONAL_FLOORPLAN_FILE]]} {
+		puts "RM-info: Adding additional floorplan information from TCL_ADDITIONAL_FLOORPLAN_FILE ($TCL_ADDITIONAL_FLOORPLAN_FILE)"
+		source $TCL_ADDITIONAL_FLOORPLAN_FILE
+	} elseif {$TCL_ADDITIONAL_FLOORPLAN_FILE != ""} {
+		puts "RM-error : TCL_ADDITIONAL_FLOORPLAN_FILE($TCL_ADDITIONAL_FLOORPLAN_FILE) is invalid. Please correct it."
+	}
+## IO, and macro placement: Refer to templates/init_design.flat_design_planning_example.tcl for sample commands
+################################################################
+## SCANDEF  
+################################################################	
+if {[file exists [which $DEF_SCAN_FILE]]} {
+		read_def $DEF_SCAN_FILE
+	} elseif {$DEF_SCAN_FILE != ""} {
+		puts "RM-error : DEF_SCAN_FILE($DEF_SCAN_FILE) is invalid. Please correct it."
+	}
+Information: Loading DEF file '/mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/dcrm/results/counter.mapped.scandef' (FILE-007)
+Information: Reading 'VERSION' statement. (DEFR-016)
+Warning: Ignoring unsupported 'NAMESCASESENSITIVE' statement. (DEFR-015)
+Information: Reading 'DIVIDERCHAR' statement. (DEFR-016)
+Information: Reading 'BUSBITCHARS' statement. (DEFR-016)
+Information: Reading 'DESIGN' statement. (DEFR-016)
+Information: Reading 'SCANCHAINS' section. (DEFR-016)
+--------------------------------
+Number of Ignored DEF Constructs
+--------------------------------
+NAMESCASESENSITIVE             : 1/1
+---------------------------------------
+Number of Processed/Read DEF Constructs
+---------------------------------------
+VERSION                        : 1/1
+DIVIDERCHAR                    : 1/1
+BUSBITCHARS                    : 1/1
+DESIGN                         : 1/1
+SCANCHAINS                     : 1/1
+puts "RM-info: Completed script [info script]\n"
+RM-info: Completed script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/init_design.from_ascii.tcl
+
+## DC_ASCII flow : creates the library & block from DC write_icc2_files output files
+if {$INIT_DESIGN_INPUT == "DC_ASCII"} {
+	puts "RM-info: Sourcing [which init_design.from_dc_ascii.tcl]"
+	source -echo init_design.from_dc_ascii.tcl
+}
+## DP_RM_NDM flow : imports the library & block from DP-RM completed database
+if {$INIT_DESIGN_INPUT == "DP_RM_NDM"} {
+	puts "RM-info: Sourcing [which init_design.from_dp_rm_ndm.tcl]"
+	source -echo init_design.from_dp_rm_ndm.tcl
+}
+redirect -file ${REPORTS_DIR}/${INIT_DESIGN_BLOCK_NAME}.report_ref_libs {report_ref_libs}
+########################################################################
+## Additional timer related setups : POCV	
+########################################################################
+if {$POCV_CORNER_FILE_MAPPING_LIST != ""} {
+	## Read POCV coefficient data and distance-based derate tables to reduce pessimism and improve accuracy of the results.
+	#  Specify a list of corner and its associated POCV file in pairs, as POCV is corner dependant.
+	foreach pair $POCV_CORNER_FILE_MAPPING_LIST {
+		set corner [lindex $pair 0]	
+		set file [lindex $pair 1]	
+		if {[file exists [which $file]]} {
+			puts "RM-info: Corner $corner: reading POCV file $file"
+	        	read_ocvm -corners $corner $file
+		} else {
+	        	puts "RM-error: Corner $corner: POCV file $file is not found"
+	      	}
+	}
+
+	## Enable POCV analysis
+	set_app_options -name time.pocvm_enable_analysis -value true ;# tool default false; enables POCV
+	reset_app_options time.aocvm_enable_analysis ;# reset it to prevent POCV being overriden by AOCV
+	
+	## Enable distance analysis
+	#	set_app_options -name time.ocvm_enable_distance_analysis -value true
+	
+	## Enable constraint and slew variation if there're pre-existing library LVF constraints
+	#	set_app_options -name time.enable_constraint_variation -value true ;# tool default false
+	#	set_app_options -name time.enable_slew_variation -value true ;# tool default false
+	
+	## Specify the number of standard deviations used in POCV analysis
+	#  The larger the value, the more violations there will be 
+	#	set_app_options -name time.pocvm_corner_sigma -value 3.5 -block [current_block] ;# default 3
+	
+	## Use OCV derates to fill gaps in POCV data
+	#  To completely ignore OCV derate settings:  
+	#	set_app_options -name time.ocvm_precedence_compatibility -value true
+	#  To consider both OCV and POCV derate settings:
+	#	set_app_options -name time.ocvm_precedence_compatibility -value false
+	
+	## Set and report POCV guard band (per corner)
+	#  Use the set_timing_derate command to specify POCV guard band, which affects the mean and sensit
+	#  values in the timing report. For ex, if value is the same across corners:
+	#	set_timing_derate -cell_delay -pocvm_guardband -early 0.97 -corner [all_corners]
+	#  Or if value is different per corner:
+	#	set_timing_derate -cell_delay -pocvm_guardband -early 0.97 -corner corner1
+	#	set_timing_derate -cell_delay -pocvm_guardband -early 0.98 -corner corner2, ... etc
+	#  To report guard band:
+	#	report_timing_derate -pocvm_guardband -corner [all_corners]
+	
+	## Set and report scaling factor (per corner)
+	#  It affects sensit which equals to sensit * scaling factor. For ex, if value is the same across corners:
+	#	set_timing_derate -cell_delay -pocvm_coefficient_scale_factor -early 0.95 -corner [all_corners]
+	#  Or if value is different per corner:
+	#	set_timing_derate -cell_delay -pocvm_coefficient_scale_factor -early 0.95 -corner corner1
+	#	set_timing_derate -cell_delay -pocvm_coefficient_scale_factor -early 0.96 -corner corner2, ... etc
+	#  To report scale factor:
+	#	report_timing_derate -pocvm_coefficient_scale_factor -corner [all_corners]
+}
+########################################################################
+## Additional timer related setups : AOCV (mutually exclusive with POCV)
+########################################################################
+## Read AOCV derate factor table to reduce pessimism and improve accuracy of the results.
+#  Specify a list of corner and its associated AOCV table in pairs, as AOCV is corner dependant.
+if {![get_app_option_value -name time.pocvm_enable_analysis] && $AOCV_CORNER_TABLE_MAPPING_LIST != ""} {
+	foreach pair $AOCV_CORNER_TABLE_MAPPING_LIST {
+		set corner [lindex $pair 0]	
+		set table [lindex $pair 1]	
+		if {[file exists [which $table]]} {
+			puts "RM-info: Corner $corner: reading AOCV table file $table"
+	        	read_ocvm -corners $corner $table
+		} else {
+	        	puts "RM-error: Corner $corner: AOCV table file $table is not found"
+	      	}
+	}
+	
+	## Set user-specified instance based random coefficient for the AOCV analysis 
+	#  Example : set_aocvm_coefficient <value> [get_lib_cells <lib_cell>]
+
+	## AOCV is enabled in clock_opt_cts.tcl after CTS is done
+}
+########################################################################
+## Additional timer related setups : create path groups 	
+########################################################################
+## Optionally create a register to register group
+#  set cur_mode [current_mode]
+#  foreach_in_collection mode [all_modes] {
+#  	current_mode $mode;
+#  	group_path -name reg2reg -from [all_clocks] -to [all_clocks] ;# creates register to register path group   
+#  }
+#  current_mode $cur_mode
+## Optionally increase path group weight on critical path groups, for ex:
+#  It is recommended to increase path group weight to at least 15 for critical ones 
+#	group_path -name clk_gate_enable -weight 15
+#	group_path -name xyz -weight 15
+redirect -file ${REPORTS_DIR}/${INIT_DESIGN_BLOCK_NAME}.report_path_groups {report_path_groups -nosplit -modes [all_modes]}
+########################################################################
+## Additional timer related setups : remove propagated clocks	
+########################################################################
+## Remove all propagated clocks
+set cur_mode [current_mode]
+{mode_norm.slow.RCmax}
+foreach_in_collection mode [all_modes] {
+	current_mode $mode
+	remove_propagated_clocks [all_clocks]
+	remove_propagated_clocks [get_ports]
+	remove_propagated_clocks [get_pins -hierarchical]
+}
+Information: The command 'remove_propagated_clocks' cleared the undo history. (UNDO-016)
+current_mode $cur_mode
+{mode_norm.slow.RCmax}
+# To set clock gating check :
+# set cur_mode [current_mode]
+# foreach_in_collection mode [all_modes] {
+#	current_mode $mode
+#	set_clock_gating_check -setup 0 [current_design]
+#	set_clock_gating_check -hold  0 [current_design]
+# }
+# current_mode $cur_mode
+########################################################################
+## Additional power related setups : power derate	
+########################################################################
+## Power derating factors can affect power analysis and power optimization
+#  To set power derating factors on objects, use set_power_derate command
+#  Examples
+#	set_power_derate 0.98 -scenarios [current_scenario] -leakage -internal
+#	set_power_derate 0.9 -switching [get_lib_cells my_lib/cell1] 
+#	set_power_derate 0.5 -group {memory} 
+#  To report and get power derating factors
+#	report_power_derate ...
+#  To remove all power derating factors when no arguments are specified
+#	reset_power_derate
+if {$TCL_USER_CONNECT_PG_NET_SCRIPT != ""} {
+	if {[file exists [which $TCL_USER_CONNECT_PG_NET_SCRIPT]]} {
+		puts "RM-info: Sourcing [which $TCL_USER_CONNECT_PG_NET_SCRIPT]"
+  		source $TCL_USER_CONNECT_PG_NET_SCRIPT
+	} elseif {$TCL_USER_CONNECT_PG_NET_SCRIPT != ""} {
+		puts "RM-error: TCL_USER_CONNECT_PG_NET_SCRIPT($TCL_USER_CONNECT_PG_NET_SCRIPT) is invalid. Please correct it."
+	}
+} else {
+	connect_pg_net
+	# For non-MV designs with more than one PG, you should use connect_pg_net in manual mode.
+}
+****************************************
+Report : Power/Ground Connection Summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:23 2023
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 22/22
+Unconnected nwell pins        22
+Ground net VSS                22/22
+Unconnected pwell pins        22
+--------------------------------------------------------------------------------
+Information: connections of 0 power/ground pin(s) are created or changed.
+####################################
+## Boundary cells
+####################################
+## Note: Create voltage areas before this step for boundary cell protection.
+## Boundary cells: to be added around the boundaries of objects, such as voltage areas, macros, blockages, and the core area
+#	set_boundary_cell_rules ... 
+#	report_boundary_cell_rules
+#	compile_boundary_cells
+#	check_boundary_cells
+####################################
+## MV setup : provide a customized MV script	
+####################################
+## A Tcl script placeholder for your MV setup commands,such as power switch creation and level shifter insertion, etc
+if {[file exists [which $TCL_MV_SETUP_FILE]]} {
+	puts "RM-info: Sourcing [which $TCL_MV_SETUP_FILE]"
+	source -echo $TCL_MV_SETUP_FILE
+} elseif {$TCL_MV_SETUP_FILE != ""} {
+	puts "RM-error: TCL_MV_SETUP_FILE($TCL_MV_SETUP_FILE) is invalid. Please correct it."
+}
+## Insert, assign, and connect power switches: Refer to templates/init_design.power_switch_example.tcl for sample commands 
+####################################
+## Tap cells
+####################################
+#  Example : create_tap_cells -lib_cell myLib/Cell1 -distance 30 -pattern every_row
+####################################
+## Power and ground network creation	
+####################################
+## A Tcl script placeholder for your power ground network creation commands, such as create_pg*,set_pg_strategy, and compile_pg.
+if {[file exists [which $TCL_PG_CREATION_FILE]]} {
+	puts "RM-info: Sourcing [which $TCL_PG_CREATION_FILE]"
+	source -echo $TCL_PG_CREATION_FILE
+} elseif {$TCL_PG_CREATION_FILE != ""} {
+	puts "RM-error: TCL_PG_CREATION_FILE($TCL_PG_CREATION_FILE) is invalid. Please correct it."
+}
+## Create standard cell PG rail example: Refer to templates/init_design.std_cell_rail_example.tcl
+####################################
+## Post-init_design customizations
+####################################
+if {[file exists [which $TCL_USER_INIT_DESIGN_POST_SCRIPT]]} {
+        puts "RM-info: Sourcing [which $TCL_USER_INIT_DESIGN_POST_SCRIPT]"
+        source $TCL_USER_INIT_DESIGN_POST_SCRIPT
+} elseif {$TCL_USER_INIT_DESIGN_POST_SCRIPT != ""} {
+        puts "RM-error: TCL_USER_INIT_DESIGN_POST_SCRIPT($TCL_USER_INIT_DESIGN_POST_SCRIPT) is invalid. Please correct it."
+}
+save_upf ${REPORTS_DIR}/${INIT_DESIGN_BLOCK_NAME}.save_upf
+Information: Explicit supply net connections to isolation and retention cells will be written out. Use mv.upf.save_upf_include_supply_exceptions_for_iso_retn to control this. (UPF-450)
+1
+save_block -as ${DESIGN_NAME}/${INIT_DESIGN_BLOCK_NAME}
+Information: The command 'save_block' cleared the undo history. (UNDO-016)
+Information: Saving 'counter:counter.design' to 'counter:counter/init_design.design'. (DES-028)
+1
+####################################
+## Sanity checks and QoR Report	
+####################################
+if {$REPORT_QOR} {
+	source report_qor.tcl ;# reports with zero interconnect delay
+	## Check the technology file before starting place and route flow
+	write_tech_file ${REPORTS_DIR}/${REPORT_PREFIX}.tech_file.dump
+}
+RM-info: Running script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/report_qor.tcl
+
+RM-info: Reporting clock tree information ...
+
+Dispatching command : 'report_clock_qor -type area -nosplit' > ${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_qor.cell_area
+Dispatching command : 'report_clock_qor -type structure -nosplit' > ${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_qor.structure
+Dispatching command : 'report_clock_timing -type summary -nosplit -scenarios [get_scenarios]' > ${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_timing
+Waiting for all dispatched commands to complete ...
+Done.
+
+All command runs are done. Below is the status.
+
+Completed 'report_clock_qor -type area -nosplit' successfully.
+Output is in log '${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_qor.cell_area'
+
+Completed 'report_clock_qor -type structure -nosplit' successfully.
+Output is in log '${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_qor.structure'
+
+Completed 'report_clock_timing -type summary -nosplit -scenarios [get_scenarios]' successfully.
+Output is in log '${REPORTS_DIR}/${REPORT_PREFIX}.report_clock_timing'
+
+RM-info: Running report_clock_qor -type power ...
+
+RM-info: Reporting timing constraints ...
+
+Dispatching command : 'report_mode -nosplit' > ${REPORTS_DIR}/${REPORT_PREFIX}.report_mode
+Dispatching command : 'report_pvt -nosplit' > ${REPORTS_DIR}/${REPORT_PREFIX}.report_pvt
+Waiting for all dispatched commands to complete ...
+Done.
+
+All command runs are done. Below is the status.
+
+Completed 'report_mode -nosplit' successfully.
+Output is in log '${REPORTS_DIR}/${REPORT_PREFIX}.report_mode'
+
+Completed 'report_pvt -nosplit' successfully.
+Output is in log '${REPORTS_DIR}/${REPORT_PREFIX}.report_pvt'
+
+RM-info: Reporting timing and QoR ...
+
+****************************************
+Report : qor
+        -summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+Timing
+---------------------------------------------------------------------------
+Context                                 WNS            TNS            NVE
+---------------------------------------------------------------------------
+mode_norm.slow.RCmax (Setup)           2.16           0.00              0
+Design             (Setup)             2.16           0.00              0
+
+mode_norm.fast.RCmin_bc (Hold)          -0.02          -0.04              2
+Design             (Hold)             -0.02          -0.04              2
+---------------------------------------------------------------------------
+
+Miscellaneous
+---------------------------------------------------------------------------
+Cell Area (netlist):                            290.91
+Cell Area (netlist and physical only):          290.91
+Nets with DRC Violations:        0
+1
+****************************************
+Report : global timing
+        -format { narrow }
+        -report_by design
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+No setup violations found.
+
+
+Hold violations
+--------------------------------------------------------------
+          Total   reg->reg    in->reg   reg->out    in->out
+--------------------------------------------------------------
+WNS       -0.02      -0.02       0.00       0.00       0.00
+TNS       -0.04      -0.04       0.00       0.00       0.00
+NUM           2          2          0          0          0
+--------------------------------------------------------------
+
+1
+RM-info: Analyzing design violations ...
+
+****************************************
+Report : check_mv_design
+        -erc_mode
+        -voltage_threshold 0
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+---------- Power domain rule ----------
+No errors or warnings.
+
+---------- Supply set rule ----------
+No errors or warnings.
+
+---------- Supply net rule ----------
+No errors or warnings.
+
+---------- Supply port rule ----------
+No errors or warnings.
+
+---------- Isolation strategy rule ----------
+No errors or warnings.
+
+---------- Level shifter strategy rule ----------
+No errors or warnings.
+
+---------- Retention strategy rule ----------
+No errors or warnings.
+
+---------- Power switch strategy rule ----------
+No errors or warnings.
+
+---------- Repeater rule ----------
+No errors or warnings.
+
+---------- Terminal boundary rule ----------
+No errors or warnings.
+
+---------- Isolation cell rule ----------
+No errors or warnings.
+
+---------- Level shifter cell rule ----------
+No errors or warnings.
+
+---------- Retention cell rule ----------
+No errors or warnings.
+
+---------- Switch cell rule ----------
+No errors or warnings.
+
+---------- PGMUX rule ----------
+No errors or warnings.
+
+---------- Diode cell rule ----------
+No errors or warnings.
+
+---------- Model rule ----------
+No errors or warnings.
+
+---------- Isolation rule ----------
+No errors or warnings.
+
+---------- Voltage shifting rule ----------
+No errors or warnings.
+
+---------- Tie-off connection rule ----------
+No errors or warnings.
+
+---------- Analog net rule ----------
+No errors or warnings.
+
+---------- Physical block pin rule ----------
+No errors or warnings.
+
+---------- PG pin rule ----------
+No errors or warnings.
+
+---------- Signal pin rule ----------
+No errors or warnings.
+
+---------- Summary ----------
+Information: Total 0 error(s) and 0 warning(s) from check_mv_design. (MV-082)
+1
+Warning: Option '-power_connectivity' is deprecated, use '-all' instead. (CMD-105)
+****************************************
+Report : check_mv_design
+        -power_connectivity
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+---------- Power domain rule ----------
+No errors or warnings.
+
+---------- Supply set rule ----------
+No errors or warnings.
+
+---------- Supply net rule ----------
+No errors or warnings.
+
+---------- Supply port rule ----------
+No errors or warnings.
+
+---------- Isolation strategy rule ----------
+No errors or warnings.
+
+---------- Level shifter strategy rule ----------
+No errors or warnings.
+
+---------- Retention strategy rule ----------
+No errors or warnings.
+
+---------- Power switch strategy rule ----------
+No errors or warnings.
+
+---------- Repeater rule ----------
+No errors or warnings.
+
+---------- Terminal boundary rule ----------
+No errors or warnings.
+
+---------- Isolation cell rule ----------
+No errors or warnings.
+
+---------- Level shifter cell rule ----------
+No errors or warnings.
+
+---------- Retention cell rule ----------
+No errors or warnings.
+
+---------- Switch cell rule ----------
+No errors or warnings.
+
+---------- PGMUX rule ----------
+No errors or warnings.
+
+---------- Diode cell rule ----------
+No errors or warnings.
+
+---------- Model rule ----------
+No errors or warnings.
+
+---------- Isolation rule ----------
+No errors or warnings.
+
+---------- Voltage shifting rule ----------
+No errors or warnings.
+
+---------- Tie-off connection rule ----------
+No errors or warnings.
+
+---------- PG net rule ----------
+No errors or warnings.
+
+---------- Analog net rule ----------
+No errors or warnings.
+
+---------- Physical block pin rule ----------
+No errors or warnings.
+
+---------- PG pin rule ----------
+No errors or warnings.
+
+---------- Power connectivity rule ----------
+Warning: PG pin 'value_reg_3_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_3_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_2_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_2_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_1_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_1_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U22/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U22/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U23/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U23/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U24/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U24/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U25/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U25/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U26/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U26/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U27/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U27/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U28/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U28/VNB' is unconnected. (MV-005)
+Information: Message 'MV-005' limit (20) exceeded. Remainder will be suppressed. The limit can be changed with '-max_message_count' option. (MV-079)
+Information: Total 44 MV-005 violations. (MV-080)
+
+---------- Signal pin rule ----------
+No errors or warnings.
+
+---------- Summary ----------
+Information: Total 0 error(s) and 44 warning(s) from check_mv_design. (MV-082)
+1
+****************************************
+Report : check_mv_design
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+
+---------- Power domain rule ----------
+No errors or warnings.
+
+---------- Supply set rule ----------
+No errors or warnings.
+
+---------- Supply net rule ----------
+No errors or warnings.
+
+---------- Supply port rule ----------
+No errors or warnings.
+
+---------- Isolation strategy rule ----------
+No errors or warnings.
+
+---------- Level shifter strategy rule ----------
+No errors or warnings.
+
+---------- Retention strategy rule ----------
+No errors or warnings.
+
+---------- Power switch strategy rule ----------
+No errors or warnings.
+
+---------- Repeater rule ----------
+No errors or warnings.
+
+---------- Terminal boundary rule ----------
+No errors or warnings.
+
+---------- Isolation cell rule ----------
+No errors or warnings.
+
+---------- Level shifter cell rule ----------
+No errors or warnings.
+
+---------- Retention cell rule ----------
+No errors or warnings.
+
+---------- Switch cell rule ----------
+No errors or warnings.
+
+---------- PGMUX rule ----------
+No errors or warnings.
+
+---------- Diode cell rule ----------
+No errors or warnings.
+
+---------- Model rule ----------
+No errors or warnings.
+
+---------- Isolation rule ----------
+No errors or warnings.
+
+---------- Voltage shifting rule ----------
+No errors or warnings.
+
+---------- Tie-off connection rule ----------
+No errors or warnings.
+
+---------- Analog net rule ----------
+No errors or warnings.
+
+---------- Physical block pin rule ----------
+No errors or warnings.
+
+---------- PG pin rule ----------
+No errors or warnings.
+
+---------- Signal pin rule ----------
+No errors or warnings.
+
+---------- Summary ----------
+Information: Total 0 error(s) and 0 warning(s) from check_mv_design. (MV-082)
+1
+Loading cell instances...
+Number of Standard Cells: 22
+Number of Macro Cells: 0
+Number of IO Pad Cells: 0
+Number of Blocks: 0
+Loading P/G wires and vias...
+Number of VDD Wires: 6
+Number of VDD Vias: 13
+Number of VDD Terminals: 4
+**************Verify net VDD connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 0
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Loading cell instances...
+Loading P/G wires and vias...
+Number of VSS Wires: 6
+Number of VSS Vias: 13
+Number of VSS Terminals: 4
+**************Verify net VSS connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 0
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Overall runtime: 0 seconds.
+****************************************
+Report : Power Domain
+Design : counter
+Corner : mode_norm.slow.RCmax
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Power Domain            :  DEFAULT_POWER_DOMAIN
+Current Scope           :  / (top scope)
+Elements                :  counter
+Voltage Area            :  DEFAULT_VA
+Available Supply Nets   :  VDD, VSS
+Available Supply Sets   :
+
+Default Supplies           - Power -     - Ground -
+  Primary               :  VDD [1.60]    VSS
+  Isolation             :  --            --
+  Retention             :  --            --
+
+Power Switch            :
+Isolation Strategy      :
+Level Shifter Strategy  :
+Repeater Strategy       :
+Retention Strategy      :
+Always on strategy      :  dual_power
+Disallow Forward Biasing : false
+Disallow Reverse Biasing : false
+--------------------------------------------------------------------------------------------------
+1
+Voltage_area        Description
+--------------------------------------------------------------------------------
+DEFAULT_VA          not_fixed with 1 shape 
+                    power_domains: DEFAULT_POWER_DOMAIN 
+                    power_net: VDD
+                    ground_net: VSS
+                    use_power_domain_cells: true
+                    local_cells: N/A
+
+1
+RM-info: Running report_power ...
+
+RM-info: Reporting design information ...
+
+****************************************
+Report : report_utilization
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+Utilization Ratio:			0.5200
+Utilization options:
+ - Area calculation based on:		site_row of block counter
+ - Categories of objects excluded:	hard_macros macro_keepouts soft_macros io_cells hard_blockages 
+Total Area:				559.4400
+Total Capacity Area:			559.4400
+Total Area of cells:			290.9088
+Area of excluded objects:
+ - hard_macros         :		0.0000
+ - macro_keepouts      :		0.0000
+ - soft_macros         :		0.0000
+ - io_cells            :		0.0000
+ - hard_blockages      :		0.0000
+
+Utilization of site-rows with:
+ - Site 'unit':				0.5200
+
+0.5200
+RM-info: Checking design issues ...
+
+RM-info: Reporting units ...
+
+RM-info: Reporting non-default app option settings ...
+
+RM-info: time.delay_calculation_style is set to zero_interconnect ...
+
+RM-info: Reporting timing and QoR in zero_interconnect mode with zero pin cap ...
+
+****************************************
+Report : qor
+        -summary
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:35 2023
+****************************************
+Information: Timer using 'Zero-interconnect Delay Calculation'. (TIM-050)
+
+Timing
+---------------------------------------------------------------------------
+Context                                 WNS            TNS            NVE
+---------------------------------------------------------------------------
+mode_norm.slow.RCmax (Setup)           2.37           0.00              0
+Design             (Setup)             2.37           0.00              0
+
+mode_norm.fast.RCmin_bc (Hold)          -0.03          -0.08              3
+Design             (Hold)             -0.03          -0.08              3
+---------------------------------------------------------------------------
+
+Miscellaneous
+---------------------------------------------------------------------------
+Cell Area (netlist):                            290.91
+Cell Area (netlist and physical only):          290.91
+Nets with DRC Violations:        0
+1
+RM-info: time.delay_calculation_style is reset...
+
+RM-info: Completed script /mnt/ncsudrive/r/rjujjav/rjujjav/hw01/pdrm/icc2rm/rm_icc2_pnr_scripts/report_qor.tcl
+
+1
+print_message_info -ids * -summary
+
+Id             Severity         Limit    Occurrences   Suppressed
+--------------------------------------------------------------------
+ATTR-12     Information             0             12            0
+CMD-005           Error             0              5            0
+CMD-105         Warning             0              1            0
+CSTR-026        Warning             0              1            0
+DCHK-042    Information             0              1            0
+DEFR-015        Warning             0              1            0
+DEFR-016    Information             0              5            0
+DES-028     Information             0              1            0
+DPPA-096        Warning             0              2            0
+FILE-007    Information             0              2            0
+FLW-8000    Information             0              4            0
+FLW-8001    Information             0              4            0
+FLW-8100    Information             0              8            0
+LGL-031         Warning             0              1            0
+LNK-040     Information             0              1            0
+MV-005          Warning             0             20            0
+MV-021      Information             0             12            0
+MV-079      Information             0              1            0
+MV-080      Information             0              1            0
+MV-082      Information             0              3            0
+NDMUI-173   Information             0              1            0
+NEX-011     Information             0              2            0
+NEX-017     Information             0              4            0
+NEX-022     Information             0              3            0
+OPT-902         Warning             0              1            0
+OPT-909     Information             0              2            0
+PGR-599         Warning             0              1            0
+PLACE-027   Information             0              1            0
+PLACE-098   Information             0              1            0
+POW-005     Information            10              1            0
+POW-009         Warning            10              2            0
+POW-024     Information            10              2            0
+POW-052     Information            10              2            0
+PVT-032     Information             0              4            0
+TECH-002        Warning             0              1            0
+TECH-026        Warning             0             20            0
+TECH-032        Warning             0              2            0
+TECH-034        Warning             0             10            0
+TIM-050     Information             0              3            0
+TIM-111     Information             0              4            0
+TIM-112     Information             0              4            0
+TIM-123     Information             0              1            0
+TIM-125     Information             0              3            0
+UIC-058         Warning             0              6            0
+UNDO-016    Information             0              5            0
+UPF-072     Information             0              1            0
+UPF-073     Information             0              1            0
+UPF-450     Information             0              1            0
+VR-012      Information             0              1            0
+ZRT-026         Warning             0              1            0
+ZRT-027         Warning             0              1            0
+ZRT-030         Warning             0             20            0
+ZRT-444     Information             0              1            0
+ZRT-625         Warning             0             10            1
+ZRT-703     Information             0              1            0
+ZRT-706     Information             0              1            0
+ZRT-707     Information             0              1            0
+
+Diagnostics summary: 5 errors, 101 warnings, 106 informationals
+echo [exec date +%s] > init_design
+exit
+Maximum memory usage for this session: 458.57 MB
+Maximum memory usage for this session including child processes: 458.57 MB
+CPU usage for this session:     25 seconds (  0.01 hours)
+Elapsed time for this session:     47 seconds (  0.01 hours)
+Thank you for using IC Compiler II.

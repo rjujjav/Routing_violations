@@ -1,0 +1,198 @@
+Warning: Scenario mode_norm.fast.RCmin is not configured for setup analysis: skipping. (UIC-058)
+Warning: Scenario mode_norm.fast.RCmin_bc is not configured for setup analysis: skipping. (UIC-058)
+Warning: Scenario mode_norm.slow.RCmax_bc is not configured for setup analysis: skipping. (UIC-058)
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by group
+        -nosplit
+        -input_pins
+        -nets
+        -transition_time
+        -capacitance
+        -derate
+        -attributes
+        -physical
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:39:34 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: value_reg_0_ (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: clk_gate_value_reg/latch (rising clock gating-check end-point clocked by clock)
+  Mode: mode_norm.slow.RCmax
+  Corner: mode_norm.slow.RCmax
+  Scenario: mode_norm.slow.RCmax
+  Path Group: clock
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                                       Fanout    Cap      Trans     Derate     Incr      Path          Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                                                             0.00      0.00
+  clock network delay (propagated)                                                                    0.24      0.24
+
+  value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.23      1.00      0.00      0.24 r    (12.59,4.69)      s, n
+  value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.08      1.00      0.48      0.72 f    (19.89,5.00)      s, n
+  value_0_ (net)                                                 4      0.01
+  U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.08      1.00      0.00      0.72 f    (22.85,11.53)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.30      1.00      0.30      1.02 r    (23.50,11.65)
+  n16 (net)                                                      3      0.01
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.30      1.00      0.00      1.02 r    (22.83,24.67)
+  U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.11      1.00      0.18      1.21 f    (23.06,24.97)
+  n18 (net)                                                      3      0.01
+  U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.11      1.00      0.00      1.21 f    (14.69,24.85)
+  U25/Y (sky130_fd_sc_hs__nor2_1)                                                 0.72      1.00      0.60      1.81 r    (14.90,24.97)
+  zero (net)                                                     2      0.03
+  U26/B (sky130_fd_sc_hs__nor3_1)                                                 0.72      1.00      0.00      1.81 r    (5.41,24.85)
+  U26/Y (sky130_fd_sc_hs__nor3_1)                                                 0.10      1.00      0.19      2.01 f    (5.49,24.97)
+  n13 (net)                                                      1      0.00
+  U27/B (sky130_fd_sc_hs__nand2_1)                                                0.10      1.00      0.00      2.01 f    (4.53,21.94)
+  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.22      1.00      0.22      2.23 r    (3.86,21.64)
+  n22 (net)                                                      4      0.01
+  U38/B (sky130_fd_sc_hs__nand2_1)                                                0.22      1.00      0.00      2.23 r    (5.01,18.01)
+  U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.06      1.00      0.11      2.34 f    (4.34,18.31)
+  N10 (net)                                                      1      0.00
+  clk_gate_value_reg/latch/GATE (sky130_fd_sc_hs__sdlclkp_1)                      0.06      1.00      0.00      2.34 f    (14.48,18.54)     n
+  data arrival time                                                                                             2.34
+
+  clock clock (rise edge)                                                                             5.00      5.00
+  clock network delay (propagated)                                                                    0.00      5.00
+  clock reconvergence pessimism                                                                       0.00      5.00
+  clk_gate_value_reg/latch/CLK (sky130_fd_sc_hs__sdlclkp_1)                       0.00      1.00      0.00      5.00 r    (18.93,18.22)     n
+  library setup time                                                                        1.00     -0.46      4.54
+  data required time                                                                                            4.54
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                            4.54
+  data arrival time                                                                                            -2.34
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                   2.20
+
+
+
+  Startpoint: reset (input port clocked by clock)
+  Endpoint: clk_gate_value_reg/latch (rising clock gating-check end-point clocked by clock)
+  Mode: mode_norm.slow.RCmax
+  Corner: mode_norm.slow.RCmax
+  Scenario: mode_norm.slow.RCmax
+  Path Group: REGIN
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                                       Fanout    Cap      Trans     Derate     Incr      Path          Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                                                             0.00      0.00
+  clock network delay (propagated)                                                                    0.24      0.32
+  input external delay                                                                                0.40      0.72 r
+  reset (in)                                                                      0.14      1.00      0.09      0.72 r    (0.30,24.05)
+  reset (net)                                                    3      0.01
+  U26/A (sky130_fd_sc_hs__nor3_1)                                                 0.14      1.00      0.00      0.72 r    (4.55,24.79)
+  U26/Y (sky130_fd_sc_hs__nor3_1)                                                 0.10      1.00      0.08      0.81 f    (5.49,24.97)
+  n13 (net)                                                      1      0.00
+  U27/B (sky130_fd_sc_hs__nand2_1)                                                0.10      1.00      0.00      0.81 f    (4.53,21.94)
+  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.22      1.00      0.22      1.03 r    (3.86,21.64)
+  n22 (net)                                                      4      0.01
+  U38/B (sky130_fd_sc_hs__nand2_1)                                                0.22      1.00      0.00      1.03 r    (5.01,18.01)
+  U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.06      1.00      0.11      1.14 f    (4.34,18.31)
+  N10 (net)                                                      1      0.00
+  clk_gate_value_reg/latch/GATE (sky130_fd_sc_hs__sdlclkp_1)                      0.06      1.00      0.00      1.14 f    (14.48,18.54)     n
+  data arrival time                                                                                             1.14
+
+  clock clock (rise edge)                                                                             5.00      5.00
+  clock network delay (propagated)                                                                    0.00      5.00
+  clock reconvergence pessimism                                                                       0.00      5.00
+  clk_gate_value_reg/latch/CLK (sky130_fd_sc_hs__sdlclkp_1)                       0.00      1.00      0.00      5.00 r    (18.93,18.22)     n
+  library setup time                                                                        1.00     -0.46      4.54
+  data required time                                                                                            4.54
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                            4.54
+  data arrival time                                                                                            -1.14
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                   3.40
+
+
+
+  Startpoint: value_reg_0_ (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: zero (output port clocked by clock)
+  Mode: mode_norm.slow.RCmax
+  Corner: mode_norm.slow.RCmax
+  Scenario: mode_norm.slow.RCmax
+  Path Group: REGOUT
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                                       Fanout    Cap      Trans     Derate     Incr      Path          Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                                                             0.00      0.00
+  clock network delay (propagated)                                                                    0.24      0.24
+
+  value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.23      1.00      0.00      0.24 r    (12.59,4.69)      s, n
+  value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.08      1.00      0.48      0.72 f    (19.89,5.00)      s, n
+  value_0_ (net)                                                 4      0.01
+  U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.08      1.00      0.00      0.72 f    (22.85,11.53)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.30      1.00      0.30      1.02 r    (23.50,11.65)
+  n16 (net)                                                      3      0.01
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.30      1.00      0.00      1.02 r    (22.83,24.67)
+  U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.11      1.00      0.18      1.21 f    (23.06,24.97)
+  n18 (net)                                                      3      0.01
+  U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.11      1.00      0.00      1.21 f    (14.69,24.85)
+  U25/Y (sky130_fd_sc_hs__nor2_1)                                                 0.72      1.00      0.60      1.81 r    (14.90,24.97)
+  zero (net)                                                     2      0.03
+  zero (out)                                                                      0.72      1.00      0.00      1.81 r    (12.48,29.73)
+  data arrival time                                                                                             1.81
+
+  clock clock (rise edge)                                                                             5.00      5.00
+  clock network delay (propagated)                                                                    0.24      5.24
+  clock reconvergence pessimism                                                                       0.00      5.24
+  output external delay                                                                              -0.40      4.84
+  data required time                                                                                            4.84
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                            4.84
+  data arrival time                                                                                            -1.81
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                   3.02
+
+
+1

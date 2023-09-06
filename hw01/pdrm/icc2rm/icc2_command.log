@@ -1,0 +1,7 @@
+#@ # 
+#@ # Running icc2_shell Version S-2021.06-SP3 for linux64 -- Oct 12, 2021
+#@ # Date:   Tue Sep  5 21:42:46 2023
+#@ # Run by: rjujjav@grendel29.ece.ncsu.edu
+#@ 
+
+source -echo -verbose ./rm_icc2_pnr_scripts/route_opt.tcl

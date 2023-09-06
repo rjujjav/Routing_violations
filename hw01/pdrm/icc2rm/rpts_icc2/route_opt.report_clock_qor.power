@@ -1,0 +1,32 @@
+****************************************
+Report : report clock qor
+        -type power
+        -nosplit
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:43:36 2023
+****************************************
+Information: Activity for scenario mode_norm.fast.RCmin was cached, no propagation required. (POW-005)
+Information: Activity for scenario mode_norm.fast.RCmin_bc was cached, no propagation required. (POW-005)
+
+
+==============================
+==== Power (per scenario) ====
+==============================
+
+Clock                               ClkTree        ClkTree           Sink            Net          Total
+                                    Leakage       Internal       Internal      Switching        Dynamic          Total
+                                  (stdcell)      (stdcell)      (stdcell)         (nets)          Power          Power
+                                       (nW)           (nW)           (nW)           (nW)           (nW)           (nW)
+------------------------------------------------------------------------------------------------------------------------
+### Mode: mode_norm.fast.RCmin, Corner: mode_norm.fast.RCmin, Scenario: mode_norm.fast.RCmin
+clock                               2650.88       18056.36       33294.51       24553.50       75904.37       78555.26
+------------------------------------------------------------------------------------------------------------------------
+Total                               2650.88       18056.36       33294.51       24553.50       75904.37       78555.26
+
+### Mode: mode_norm.fast.RCmin_bc, Corner: mode_norm.fast.RCmin_bc, Scenario: mode_norm.fast.RCmin_bc
+clock                               2650.88            N/A            N/A            N/A            N/A            N/A
+------------------------------------------------------------------------------------------------------------------------
+Total                               2650.88            N/A            N/A            N/A            N/A            N/A
+
+1

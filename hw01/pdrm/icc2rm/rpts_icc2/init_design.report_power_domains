@@ -1,0 +1,30 @@
+****************************************
+Report : Power Domain
+Design : counter
+Corner : mode_norm.slow.RCmax
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:36:34 2023
+****************************************
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Power Domain            :  DEFAULT_POWER_DOMAIN
+Current Scope           :  / (top scope)
+Elements                :  counter
+Voltage Area            :  DEFAULT_VA
+Available Supply Nets   :  VDD, VSS
+Available Supply Sets   :
+
+Default Supplies           - Power -     - Ground -
+  Primary               :  VDD [1.60]    VSS
+  Isolation             :  --            --
+  Retention             :  --            --
+
+Power Switch            :
+Isolation Strategy      :
+Level Shifter Strategy  :
+Repeater Strategy       :
+Retention Strategy      :
+Always on strategy      :  dual_power
+Disallow Forward Biasing : false
+Disallow Reverse Biasing : false
+--------------------------------------------------------------------------------------------------
+1

@@ -1,0 +1,111 @@
+Warning: Option '-power_connectivity' is deprecated, use '-all' instead. (CMD-105)
+****************************************
+Report : check_mv_design
+        -power_connectivity
+Design : counter
+Version: S-2021.06-SP3
+Date   : Tue Sep  5 21:38:00 2023
+****************************************
+
+---------- Power domain rule ----------
+No errors or warnings.
+
+---------- Supply set rule ----------
+No errors or warnings.
+
+---------- Supply net rule ----------
+No errors or warnings.
+
+---------- Supply port rule ----------
+No errors or warnings.
+
+---------- Isolation strategy rule ----------
+No errors or warnings.
+
+---------- Level shifter strategy rule ----------
+No errors or warnings.
+
+---------- Retention strategy rule ----------
+No errors or warnings.
+
+---------- Power switch strategy rule ----------
+No errors or warnings.
+
+---------- Repeater rule ----------
+No errors or warnings.
+
+---------- Terminal boundary rule ----------
+No errors or warnings.
+
+---------- Isolation cell rule ----------
+No errors or warnings.
+
+---------- Level shifter cell rule ----------
+No errors or warnings.
+
+---------- Retention cell rule ----------
+No errors or warnings.
+
+---------- Switch cell rule ----------
+No errors or warnings.
+
+---------- PGMUX rule ----------
+No errors or warnings.
+
+---------- Diode cell rule ----------
+No errors or warnings.
+
+---------- Model rule ----------
+No errors or warnings.
+
+---------- Isolation rule ----------
+No errors or warnings.
+
+---------- Voltage shifting rule ----------
+No errors or warnings.
+
+---------- Tie-off connection rule ----------
+No errors or warnings.
+
+---------- PG net rule ----------
+No errors or warnings.
+
+---------- Analog net rule ----------
+No errors or warnings.
+
+---------- Physical block pin rule ----------
+No errors or warnings.
+
+---------- PG pin rule ----------
+No errors or warnings.
+
+---------- Power connectivity rule ----------
+Warning: PG pin 'value_reg_3_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_3_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_2_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_2_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_1_/VPB' is unconnected. (MV-005)
+Warning: PG pin 'value_reg_1_/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U22/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U22/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U23/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U23/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U24/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U24/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U25/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U25/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U26/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U26/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U27/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U27/VNB' is unconnected. (MV-005)
+Warning: PG pin 'U28/VPB' is unconnected. (MV-005)
+Warning: PG pin 'U28/VNB' is unconnected. (MV-005)
+Information: Message 'MV-005' limit (20) exceeded. Remainder will be suppressed. The limit can be changed with '-max_message_count' option. (MV-079)
+Information: Total 44 MV-005 violations. (MV-080)
+
+---------- Signal pin rule ----------
+No errors or warnings.
+
+---------- Summary ----------
+Information: Total 0 error(s) and 44 warning(s) from check_mv_design. (MV-082)
+1

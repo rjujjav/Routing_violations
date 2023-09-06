@@ -1,3 +1,9 @@
-Place your solution in this directory.
+I have used the Tagets names as P1, P2, P3 and P4. These are named in accordance with the problem numbers in the HW sheet.
 
-Please modify this file with brief instructions for how to run your flow.
+The first is pretty much as you asked. It simply executes the make from the pdrm directory. I have also verified that it creates those two files as mentioned.
+
+P2 does do the job as specified in P2, and the arguments are to be givent for the variable AUG. I have reffered certains websites for this and I am happy to share these references in a seperate medium if required.
+
+P3 uses all the commands as specified in the order as shown in HW sheet.
+Please be careful with my P4. It basically executes the make of pdrm again and saves the output to a text file then checks for the parttern. So, if you would like to use the file that I already saved to avoid time. pls remove the make command under P4 target and execute.
+
