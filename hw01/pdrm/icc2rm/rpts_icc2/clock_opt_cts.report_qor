@@ -2,7 +2,7 @@
 Report : qor
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:33:17 2023
+Date   : Wed Sep  6 21:10:09 2023
 ****************************************
 Information: Timer using 'CRPR'. (TIM-050)
 
@@ -126,7 +126,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:33:17 2023
+Date   : Wed Sep  6 21:10:09 2023
 ****************************************
 Information: Timer using 'CRPR'. (TIM-050)
 

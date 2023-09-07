@@ -1,8 +1,8 @@
-if { [namespace current] != {::64F8E119} } { error {This script [file tail [info script]] should not be sourced directly}; }
+if { [namespace current] != {::64F92246} } { error {This script [file tail [info script]] should not be sourced directly}; }
 ###################################################################
 
 # Created by write_script -format dctcl for scenario [mode_norm.fast.RCmin] on \
-Wed Sep  6 16:29:13 2023
+Wed Sep  6 21:07:18 2023
 
 ###################################################################
 

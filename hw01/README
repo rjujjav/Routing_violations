@@ -10,15 +10,10 @@ Problem 3: make p3
 
 Problem 4: make p4
 
-but if you dont want to execute the make command again just for problem 4, I have already given the text file that I saved from my output you can remove the first command in the make target P4 and just run the second command
 
-
-
-The first is pretty much as you asked. It simply executes the make from the pdrm directory. I have also verified that it creates those two files as mentioned.
+The first is pretty much as you asked. It simply executes the make from the pdrm directory. I have also verified that it creates those two files as mentioned. in  the rules for P1, you will see date entries, this is done to avoid doing the simulation again at P4
 
 P2 does do the job as specified in P2, and the arguments are to be givent for the variable AUG. I have reffered certains websites for this and I am happy to share these references in a seperate medium if required.
-
 P3 uses all the commands as specified in the order as shown in HW sheet.
-Please be careful with my P4. It basically executes the make of pdrm again and saves the output to a text file then checks for the parttern. 
-So, if you would like to use the file that I already saved to avoid time. pls remove the make command under P4 target and execute.
+P4 give the output of both time stamps and duration in seconds.
 

@@ -3,7 +3,7 @@ Report : power
         -significant_digits 2
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)
 Warning: Power analysis is disabled for scenario 'mode_norm.slow.RCmax_bc' as leakage/swcap/internal mode power app options can be off and/or leakage_power/dynamic_power scenario flags are set to false. (POW-009)
@@ -31,10 +31,10 @@ VSS (ground) probability 1.00 (default)
 Warning: Power table extrapolation (extrapolation mode) for port CLK on cell clk_gate_value_reg/latch for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000210 (POW-046)
 Warning: Power table extrapolation (extrapolation mode) for port SCE on cell clk_gate_value_reg/latch for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000610 (POW-046)
 Warning: Power table extrapolation (extrapolation mode) for port GCLK on cell clk_gate_value_reg/latch for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000210 (POW-046)
-Warning: Power table extrapolation (extrapolation mode) for port SCE on cell value_reg_1_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000229 (POW-046)
 Warning: Power table extrapolation (extrapolation mode) for port SCE on cell value_reg_3_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000629 (POW-046)
-Warning: Power table extrapolation (extrapolation mode) for port SCD on cell value_reg_0_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000019 (POW-046)
 Warning: Power table extrapolation (extrapolation mode) for port SCE on cell value_reg_2_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000305 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port SCE on cell value_reg_1_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000229 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port SCD on cell value_reg_0_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000019 (POW-046)
 Warning: Power table extrapolation (extrapolation mode) for port SCE on cell value_reg_0_ for parameter Tinp. Lowest table value = 0.010000, highest table value = 1.500000, value = 0.000095 (POW-046)
 
   Cell Internal Power    = 7.14e+04 nW ( 79.4%)
@@ -56,7 +56,7 @@ black_box                 0.00e+00               0.00e+00               0.00e+00
 clock_network             5.17e+04               1.16e+04               2.65e+03               6.60e+04    ( 58.6%)         
 register                  1.12e+04               2.06e+03               1.30e+04               2.63e+04    ( 23.3%)         
 sequential                0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
-combinational             8.45e+03               4.83e+03               7.10e+03               2.04e+04    ( 18.1%)         
+combinational             8.45e+03               4.84e+03               7.10e+03               2.04e+04    ( 18.1%)         
 -----------------------------------------------------------------------------------------------------------------------------
 Total                     7.14e+04 nW            1.85e+04 nW            2.27e+04 nW            1.13e+05 nW
 Mode: mode_norm.fast.RCmin_bc

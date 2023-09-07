@@ -16,7 +16,7 @@ Report : timing
         -physical
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 
@@ -63,7 +63,7 @@ Attributes
   U26/Y (sky130_fd_sc_hs__nor3_1)                                                 0.06      1.00      0.02      0.63 f    (5.49,24.97)
   n13 (net)                                                      1      0.00
   U27/B (sky130_fd_sc_hs__nand2_1)                                                0.06      1.00      0.00      0.63 f    (4.53,21.94)
-  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.09      1.00      0.08      0.71 r    (3.86,21.64)
+  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.09      1.00      0.08      0.72 r    (3.86,21.64)
   n22 (net)                                                      4      0.02
   U38/B (sky130_fd_sc_hs__nand2_1)                                                0.09      1.00      0.00      0.72 r    (3.63,18.01)
   U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.03      1.00      0.03      0.74 f    (4.30,18.31)
@@ -224,11 +224,11 @@ Attributes
 
   value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.25      1.00      0.00      0.25 r    (12.59,4.69)      s, n
   value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.09      1.00      0.49      0.74 f    (19.89,5.00)      s, n
-  value_0_ (net)                                                 4      0.01
+  value_0_ (net)                                                 4      0.02
   U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.09      1.00      0.00      0.74 f    (21.89,11.53)
-  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.05 r    (22.54,11.65)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.06 r    (22.54,11.65)
   n16 (net)                                                      3      0.01
-  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.05 r    (24.27,24.67)
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.06 r    (24.27,24.67)
   U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.12      1.00      0.20      1.26 f    (24.50,24.97)
   n18 (net)                                                      3      0.01
   U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.12      1.00      0.00      1.26 f    (14.21,24.85)
@@ -287,15 +287,15 @@ Attributes
   clock clock (rise edge)                                                                             0.00      0.00
   clock network delay (propagated)                                                                    0.25      0.34
   input external delay                                                                                0.40      0.74 r
-  reset (in)                                                                      0.13      1.00      0.09      0.74 r    (0.30,24.05)
+  reset (in)                                                                      0.14      1.00      0.09      0.74 r    (0.30,24.05)
   reset (net)                                                    3      0.01
-  U26/A (sky130_fd_sc_hs__nor3_1)                                                 0.13      1.00      0.00      0.74 r    (4.55,24.79)
+  U26/A (sky130_fd_sc_hs__nor3_1)                                                 0.14      1.00      0.00      0.74 r    (4.55,24.79)
   U26/Y (sky130_fd_sc_hs__nor3_1)                                                 0.11      1.00      0.09      0.83 f    (5.49,24.97)
   n13 (net)                                                      1      0.00
   U27/B (sky130_fd_sc_hs__nand2_1)                                                0.11      1.00      0.00      0.83 f    (4.53,21.94)
-  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.24      1.06 r    (3.86,21.64)
+  U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.24      1.07 r    (3.86,21.64)
   n22 (net)                                                      4      0.02
-  U38/B (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.00      1.06 r    (3.63,18.01)
+  U38/B (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.00      1.07 r    (3.63,18.01)
   U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.07      1.00      0.11      1.18 f    (4.30,18.31)
   N10 (net)                                                      1      0.00
   clk_gate_value_reg/latch/GATE (sky130_fd_sc_hs__sdlclkp_1)                      0.07      1.00      0.00      1.18 f    (14.48,18.54)     n
@@ -311,7 +311,7 @@ Attributes
   data required time                                                                                            4.53
   data arrival time                                                                                            -1.18
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                                                   3.36
+  slack (MET)                                                                                                   3.35
 
 
 
@@ -344,11 +344,11 @@ Attributes
 
   value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.25      1.00      0.00      0.25 r    (12.59,4.69)      s, n
   value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.09      1.00      0.49      0.74 f    (19.89,5.00)      s, n
-  value_0_ (net)                                                 4      0.01
+  value_0_ (net)                                                 4      0.02
   U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.09      1.00      0.00      0.74 f    (21.89,11.53)
-  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.05 r    (22.54,11.65)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.06 r    (22.54,11.65)
   n16 (net)                                                      3      0.01
-  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.05 r    (24.27,24.67)
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.06 r    (24.27,24.67)
   U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.12      1.00      0.20      1.26 f    (24.50,24.97)
   n18 (net)                                                      3      0.01
   U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.12      1.00      0.00      1.26 f    (14.21,24.85)
@@ -366,7 +366,7 @@ Attributes
   data required time                                                                                            4.85
   data arrival time                                                                                            -1.87
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                                                   2.99
+  slack (MET)                                                                                                   2.98
 
 
 1

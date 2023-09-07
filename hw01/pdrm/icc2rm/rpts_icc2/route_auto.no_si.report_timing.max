@@ -17,7 +17,7 @@ Report : timing
         -physical
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:03 2023
+Date   : Wed Sep  6 21:12:10 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 
@@ -50,11 +50,11 @@ Attributes
 
   value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.25      1.00      0.00      0.25 r    (12.59,4.69)      s, n
   value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.09      1.00      0.49      0.74 f    (19.89,5.00)      s, n
-  value_0_ (net)                                                 4      0.01
+  value_0_ (net)                                                 4      0.02
   U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.09      1.00      0.00      0.74 f    (21.89,11.53)
-  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.05 r    (22.54,11.65)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.06 r    (22.54,11.65)
   n16 (net)                                                      3      0.01
-  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.05 r    (24.27,24.67)
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.06 r    (24.27,24.67)
   U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.12      1.00      0.20      1.26 f    (24.50,24.97)
   n18 (net)                                                      3      0.01
   U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.12      1.00      0.00      1.26 f    (14.21,24.85)
@@ -111,21 +111,21 @@ Attributes
   Point                                                       Fanout    Cap      Trans     Derate     Incr      Path          Location       Attributes
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
   clock clock (rise edge)                                                                             0.00      0.00
-  clock network delay (propagated)                                                                    0.24      0.32
-  input external delay                                                                                0.40      0.72 r
-  reset (in)                                                                      0.13      1.00      0.09      0.72 r    (0.30,24.05)
+  clock network delay (propagated)                                                                    0.24      0.33
+  input external delay                                                                                0.40      0.73 r
+  reset (in)                                                                      0.14      1.00      0.09      0.73 r    (0.30,24.05)
   reset (net)                                                    3      0.01
-  U26/A (sky130_fd_sc_hs__nor3_1)                                                 0.13      1.00      0.00      0.72 r    (4.55,24.79)
+  U26/A (sky130_fd_sc_hs__nor3_1)                                                 0.14      1.00      0.00      0.73 r    (4.55,24.79)
   U26/Y (sky130_fd_sc_hs__nor3_1)                                                 0.11      1.00      0.09      0.81 f    (5.49,24.97)
   n13 (net)                                                      1      0.00
   U27/B (sky130_fd_sc_hs__nand2_1)                                                0.11      1.00      0.00      0.81 f    (4.53,21.94)
   U27/Y (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.24      1.05 r    (3.86,21.64)
   n22 (net)                                                      4      0.02
   U38/B (sky130_fd_sc_hs__nand2_1)                                                0.23      1.00      0.00      1.05 r    (3.63,18.01)
-  U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.07      1.00      0.11      1.16 f    (4.30,18.31)
+  U38/Y (sky130_fd_sc_hs__nand2_1)                                                0.07      1.00      0.11      1.17 f    (4.30,18.31)
   N10 (net)                                                      1      0.00
-  clk_gate_value_reg/latch/GATE (sky130_fd_sc_hs__sdlclkp_1)                      0.07      1.00      0.00      1.16 f    (14.48,18.54)     n
-  data arrival time                                                                                             1.16
+  clk_gate_value_reg/latch/GATE (sky130_fd_sc_hs__sdlclkp_1)                      0.07      1.00      0.00      1.17 f    (14.48,18.54)     n
+  data arrival time                                                                                             1.17
 
   clock clock (rise edge)                                                                             5.00      5.00
   clock network delay (propagated)                                                                    0.00      5.00
@@ -135,7 +135,7 @@ Attributes
   data required time                                                                                            4.53
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
   data required time                                                                                            4.53
-  data arrival time                                                                                            -1.16
+  data arrival time                                                                                            -1.17
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
   slack (MET)                                                                                                   3.37
 
@@ -170,11 +170,11 @@ Attributes
 
   value_reg_0_/CLK (sky130_fd_sc_hs__sdfxtp_1)                                    0.25      1.00      0.00      0.25 r    (12.59,4.69)      s, n
   value_reg_0_/Q (sky130_fd_sc_hs__sdfxtp_1)                                      0.09      1.00      0.49      0.74 f    (19.89,5.00)      s, n
-  value_0_ (net)                                                 4      0.01
+  value_0_ (net)                                                 4      0.02
   U22/A (sky130_fd_sc_hs__nor2_1)                                                 0.09      1.00      0.00      0.74 f    (21.89,11.53)
-  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.05 r    (22.54,11.65)
+  U22/Y (sky130_fd_sc_hs__nor2_1)                                                 0.31      1.00      0.31      1.06 r    (22.54,11.65)
   n16 (net)                                                      3      0.01
-  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.05 r    (24.27,24.67)
+  U24/A (sky130_fd_sc_hs__nand2_1)                                                0.31      1.00      0.00      1.06 r    (24.27,24.67)
   U24/Y (sky130_fd_sc_hs__nand2_1)                                                0.12      1.00      0.20      1.26 f    (24.50,24.97)
   n18 (net)                                                      3      0.01
   U25/B (sky130_fd_sc_hs__nor2_1)                                                 0.12      1.00      0.00      1.26 f    (14.21,24.85)

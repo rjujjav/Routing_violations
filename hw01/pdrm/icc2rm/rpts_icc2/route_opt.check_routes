@@ -44,7 +44,7 @@ Check 34 nets, 0 have Errors
 [CHECK OPEN NETS] Elapsed real time: 0:00:00 
 [CHECK OPEN NETS] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [CHECK OPEN NETS] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[CHECK OPEN NETS] Total (MB): Used   11  Alloctr   12  Proc 4579 
+[CHECK OPEN NETS] Total (MB): Used   11  Alloctr   12  Proc 4578 
 Printing options for 'route.common.*'
 common.interactive_mode_clear_timing                    :	 true                
 common.post_detail_route_redundant_via_insertion        :	 medium              
@@ -65,77 +65,77 @@ Begin full DRC check ...
 Information: Using 8 threads for routing. (ZRT-444)
 Checked	1/1 Partitions, Violations =	0
 [DRC CHECK] Elapsed real time: 0:00:00 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[DRC CHECK] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
 [DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4579 
+[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4578 
 Warning: No antenna rules defined, Skip antenna analysis. (ZRT-309)
 
 DRC-SUMMARY:
 	@@@@@@@ TOTAL VIOLATIONS =	0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-	Layer              li1 :         10 micron
-	Layer             met1 :        211 micron
-	Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+	Layer              li1 :          9 micron
+	Layer             met1 :        207 micron
+	Layer             met2 :        184 micron
 	Layer             met3 :         25 micron
 	Layer             met4 :          0 micron
 	Layer             met5 :          0 micron
 	Via   M2M3_PR(rot)_1x2 :          1
 	Via        M2M3_PR_1x2 :          4
 	Via        M2M3_PR_2x1 :          1
-	Via            M1M2_PR :          3
+	Via            M1M2_PR :          4
 	Via   M1M2_PR(rot)_2x1 :          5
-	Via        M1M2_PR_1x2 :         10
-	Via        M1M2_PR_2x1 :         50
+	Via        M1M2_PR_1x2 :          9
+	Via        M1M2_PR_2x1 :         53
 	Via            L1M1_PR :         19
 	Via       L1M1_PR(rot) :          6
 	Via   L1M1_PR(rot)_1x2 :          1
 	Via   L1M1_PR(rot)_2x1 :          5
-	Via        L1M1_PR_1x2 :         24
-	Via        L1M1_PR_2x1 :         30
+	Via        L1M1_PR_1x2 :         25
+	Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)

@@ -4,7 +4,7 @@ Report : clock timing
         -type summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:31:46 2023
+Date   : Wed Sep  6 21:09:03 2023
 ****************************************
 Information: Timer using 'CRPR'. (TIM-050)
 Scenario mode_norm.fast.RCmin is not configured for setup or hold analysis

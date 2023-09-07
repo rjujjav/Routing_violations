@@ -2,7 +2,7 @@
 Report : qor
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 
@@ -88,8 +88,8 @@ Scenario           'mode_norm.slow.RCmax'
 Timing Path Group  'REGIN'
 ----------------------------------------
 Levels of Logic:                      3
-Critical Path Length:              0.92
-Critical Path Slack:               3.36
+Critical Path Length:              0.93
+Critical Path Slack:               3.35
 Critical Path Clk Period:          5.00
 Total Negative Slack:              0.00
 No. of Violating Paths:               0
@@ -99,8 +99,8 @@ Scenario           'mode_norm.slow.RCmax'
 Timing Path Group  'REGOUT'
 ----------------------------------------
 Levels of Logic:                      3
-Critical Path Length:              1.61
-Critical Path Slack:               2.99
+Critical Path Length:              1.62
+Critical Path Slack:               2.98
 Critical Path Clk Period:          5.00
 Total Negative Slack:              0.00
 No. of Violating Paths:               0
@@ -146,12 +146,12 @@ Total Buffer Area:                 0.00
 Total Inverter Area:               4.80
 Macro/Black Box Area:              0.00
 Net Area:                             0
-Net XLength:                     277.80
-Net YLength:                     239.44
+Net XLength:                     273.63
+Net YLength:                     241.42
 ----------------------------------------
 Cell Area (netlist):                            289.31
 Cell Area (netlist and physical only):          289.31
-Net Length:                      517.24
+Net Length:                      515.05
 
 
 Design Rules
@@ -168,7 +168,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 

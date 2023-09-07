@@ -3,7 +3,7 @@
  Options: { pre_placement_stage }
  Design : counter
  Version: S-2021.06-SP3
- Date   : Wed Sep  6 16:30:28 2023
+ Date   : Wed Sep  6 21:08:12 2023
 ****************************************
 
 Running mega-check 'pre_placement_stage': 
@@ -35,5 +35,5 @@ Running mega-check 'pre_placement_stage':
   ----------------------------------------------------------------------------------------------------
 
 Information: EMS database is saved to file 'check_design.pre_placement_stage.ems'.
-Information: Non-EMS messages are saved into file 'check_design2023Sep06163028.log'.
+Information: Non-EMS messages are saved into file 'check_design2023Sep06210812.log'.
 1

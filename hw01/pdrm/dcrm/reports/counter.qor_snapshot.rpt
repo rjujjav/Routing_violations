@@ -11,7 +11,7 @@ Multicore + icc2_link mem-peak:   953 Mb
 Report          : create_qor_snapshot (counter.qor_snapshot.rpt)
 Design          : counter
 Version         : S-2021.06-SP3
-Date            : Wed Sep  6 16:29:19 2023
+Date            : Wed Sep  6 21:07:23 2023
 Time unit       : 1.0e-09 Second(ns)
 Capacitance unit: 1.0e-12 Farad(pF)
 Voltage unit    : 1 Volt
@@ -38,9 +38,9 @@ Number of min pulse width violations:            0         0           0
 Area:                                                                291
 Cell count:                                                           22
 Buf/inv cell count:                                                    1
-CPU/ELAPSE(hr):                                                0.02/0.03
+CPU/ELAPSE(hr):                                                0.01/0.02
 Mem(Mb):                                                             953
-Host name:                                        grendel29.ece.ncsu.edu
+Host name:                                        grendel33.ece.ncsu.edu
 ------------------------------------------------------------------------
 Histogram:             s1   s2 
 ------------------------------------------------------------------------

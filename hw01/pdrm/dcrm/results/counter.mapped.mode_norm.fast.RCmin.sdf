@@ -1,7 +1,7 @@
 (DELAYFILE
 (SDFVERSION "OVI 2.1")
 (DESIGN "counter")
-(DATE "Wed Sep  6 16:29:18 2023")
+(DATE "Wed Sep  6 21:07:23 2023")
 (VENDOR "sky130_fd_sc_hs")
 (PROGRAM "Synopsys Design Compiler cmos-annotated")
 (VERSION "S-2021.06-SP3")

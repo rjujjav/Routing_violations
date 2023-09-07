@@ -11,7 +11,7 @@ Report : clock timing
         -type summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:30:21 2023
+Date   : Wed Sep  6 21:08:06 2023
 ****************************************
 Scenario mode_norm.fast.RCmin is not configured for setup or hold analysis
 Mode mode_norm.fast.RCmin has no active scenarios.

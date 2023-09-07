@@ -4,19 +4,19 @@ Information: Creating directory results/ICC2_files/counter.MCMM
 Current scenario is: mode_norm.slow.RCmax
 Info: all scenarios are active.
 1
-Information: The default DEF output is in version 5.8. (DCT-320)
 Current scenario is: mode_norm.slow.RCmax
+Information: The default DEF output is in version 5.8. (DCT-320)
 1
 Warning: Failed to find cell expansion data in current design.  (PSYN-1240)
 0
 Current scenario is: mode_norm.fast.RCmin
 Current scenario is: mode_norm.slow.RCmax
 Current scenario is: mode_norm.fast.RCmin
+Current scenario is: mode_norm.slow.RCmax
+mode_norm.slow.RCmax
 Information: Writing COMPONENTS section (DDEFW-014)
 Information: Completed COMPONENTS section  (DDEFW-016)
 Information: Writing PINS section (DDEFW-014)
 Information: Completed PINS section  (DDEFW-016)
 Information: No groups were written. (RPGP-018)
 1
-Current scenario is: mode_norm.slow.RCmax
-mode_norm.slow.RCmax

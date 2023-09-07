@@ -121,10 +121,10 @@ Initial. met4       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
 Initial. met5       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
 
 Initial. Total Wire Length = 391.20
-Initial. Layer li1 wire length = 9.24
+Initial. Layer li1 wire length = 9.25
 Initial. Layer met1 wire length = 151.68
 Initial. Layer met2 wire length = 182.03
-Initial. Layer met3 wire length = 48.24
+Initial. Layer met3 wire length = 48.25
 Initial. Layer met4 wire length = 0.00
 Initial. Layer met5 wire length = 0.00
 Initial. Total Number of Contacts = 153
@@ -153,7 +153,7 @@ phase1. met4       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
 phase1. met5       Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
 
 phase1. Total Wire Length = 391.20
-phase1. Layer li1 wire length = 9.24
+phase1. Layer li1 wire length = 9.25
 phase1. Layer met1 wire length = 151.68
 phase1. Layer met2 wire length = 182.03
 phase1. Layer met3 wire length = 48.24
@@ -221,8 +221,8 @@ GR Total stats:
 [GR: Done] Total (MB): Used   64  Alloctr   65  Proc 3335 
 Updating congestion ...
 Final total stats:
-[End of Global Routing] Elapsed real time: 0:00:02 
-[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:01
+[End of Global Routing] Elapsed real time: 0:00:01 
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [End of Global Routing] Stage (MB): Used   57  Alloctr   57  Proc    8 
 [End of Global Routing] Total (MB): Used   63  Alloctr   64  Proc 3335 
  
@@ -230,7 +230,7 @@ Final total stats:
 Report : congestion
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:29:26 2023
+Date   : Wed Sep  6 21:07:27 2023
 ****************************************
 
 Both Dirs: Overflow = 0 Max = 0 (0 GRCs) GRCs = 0 (0.00%)

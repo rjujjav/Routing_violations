@@ -4,7 +4,7 @@ Report : clock_gating
         -nosplit
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:29:20 2023
+Date   : Wed Sep  6 21:07:24 2023
 ****************************************
 
 Information: Identification of clock-gating cells has not been performed. Pre-existing clock-gating cells will not be reported. (PWR-947)

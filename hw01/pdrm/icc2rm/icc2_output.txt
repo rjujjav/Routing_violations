@@ -904,7 +904,7 @@ Report : app_option
            -non_default
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:36 2023
+Date   : Wed Sep  6 21:12:35 2023
 ****************************************
 Name                                                   Type       Value       User-value   User-default System-default Scope      Status     Source
 ------------------------------------------------------ ---------- ----------- ------------ ------------ -------------- ---------- ---------- -----------------------------------------------------------------------------------------------
@@ -946,10 +946,10 @@ if {$DESIGN_STYLE == "hier" && $PHYSICAL_HIERARCHY_LEVEL != "bottom"} {
 ##########################################################################################
 compute_clock_latency 
 Information: Timer using 8 threads
-Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.slow.RCmax_bc: no PVT mismatches. (PVT-032)
 Information: Corner mode_norm.slow.RCmax: no PVT mismatches. (PVT-032)
-Information: Corner mode_norm.fast.RCmin: no PVT mismatches. (PVT-032)
+Information: Corner mode_norm.fast.RCmin_bc: no PVT mismatches. (PVT-032)
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/route_opt.design'. (TIM-125)
 Information: Design counter has 34 nets, 0 global routed, 32 detail routed. (NEX-024)
 Information: The RC mode used is DR for design 'counter'. (NEX-022)
@@ -1123,12 +1123,12 @@ if {[file exists [which $TCL_USER_ROUTE_OPT_SCRIPT]]} {
 }
 RM-info: Running first route_opt (CCD).
 Information: Starting 'route_opt' (FLW-8000)
-Information: Time: 2023-09-06 16:36:38 / Session: 0.01 hr / Command: 0.00 hr / Memory: 441 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:36 / Session: 0.01 hr / Command: 0.00 hr / Memory: 441 MB (FLW-8100)
 INFO: route_opt is running in balanced flow mode
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: Leakage Power Aware Optimization Enabled
-Route-opt command begin                   CPU:    14 s (  0.00 hr )  ELAPSE:    32 s (  0.01 hr )  MEM-PEAK:   441 MB
+Route-opt command begin                   CPU:     9 s (  0.00 hr )  ELAPSE:    24 s (  0.01 hr )  MEM-PEAK:   441 MB
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
@@ -1136,7 +1136,7 @@ INFO: Concurrent Legalization and Optimization (CLO) Reverted
 INFO: Dynamic Scenario ASR Mode:  0
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
 
-Route-opt timing update complete          CPU:    14 s (  0.00 hr )  ELAPSE:    32 s (  0.01 hr )  MEM-PEAK:   441 MB
+Route-opt timing update complete          CPU:     9 s (  0.00 hr )  ELAPSE:    24 s (  0.01 hr )  MEM-PEAK:   441 MB
 INFO: Propagating Switching Activities
 Information: Activity propagation will be performed for scenario mode_norm.fast.RCmin.
 Information: Activity propagation will be performed for scenario mode_norm.fast.RCmin_bc.
@@ -1150,7 +1150,7 @@ Information: Timer-derived activity data is cached on scenario mode_norm.fast.RC
 Information: Running switching activity propagation with 8 threads!
 
  **** Information : No. of simulation cycles = 6 ****
-INFO: Switching Activity propagation took     0.00006 sec
+INFO: Switching Activity propagation took     0.00002 sec
 INFO: Propagating Switching Activity for all power flows 
 
 Route-opt initial QoR
@@ -1214,7 +1214,7 @@ Route-opt initial QoR Summary       WNS        TNS   R2RTNS    NSV      WHV     
 Route-opt initial QoR Summary    0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 Information: The netlist change observers are disabled for incremental extraction. (TIM-126)
 INFO: using 8 threads
-Route-opt initialization complete         CPU:    23 s (  0.01 hr )  ELAPSE:    36 s (  0.01 hr )  MEM-PEAK:   489 MB
+Route-opt initialization complete         CPU:    15 s (  0.00 hr )  ELAPSE:    26 s (  0.01 hr )  MEM-PEAK:   499 MB
 Information: Initializing classic cellmap without advanced rules enabled and with PDC enabled
 Information: The following app options are used in cellmap
         place.legalize.enable_color_aware_placement : false
@@ -1240,11 +1240,11 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
-Total 0.0300 seconds to build cellmap data
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
+Total 0.0100 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 21; Application fixed cells: 1; Macro cells: 0; User fixed cells: 0
 30 out of 30 data nets are detail routed, 2 out of 2 clock nets are detail routed and total 32 nets have been analyzed
@@ -1255,28 +1255,28 @@ Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
 
 
-Route-opt optimization Phase 2 Iter  1          0.00        0.00      0.00         -        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 2 Iter  1          0.00        0.00      0.00         -        289.31    22746.54          22              0.01       499
 
-Route-opt optimization Phase 3 Iter  1          0.00        0.00      0.00         -        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 3 Iter  1          0.00        0.00      0.00         -        289.31    22746.54          22              0.01       499
 
-Route-opt optimization Phase 4 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 4 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 4 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 4 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 4 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 4 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 4 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 4 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
 
 
-Route-opt optimization Phase 6 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  5          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  6          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 6 Iter  7          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 6 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  5          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  6          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 6 Iter  7          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
 
-Route-opt optimization Phase 7 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
-Route-opt optimization Phase 7 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 7 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
+Route-opt optimization Phase 7 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
 
-Route-opt optimization Phase 8 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       489
+Route-opt optimization Phase 8 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       499
 Information: CTS will work on the following scenarios. (CTS-101)
    mode_norm.slow.RCmax (Mode: mode_norm.slow.RCmax; Corner: mode_norm.slow.RCmax)
    mode_norm.fast.RCmin_bc      (Mode: mode_norm.fast.RCmin_bc; Corner: mode_norm.fast.RCmin_bc)
@@ -1422,7 +1422,7 @@ Clock cell spacing rule list:
 Drc Mode Option: auto
 Information: Legalizer's PDC rule check is enabled
 Information: Legalizer's advanced rule check is NOT enabled
-CCD initialization runtime: cpu 0.034060, elapsed 0.015607, speed up 2.182354.
+CCD initialization runtime: cpu 0.015290, elapsed 0.013258, speed up 1.153266.
 
 CCD-Info: App options set by user
    ccd.post_route_buffer_removal = true
@@ -1432,7 +1432,7 @@ CCD-Info: App options set by user
    clock_opt.place.congestion_effort = medium
    clock_opt.place.effort = high
 CCD: using 8 threads
-CTSSC route status detected: clock (VR 0, GR 0, DR 16), data (VR 0, GR 0, DR 202); stage = auto, isPostRoute = TRUE
+CTSSC route status detected: clock (VR 0, GR 0, DR 16), data (VR 0, GR 0, DR 200); stage = auto, isPostRoute = TRUE
 Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000, Switching = 0.000000
 
 CCD: Initial QOR:
@@ -1444,8 +1444,8 @@ CCD: Initial QOR:
     Scenario mode_norm.slow.RCmax
     Scenario mode_norm.fast.RCmin_bc
        Path Group clock  WNHS = 0.088787, TNHS = 0.000000, NHVP = 0
-       Path Group REGIN  WNHS = 0.389374, TNHS = 0.000000, NHVP = 0
-       Path Group REGOUT  WNHS = 0.524226, TNHS = 0.000000, NHVP = 0
+       Path Group REGIN  WNHS = 0.389393, TNHS = 0.000000, NHVP = 0
+       Path Group REGOUT  WNHS = 0.524321, TNHS = 0.000000, NHVP = 0
 ---------------------------------------------------------------------------------------------
 CCD-QoR: Timing: WNS = nan, TNS = 0.000, NVP = 0, UNWEIGHTED_TNS = nan, WNHS = 0.089, TNHS = 0.000, NHVP = 0, UNWEIGHTED_TNHS = 0.000, R2R(wns=nan, tns=0.000000, nvp=0)
 CCD-QoR: Area: Clock Repeater Area (count) = 0.00 (0), Clock std Cell Area (count) = 25.57 (1), Flop Area (count) = 147.05 (4), Latch Area (count) = 0.00 (0)
@@ -1468,7 +1468,7 @@ CCD: Before drc optimization
 
         # Total CPU time                  = 00h:00m:00s
         # Total elapsed time              = 00h:00m:00s
-        # Flow total speed up             =     2.0026
+        # Flow total speed up             =     1.0055
 
 -------------------------------------------------
 
@@ -1482,8 +1482,8 @@ CCD: After drc optimization:
     Scenario mode_norm.slow.RCmax
     Scenario mode_norm.fast.RCmin_bc
        Path Group clock  WNHS = 0.088787, TNHS = 0.000000, NHVP = 0
-       Path Group REGIN  WNHS = 0.389374, TNHS = 0.000000, NHVP = 0
-       Path Group REGOUT  WNHS = 0.524226, TNHS = 0.000000, NHVP = 0
+       Path Group REGIN  WNHS = 0.389393, TNHS = 0.000000, NHVP = 0
+       Path Group REGOUT  WNHS = 0.524321, TNHS = 0.000000, NHVP = 0
 ---------------------------------------------------------------------------------------------
 CCD-QoR: Timing: WNS = nan, TNS = 0.000, NVP = 0, UNWEIGHTED_TNS = nan, WNHS = 0.089, TNHS = 0.000, NHVP = 0, UNWEIGHTED_TNHS = 0.000, R2R(wns=nan, tns=0.000000, nvp=0)
 CCD-QoR: Area: Clock Repeater Area (count) = 0.00 (0), Clock std Cell Area (count) = 25.57 (1), Flop Area (count) = 147.05 (4), Latch Area (count) = 0.00 (0)
@@ -1504,7 +1504,7 @@ CCD-QoR: Power: Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000,
 
         # Total CPU time                  = 00h:00m:00s
         # Total elapsed time              = 00h:00m:00s
-        # Flow total speed up             =     2.0000
+        # Flow total speed up             =     1.0000
 
 -------------------------------------------------
 
@@ -1518,13 +1518,13 @@ CCD: After CG based optimization:
     Scenario mode_norm.slow.RCmax
     Scenario mode_norm.fast.RCmin_bc
        Path Group clock  WNHS = 0.088787, TNHS = 0.000000, NHVP = 0
-       Path Group REGIN  WNHS = 0.389374, TNHS = 0.000000, NHVP = 0
-       Path Group REGOUT  WNHS = 0.524226, TNHS = 0.000000, NHVP = 0
+       Path Group REGIN  WNHS = 0.389393, TNHS = 0.000000, NHVP = 0
+       Path Group REGOUT  WNHS = 0.524321, TNHS = 0.000000, NHVP = 0
 ---------------------------------------------------------------------------------------------
 CCD-QoR: Timing: WNS = nan, TNS = 0.000, NVP = 0, UNWEIGHTED_TNS = nan, WNHS = 0.089, TNHS = 0.000, NHVP = 0, UNWEIGHTED_TNHS = 0.000, R2R(wns=nan, tns=0.000000, nvp=0)
 CCD-QoR: Area: Clock Repeater Area (count) = 0.00 (0), Clock std Cell Area (count) = 25.57 (1), Flop Area (count) = 147.05 (4), Latch Area (count) = 0.00 (0)
 CCD-QoR: Power: Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000, Switching = 0.000000
- CCD flow runtime: cpu 0.285958, elapsed 0.104921, speed up 2.725460.
+ CCD flow runtime: cpu 0.106289, elapsed 0.054845, speed up 1.937989.
 Mark clock trees...
 Marking clock synthesized attributes
 
@@ -1538,20 +1538,20 @@ INFO: cellmap features:  adv-rules=(N), pdc=(Y), clock-rules=(Y)
 
 Enable clock slack update
 INFO: cellmap features:  adv-rules=(Y), pdc=(Y), clock-rules=(Y)
-Route-opt optimization Phase 9 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 9 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 INFO: cellmap features:  adv-rules=(N), pdc=(Y), clock-rules=(Y)
 
-Route-opt optimization Phase 10 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 10 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 10 Iter  3         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 10 Iter  4         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 10 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 10 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 10 Iter  3         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 10 Iter  4         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
 
-Route-opt optimization Phase 12 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 12 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 12 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 12 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
 
-Route-opt optimization Phase 14 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 14 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 Information: CTS will work on the following scenarios. (CTS-101)
    mode_norm.slow.RCmax (Mode: mode_norm.slow.RCmax; Corner: mode_norm.slow.RCmax)
    mode_norm.fast.RCmin_bc      (Mode: mode_norm.fast.RCmin_bc; Corner: mode_norm.fast.RCmin_bc)
@@ -1698,7 +1698,7 @@ Warning: Power CCD will be skipped because there is no dynamic power scenario de
 Drc Mode Option: auto
 Information: Legalizer's PDC rule check is enabled
 Information: Legalizer's advanced rule check is NOT enabled
-CCD initialization runtime: cpu 0.070544, elapsed 0.033493, speed up 2.106231.
+CCD initialization runtime: cpu 0.015517, elapsed 0.013051, speed up 1.188951.
 
 CCD-Info: App options set by user
    ccd.post_route_buffer_removal = true
@@ -1708,7 +1708,7 @@ CCD-Info: App options set by user
    clock_opt.place.congestion_effort = medium
    clock_opt.place.effort = high
 CCD: using 8 threads
-CTSSC route status detected: clock (VR 0, GR 0, DR 16), data (VR 0, GR 0, DR 202); stage = auto, isPostRoute = TRUE
+CTSSC route status detected: clock (VR 0, GR 0, DR 16), data (VR 0, GR 0, DR 200); stage = auto, isPostRoute = TRUE
 Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000, Switching = 0.000000
 
 CCD: Initial QOR:
@@ -1720,8 +1720,8 @@ CCD: Initial QOR:
     Scenario mode_norm.slow.RCmax
     Scenario mode_norm.fast.RCmin_bc
        Path Group clock  WNHS = 0.088787, TNHS = 0.000000, NHVP = 0
-       Path Group REGIN  WNHS = 0.389374, TNHS = 0.000000, NHVP = 0
-       Path Group REGOUT  WNHS = 0.524226, TNHS = 0.000000, NHVP = 0
+       Path Group REGIN  WNHS = 0.389393, TNHS = 0.000000, NHVP = 0
+       Path Group REGOUT  WNHS = 0.524321, TNHS = 0.000000, NHVP = 0
 ---------------------------------------------------------------------------------------------
 CCD-QoR: Timing: WNS = nan, TNS = 0.000, NVP = 0, UNWEIGHTED_TNS = nan, WNHS = 0.089, TNHS = 0.000, NHVP = 0, UNWEIGHTED_TNHS = 0.000, R2R(wns=nan, tns=0.000000, nvp=0)
 CCD-QoR: Area: Clock Repeater Area (count) = 0.00 (0), Clock std Cell Area (count) = 25.57 (1), Flop Area (count) = 147.05 (4), Latch Area (count) = 0.00 (0)
@@ -1741,7 +1741,7 @@ CCD-QoR: Power: Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000,
 
         # Total CPU time                  = 00h:00m:00s
         # Total elapsed time              = 00h:00m:00s
-        # Flow total speed up             =     1.9977
+        # Flow total speed up             =     1.0000
 
 -------------------------------------------------
 
@@ -1755,13 +1755,13 @@ CCD: After WNS optimization (wns opto):
     Scenario mode_norm.slow.RCmax
     Scenario mode_norm.fast.RCmin_bc
        Path Group clock  WNHS = 0.088787, TNHS = 0.000000, NHVP = 0
-       Path Group REGIN  WNHS = 0.389374, TNHS = 0.000000, NHVP = 0
-       Path Group REGOUT  WNHS = 0.524226, TNHS = 0.000000, NHVP = 0
+       Path Group REGIN  WNHS = 0.389393, TNHS = 0.000000, NHVP = 0
+       Path Group REGOUT  WNHS = 0.524321, TNHS = 0.000000, NHVP = 0
 ---------------------------------------------------------------------------------------------
 CCD-QoR: Timing: WNS = nan, TNS = 0.000, NVP = 0, UNWEIGHTED_TNS = nan, WNHS = 0.089, TNHS = 0.000, NHVP = 0, UNWEIGHTED_TNHS = 0.000, R2R(wns=nan, tns=0.000000, nvp=0)
 CCD-QoR: Area: Clock Repeater Area (count) = 0.00 (0), Clock std Cell Area (count) = 25.57 (1), Flop Area (count) = 147.05 (4), Latch Area (count) = 0.00 (0)
 CCD-QoR: Power: Total power = 0.045493, Leakage = 0.045493, Internal = 0.000000, Switching = 0.000000
- CCD flow runtime: cpu 0.326100, elapsed 0.128272, speed up 2.542254.
+ CCD flow runtime: cpu 0.088178, elapsed 0.051129, speed up 1.724618.
 Mark clock trees...
 Marking clock synthesized attributes
 
@@ -1776,21 +1776,21 @@ INFO: cellmap features:  adv-rules=(N), pdc=(Y), clock-rules=(Y)
 
 Enable clock slack update
 INFO: cellmap features:  adv-rules=(Y), pdc=(Y), clock-rules=(Y)
-Route-opt optimization Phase 16 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 16 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 INFO: cellmap features:  adv-rules=(N), pdc=(Y), clock-rules=(Y)
 
-Route-opt optimization Phase 17 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 17 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 17 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 17 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
 Route-opt optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
-Route-opt optimization Phase 18 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 18 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
-Route-opt optimization Phase 19 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
-Route-opt optimization Phase 19 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization Phase 19 Iter  1         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
+Route-opt optimization Phase 19 Iter  2         0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
-Route-opt optimization complete                 0.00        0.00      0.00         0        289.31    22746.54          22              0.01       551
+Route-opt optimization complete                 0.00        0.00      0.00         0        289.31    22746.54          22              0.01       547
 
-Route-opt route preserve complete         CPU:    25 s (  0.01 hr )  ELAPSE:    37 s (  0.01 hr )  MEM-PEAK:   551 MB
+Route-opt route preserve complete         CPU:    16 s (  0.00 hr )  ELAPSE:    26 s (  0.01 hr )  MEM-PEAK:   547 MB
 INFO: Sending timing info to router
 Generating Timing information  
 Design  Scenario mode_norm.slow.RCmax (Mode mode_norm.slow.RCmax Corner mode_norm.slow.RCmax)
@@ -1810,10 +1810,10 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
 
 Legalizing Top Level Design counter ... 
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
@@ -1864,7 +1864,7 @@ Please look for the GIF files that are written out at the end of
     Done Exclusive Bound 'DEFAULT_VA' (2/2) (0 sec)
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.009-0001-max_displacements.gif'.
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.009-0002-colored_displacements.gif'.
-Legalization complete (1 total sec)
+Legalization complete (0 total sec)
 
 ****************************************
   Report : Placement Attempts
@@ -1941,16 +1941,16 @@ Cell: U25 (sky130_fd_sc_hs__nor2_1)
   Displacement:   0.000 um ( 0.00 row height)
 
 Legalization succeeded.
-Total Legalizer CPU: 0.818
-Total Legalizer Wall Time: 0.869
+Total Legalizer CPU: 0.319
+Total Legalizer Wall Time: 0.378
 ----------------------------------------------------------------
 
-Route-opt legalization complete           CPU:    25 s (  0.01 hr )  ELAPSE:    38 s (  0.01 hr )  MEM-PEAK:   551 MB
+Route-opt legalization complete           CPU:    16 s (  0.00 hr )  ELAPSE:    27 s (  0.01 hr )  MEM-PEAK:   547 MB
 ****************************************
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:44 2023
+Date   : Wed Sep  6 21:12:40 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -1996,17 +1996,17 @@ Information: When applicable layer based tapering will taper up to 0.00 in dista
 [ECO: DbIn With Extraction] Elapsed real time: 0:00:00 
 [ECO: DbIn With Extraction] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: DbIn With Extraction] Stage (MB): Used    8  Alloctr    8  Proc    0 
-[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 3609 
+[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 3605 
 [ECO: Analysis] Elapsed real time: 0:00:00 
 [ECO: Analysis] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Analysis] Stage (MB): Used    8  Alloctr    8  Proc    0 
-[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 3609 
+[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 3605 
 Num of eco nets = 34
 Num of open eco nets = 0
 [ECO: Init] Elapsed real time: 0:00:00 
 [ECO: Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Init] Stage (MB): Used    8  Alloctr    8  Proc    0 
-[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 3609 
+[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 3605 
 Loading timing information to the router from design
 Timing information loaded to the router.
 Printing options for 'route.common.*'
@@ -2032,73 +2032,73 @@ Checked 1/1 Partitions, Violations =    0
 DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
-[DRC CHECK] Elapsed real time: 0:00:01 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:02 usr=0:00:02 total=0:00:05
-[DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc  940 
-[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4602 
+[DRC CHECK] Elapsed real time: 0:00:00 
+[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:01 total=0:00:02
+[DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc  963 
+[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4625 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -2112,68 +2112,68 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -2198,7 +2198,7 @@ Information: RC layer preference is turned on for this design. (ZRT-613)
 [Dr init] Elapsed real time: 0:00:00 
 [Dr init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Dr init] Stage (MB): Used    4  Alloctr    5  Proc    0 
-[Dr init] Total (MB): Used   16  Alloctr   17  Proc 4602 
+[Dr init] Total (MB): Used   16  Alloctr   17  Proc 4625 
 
 Redundant via optimization will attempt to replace the following vias: 
 
@@ -2235,7 +2235,7 @@ Redundant via optimization will attempt to replace the following vias:
 [Technology Processing] Elapsed real time: 0:00:00 
 [Technology Processing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Technology Processing] Stage (MB): Used    5  Alloctr    5  Proc    0 
-[Technology Processing] Total (MB): Used   16  Alloctr   17  Proc 4602 
+[Technology Processing] Total (MB): Used   16  Alloctr   17  Proc 4625 
 
 Begin Redundant via insertion ...
 
@@ -2248,68 +2248,68 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -2317,38 +2317,38 @@ Redundant via conversion report:
  
 
 [RedundantVia] Elapsed real time: 0:00:00 
-[RedundantVia] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
-[RedundantVia] Stage (MB): Used   47  Alloctr   47  Proc   39 
-[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4641 
+[RedundantVia] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
+[RedundantVia] Stage (MB): Used   47  Alloctr   47  Proc   16 
+[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4642 
 
 Begin DRC fixing ...
 
-[Dr init] Elapsed real time: 0:00:02 
-[Dr init] Elapsed cpu  time: sys=0:00:03 usr=0:00:06 total=0:00:10
-[Dr init] Stage (MB): Used   47  Alloctr   47  Proc 1032 
-[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4641 
+[Dr init] Elapsed real time: 0:00:01 
+[Dr init] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:05
+[Dr init] Stage (MB): Used   47  Alloctr   47  Proc 1037 
+[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4642 
 Total number of nets = 34, of which 0 are not extracted
 Total number of open nets = 0, of which 0 are frozen
 Information: Using 8 threads for routing. (ZRT-444)
 Finish DR since reached 0 DRC
 
-[DR] Elapsed real time: 0:00:02 
-[DR] Elapsed cpu  time: sys=0:00:03 usr=0:00:06 total=0:00:10
-[DR] Stage (MB): Used   42  Alloctr   42  Proc 1032 
-[DR] Total (MB): Used   53  Alloctr   54  Proc 4641 
+[DR] Elapsed real time: 0:00:01 
+[DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:05
+[DR] Stage (MB): Used   42  Alloctr   42  Proc 1037 
+[DR] Total (MB): Used   53  Alloctr   54  Proc 4642 
 
 Nets that have been changed:
 Net 1 = value_0_
 Total number of changed nets = 1 (out of 34)
 
-[DR: Done] Elapsed real time: 0:00:02 
-[DR: Done] Elapsed cpu  time: sys=0:00:03 usr=0:00:06 total=0:00:10
-[DR: Done] Stage (MB): Used    0  Alloctr    0  Proc 1032 
-[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4641 
-[ECO: DR] Elapsed real time: 0:00:02 
-[ECO: DR] Elapsed cpu  time: sys=0:00:03 usr=0:00:06 total=0:00:10
-[ECO: DR] Stage (MB): Used    8  Alloctr    8  Proc 1032 
-[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4641 
+[DR: Done] Elapsed real time: 0:00:01 
+[DR: Done] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:05
+[DR: Done] Stage (MB): Used    0  Alloctr    0  Proc 1037 
+[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4642 
+[ECO: DR] Elapsed real time: 0:00:01 
+[ECO: DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:05
+[ECO: DR] Stage (MB): Used    8  Alloctr    9  Proc 1037 
+[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4642 
 
 ECO Route finished with 0 open nets, of which 0 are frozen
 
@@ -2359,68 +2359,68 @@ DRC-SUMMARY:
 
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -2436,68 +2436,68 @@ Total number of DRCs = 0
 Total number of antenna violations = antenna checking not active
 Information: Routes in non-preferred voltage areas = 0 (ZRT-559)
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -2506,14 +2506,14 @@ Redundant via conversion report:
 Topology ECO not run, no qualifying violations or in frozen nets.
 Updating the database ...
 ...updated 1 nets
-[ECO: End] Elapsed real time: 0:00:02 
-[ECO: End] Elapsed cpu  time: sys=0:00:03 usr=0:00:06 total=0:00:10
-[ECO: End] Stage (MB): Used   -2  Alloctr   -2  Proc 1032 
-[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4641 
+[ECO: End] Elapsed real time: 0:00:01 
+[ECO: End] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:05
+[ECO: End] Stage (MB): Used   -2  Alloctr   -2  Proc 1037 
+[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4642 
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/route_opt.design'. (TIM-125)
 Information: Design counter has 34 nets, 0 global routed, 32 detail routed. (NEX-024)
 
-Route-opt ECO routing complete            CPU:    32 s (  0.01 hr )  ELAPSE:    40 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt ECO routing complete            CPU:    20 s (  0.01 hr )  ELAPSE:    28 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Co-efficient Ratio Summary:
 4.193421605155  6.578038173730  2.479639287277  7.744187540401  0.485050000353  3.179565833784  5.567214754587  2.894454387461  6.565921217863  9.017937505874  3.106844454120  9.863457430880  6.078125164085
 2.744208341123  8.318115604907  9.699225026083  2.464623950064  1.382370221226  9.387184029619  3.142429406669  0.968752789964  6.613180723294  4.146578793224  7.878522562309  2.191153034625  0.963736341094
@@ -2638,19 +2638,19 @@ Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrn
 Route-opt final QoR Summary         WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV  MaxCapV    Leakage         Area    InstCnt
 Route-opt final QoR Summary      0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 
-Route-opt command complete                CPU:    32 s (  0.01 hr )  ELAPSE:    41 s (  0.01 hr )  MEM-PEAK:  1584 MB
-Route-opt command statistics  CPU=18 sec (0.01 hr) ELAPSED=9 sec (0.00 hr) MEM-PEAK=1.547 GB
+Route-opt command complete                CPU:    20 s (  0.01 hr )  ELAPSE:    28 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt command statistics  CPU=11 sec (0.00 hr) ELAPSED=5 sec (0.00 hr) MEM-PEAK=1.547 GB
 Information: Ending 'route_opt' (FLW-8001)
-Information: Time: 2023-09-06 16:36:47 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1584 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:41 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 RM-info: Setting route_opt.flow.enable_ccd to false for the second route_opt
 RM-info: Running second route_opt (non-CCD)
 Information: Starting 'route_opt' (FLW-8000)
-Information: Time: 2023-09-06 16:36:47 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1584 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:41 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 INFO: route_opt is running in balanced flow mode
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: Leakage Power Aware Optimization Enabled
-Route-opt command begin                   CPU:    32 s (  0.01 hr )  ELAPSE:    41 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt command begin                   CPU:    20 s (  0.01 hr )  ELAPSE:    28 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
@@ -2658,11 +2658,11 @@ INFO: Concurrent Legalization and Optimization (CLO) Reverted
 INFO: Dynamic Scenario ASR Mode:  0
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
 
-Route-opt timing update complete          CPU:    33 s (  0.01 hr )  ELAPSE:    41 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt timing update complete          CPU:    20 s (  0.01 hr )  ELAPSE:    28 s (  0.01 hr )  MEM-PEAK:  1584 MB
 INFO: Propagating Switching Activities
 Information: Activity for scenario mode_norm.fast.RCmin was cached, no propagation required. (POW-005)
 Information: Activity for scenario mode_norm.fast.RCmin_bc was cached, no propagation required. (POW-005)
-INFO: Switching Activity propagation took     0.00006 sec
+INFO: Switching Activity propagation took     0.00003 sec
 INFO: Propagating Switching Activity for all power flows 
 
 Route-opt initial QoR
@@ -2726,7 +2726,7 @@ Route-opt initial QoR Summary       WNS        TNS   R2RTNS    NSV      WHV     
 Route-opt initial QoR Summary    0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 Information: The netlist change observers are disabled for incremental extraction. (TIM-126)
 INFO: using 8 threads
-Route-opt initialization complete         CPU:    33 s (  0.01 hr )  ELAPSE:    41 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt initialization complete         CPU:    20 s (  0.01 hr )  ELAPSE:    29 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Information: Initializing classic cellmap without advanced rules enabled and with PDC enabled
 Information: The following app options are used in cellmap
         place.legalize.enable_color_aware_placement : false
@@ -2752,11 +2752,11 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
-Total 0.0400 seconds to build cellmap data
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
+Total 0.0100 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 21; Application fixed cells: 1; Macro cells: 0; User fixed cells: 0
 30 out of 30 data nets are detail routed, 2 out of 2 clock nets are detail routed and total 32 nets have been analyzed
@@ -2796,7 +2796,7 @@ Route-opt optimization Phase 8 Iter  2          0.00        0.00      0.00      
 
 Route-opt optimization complete                 0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
-Route-opt route preserve complete         CPU:    33 s (  0.01 hr )  ELAPSE:    41 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt route preserve complete         CPU:    20 s (  0.01 hr )  ELAPSE:    29 s (  0.01 hr )  MEM-PEAK:  1584 MB
 INFO: Sending timing info to router
 Generating Timing information  
 Design  Scenario mode_norm.slow.RCmax (Mode mode_norm.slow.RCmax Corner mode_norm.slow.RCmax)
@@ -2816,10 +2816,10 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
 
 Legalizing Top Level Design counter ... 
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
@@ -2837,7 +2837,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0000 seconds to build cellmap data
+Total 0.0100 seconds to build cellmap data
 Information: Creating classic rule checker.
 =====> Processed 11 ref cells (0 fillers) from library
 
@@ -2866,7 +2866,7 @@ Please look for the GIF files that are written out at the end of
     Done Exclusive Bound 'DEFAULT_VA' (2/2) (0 sec)
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.010-0001-max_displacements.gif'.
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.010-0002-colored_displacements.gif'.
-Legalization complete (1 total sec)
+Legalization complete (0 total sec)
 
 ****************************************
   Report : Placement Attempts
@@ -2943,16 +2943,16 @@ Cell: U25 (sky130_fd_sc_hs__nor2_1)
   Displacement:   0.000 um ( 0.00 row height)
 
 Legalization succeeded.
-Total Legalizer CPU: 0.586
-Total Legalizer Wall Time: 0.643
+Total Legalizer CPU: 0.351
+Total Legalizer Wall Time: 0.398
 ----------------------------------------------------------------
 
-Route-opt legalization complete           CPU:    34 s (  0.01 hr )  ELAPSE:    42 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt legalization complete           CPU:    20 s (  0.01 hr )  ELAPSE:    29 s (  0.01 hr )  MEM-PEAK:  1584 MB
 ****************************************
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:49 2023
+Date   : Wed Sep  6 21:12:42 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -2998,17 +2998,17 @@ Information: When applicable layer based tapering will taper up to 0.00 in dista
 [ECO: DbIn With Extraction] Elapsed real time: 0:00:00 
 [ECO: DbIn With Extraction] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: DbIn With Extraction] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 4641 
+[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 4642 
 [ECO: Analysis] Elapsed real time: 0:00:00 
 [ECO: Analysis] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Analysis] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 4641 
+[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 4642 
 Num of eco nets = 34
 Num of open eco nets = 0
 [ECO: Init] Elapsed real time: 0:00:00 
 [ECO: Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Init] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 4641 
+[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 4642 
 Loading timing information to the router from design
 Timing information loaded to the router.
 Printing options for 'route.common.*'
@@ -3035,72 +3035,72 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 [DRC CHECK] Elapsed real time: 0:00:00 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[DRC CHECK] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
 [DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc    0 
 [DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4642 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -3114,68 +3114,68 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -3250,68 +3250,68 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -3319,38 +3319,38 @@ Redundant via conversion report:
  
 
 [RedundantVia] Elapsed real time: 0:00:00 
-[RedundantVia] Elapsed cpu  time: sys=0:00:01 usr=0:00:02 total=0:00:04
-[RedundantVia] Stage (MB): Used   47  Alloctr   47  Proc    1 
-[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4643 
+[RedundantVia] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
+[RedundantVia] Stage (MB): Used   47  Alloctr   47  Proc    0 
+[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4642 
 
 Begin DRC fixing ...
 
-[Dr init] Elapsed real time: 0:00:01 
-[Dr init] Elapsed cpu  time: sys=0:00:03 usr=0:00:05 total=0:00:09
-[Dr init] Stage (MB): Used   47  Alloctr   47  Proc    1 
-[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4643 
+[Dr init] Elapsed real time: 0:00:00 
+[Dr init] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[Dr init] Stage (MB): Used   47  Alloctr   47  Proc    0 
+[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4642 
 Total number of nets = 34, of which 0 are not extracted
 Total number of open nets = 0, of which 0 are frozen
 Information: Using 8 threads for routing. (ZRT-444)
 Finish DR since reached 0 DRC
 
-[DR] Elapsed real time: 0:00:01 
-[DR] Elapsed cpu  time: sys=0:00:03 usr=0:00:05 total=0:00:09
-[DR] Stage (MB): Used   42  Alloctr   42  Proc    1 
-[DR] Total (MB): Used   53  Alloctr   54  Proc 4643 
+[DR] Elapsed real time: 0:00:00 
+[DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[DR] Stage (MB): Used   42  Alloctr   42  Proc    0 
+[DR] Total (MB): Used   53  Alloctr   54  Proc 4642 
 
 Nets that have been changed:
 Net 1 = value_0_
 Total number of changed nets = 1 (out of 34)
 
-[DR: Done] Elapsed real time: 0:00:01 
-[DR: Done] Elapsed cpu  time: sys=0:00:03 usr=0:00:05 total=0:00:09
-[DR: Done] Stage (MB): Used    0  Alloctr    0  Proc    1 
-[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4643 
-[ECO: DR] Elapsed real time: 0:00:01 
-[ECO: DR] Elapsed cpu  time: sys=0:00:03 usr=0:00:05 total=0:00:09
-[ECO: DR] Stage (MB): Used    8  Alloctr    8  Proc   33 
-[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4643 
+[DR: Done] Elapsed real time: 0:00:00 
+[DR: Done] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[DR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4642 
+[ECO: DR] Elapsed real time: 0:00:00 
+[ECO: DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[ECO: DR] Stage (MB): Used    8  Alloctr    8  Proc   32 
+[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4642 
 
 ECO Route finished with 0 open nets, of which 0 are frozen
 
@@ -3361,68 +3361,68 @@ DRC-SUMMARY:
 
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -3438,68 +3438,68 @@ Total number of DRCs = 0
 Total number of antenna violations = antenna checking not active
 Information: Routes in non-preferred voltage areas = 0 (ZRT-559)
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -3508,14 +3508,14 @@ Redundant via conversion report:
 Topology ECO not run, no qualifying violations or in frozen nets.
 Updating the database ...
 ...updated 1 nets
-[ECO: End] Elapsed real time: 0:00:01 
-[ECO: End] Elapsed cpu  time: sys=0:00:03 usr=0:00:05 total=0:00:09
-[ECO: End] Stage (MB): Used   -2  Alloctr   -2  Proc   33 
-[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4643 
+[ECO: End] Elapsed real time: 0:00:00 
+[ECO: End] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[ECO: End] Stage (MB): Used   -2  Alloctr   -2  Proc   32 
+[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4642 
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/route_opt.design'. (TIM-125)
 Information: Design counter has 34 nets, 0 global routed, 32 detail routed. (NEX-024)
 
-Route-opt ECO routing complete            CPU:    40 s (  0.01 hr )  ELAPSE:    44 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt ECO routing complete            CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Co-efficient Ratio Summary:
 4.193421605155  6.578038173730  2.479639287277  7.744187540401  0.485050000353  3.179565833784  5.567214754587  2.894454387461  6.565921217863  9.017937505874  3.106844454120  9.863457430880  6.078125164085
 2.744208341123  8.318115604907  9.699225026083  2.464623950064  1.382370221226  9.387184029619  3.142429406669  0.968752789964  6.613180723294  4.146578793224  7.878522562309  2.191153034625  0.963736341094
@@ -3628,22 +3628,22 @@ Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrn
 Route-opt final QoR Summary         WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV  MaxCapV    Leakage         Area    InstCnt
 Route-opt final QoR Summary      0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 
-Route-opt command complete                CPU:    40 s (  0.01 hr )  ELAPSE:    44 s (  0.01 hr )  MEM-PEAK:  1586 MB
-Route-opt command statistics  CPU=8 sec (0.00 hr) ELAPSED=3 sec (0.00 hr) MEM-PEAK=1.549 GB
+Route-opt command complete                CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt command statistics  CPU=4 sec (0.00 hr) ELAPSED=2 sec (0.00 hr) MEM-PEAK=1.547 GB
 Information: Ending 'route_opt' (FLW-8001)
-Information: Time: 2023-09-06 16:36:51 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:43 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 RM-info: Setting route_opt.flow.enable_ccd to false for the third route_opt
 RM-info: Resetting route_opt.flow.enable_clock_power_recovery for the third route_opt
 RM-info: Resetting route_opt.flow.enable_ccd_clock_drc_fixing for the third route_opt
 RM-info: Setting route_opt.flow.size_only_mode to equal_or_smaller
 RM-info: Running third route_opt (non-CCD and size-only)
 Information: Starting 'route_opt' (FLW-8000)
-Information: Time: 2023-09-06 16:36:51 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:43 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 INFO: route_opt is running in balanced flow mode
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: Leakage Power Aware Optimization Enabled
-Route-opt command begin                   CPU:    40 s (  0.01 hr )  ELAPSE:    44 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt command begin                   CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Warning: SI analysis is not enabled for post-route optimization. (ROPT-002)
 Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
@@ -3651,11 +3651,11 @@ INFO: Concurrent Legalization and Optimization (CLO) Reverted
 INFO: Dynamic Scenario ASR Mode:  0
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
 
-Route-opt timing update complete          CPU:    40 s (  0.01 hr )  ELAPSE:    44 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt timing update complete          CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
 INFO: Propagating Switching Activities
 Information: Activity for scenario mode_norm.fast.RCmin was cached, no propagation required. (POW-005)
 Information: Activity for scenario mode_norm.fast.RCmin_bc was cached, no propagation required. (POW-005)
-INFO: Switching Activity propagation took     0.00005 sec
+INFO: Switching Activity propagation took     0.00002 sec
 INFO: Propagating Switching Activity for all power flows 
 
 Route-opt initial QoR
@@ -3719,7 +3719,7 @@ Route-opt initial QoR Summary       WNS        TNS   R2RTNS    NSV      WHV     
 Route-opt initial QoR Summary    0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 Information: The netlist change observers are disabled for incremental extraction. (TIM-126)
 INFO: using 8 threads
-Route-opt initialization complete         CPU:    41 s (  0.01 hr )  ELAPSE:    44 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt initialization complete         CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Info: Running Route-opt flow with size_only mode equal_or_smaller.
 Information: Initializing classic cellmap without advanced rules enabled and with PDC enabled
 Information: The following app options are used in cellmap
@@ -3746,11 +3746,11 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
-Total 0.0200 seconds to build cellmap data
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
+Total 0.0100 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 21; Application fixed cells: 1; Macro cells: 0; User fixed cells: 0
 30 out of 30 data nets are detail routed, 2 out of 2 clock nets are detail routed and total 32 nets have been analyzed
@@ -3761,30 +3761,30 @@ Warning: Cannot find any max transition constraint on the design. (OPT-070)
 INFO: place.legalize.enable_advanced_legalizer not set - need to revert CLO
 
 
-Route-opt optimization Phase 2 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 2 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
+Route-opt optimization Phase 2 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 2 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
 
-Route-opt optimization Phase 4 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 4 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 4 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 4 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
+Route-opt optimization Phase 4 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 4 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 4 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 4 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
-Route-opt optimization Phase 5 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 5 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 5 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 5 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 5 Iter  5          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 5 Iter  6          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
+Route-opt optimization Phase 5 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 5 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 5 Iter  3          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 5 Iter  4          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 5 Iter  5          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 5 Iter  6          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
 
 
-Route-opt optimization Phase 8 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
-Route-opt optimization Phase 8 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
+Route-opt optimization Phase 8 Iter  1          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
+Route-opt optimization Phase 8 Iter  2          0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
-Route-opt optimization complete                 0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1586
+Route-opt optimization complete                 0.00        0.00      0.00         0        289.31    22746.54          22              0.01      1584
 
-Route-opt route preserve complete         CPU:    41 s (  0.01 hr )  ELAPSE:    45 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt route preserve complete         CPU:    24 s (  0.01 hr )  ELAPSE:    30 s (  0.01 hr )  MEM-PEAK:  1584 MB
 INFO: Sending timing info to router
 Generating Timing information  
 Design  Scenario mode_norm.slow.RCmax (Mode mode_norm.slow.RCmax Corner mode_norm.slow.RCmax)
@@ -3804,10 +3804,10 @@ PDC app_options settings =========
         place.legalize.preroute_shape_merge_distance: 0.0
         place.legalize.enable_non_preferred_direction_span_check: 0
 
-Layer li1: cached 0 shapes out of 25 total shapes.
-Layer met1: cached 0 shapes out of 136 total shapes.
-Layer met2: cached 0 shapes out of 59 total shapes.
-Cached 16 vias out of 185 total vias.
+Layer li1: cached 0 shapes out of 24 total shapes.
+Layer met1: cached 0 shapes out of 132 total shapes.
+Layer met2: cached 0 shapes out of 62 total shapes.
+Cached 16 vias out of 188 total vias.
 
 Legalizing Top Level Design counter ... 
 Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
@@ -3854,7 +3854,7 @@ Please look for the GIF files that are written out at the end of
     Done Exclusive Bound 'DEFAULT_VA' (2/2) (0 sec)
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.011-0001-max_displacements.gif'.
 Writing GIF plot to file './legalizer_debug_plots/counter_SITE_unit.011-0002-colored_displacements.gif'.
-Legalization complete (1 total sec)
+Legalization complete (0 total sec)
 
 ****************************************
   Report : Placement Attempts
@@ -3931,16 +3931,16 @@ Cell: U25 (sky130_fd_sc_hs__nor2_1)
   Displacement:   0.000 um ( 0.00 row height)
 
 Legalization succeeded.
-Total Legalizer CPU: 0.835
-Total Legalizer Wall Time: 0.894
+Total Legalizer CPU: 0.324
+Total Legalizer Wall Time: 0.387
 ----------------------------------------------------------------
 
-Route-opt legalization complete           CPU:    42 s (  0.01 hr )  ELAPSE:    45 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt legalization complete           CPU:    25 s (  0.01 hr )  ELAPSE:    31 s (  0.01 hr )  MEM-PEAK:  1584 MB
 ****************************************
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:52 2023
+Date   : Wed Sep  6 21:12:44 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -3986,17 +3986,17 @@ Information: When applicable layer based tapering will taper up to 0.00 in dista
 [ECO: DbIn With Extraction] Elapsed real time: 0:00:00 
 [ECO: DbIn With Extraction] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: DbIn With Extraction] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 4643 
+[ECO: DbIn With Extraction] Total (MB): Used   11  Alloctr   12  Proc 4642 
 [ECO: Analysis] Elapsed real time: 0:00:00 
 [ECO: Analysis] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Analysis] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 4643 
+[ECO: Analysis] Total (MB): Used   11  Alloctr   12  Proc 4642 
 Num of eco nets = 34
 Num of open eco nets = 0
 [ECO: Init] Elapsed real time: 0:00:00 
 [ECO: Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [ECO: Init] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 4643 
+[ECO: Init] Total (MB): Used   11  Alloctr   12  Proc 4642 
 Loading timing information to the router from design
 Timing information loaded to the router.
 Printing options for 'route.common.*'
@@ -4023,72 +4023,72 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 [DRC CHECK] Elapsed real time: 0:00:00 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:04 usr=0:00:02 total=0:00:06
+[DRC CHECK] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
 [DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4643 
+[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4642 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -4102,68 +4102,68 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -4188,7 +4188,7 @@ Information: RC layer preference is turned on for this design. (ZRT-613)
 [Dr init] Elapsed real time: 0:00:00 
 [Dr init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Dr init] Stage (MB): Used    4  Alloctr    5  Proc    0 
-[Dr init] Total (MB): Used   16  Alloctr   17  Proc 4643 
+[Dr init] Total (MB): Used   16  Alloctr   17  Proc 4642 
 
 Redundant via optimization will attempt to replace the following vias: 
 
@@ -4225,7 +4225,7 @@ Redundant via optimization will attempt to replace the following vias:
 [Technology Processing] Elapsed real time: 0:00:00 
 [Technology Processing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [Technology Processing] Stage (MB): Used    5  Alloctr    5  Proc    0 
-[Technology Processing] Total (MB): Used   16  Alloctr   17  Proc 4643 
+[Technology Processing] Total (MB): Used   16  Alloctr   17  Proc 4642 
 
 Begin Redundant via insertion ...
 
@@ -4238,107 +4238,107 @@ DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
 
-[RedundantVia] Elapsed real time: 0:00:01 
-[RedundantVia] Elapsed cpu  time: sys=0:00:04 usr=0:00:03 total=0:00:07
+[RedundantVia] Elapsed real time: 0:00:00 
+[RedundantVia] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
 [RedundantVia] Stage (MB): Used   47  Alloctr   47  Proc    0 
-[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4643 
+[RedundantVia] Total (MB): Used   58  Alloctr   59  Proc 4642 
 
 Begin DRC fixing ...
 
-[Dr init] Elapsed real time: 0:00:02 
-[Dr init] Elapsed cpu  time: sys=0:00:08 usr=0:00:06 total=0:00:14
+[Dr init] Elapsed real time: 0:00:00 
+[Dr init] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
 [Dr init] Stage (MB): Used   47  Alloctr   47  Proc    0 
-[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4643 
+[Dr init] Total (MB): Used   58  Alloctr   59  Proc 4642 
 Total number of nets = 34, of which 0 are not extracted
 Total number of open nets = 0, of which 0 are frozen
 Information: Using 8 threads for routing. (ZRT-444)
 Finish DR since reached 0 DRC
 
-[DR] Elapsed real time: 0:00:02 
-[DR] Elapsed cpu  time: sys=0:00:08 usr=0:00:06 total=0:00:14
+[DR] Elapsed real time: 0:00:00 
+[DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
 [DR] Stage (MB): Used   42  Alloctr   42  Proc    0 
-[DR] Total (MB): Used   53  Alloctr   54  Proc 4643 
+[DR] Total (MB): Used   53  Alloctr   54  Proc 4642 
 
 Nets that have been changed:
 Net 1 = value_0_
 Total number of changed nets = 1 (out of 34)
 
-[DR: Done] Elapsed real time: 0:00:02 
-[DR: Done] Elapsed cpu  time: sys=0:00:08 usr=0:00:06 total=0:00:14
+[DR: Done] Elapsed real time: 0:00:00 
+[DR: Done] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
 [DR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4643 
-[ECO: DR] Elapsed real time: 0:00:02 
-[ECO: DR] Elapsed cpu  time: sys=0:00:08 usr=0:00:06 total=0:00:15
+[DR: Done] Total (MB): Used   11  Alloctr   12  Proc 4642 
+[ECO: DR] Elapsed real time: 0:00:00 
+[ECO: DR] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
 [ECO: DR] Stage (MB): Used    8  Alloctr    8  Proc   32 
-[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4643 
+[ECO: DR] Total (MB): Used   11  Alloctr   12  Proc 4642 
 
 ECO Route finished with 0 open nets, of which 0 are frozen
 
@@ -4349,68 +4349,68 @@ DRC-SUMMARY:
 
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -4426,68 +4426,68 @@ Total number of DRCs = 0
 Total number of antenna violations = antenna checking not active
 Information: Routes in non-preferred voltage areas = 0 (ZRT-559)
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -4496,14 +4496,14 @@ Redundant via conversion report:
 Topology ECO not run, no qualifying violations or in frozen nets.
 Updating the database ...
 ...updated 1 nets
-[ECO: End] Elapsed real time: 0:00:02 
-[ECO: End] Elapsed cpu  time: sys=0:00:08 usr=0:00:06 total=0:00:15
+[ECO: End] Elapsed real time: 0:00:00 
+[ECO: End] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
 [ECO: End] Stage (MB): Used   -2  Alloctr   -2  Proc   32 
-[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4643 
+[ECO: End] Total (MB): Used    0  Alloctr    1  Proc 4642 
 Information: The stitching and editing of coupling caps is turned OFF for design 'counter:counter/route_opt.design'. (TIM-125)
 Information: Design counter has 34 nets, 0 global routed, 32 detail routed. (NEX-024)
 
-Route-opt ECO routing complete            CPU:    48 s (  0.01 hr )  ELAPSE:    48 s (  0.01 hr )  MEM-PEAK:  1586 MB
+Route-opt ECO routing complete            CPU:    28 s (  0.01 hr )  ELAPSE:    32 s (  0.01 hr )  MEM-PEAK:  1584 MB
 Co-efficient Ratio Summary:
 4.193421605155  6.578038173730  2.479639287277  7.744187540401  0.485050000353  3.179565833784  5.567214754587  2.894454387461  6.565921217863  9.017937505874  3.106844454120  9.863457430880  6.078125164085
 2.744208341123  8.318115604907  9.699225026083  2.464623950064  1.382370221226  9.387184029619  3.142429406669  0.968752789964  6.613180723294  4.146578793224  7.878522562309  2.191153034625  0.963736341094
@@ -4616,10 +4616,10 @@ Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrn
 Route-opt final QoR Summary         WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV  MaxCapV    Leakage         Area    InstCnt
 Route-opt final QoR Summary      0.0000     0.0000   0.0000      0   0.0000     0.0000      0        0        0  22746.543       289.31         22
 
-Route-opt command complete                CPU:    48 s (  0.01 hr )  ELAPSE:    48 s (  0.01 hr )  MEM-PEAK:  1586 MB
-Route-opt command statistics  CPU=8 sec (0.00 hr) ELAPSED=4 sec (0.00 hr) MEM-PEAK=1.549 GB
+Route-opt command complete                CPU:    28 s (  0.01 hr )  ELAPSE:    32 s (  0.01 hr )  MEM-PEAK:  1584 MB
+Route-opt command statistics  CPU=4 sec (0.00 hr) ELAPSED=2 sec (0.00 hr) MEM-PEAK=1.547 GB
 Information: Ending 'route_opt' (FLW-8001)
-Information: Time: 2023-09-06 16:36:55 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:45 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 1
 ##########################################################################################
 ## Target endpoint optimization 
@@ -4695,7 +4695,7 @@ if {$TCL_USER_CONNECT_PG_NET_SCRIPT != ""} {
 Report : Power/Ground Connection Summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:55 2023
+Date   : Wed Sep  6 21:12:45 2023
 ****************************************
 P/G net name                  P/G pin count(previous/current)
 --------------------------------------------------------------------------------
@@ -4753,7 +4753,7 @@ Check 34 nets, 0 have Errors
 [CHECK OPEN NETS] Elapsed real time: 0:00:00 
 [CHECK OPEN NETS] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
 [CHECK OPEN NETS] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[CHECK OPEN NETS] Total (MB): Used   11  Alloctr   12  Proc 4579 
+[CHECK OPEN NETS] Total (MB): Used   11  Alloctr   12  Proc 4578 
 Printing options for 'route.common.*'
 common.interactive_mode_clear_timing                    :        true                
 common.post_detail_route_redundant_via_insertion        :        medium              
@@ -4774,77 +4774,77 @@ Begin full DRC check ...
 Information: Using 8 threads for routing. (ZRT-444)
 Checked 1/1 Partitions, Violations =    0
 [DRC CHECK] Elapsed real time: 0:00:00 
-[DRC CHECK] Elapsed cpu  time: sys=0:00:01 usr=0:00:03 total=0:00:04
+[DRC CHECK] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:02
 [DRC CHECK] Stage (MB): Used    0  Alloctr    0  Proc    0 
-[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4579 
+[DRC CHECK] Total (MB): Used   58  Alloctr   59  Proc 4578 
 Warning: No antenna rules defined, Skip antenna analysis. (ZRT-309)
 
 DRC-SUMMARY:
         @@@@@@@ TOTAL VIOLATIONS =      0
 
 
-Total Wire Length =                    427 micron
-Total Number of Contacts =             159
+Total Wire Length =                    425 micron
+Total Number of Contacts =             162
 Total Number of Wires =                181
 Total Number of PtConns =              26
 Total Number of Routed Wires =       181
-Total Routed Wire Length =           422 micron
-Total Number of Routed Contacts =       159
-        Layer              li1 :         10 micron
-        Layer             met1 :        211 micron
-        Layer             met2 :        181 micron
+Total Routed Wire Length =           420 micron
+Total Number of Routed Contacts =       162
+        Layer              li1 :          9 micron
+        Layer             met1 :        207 micron
+        Layer             met2 :        184 micron
         Layer             met3 :         25 micron
         Layer             met4 :          0 micron
         Layer             met5 :          0 micron
         Via   M2M3_PR(rot)_1x2 :          1
         Via        M2M3_PR_1x2 :          4
         Via        M2M3_PR_2x1 :          1
-        Via            M1M2_PR :          3
+        Via            M1M2_PR :          4
         Via   M1M2_PR(rot)_2x1 :          5
-        Via        M1M2_PR_1x2 :         10
-        Via        M1M2_PR_2x1 :         50
+        Via        M1M2_PR_1x2 :          9
+        Via        M1M2_PR_2x1 :         53
         Via            L1M1_PR :         19
         Via       L1M1_PR(rot) :          6
         Via   L1M1_PR(rot)_1x2 :          1
         Via   L1M1_PR(rot)_2x1 :          5
-        Via        L1M1_PR_1x2 :         24
-        Via        L1M1_PR_2x1 :         30
+        Via        L1M1_PR_1x2 :         25
+        Via        L1M1_PR_2x1 :         29
 
  
 Redundant via conversion report:
 --------------------------------
 
-  Total optimized via conversion rate = 82.39% (131 / 159 vias)
+  Total optimized via conversion rate = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    =  0.00% (0       vias)
  
-  Total double via conversion rate    = 82.39% (131 / 159 vias)
+  Total double via conversion rate    = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
-    Layer via        = 95.59% (65     / 68      vias)
+    Layer via        = 94.37% (67     / 71      vias)
     Layer via2       = 100.00% (6      / 6       vias)
  
-  The optimized via conversion rate based on total routed via count = 82.39% (131 / 159 vias)
+  The optimized via conversion rate based on total routed via count = 82.10% (133 / 162 vias)
  
     Layer mcon       = 70.59% (60     / 85      vias)
         Weight 1     = 70.59% (60      vias)
         Un-optimized =  0.00% (0       vias)
         Un-mapped    = 29.41% (25      vias)
-    Layer via        = 95.59% (65     / 68      vias)
-        Weight 1     = 95.59% (65      vias)
+    Layer via        = 94.37% (67     / 71      vias)
+        Weight 1     = 94.37% (67      vias)
         Un-optimized =  0.00% (0       vias)
-        Un-mapped    =  4.41% (3       vias)
+        Un-mapped    =  5.63% (4       vias)
     Layer via2       = 100.00% (6      / 6       vias)
         Weight 1     = 100.00% (6       vias)
         Un-optimized =  0.00% (0       vias)
@@ -4916,7 +4916,7 @@ Report : clock qor
         -nosplit
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:36:56 2023
+Date   : Wed Sep  6 21:12:46 2023
 ****************************************
 
 Attributes
@@ -5028,7 +5028,7 @@ Report : qor
         -summary
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Information: Timer using 'PrimeTime Delay Calculation, AWP, CRPR'. (TIM-050)
 
@@ -5058,7 +5058,7 @@ Report : global timing
         -report_by design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
 No setup violations found.
@@ -5071,17 +5071,17 @@ No hold violations found.
 RM-info: Analyzing design violations ...
 
 Information: Starting 'analyze_design_violations' (FLW-8000)
-Information: Time: 2023-09-06 16:37:04 / Session: 0.02 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:53 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 
 ****************************************
 Report : Violation analysis
 Design : counter
 Block  : counter:counter/route_opt.design
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
-START_CMD: analyze_design_violations CPU:     74 s ( 0.02 hr) ELAPSE:     57 s ( 0.02 hr) MEM-PEAK:  1586 Mb Wed Sep  6 16:37:04 2023
+START_CMD: analyze_design_violations CPU:     38 s ( 0.01 hr) ELAPSE:     40 s ( 0.01 hr) MEM-PEAK:  1584 Mb Wed Sep  6 21:12:53 2023
 Number of Site types in the design = 1
 Setting up Chip Core
 Chip Core shape: (1920 3330) (25920 26640)
@@ -5119,21 +5119,21 @@ Design utilization is 0.517143
 
     No setup violation was found. 
 
-END_CMD: analyze_design_violations CPU:     74 s ( 0.02 hr) ELAPSE:     58 s ( 0.02 hr) MEM-PEAK:  1586 Mb Wed Sep  6 16:37:04 2023
+END_CMD: analyze_design_violations CPU:     39 s ( 0.01 hr) ELAPSE:     40 s ( 0.01 hr) MEM-PEAK:  1584 Mb Wed Sep  6 21:12:53 2023
 Information: Ending 'analyze_design_violations' (FLW-8001)
-Information: Time: 2023-09-06 16:37:04 / Session: 0.02 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:53 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 Information: Starting 'analyze_design_violations' (FLW-8000)
-Information: Time: 2023-09-06 16:37:04 / Session: 0.02 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:53 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 
 ****************************************
 Report : Violation analysis
 Design : counter
 Block  : counter:counter/route_opt.design
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
-START_CMD: analyze_design_violations CPU:     74 s ( 0.02 hr) ELAPSE:     58 s ( 0.02 hr) MEM-PEAK:  1586 Mb Wed Sep  6 16:37:04 2023
+START_CMD: analyze_design_violations CPU:     39 s ( 0.01 hr) ELAPSE:     40 s ( 0.01 hr) MEM-PEAK:  1584 Mb Wed Sep  6 21:12:53 2023
 Number of Site types in the design = 1
 Setting up Chip Core
 Chip Core shape: (1920 3330) (25920 26640)
@@ -5159,7 +5159,7 @@ Information: The following app options are used in cellmap
         place.common.use_placement_model : false
         place.common.enable_advanced_placement_model : true
         cts.placement.cell_spacing_rule_style : maximum
-Total 0.0100 seconds to build cellmap data
+Total 0.0000 seconds to build cellmap data
 Total 0.0000 seconds to load 22 cell instances into cellmap
 Moveable cells: 21; Application fixed cells: 1; Macro cells: 0; User fixed cells: 0
 30 out of 30 data nets are detail routed, 2 out of 2 clock nets are detail routed and total 32 nets have been analyzed
@@ -5171,16 +5171,16 @@ Design utilization is 0.517143
 
     No hold violation was found. 
 
-END_CMD: analyze_design_violations CPU:     75 s ( 0.02 hr) ELAPSE:     58 s ( 0.02 hr) MEM-PEAK:  1586 Mb Wed Sep  6 16:37:04 2023
+END_CMD: analyze_design_violations CPU:     39 s ( 0.01 hr) ELAPSE:     40 s ( 0.01 hr) MEM-PEAK:  1584 Mb Wed Sep  6 21:12:53 2023
 Information: Ending 'analyze_design_violations' (FLW-8001)
-Information: Time: 2023-09-06 16:37:04 / Session: 0.02 hr / Command: 0.00 hr / Memory: 1586 MB (FLW-8100)
+Information: Time: 2023-09-06 21:12:53 / Session: 0.01 hr / Command: 0.00 hr / Memory: 1585 MB (FLW-8100)
 ****************************************
 Report : check_mv_design
         -erc_mode
         -voltage_threshold 0
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5264,7 +5264,7 @@ Report : check_mv_design
         -power_connectivity
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5373,7 +5373,7 @@ Information: Total 0 error(s) and 44 warning(s) from check_mv_design. (MV-082)
 Report : check_mv_design
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
 ---------- Power domain rule ----------
@@ -5492,7 +5492,7 @@ RM-info: Reporting design information ...
 Report : report_utilization
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 Utilization Ratio:                      0.5171
 Utilization options:
@@ -5575,9 +5575,9 @@ ZRT-707     Information             0              4            0
 Diagnostics summary: 148 warnings, 134 informationals
 echo [exec date +%s] > route_opt 
 exit
-Maximum memory usage for this session: 1586.17 MB
-Maximum memory usage for this session including child processes: 1586.17 MB
-CPU usage for this session:     52 seconds (  0.01 hours)
-Elapsed time for this session:     58 seconds (  0.02 hours)
+Maximum memory usage for this session: 1584.61 MB
+Maximum memory usage for this session including child processes: 1916.02 MB
+CPU usage for this session:     30 seconds (  0.01 hours)
+Elapsed time for this session:     41 seconds (  0.01 hours)
 Thank you for using IC Compiler II.
 

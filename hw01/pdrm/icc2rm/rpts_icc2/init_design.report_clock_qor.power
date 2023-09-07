@@ -4,7 +4,7 @@ Report : report clock qor
         -nosplit
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:30:22 2023
+Date   : Wed Sep  6 21:08:07 2023
 ****************************************
 Warning: There is no clocks in scenario mode_norm.fast.RCmin to report.
 Information: Activity propagation will be performed for scenario mode_norm.fast.RCmin_bc.

@@ -4,7 +4,7 @@ Report : check_mv_design
         -voltage_threshold 0
 Design : counter
 Version: S-2021.06-SP3
-Date   : Wed Sep  6 16:37:04 2023
+Date   : Wed Sep  6 21:12:53 2023
 ****************************************
 
 ---------- Power domain rule ----------
